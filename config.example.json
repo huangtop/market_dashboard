@@ -1,0 +1,10 @@
+{
+  "years": 5,
+  "output_dir": "public/data",
+  "database": "public/data/market_dashboard.sqlite3",
+  "request_delay_seconds": 0.35,
+  "request_timeout_seconds": 40,
+  "max_retries": 4,
+  "maintenance_thresholds": [140, 145, 150, 155],
+  "wordpress_json_url": "/wp-content/uploads/market-dashboard/market-dashboard.json"
+}

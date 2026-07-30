@@ -1,0 +1,82 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Python build
+build/
+dist/
+*.egg-info/
+
+# =========================
+# IDE
+# =========================
+.vscode/
+.idea/
+.DS_Store
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+# =========================
+# Database / Cache
+# =========================
+*.sqlite
+*.sqlite3
+*.db
+cache/
+tmp/
+
+# =========================
+# Output
+# =========================
+public/data/
+output/
+exports/
+
+*.csv
+*.json
+
+# 保留範例設定
+!config.example.json
+
+config.json
+
+# =========================
+# Documentation
+# =========================
+*.md
+*.txt
+CHANGELOG*
+LICENSE*
+
+# =========================
+# Tests
+# =========================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# macOS
+# =========================
+.AppleDouble
+.LSOverride
+._*
