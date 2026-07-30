@@ -1,82 +1,24 @@
-# =========================
-# Python
-# =========================
+# Python cache
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
-*.so
 
-# Virtual Environment
+# Local virtual environment
 .venv/
-venv/
-env/
 
-# Python build
-build/
-dist/
-*.egg-info/
+# Local settings
+config.json
 
-# =========================
-# IDE
-# =========================
-.vscode/
-.idea/
-.DS_Store
-
-# =========================
-# Logs
-# =========================
+# Runtime logs
 logs/
 *.log
 
-# =========================
-# Database / Cache
-# =========================
-*.sqlite
-*.sqlite3
-*.db
-cache/
-tmp/
+# macOS
+.DS_Store
 
-# =========================
-# Output
-# =========================
-public/data/
-output/
-exports/
+# Test cache
+.pytest_cache/
 
-*.csv
-*.json
-
-# 保留範例設定
-!config.example.json
-
-config.json
-
-# =========================
-# Documentation
-# =========================
+# Markdown files
 *.md
 *.txt
-CHANGELOG*
-LICENSE*
-
-# =========================
-# Tests
-# =========================
-.pytest_cache/
-.coverage
-htmlcov/
-
-# =========================
-# Jupyter
-# =========================
-.ipynb_checkpoints/
-
-# =========================
-# macOS
-# =========================
-.AppleDouble
-.LSOverride
-._*
+!requirements.txt
