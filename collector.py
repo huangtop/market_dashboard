@@ -1,62 +1,199 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, json, logging, time
+
+import argparse
+import json
+import logging
+import time
 from datetime import date, datetime, timedelta
 from pathlib import Path
-import numpy as np
+
 import pandas as pd
+
+from market_dashboard.analysis import backtests, commentary, enrich
 from market_dashboard.config import Settings
 from market_dashboard.sources import Sources
 from market_dashboard.storage import Store
-from market_dashboard.analysis import enrich, backtests, commentary
 from market_dashboard.utils import safe_float
 
-def setup_log():
-    Path("logs").mkdir(exist_ok=True)
-    logging.basicConfig(level=logging.INFO,format="%(asctime)s %(levelname)s %(message)s",handlers=[logging.StreamHandler(),logging.FileHandler("logs/collector.log",encoding="utf-8")])
 
-def main():
-    ap=argparse.ArgumentParser(); ap.add_argument("--config",default=None); ap.add_argument("--years",type=int); ap.add_argument("--refresh-days",type=int,default=10); ap.add_argument("--full",action="store_true"); args=ap.parse_args()
-    setup_log(); cfg=Settings.load(args.config)
-    if args.years: cfg.years=args.years
-    out=Path(cfg.output_dir); out.mkdir(parents=True,exist_ok=True)
-    store=Store(cfg.database); src=Sources(cfg)
-    end=date.today(); start=end-timedelta(days=365*cfg.years+45)
-    logging.info("下載 TAIEX 與 2330 月資料")
-    core=src.taiex(start,end).merge(src.tsmc(start,end),on="date",how="outer").sort_values("date")
-    external=src.external(start,end)
-    cutoff=end-timedelta(days=max(args.refresh_days, 0))
-    all_days=list(core.date.dropna().drop_duplicates().sort_values())
-    # --full 才補抓整個 years 範圍；一般執行只更新 refresh-days 視窗。
-    days=all_days if args.full else [d for d in all_days if d.date()>=cutoff]
-    logging.info("本次待抓 %d 個交易日（模式：%s）", len(days), "完整回補" if args.full else f"最近 {args.refresh_days} 天")
-    interrupted=False
+def setup_log() -> None:
+    Path("logs").mkdir(exist_ok=True)
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s %(levelname)s %(message)s",
+        handlers=[
+            logging.StreamHandler(),
+            logging.FileHandler("logs/collector.log", encoding="utf-8"),
+        ],
+    )
+
+
+def parse_args() -> argparse.Namespace:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--config", default=None)
+    ap.add_argument("--years", type=int)
+    mode = ap.add_mutually_exclusive_group()
+    mode.add_argument("--latest", action="store_true", help="只更新最新交易日（預設）")
+    mode.add_argument("--backfill", action="store_true", help="只補 SQLite 缺少或不完整的日期")
+    mode.add_argument("--full", action="store_true", help="強制重新抓取完整期間")
+    # 保留舊參數相容性；未指定新模式時仍只更新最新日。
+    ap.add_argument("--refresh-days", type=int, default=None, help=argparse.SUPPRESS)
+    return ap.parse_args()
+
+
+def select_days(
+    args: argparse.Namespace,
+    all_days: list[pd.Timestamp],
+    store: Store,
+) -> tuple[list[pd.Timestamp], str]:
+    if not all_days:
+        return [], "沒有交易日"
+
+    if args.full:
+        return all_days, "完整重抓"
+
+    if args.backfill:
+        complete = store.complete_dates()
+        missing = [d for d in all_days if d.strftime("%Y-%m-%d") not in complete]
+        return missing, "增量回補"
+
+    # 預設及 --latest：永遠只處理最新交易日；不碰歷史日期。
+    return [max(all_days)], "最新交易日"
+
+
+def main() -> None:
+    args = parse_args()
+    setup_log()
+
+    cfg = Settings.load(args.config)
+    if args.years:
+        cfg.years = args.years
+
+    out = Path(cfg.output_dir)
+    out.mkdir(parents=True, exist_ok=True)
+    store = Store(cfg.database)
+    src = Sources(cfg)
+
+    end = date.today()
+    historical_mode = args.backfill or args.full
+    download_start = (
+        end - timedelta(days=365 * cfg.years + 45)
+        if historical_mode
+        else end - timedelta(days=14)
+    )
+
+    logging.info("下載 %s 至 %s 的核心行情", download_start, end)
+    core = (
+        src.taiex(download_start, end)
+        .merge(src.tsmc(download_start, end), on="date", how="outer")
+        .sort_values("date")
+    )
+    external = src.external(download_start, end)
+
+    all_days = list(core["date"].dropna().drop_duplicates().sort_values())
+    days, mode_name = select_days(args, all_days, store)
+    logging.info("本次待抓 %d 個交易日（模式：%s）", len(days), mode_name)
+
+    interrupted = False
     try:
-        for i,day in enumerate(days,1):
-            key=day.strftime("%Y-%m-%d"); row={"date":key,"updated_at":datetime.now().astimezone().isoformat(timespec="seconds")}
-            c=core[core.date.eq(day)].iloc[-1]
-            row["taiex"]=safe_float(c.get("taiex")); row["tsmc"]=safe_float(c.get("tsmc"))
-            try: row.update({k:safe_float(v) for k,v in src.margin(day).items()})
-            except Exception as e: logging.warning("%s margin: %s",key,e)
-            try: row["foreign_net_100m"]=safe_float(src.foreign(day))
-            except Exception as e: logging.warning("%s foreign: %s",key,e)
-            ext=external[external.date.eq(day)]
+        for i, day in enumerate(days, 1):
+            key = day.strftime("%Y-%m-%d")
+            row = {
+                "date": key,
+                "updated_at": datetime.now().astimezone().isoformat(timespec="seconds"),
+            }
+
+            core_row = core[core["date"].eq(day)]
+            if not core_row.empty:
+                last_core = core_row.iloc[-1]
+                row["taiex"] = safe_float(last_core.get("taiex"))
+                row["tsmc"] = safe_float(last_core.get("tsmc"))
+
+            try:
+                row.update({k: safe_float(v) for k, v in src.margin(day).items()})
+            except Exception as exc:
+                logging.warning("%s margin: %s", key, exc)
+
+            try:
+                row["foreign_net_100m"] = safe_float(src.foreign(day))
+            except Exception as exc:
+                logging.warning("%s foreign: %s", key, exc)
+
+            ext = external[external["date"].eq(day)]
             if not ext.empty:
-                for c in ["usdtwd","dxy","vix"]: row[c]=safe_float(ext.iloc[-1].get(c))
-            store.upsert(row); logging.info("%d/%d %s saved",i,len(days),key); time.sleep(cfg.request_delay_seconds)
+                for col in ["usdtwd", "dxy", "vix"]:
+                    row[col] = safe_float(ext.iloc[-1].get(col))
+
+            store.upsert(row)
+            logging.info("%d/%d %s saved", i, len(days), key)
+            time.sleep(cfg.request_delay_seconds)
     except KeyboardInterrupt:
-        interrupted=True
+        interrupted = True
         logging.warning("收到 Ctrl+C，停止下載並輸出目前已保存的資料")
-    df=store.frame()
-    # 月資料及外部資料可補齊資料庫中未更新的欄位
-    df=df.drop(columns=[c for c in ["taiex","tsmc","usdtwd","dxy","vix"] if c in df],errors="ignore").merge(core,on="date",how="outer").merge(external,on="date",how="left")
-    df=enrich(df.sort_values("date")); recent=df[df.date.dt.date>=end-timedelta(days=365*cfg.years+5)].copy()
-    if recent.empty: raise RuntimeError("沒有可輸出的資料")
-    cols=["taiex","tsmc","maintenance_est","margin_balance_billion","foreign_net_100m","foreign_20d_sum_100m","usdtwd","dxy","vix","outflow_pressure_score","market_temperature","maintenance_percentile"]
-    records=[{"date":r.date.strftime("%Y-%m-%d"),**{c:safe_float(r.get(c)) for c in cols}} for _,r in recent.iterrows()]
-    last=recent.dropna(subset=["taiex"]).iloc[-1]
-    payload={"meta":{"generated_at":datetime.now().astimezone().isoformat(timespec="seconds"),"timezone":"Asia/Taipei","maintenance_ratio_note":"Estimated market-wide proxy derived from listed margin balances and closing prices; not an official TWSE account maintenance ratio.","disclaimer":"資料僅供研究與資訊用途，不構成投資建議。"},"latest_date":last.date.strftime("%Y-%m-%d"),"latest":{c:safe_float(last.get(c)) for c in cols},"summary":commentary(last),"backtests":backtests(recent,cfg.maintenance_thresholds),"series":records}
-    (out/"market-dashboard.json").write_text(json.dumps(payload,ensure_ascii=False,indent=2),encoding="utf-8")
-    recent.to_csv(out/"market-dashboard.csv",index=False,encoding="utf-8-sig")
-    logging.info("%s：%s", "中斷後已輸出" if interrupted else "完成", out/"market-dashboard.json")
-if __name__=="__main__": main()
+
+    # SQLite 是唯一歷史來源。不要再以本次短區間下載結果覆蓋舊行情。
+    df = store.frame()
+    if df.empty:
+        raise RuntimeError("SQLite 沒有可輸出的資料")
+
+    df = enrich(df.sort_values("date"))
+    recent_start = end - timedelta(days=365 * cfg.years + 5)
+    recent = df[df["date"].dt.date >= recent_start].copy()
+    if recent.empty:
+        raise RuntimeError("沒有可輸出的資料")
+
+    cols = [
+        "taiex",
+        "tsmc",
+        "maintenance_est",
+        "margin_balance_billion",
+        "foreign_net_100m",
+        "foreign_20d_sum_100m",
+        "usdtwd",
+        "dxy",
+        "vix",
+        "outflow_pressure_score",
+        "market_temperature",
+        "maintenance_percentile",
+    ]
+    records = [
+        {
+            "date": row.date.strftime("%Y-%m-%d"),
+            **{col: safe_float(row.get(col)) for col in cols},
+        }
+        for _, row in recent.iterrows()
+    ]
+
+    valid = recent.dropna(subset=["taiex"])
+    if valid.empty:
+        raise RuntimeError("沒有有效的 TAIEX 資料")
+    last = valid.iloc[-1]
+
+    payload = {
+        "meta": {
+            "generated_at": datetime.now().astimezone().isoformat(timespec="seconds"),
+            "timezone": "Asia/Taipei",
+            "maintenance_ratio_note": "Estimated market-wide proxy derived from listed margin balances and closing prices; not an official TWSE account maintenance ratio.",
+            "disclaimer": "資料僅供研究與資訊用途，不構成投資建議。",
+        },
+        "latest_date": last.date.strftime("%Y-%m-%d"),
+        "latest": {col: safe_float(last.get(col)) for col in cols},
+        "summary": commentary(last),
+        "backtests": backtests(recent, cfg.maintenance_thresholds),
+        "series": records,
+    }
+
+    (out / "market-dashboard.json").write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    recent.to_csv(out / "market-dashboard.csv", index=False, encoding="utf-8-sig")
+    logging.info(
+        "%s：%s",
+        "中斷後已輸出" if interrupted else "完成",
+        out / "market-dashboard.json",
+    )
+
+
+if __name__ == "__main__":
+    main()

@@ -11,9 +11,9 @@ on:
 
   schedule:
     # GitHub Actions cron 使用 UTC。
-    # 08:30 UTC = 台灣時間 16:30。
     # 星期一至星期五執行。
-    - cron: "30 8 * * 1-5"
+    # 13:00 UTC = 台灣時間 21:00
+    - cron: "0 13 * * 1-5"
 
 permissions:
   contents: write

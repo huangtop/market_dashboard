@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-07-30T17:36:16+08:00",
+    "generated_at": "2026-07-30T18:16:11+08:00",
     "timezone": "Asia/Taipei",
     "maintenance_ratio_note": "Estimated market-wide proxy derived from listed margin balances and closing prices; not an official TWSE account maintenance ratio.",
     "disclaimer": "資料僅供研究與資訊用途，不構成投資建議。"
@@ -16,7 +16,7 @@
     "usdtwd": 32.537,
     "dxy": 100.945,
     "vix": 19.85,
-    "outflow_pressure_score": 5.311,
+    "outflow_pressure_score": 5.312,
     "market_temperature": null,
     "maintenance_percentile": null
   },
@@ -78,60 +78,2205 @@
     },
     {
       "threshold": 150,
-      "events": 1,
+      "events": 4,
       "horizons": [
         {
           "trading_days": 20,
-          "samples": 0,
-          "average_return_pct": null,
-          "median_return_pct": null,
-          "win_rate_pct": null
+          "samples": 3,
+          "average_return_pct": 5.55,
+          "median_return_pct": 6.07,
+          "win_rate_pct": 100.0
         },
         {
           "trading_days": 60,
-          "samples": 0,
-          "average_return_pct": null,
-          "median_return_pct": null,
-          "win_rate_pct": null
+          "samples": 3,
+          "average_return_pct": 12.5,
+          "median_return_pct": 12.16,
+          "win_rate_pct": 100.0
         },
         {
           "trading_days": 120,
-          "samples": 0,
-          "average_return_pct": null,
-          "median_return_pct": null,
-          "win_rate_pct": null
+          "samples": 3,
+          "average_return_pct": 16.18,
+          "median_return_pct": 13.96,
+          "win_rate_pct": 100.0
         }
       ]
     },
     {
       "threshold": 155,
-      "events": 2,
+      "events": 16,
       "horizons": [
         {
           "trading_days": 20,
-          "samples": 1,
-          "average_return_pct": 4.77,
-          "median_return_pct": 4.77,
-          "win_rate_pct": 100.0
+          "samples": 15,
+          "average_return_pct": 3.5,
+          "median_return_pct": 3.96,
+          "win_rate_pct": 86.7
         },
         {
           "trading_days": 60,
-          "samples": 1,
-          "average_return_pct": 33.97,
-          "median_return_pct": 33.97,
-          "win_rate_pct": 100.0
+          "samples": 15,
+          "average_return_pct": 10.54,
+          "median_return_pct": 10.25,
+          "win_rate_pct": 86.7
         },
         {
           "trading_days": 120,
-          "samples": 1,
-          "average_return_pct": 67.42,
-          "median_return_pct": 67.42,
+          "samples": 15,
+          "average_return_pct": 22.94,
+          "median_return_pct": 23.79,
           "win_rate_pct": 100.0
         }
       ]
     }
   ],
   "series": [
+    {
+      "date": "2024-07-26",
+      "taiex": 22119.21,
+      "tsmc": 924.0,
+      "maintenance_est": 156.444,
+      "margin_balance_billion": 331.85,
+      "foreign_net_100m": -844.176,
+      "foreign_20d_sum_100m": -3048.455,
+      "usdtwd": 32.643,
+      "dxy": 104.32,
+      "vix": 16.39,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 2.857
+    },
+    {
+      "date": "2024-07-29",
+      "taiex": 22164.49,
+      "tsmc": 944.0,
+      "maintenance_est": 153.798,
+      "margin_balance_billion": 325.475,
+      "foreign_net_100m": -6.765,
+      "foreign_20d_sum_100m": -2893.902,
+      "usdtwd": 32.798,
+      "dxy": 104.56,
+      "vix": 16.6,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 2.778
+    },
+    {
+      "date": "2024-07-30",
+      "taiex": 22223.57,
+      "tsmc": 940.0,
+      "maintenance_est": 156.622,
+      "margin_balance_billion": 325.947,
+      "foreign_net_100m": -236.078,
+      "foreign_20d_sum_100m": -3220.75,
+      "usdtwd": 32.849,
+      "dxy": 104.55,
+      "vix": 17.69,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 8.108
+    },
+    {
+      "date": "2024-07-31",
+      "taiex": 22199.35,
+      "tsmc": 934.0,
+      "maintenance_est": 156.482,
+      "margin_balance_billion": 328.854,
+      "foreign_net_100m": -164.576,
+      "foreign_20d_sum_100m": -3385.326,
+      "usdtwd": 32.762,
+      "dxy": 104.1,
+      "vix": 16.36,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 7.895
+    },
+    {
+      "date": "2024-08-01",
+      "taiex": 22642.1,
+      "tsmc": 960.0,
+      "maintenance_est": 160.074,
+      "margin_balance_billion": 329.198,
+      "foreign_net_100m": 182.337,
+      "foreign_20d_sum_100m": -2960.563,
+      "usdtwd": 32.572,
+      "dxy": 104.42,
+      "vix": 18.59,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 15.385
+    },
+    {
+      "date": "2024-08-02",
+      "taiex": 21638.09,
+      "tsmc": 903.0,
+      "maintenance_est": 152.667,
+      "margin_balance_billion": 325.855,
+      "foreign_net_100m": -944.306,
+      "foreign_20d_sum_100m": -3999.107,
+      "usdtwd": 32.716,
+      "dxy": 103.21,
+      "vix": 23.39,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 2.5
+    },
+    {
+      "date": "2024-08-05",
+      "taiex": 19830.88,
+      "tsmc": 815.0,
+      "maintenance_est": null,
+      "margin_balance_billion": null,
+      "foreign_net_100m": -687.746,
+      "foreign_20d_sum_100m": -5050.195,
+      "usdtwd": 32.589,
+      "dxy": 102.69,
+      "vix": 38.57,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": null
+    },
+    {
+      "date": "2024-08-06",
+      "taiex": 20501.02,
+      "tsmc": 880.0,
+      "maintenance_est": 141.722,
+      "margin_balance_billion": 291.262,
+      "foreign_net_100m": 247.718,
+      "foreign_20d_sum_100m": -4747.126,
+      "usdtwd": 32.679,
+      "dxy": 102.97,
+      "vix": 27.71,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 2.439
+    },
+    {
+      "date": "2024-08-07",
+      "taiex": 21295.28,
+      "tsmc": 920.0,
+      "maintenance_est": 150.99,
+      "margin_balance_billion": 291.654,
+      "foreign_net_100m": -77.958,
+      "foreign_20d_sum_100m": -4742.877,
+      "usdtwd": 32.778,
+      "dxy": 103.2,
+      "vix": 27.85,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 4.762
+    },
+    {
+      "date": "2024-08-08",
+      "taiex": 20870.1,
+      "tsmc": 896.0,
+      "maintenance_est": 148.632,
+      "margin_balance_billion": 293.752,
+      "foreign_net_100m": -452.094,
+      "foreign_20d_sum_100m": -5037.791,
+      "usdtwd": 32.65,
+      "dxy": 103.21,
+      "vix": 23.79,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 4.651
+    },
+    {
+      "date": "2024-08-09",
+      "taiex": 21469.0,
+      "tsmc": 934.0,
+      "maintenance_est": 152.238,
+      "margin_balance_billion": 294.959,
+      "foreign_net_100m": 254.612,
+      "foreign_20d_sum_100m": -4674.711,
+      "usdtwd": 32.41,
+      "dxy": 103.14,
+      "vix": 20.37,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 9.091
+    },
+    {
+      "date": "2024-08-12",
+      "taiex": 21773.26,
+      "tsmc": 940.0,
+      "maintenance_est": 155.259,
+      "margin_balance_billion": 293.03,
+      "foreign_net_100m": 187.663,
+      "foreign_20d_sum_100m": -4519.195,
+      "usdtwd": 32.435,
+      "dxy": 103.14,
+      "vix": 20.71,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 15.556
+    },
+    {
+      "date": "2024-08-13",
+      "taiex": 21796.57,
+      "tsmc": 941.0,
+      "maintenance_est": 156.139,
+      "margin_balance_billion": 293.915,
+      "foreign_net_100m": -45.511,
+      "foreign_20d_sum_100m": -4148.15,
+      "usdtwd": 32.239,
+      "dxy": 102.56,
+      "vix": 18.12,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 17.391
+    },
+    {
+      "date": "2024-08-14",
+      "taiex": 22027.25,
+      "tsmc": 948.0,
+      "maintenance_est": 157.145,
+      "margin_balance_billion": 292.832,
+      "foreign_net_100m": 248.815,
+      "foreign_20d_sum_100m": -3767.744,
+      "usdtwd": 32.305,
+      "dxy": 102.57,
+      "vix": 16.19,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 27.66
+    },
+    {
+      "date": "2024-08-15",
+      "taiex": 21895.17,
+      "tsmc": 943.0,
+      "maintenance_est": 156.116,
+      "margin_balance_billion": 293.477,
+      "foreign_net_100m": -6.916,
+      "foreign_20d_sum_100m": -3774.66,
+      "usdtwd": 31.995,
+      "dxy": 102.98,
+      "vix": 15.23,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 16.667
+    },
+    {
+      "date": "2024-08-16",
+      "taiex": 22349.33,
+      "tsmc": 969.0,
+      "maintenance_est": 159.014,
+      "margin_balance_billion": 293.361,
+      "foreign_net_100m": 453.403,
+      "foreign_20d_sum_100m": -3017.441,
+      "usdtwd": 32.443,
+      "dxy": 102.46,
+      "vix": 14.8,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 30.612
+    },
+    {
+      "date": "2024-08-19",
+      "taiex": 22409.63,
+      "tsmc": 973.0,
+      "maintenance_est": 159.803,
+      "margin_balance_billion": 295.419,
+      "foreign_net_100m": -32.754,
+      "foreign_20d_sum_100m": -2516.677,
+      "usdtwd": 32.136,
+      "dxy": 101.89,
+      "vix": 14.65,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 32.0
+    },
+    {
+      "date": "2024-08-20",
+      "taiex": 22429.1,
+      "tsmc": 973.0,
+      "maintenance_est": 160.089,
+      "margin_balance_billion": 295.626,
+      "foreign_net_100m": 47.572,
+      "foreign_20d_sum_100m": -1825.523,
+      "usdtwd": 31.91,
+      "dxy": 101.44,
+      "vix": 15.88,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 35.294
+    },
+    {
+      "date": "2024-08-21",
+      "taiex": 22237.89,
+      "tsmc": 958.0,
+      "maintenance_est": 158.957,
+      "margin_balance_billion": 297.065,
+      "foreign_net_100m": -50.218,
+      "foreign_20d_sum_100m": -1798.203,
+      "usdtwd": 31.895,
+      "dxy": 101.04,
+      "vix": 16.27,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 28.846
+    },
+    {
+      "date": "2024-08-22",
+      "taiex": 22148.83,
+      "tsmc": 951.0,
+      "maintenance_est": 156.791,
+      "margin_balance_billion": 297.608,
+      "foreign_net_100m": -68.895,
+      "foreign_20d_sum_100m": -1995.873,
+      "usdtwd": 31.695,
+      "dxy": 101.51,
+      "vix": 17.55,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 24.528
+    },
+    {
+      "date": "2024-08-23",
+      "taiex": 22158.05,
+      "tsmc": 949.0,
+      "maintenance_est": 159.525,
+      "margin_balance_billion": 300.683,
+      "foreign_net_100m": -19.508,
+      "foreign_20d_sum_100m": -1171.205,
+      "usdtwd": 32.035,
+      "dxy": 100.72,
+      "vix": 15.86,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 33.333
+    },
+    {
+      "date": "2024-08-26",
+      "taiex": 22240.12,
+      "tsmc": 950.0,
+      "maintenance_est": 159.973,
+      "margin_balance_billion": 302.465,
+      "foreign_net_100m": -51.504,
+      "foreign_20d_sum_100m": -1215.944,
+      "usdtwd": 31.754,
+      "dxy": 100.85,
+      "vix": 16.15,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 36.364
+    },
+    {
+      "date": "2024-08-27",
+      "taiex": 22185.0,
+      "tsmc": 942.0,
+      "maintenance_est": 160.293,
+      "margin_balance_billion": 305.043,
+      "foreign_net_100m": -127.964,
+      "foreign_20d_sum_100m": -1107.83,
+      "usdtwd": 31.809,
+      "dxy": 100.55,
+      "vix": 15.43,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 41.071
+    },
+    {
+      "date": "2024-08-28",
+      "taiex": 22370.66,
+      "tsmc": 964.0,
+      "maintenance_est": 161.622,
+      "margin_balance_billion": 307.734,
+      "foreign_net_100m": -115.463,
+      "foreign_20d_sum_100m": -1058.717,
+      "usdtwd": 31.695,
+      "dxy": 101.09,
+      "vix": 17.11,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 43.86
+    },
+    {
+      "date": "2024-08-29",
+      "taiex": 22201.85,
+      "tsmc": 943.0,
+      "maintenance_est": null,
+      "margin_balance_billion": null,
+      "foreign_net_100m": -241.426,
+      "foreign_20d_sum_100m": -1482.48,
+      "usdtwd": 31.983,
+      "dxy": 101.34,
+      "vix": 15.65,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": null
+    },
+    {
+      "date": "2024-08-30",
+      "taiex": 22268.09,
+      "tsmc": 944.0,
+      "maintenance_est": 161.981,
+      "margin_balance_billion": 312.262,
+      "foreign_net_100m": -47.395,
+      "foreign_20d_sum_100m": -585.569,
+      "usdtwd": 31.858,
+      "dxy": 101.7,
+      "vix": 15.0,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 44.828
+    },
+    {
+      "date": "2024-09-02",
+      "taiex": 22235.1,
+      "tsmc": 948.0,
+      "maintenance_est": 160.56,
+      "margin_balance_billion": 313.253,
+      "foreign_net_100m": -127.982,
+      "foreign_20d_sum_100m": -25.805,
+      "usdtwd": 31.996,
+      "dxy": 101.7,
+      "vix": 15.0,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 42.373
+    },
+    {
+      "date": "2024-09-03",
+      "taiex": 22092.21,
+      "tsmc": 940.0,
+      "maintenance_est": 159.221,
+      "margin_balance_billion": 313.696,
+      "foreign_net_100m": -59.717,
+      "foreign_20d_sum_100m": -333.24,
+      "usdtwd": 31.931,
+      "dxy": 101.83,
+      "vix": 20.72,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 30.0
+    },
+    {
+      "date": "2024-09-04",
+      "taiex": 21092.75,
+      "tsmc": 889.0,
+      "maintenance_est": 151.443,
+      "margin_balance_billion": 309.735,
+      "foreign_net_100m": -1007.518,
+      "foreign_20d_sum_100m": -1262.8,
+      "usdtwd": 31.981,
+      "dxy": 101.36,
+      "vix": 21.32,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 6.557
+    },
+    {
+      "date": "2024-09-05",
+      "taiex": 21187.71,
+      "tsmc": 902.0,
+      "maintenance_est": 151.418,
+      "margin_balance_billion": 310.14,
+      "foreign_net_100m": -257.138,
+      "foreign_20d_sum_100m": -1067.844,
+      "usdtwd": 31.955,
+      "dxy": 101.11,
+      "vix": 19.9,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 6.452
+    },
+    {
+      "date": "2024-09-06",
+      "taiex": 21435.19,
+      "tsmc": 918.0,
+      "maintenance_est": 152.724,
+      "margin_balance_billion": 309.62,
+      "foreign_net_100m": 11.96,
+      "foreign_20d_sum_100m": -1310.496,
+      "usdtwd": 32.007,
+      "dxy": 101.18,
+      "vix": 22.38,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 12.698
+    },
+    {
+      "date": "2024-09-09",
+      "taiex": 21144.44,
+      "tsmc": 899.0,
+      "maintenance_est": 152.496,
+      "margin_balance_billion": 310.998,
+      "foreign_net_100m": -501.233,
+      "foreign_20d_sum_100m": -1999.392,
+      "usdtwd": 32.026,
+      "dxy": 101.55,
+      "vix": 19.45,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 10.938
+    },
+    {
+      "date": "2024-09-10",
+      "taiex": 21064.08,
+      "tsmc": 904.0,
+      "maintenance_est": 149.662,
+      "margin_balance_billion": 309.023,
+      "foreign_net_100m": -270.121,
+      "foreign_20d_sum_100m": -2224.002,
+      "usdtwd": 32.108,
+      "dxy": 101.63,
+      "vix": 19.08,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 4.615
+    },
+    {
+      "date": "2024-09-11",
+      "taiex": 21031.0,
+      "tsmc": 901.0,
+      "maintenance_est": 150.189,
+      "margin_balance_billion": 309.173,
+      "foreign_net_100m": -85.149,
+      "foreign_20d_sum_100m": -2557.966,
+      "usdtwd": 32.158,
+      "dxy": 101.68,
+      "vix": 17.69,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 6.061
+    },
+    {
+      "date": "2024-09-12",
+      "taiex": 21653.25,
+      "tsmc": 940.0,
+      "maintenance_est": 154.328,
+      "margin_balance_billion": 309.707,
+      "foreign_net_100m": 363.726,
+      "foreign_20d_sum_100m": -2187.324,
+      "usdtwd": 32.107,
+      "dxy": 101.37,
+      "vix": 17.07,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 19.403
+    },
+    {
+      "date": "2024-09-13",
+      "taiex": 21759.65,
+      "tsmc": 947.0,
+      "maintenance_est": 155.196,
+      "margin_balance_billion": 311.14,
+      "foreign_net_100m": 29.446,
+      "foreign_20d_sum_100m": -2611.281,
+      "usdtwd": 31.923,
+      "dxy": 101.11,
+      "vix": 16.56,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 20.588
+    },
+    {
+      "date": "2024-09-16",
+      "taiex": 21850.08,
+      "tsmc": 947.0,
+      "maintenance_est": 156.092,
+      "margin_balance_billion": 312.273,
+      "foreign_net_100m": -20.531,
+      "foreign_20d_sum_100m": -2599.058,
+      "usdtwd": 31.938,
+      "dxy": 100.76,
+      "vix": 17.14,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 23.188
+    },
+    {
+      "date": "2024-09-18",
+      "taiex": 21678.84,
+      "tsmc": 941.0,
+      "maintenance_est": 154.173,
+      "margin_balance_billion": 313.123,
+      "foreign_net_100m": -159.248,
+      "foreign_20d_sum_100m": -2805.878,
+      "usdtwd": 31.94,
+      "dxy": 100.6,
+      "vix": 18.23,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 18.571
+    },
+    {
+      "date": "2024-09-19",
+      "taiex": 22042.69,
+      "tsmc": 960.0,
+      "maintenance_est": 157.68,
+      "margin_balance_billion": 313.551,
+      "foreign_net_100m": 271.067,
+      "foreign_20d_sum_100m": -2484.593,
+      "usdtwd": 31.779,
+      "dxy": 100.61,
+      "vix": 16.33,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 36.62
+    },
+    {
+      "date": "2024-09-20",
+      "taiex": 22159.42,
+      "tsmc": 973.0,
+      "maintenance_est": 157.244,
+      "margin_balance_billion": 312.312,
+      "foreign_net_100m": 237.881,
+      "foreign_20d_sum_100m": -2177.817,
+      "usdtwd": 31.768,
+      "dxy": 100.72,
+      "vix": 16.15,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 36.111
+    },
+    {
+      "date": "2024-09-23",
+      "taiex": 22285.53,
+      "tsmc": 977.0,
+      "maintenance_est": 158.303,
+      "margin_balance_billion": 312.767,
+      "foreign_net_100m": 115.903,
+      "foreign_20d_sum_100m": -2042.406,
+      "usdtwd": 31.989,
+      "dxy": 100.92,
+      "vix": 15.89,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 38.356
+    },
+    {
+      "date": "2024-09-24",
+      "taiex": 22431.78,
+      "tsmc": 987.0,
+      "maintenance_est": 158.317,
+      "margin_balance_billion": 313.758,
+      "foreign_net_100m": 105.462,
+      "foreign_20d_sum_100m": -1885.44,
+      "usdtwd": 31.933,
+      "dxy": 100.37,
+      "vix": 15.39,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 39.189
+    },
+    {
+      "date": "2024-09-25",
+      "taiex": 22761.6,
+      "tsmc": 1005.0,
+      "maintenance_est": 160.696,
+      "margin_balance_billion": 314.114,
+      "foreign_net_100m": 347.393,
+      "foreign_20d_sum_100m": -1410.083,
+      "usdtwd": 31.7,
+      "dxy": 100.92,
+      "vix": 15.41,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 54.667
+    },
+    {
+      "date": "2024-09-26",
+      "taiex": 22858.81,
+      "tsmc": 1015.0,
+      "maintenance_est": 160.118,
+      "margin_balance_billion": 313.196,
+      "foreign_net_100m": 212.102,
+      "foreign_20d_sum_100m": -1082.518,
+      "usdtwd": 31.863,
+      "dxy": 100.56,
+      "vix": 15.37,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 50.0
+    },
+    {
+      "date": "2024-09-27",
+      "taiex": 22822.79,
+      "tsmc": 1000.0,
+      "maintenance_est": 160.423,
+      "margin_balance_billion": 313.273,
+      "foreign_net_100m": 246.495,
+      "foreign_20d_sum_100m": -594.597,
+      "usdtwd": 31.46,
+      "dxy": 100.42,
+      "vix": 16.96,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 53.247
+    },
+    {
+      "date": "2024-09-30",
+      "taiex": 22224.54,
+      "tsmc": 957.0,
+      "maintenance_est": 157.331,
+      "margin_balance_billion": 316.576,
+      "foreign_net_100m": -403.406,
+      "foreign_20d_sum_100m": -950.608,
+      "usdtwd": 31.575,
+      "dxy": 100.78,
+      "vix": 16.73,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 34.615
+    },
+    {
+      "date": "2024-10-01",
+      "taiex": 22390.39,
+      "tsmc": 972.0,
+      "maintenance_est": 157.851,
+      "margin_balance_billion": 317.043,
+      "foreign_net_100m": -93.076,
+      "foreign_20d_sum_100m": -915.702,
+      "usdtwd": 31.58,
+      "dxy": 101.19,
+      "vix": 19.26,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 36.709
+    },
+    {
+      "date": "2024-10-04",
+      "taiex": 22302.71,
+      "tsmc": 977.0,
+      "maintenance_est": 155.971,
+      "margin_balance_billion": 317.288,
+      "foreign_net_100m": -223.189,
+      "foreign_20d_sum_100m": -1079.174,
+      "usdtwd": 32.018,
+      "dxy": 102.52,
+      "vix": 19.21,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 21.25
+    },
+    {
+      "date": "2024-10-07",
+      "taiex": 22702.56,
+      "tsmc": 1005.0,
+      "maintenance_est": 157.939,
+      "margin_balance_billion": 318.936,
+      "foreign_net_100m": 17.465,
+      "foreign_20d_sum_100m": -54.191,
+      "usdtwd": 32.34,
+      "dxy": 102.54,
+      "vix": 22.64,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 38.272
+    },
+    {
+      "date": "2024-10-08",
+      "taiex": 22611.39,
+      "tsmc": 1010.0,
+      "maintenance_est": 156.567,
+      "margin_balance_billion": 320.398,
+      "foreign_net_100m": -251.307,
+      "foreign_20d_sum_100m": -48.36,
+      "usdtwd": 32.122,
+      "dxy": 102.55,
+      "vix": 21.42,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 28.049
+    },
+    {
+      "date": "2024-10-09",
+      "taiex": 22659.08,
+      "tsmc": 1020.0,
+      "maintenance_est": 155.156,
+      "margin_balance_billion": 319.322,
+      "foreign_net_100m": 133.204,
+      "foreign_20d_sum_100m": 72.884,
+      "usdtwd": 32.17,
+      "dxy": 102.93,
+      "vix": 20.86,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 18.072
+    },
+    {
+      "date": "2024-10-11",
+      "taiex": 22901.64,
+      "tsmc": 1045.0,
+      "maintenance_est": 155.493,
+      "margin_balance_billion": 319.102,
+      "foreign_net_100m": 219.885,
+      "foreign_20d_sum_100m": 794.002,
+      "usdtwd": 32.195,
+      "dxy": 102.89,
+      "vix": 20.46,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 21.429
+    },
+    {
+      "date": "2024-10-14",
+      "taiex": 22975.29,
+      "tsmc": 1045.0,
+      "maintenance_est": 157.084,
+      "margin_balance_billion": 319.54,
+      "foreign_net_100m": -16.077,
+      "foreign_20d_sum_100m": 1048.046,
+      "usdtwd": 32.13,
+      "dxy": 103.3,
+      "vix": 19.7,
+      "outflow_pressure_score": -1.076,
+      "market_temperature": 64.145,
+      "maintenance_percentile": 32.941
+    },
+    {
+      "date": "2024-10-15",
+      "taiex": 23292.04,
+      "tsmc": 1070.0,
+      "maintenance_est": 157.128,
+      "margin_balance_billion": 320.02,
+      "foreign_net_100m": 334.285,
+      "foreign_20d_sum_100m": 1467.48,
+      "usdtwd": 32.152,
+      "dxy": 103.26,
+      "vix": 20.64,
+      "outflow_pressure_score": -1.391,
+      "market_temperature": 66.475,
+      "maintenance_percentile": 34.884
+    },
+    {
+      "date": "2024-10-16",
+      "taiex": 23010.98,
+      "tsmc": 1045.0,
+      "maintenance_est": 156.865,
+      "margin_balance_billion": 322.938,
+      "foreign_net_100m": null,
+      "foreign_20d_sum_100m": 1103.754,
+      "usdtwd": 32.171,
+      "dxy": 103.59,
+      "vix": 19.58,
+      "outflow_pressure_score": -0.776,
+      "market_temperature": 62.634,
+      "maintenance_percentile": 32.184
+    },
+    {
+      "date": "2024-10-17",
+      "taiex": 23053.84,
+      "tsmc": 1035.0,
+      "maintenance_est": 158.142,
+      "margin_balance_billion": 324.937,
+      "foreign_net_100m": -39.162,
+      "foreign_20d_sum_100m": 1035.146,
+      "usdtwd": 32.135,
+      "dxy": 103.83,
+      "vix": 19.11,
+      "outflow_pressure_score": -0.223,
+      "market_temperature": 60.76,
+      "maintenance_percentile": 43.182
+    },
+    {
+      "date": "2024-10-18",
+      "taiex": 23487.27,
+      "tsmc": 1085.0,
+      "maintenance_est": 157.23,
+      "margin_balance_billion": 322.282,
+      "foreign_net_100m": null,
+      "foreign_20d_sum_100m": 1055.677,
+      "usdtwd": 32.068,
+      "dxy": 103.49,
+      "vix": 18.03,
+      "outflow_pressure_score": -0.606,
+      "market_temperature": 62.332,
+      "maintenance_percentile": 37.079
+    },
+    {
+      "date": "2024-10-21",
+      "taiex": 23542.53,
+      "tsmc": 1085.0,
+      "maintenance_est": 159.449,
+      "margin_balance_billion": 323.009,
+      "foreign_net_100m": 211.162,
+      "foreign_20d_sum_100m": 1426.087,
+      "usdtwd": 32.042,
+      "dxy": 104.01,
+      "vix": 18.37,
+      "outflow_pressure_score": -0.582,
+      "market_temperature": 64.361,
+      "maintenance_percentile": 50.0
+    },
+    {
+      "date": "2024-10-22",
+      "taiex": 23535.43,
+      "tsmc": 1075.0,
+      "maintenance_est": 160.166,
+      "margin_balance_billion": 325.455,
+      "foreign_net_100m": 78.573,
+      "foreign_20d_sum_100m": 1233.593,
+      "usdtwd": 32.051,
+      "dxy": 104.08,
+      "vix": 18.2,
+      "outflow_pressure_score": 0.007,
+      "market_temperature": 61.39,
+      "maintenance_percentile": 57.143
+    },
+    {
+      "date": "2024-10-23",
+      "taiex": 23334.76,
+      "tsmc": 1060.0,
+      "maintenance_est": 160.291,
+      "margin_balance_billion": 327.083,
+      "foreign_net_100m": -78.933,
+      "foreign_20d_sum_100m": 916.779,
+      "usdtwd": 32.014,
+      "dxy": 104.43,
+      "vix": 19.24,
+      "outflow_pressure_score": 0.342,
+      "market_temperature": 57.957,
+      "maintenance_percentile": 57.609
+    },
+    {
+      "date": "2024-10-24",
+      "taiex": 23192.52,
+      "tsmc": 1060.0,
+      "maintenance_est": 156.977,
+      "margin_balance_billion": 326.044,
+      "foreign_net_100m": -66.853,
+      "foreign_20d_sum_100m": 734.023,
+      "usdtwd": 32.004,
+      "dxy": 104.06,
+      "vix": 19.08,
+      "outflow_pressure_score": -0.316,
+      "market_temperature": 58.255,
+      "maintenance_percentile": 31.183
+    },
+    {
+      "date": "2024-10-25",
+      "taiex": 23348.45,
+      "tsmc": 1065.0,
+      "maintenance_est": 157.842,
+      "margin_balance_billion": 326.962,
+      "foreign_net_100m": 179.151,
+      "foreign_20d_sum_100m": 807.712,
+      "usdtwd": 31.984,
+      "dxy": 104.26,
+      "vix": 20.33,
+      "outflow_pressure_score": -0.148,
+      "market_temperature": 57.454,
+      "maintenance_percentile": 40.426
+    },
+    {
+      "date": "2024-10-28",
+      "taiex": 23198.07,
+      "tsmc": 1050.0,
+      "maintenance_est": 155.905,
+      "margin_balance_billion": 325.669,
+      "foreign_net_100m": 80.063,
+      "foreign_20d_sum_100m": 540.382,
+      "usdtwd": 32.064,
+      "dxy": 104.32,
+      "vix": 19.8,
+      "outflow_pressure_score": 0.815,
+      "market_temperature": 52.07,
+      "maintenance_percentile": 20.0
+    },
+    {
+      "date": "2024-10-29",
+      "taiex": 22926.59,
+      "tsmc": 1040.0,
+      "maintenance_est": 153.803,
+      "margin_balance_billion": 324.572,
+      "foreign_net_100m": -291.696,
+      "foreign_20d_sum_100m": 36.584,
+      "usdtwd": 32.014,
+      "dxy": 104.28,
+      "vix": 19.34,
+      "outflow_pressure_score": 0.563,
+      "market_temperature": 50.104,
+      "maintenance_percentile": 13.542
+    },
+    {
+      "date": "2024-10-30",
+      "taiex": 22820.43,
+      "tsmc": 1030.0,
+      "maintenance_est": 153.776,
+      "margin_balance_billion": 325.849,
+      "foreign_net_100m": -28.25,
+      "foreign_20d_sum_100m": -238.161,
+      "usdtwd": 32.003,
+      "dxy": 103.99,
+      "vix": 20.35,
+      "outflow_pressure_score": 1.509,
+      "market_temperature": 44.676,
+      "maintenance_percentile": 12.371
+    },
+    {
+      "date": "2024-11-01",
+      "taiex": 22780.08,
+      "tsmc": 1025.0,
+      "maintenance_est": 154.824,
+      "margin_balance_billion": 325.833,
+      "foreign_net_100m": -213.373,
+      "foreign_20d_sum_100m": -48.128,
+      "usdtwd": 31.863,
+      "dxy": 104.28,
+      "vix": 21.88,
+      "outflow_pressure_score": 0.915,
+      "market_temperature": 47.273,
+      "maintenance_percentile": 17.347
+    },
+    {
+      "date": "2024-11-04",
+      "taiex": 22965.39,
+      "tsmc": 1040.0,
+      "maintenance_est": 155.201,
+      "margin_balance_billion": 326.832,
+      "foreign_net_100m": -17.127,
+      "foreign_20d_sum_100m": 27.821,
+      "usdtwd": 31.923,
+      "dxy": 103.89,
+      "vix": 21.98,
+      "outflow_pressure_score": 0.762,
+      "market_temperature": 48.242,
+      "maintenance_percentile": 20.202
+    },
+    {
+      "date": "2024-11-05",
+      "taiex": 23106.79,
+      "tsmc": 1050.0,
+      "maintenance_est": 156.199,
+      "margin_balance_billion": 326.565,
+      "foreign_net_100m": 93.144,
+      "foreign_20d_sum_100m": 344.154,
+      "usdtwd": 31.912,
+      "dxy": 103.42,
+      "vix": 20.49,
+      "outflow_pressure_score": -0.807,
+      "market_temperature": 56.761,
+      "maintenance_percentile": 28.0
+    },
+    {
+      "date": "2024-11-06",
+      "taiex": 23217.38,
+      "tsmc": 1060.0,
+      "maintenance_est": 157.186,
+      "margin_balance_billion": 327.205,
+      "foreign_net_100m": -20.079,
+      "foreign_20d_sum_100m": 306.61,
+      "usdtwd": 31.822,
+      "dxy": 105.09,
+      "vix": 16.27,
+      "outflow_pressure_score": -0.782,
+      "market_temperature": 59.227,
+      "maintenance_percentile": 39.604
+    },
+    {
+      "date": "2024-11-07",
+      "taiex": 23408.82,
+      "tsmc": 1065.0,
+      "maintenance_est": 159.054,
+      "margin_balance_billion": 329.914,
+      "foreign_net_100m": 54.351,
+      "foreign_20d_sum_100m": 612.268,
+      "usdtwd": 32.335,
+      "dxy": 104.51,
+      "vix": 15.2,
+      "outflow_pressure_score": 0.46,
+      "market_temperature": 57.234,
+      "maintenance_percentile": 51.961
+    },
+    {
+      "date": "2024-11-08",
+      "taiex": 23553.89,
+      "tsmc": 1090.0,
+      "maintenance_est": 158.123,
+      "margin_balance_billion": 328.678,
+      "foreign_net_100m": -0.123,
+      "foreign_20d_sum_100m": 478.941,
+      "usdtwd": 32.034,
+      "dxy": 105.0,
+      "vix": 14.94,
+      "outflow_pressure_score": -0.023,
+      "market_temperature": 58.14,
+      "maintenance_percentile": 46.602
+    },
+    {
+      "date": "2024-11-11",
+      "taiex": 23529.64,
+      "tsmc": 1085.0,
+      "maintenance_est": 158.539,
+      "margin_balance_billion": 328.851,
+      "foreign_net_100m": -1.728,
+      "foreign_20d_sum_100m": 257.328,
+      "usdtwd": 32.235,
+      "dxy": 105.54,
+      "vix": 14.97,
+      "outflow_pressure_score": 0.852,
+      "market_temperature": 53.925,
+      "maintenance_percentile": 50.0
+    },
+    {
+      "date": "2024-11-12",
+      "taiex": 22981.77,
+      "tsmc": 1050.0,
+      "maintenance_est": 154.883,
+      "margin_balance_billion": 326.534,
+      "foreign_net_100m": -476.712,
+      "foreign_20d_sum_100m": -203.307,
+      "usdtwd": 32.375,
+      "dxy": 106.02,
+      "vix": 14.71,
+      "outflow_pressure_score": 1.893,
+      "market_temperature": 46.586,
+      "maintenance_percentile": 17.143
+    },
+    {
+      "date": "2024-11-13",
+      "taiex": 22860.23,
+      "tsmc": 1035.0,
+      "maintenance_est": 154.903,
+      "margin_balance_billion": 327.772,
+      "foreign_net_100m": -425.195,
+      "foreign_20d_sum_100m": -962.787,
+      "usdtwd": 32.415,
+      "dxy": 106.48,
+      "vix": 14.02,
+      "outflow_pressure_score": 2.627,
+      "market_temperature": 43.055,
+      "maintenance_percentile": 17.925
+    },
+    {
+      "date": "2024-11-14",
+      "taiex": 22715.38,
+      "tsmc": 1035.0,
+      "maintenance_est": 153.323,
+      "margin_balance_billion": 326.046,
+      "foreign_net_100m": -254.272,
+      "foreign_20d_sum_100m": -1217.059,
+      "usdtwd": 32.408,
+      "dxy": 106.67,
+      "vix": 14.31,
+      "outflow_pressure_score": 2.777,
+      "market_temperature": 41.089,
+      "maintenance_percentile": 11.215
+    },
+    {
+      "date": "2024-11-15",
+      "taiex": 22742.77,
+      "tsmc": 1035.0,
+      "maintenance_est": 153.656,
+      "margin_balance_billion": 326.052,
+      "foreign_net_100m": 51.282,
+      "foreign_20d_sum_100m": -1126.615,
+      "usdtwd": 32.537,
+      "dxy": 106.69,
+      "vix": 16.14,
+      "outflow_pressure_score": 3.083,
+      "market_temperature": 40.598,
+      "maintenance_percentile": 12.037
+    },
+    {
+      "date": "2024-11-18",
+      "taiex": 22546.54,
+      "tsmc": 1025.0,
+      "maintenance_est": 150.62,
+      "margin_balance_billion": 321.93,
+      "foreign_net_100m": -107.034,
+      "foreign_20d_sum_100m": -1233.649,
+      "usdtwd": 32.462,
+      "dxy": 106.28,
+      "vix": 15.58,
+      "outflow_pressure_score": 2.856,
+      "market_temperature": 39.235,
+      "maintenance_percentile": 4.587
+    },
+    {
+      "date": "2024-11-19",
+      "taiex": 22848.8,
+      "tsmc": 1040.0,
+      "maintenance_est": 153.926,
+      "margin_balance_billion": 322.822,
+      "foreign_net_100m": 106.522,
+      "foreign_20d_sum_100m": -1338.289,
+      "usdtwd": 32.442,
+      "dxy": 106.21,
+      "vix": 16.35,
+      "outflow_pressure_score": 2.855,
+      "market_temperature": 39.59,
+      "maintenance_percentile": 16.364
+    },
+    {
+      "date": "2024-11-20",
+      "taiex": 22688.36,
+      "tsmc": 1025.0,
+      "maintenance_est": 153.018,
+      "margin_balance_billion": 322.708,
+      "foreign_net_100m": -321.488,
+      "foreign_20d_sum_100m": -1738.35,
+      "usdtwd": 32.326,
+      "dxy": 106.68,
+      "vix": 17.16,
+      "outflow_pressure_score": 3.014,
+      "market_temperature": 36.886,
+      "maintenance_percentile": 11.712
+    },
+    {
+      "date": "2024-11-21",
+      "taiex": 22555.66,
+      "tsmc": 1010.0,
+      "maintenance_est": 153.668,
+      "margin_balance_billion": 324.388,
+      "foreign_net_100m": -263.523,
+      "foreign_20d_sum_100m": -1922.94,
+      "usdtwd": 32.472,
+      "dxy": 106.97,
+      "vix": 16.87,
+      "outflow_pressure_score": 3.682,
+      "market_temperature": 36.444,
+      "maintenance_percentile": 14.286
+    },
+    {
+      "date": "2024-11-22",
+      "taiex": 22904.32,
+      "tsmc": 1040.0,
+      "maintenance_est": 155.392,
+      "margin_balance_billion": 325.026,
+      "foreign_net_100m": 80.409,
+      "foreign_20d_sum_100m": -1775.678,
+      "usdtwd": 32.505,
+      "dxy": 107.49,
+      "vix": 15.24,
+      "outflow_pressure_score": 3.896,
+      "market_temperature": 38.768,
+      "maintenance_percentile": 26.549
+    },
+    {
+      "date": "2024-11-25",
+      "taiex": 22948.37,
+      "tsmc": 1030.0,
+      "maintenance_est": null,
+      "margin_balance_billion": null,
+      "foreign_net_100m": 52.158,
+      "foreign_20d_sum_100m": -1902.671,
+      "usdtwd": 32.569,
+      "dxy": 106.82,
+      "vix": 14.6,
+      "outflow_pressure_score": 3.762,
+      "market_temperature": null,
+      "maintenance_percentile": null
+    },
+    {
+      "date": "2024-11-26",
+      "taiex": 22678.76,
+      "tsmc": 1010.0,
+      "maintenance_est": 155.376,
+      "margin_balance_billion": 327.107,
+      "foreign_net_100m": null,
+      "foreign_20d_sum_100m": -1982.734,
+      "usdtwd": 32.332,
+      "dxy": 107.01,
+      "vix": 14.1,
+      "outflow_pressure_score": 3.092,
+      "market_temperature": 38.459,
+      "maintenance_percentile": 26.316
+    },
+    {
+      "date": "2024-11-27",
+      "taiex": 22334.78,
+      "tsmc": 1000.0,
+      "maintenance_est": 151.614,
+      "margin_balance_billion": 324.784,
+      "foreign_net_100m": -410.61,
+      "foreign_20d_sum_100m": -2101.648,
+      "usdtwd": 32.405,
+      "dxy": 106.08,
+      "vix": 14.1,
+      "outflow_pressure_score": 2.952,
+      "market_temperature": 36.448,
+      "maintenance_percentile": 7.826
+    },
+    {
+      "date": "2024-11-28",
+      "taiex": 22298.9,
+      "tsmc": 1005.0,
+      "maintenance_est": 150.085,
+      "margin_balance_billion": 320.173,
+      "foreign_net_100m": -98.855,
+      "foreign_20d_sum_100m": -2172.253,
+      "usdtwd": 32.415,
+      "dxy": 106.08,
+      "vix": 14.1,
+      "outflow_pressure_score": 3.018,
+      "market_temperature": 35.541,
+      "maintenance_percentile": 3.448
+    },
+    {
+      "date": "2024-11-29",
+      "taiex": 22262.5,
+      "tsmc": 996.0,
+      "maintenance_est": 152.039,
+      "margin_balance_billion": 322.53,
+      "foreign_net_100m": -264.651,
+      "foreign_20d_sum_100m": -2223.531,
+      "usdtwd": 32.494,
+      "dxy": 105.74,
+      "vix": 13.51,
+      "outflow_pressure_score": 3.37,
+      "market_temperature": 36.421,
+      "maintenance_percentile": 9.402
+    },
+    {
+      "date": "2024-12-02",
+      "taiex": 22736.93,
+      "tsmc": 1035.0,
+      "maintenance_est": 153.613,
+      "margin_balance_billion": 323.602,
+      "foreign_net_100m": 150.39,
+      "foreign_20d_sum_100m": -2056.014,
+      "usdtwd": 32.439,
+      "dxy": 106.45,
+      "vix": 13.34,
+      "outflow_pressure_score": 3.306,
+      "market_temperature": 37.971,
+      "maintenance_percentile": 15.254
+    },
+    {
+      "date": "2024-12-03",
+      "taiex": 23027.46,
+      "tsmc": 1055.0,
+      "maintenance_est": 155.319,
+      "margin_balance_billion": 324.154,
+      "foreign_net_100m": 286.051,
+      "foreign_20d_sum_100m": -1863.107,
+      "usdtwd": 32.591,
+      "dxy": 106.37,
+      "vix": 13.3,
+      "outflow_pressure_score": 3.48,
+      "market_temperature": 39.618,
+      "maintenance_percentile": 28.571
+    },
+    {
+      "date": "2024-12-04",
+      "taiex": 23255.33,
+      "tsmc": 1070.0,
+      "maintenance_est": 157.486,
+      "margin_balance_billion": 325.445,
+      "foreign_net_100m": 258.599,
+      "foreign_20d_sum_100m": -1584.429,
+      "usdtwd": 32.464,
+      "dxy": 106.34,
+      "vix": 13.45,
+      "outflow_pressure_score": 3.152,
+      "market_temperature": 41.752,
+      "maintenance_percentile": 49.167
+    },
+    {
+      "date": "2024-12-05",
+      "taiex": 23267.94,
+      "tsmc": 1075.0,
+      "maintenance_est": 157.705,
+      "margin_balance_billion": 328.096,
+      "foreign_net_100m": 46.047,
+      "foreign_20d_sum_100m": -1592.733,
+      "usdtwd": 32.313,
+      "dxy": 105.71,
+      "vix": 13.54,
+      "outflow_pressure_score": 1.239,
+      "market_temperature": 44.606,
+      "maintenance_percentile": 50.413
+    },
+    {
+      "date": "2024-12-06",
+      "taiex": 23193.27,
+      "tsmc": 1065.0,
+      "maintenance_est": 157.335,
+      "margin_balance_billion": 328.558,
+      "foreign_net_100m": 20.024,
+      "foreign_20d_sum_100m": -1572.586,
+      "usdtwd": 32.323,
+      "dxy": 105.97,
+      "vix": 12.77,
+      "outflow_pressure_score": 2.083,
+      "market_temperature": 42.157,
+      "maintenance_percentile": 48.361
+    },
+    {
+      "date": "2024-12-09",
+      "taiex": 23273.25,
+      "tsmc": 1075.0,
+      "maintenance_est": 157.014,
+      "margin_balance_billion": 330.173,
+      "foreign_net_100m": 42.054,
+      "foreign_20d_sum_100m": -1528.804,
+      "usdtwd": 32.388,
+      "dxy": 106.15,
+      "vix": 14.19,
+      "outflow_pressure_score": 1.803,
+      "market_temperature": 42.185,
+      "maintenance_percentile": 41.463
+    },
+    {
+      "date": "2024-12-10",
+      "taiex": 23125.08,
+      "tsmc": 1065.0,
+      "maintenance_est": 155.441,
+      "margin_balance_billion": 328.048,
+      "foreign_net_100m": -70.147,
+      "foreign_20d_sum_100m": -1122.239,
+      "usdtwd": 32.371,
+      "dxy": 106.4,
+      "vix": 14.18,
+      "outflow_pressure_score": 1.27,
+      "market_temperature": 45.6,
+      "maintenance_percentile": 29.839
+    },
+    {
+      "date": "2024-12-11",
+      "taiex": 22903.63,
+      "tsmc": 1045.0,
+      "maintenance_est": 155.013,
+      "margin_balance_billion": 327.76,
+      "foreign_net_100m": -176.437,
+      "foreign_20d_sum_100m": -873.481,
+      "usdtwd": 32.524,
+      "dxy": 106.71,
+      "vix": 13.58,
+      "outflow_pressure_score": 1.512,
+      "market_temperature": 46.109,
+      "maintenance_percentile": 24.0
+    },
+    {
+      "date": "2024-12-12",
+      "taiex": 23046.8,
+      "tsmc": 1060.0,
+      "maintenance_est": 155.111,
+      "margin_balance_billion": 327.707,
+      "foreign_net_100m": -17.205,
+      "foreign_20d_sum_100m": -636.414,
+      "usdtwd": 32.486,
+      "dxy": 106.96,
+      "vix": 13.92,
+      "outflow_pressure_score": 1.384,
+      "market_temperature": 47.613,
+      "maintenance_percentile": 24.603
+    },
+    {
+      "date": "2024-12-13",
+      "taiex": 23020.48,
+      "tsmc": 1065.0,
+      "maintenance_est": 153.781,
+      "margin_balance_billion": 324.164,
+      "foreign_net_100m": -40.336,
+      "foreign_20d_sum_100m": -728.032,
+      "usdtwd": 32.466,
+      "dxy": 107.0,
+      "vix": 13.81,
+      "outflow_pressure_score": 1.087,
+      "market_temperature": 47.8,
+      "maintenance_percentile": 17.323
+    },
+    {
+      "date": "2024-12-16",
+      "taiex": 23039.9,
+      "tsmc": 1085.0,
+      "maintenance_est": 151.237,
+      "margin_balance_billion": 320.205,
+      "foreign_net_100m": 151.628,
+      "foreign_20d_sum_100m": -469.37,
+      "usdtwd": 32.498,
+      "dxy": 106.86,
+      "vix": 14.69,
+      "outflow_pressure_score": 1.083,
+      "market_temperature": 47.614,
+      "maintenance_percentile": 6.25
+    },
+    {
+      "date": "2024-12-17",
+      "taiex": 23018.01,
+      "tsmc": 1075.0,
+      "maintenance_est": 153.46,
+      "margin_balance_billion": 320.885,
+      "foreign_net_100m": 34.314,
+      "foreign_20d_sum_100m": -541.578,
+      "usdtwd": 32.417,
+      "dxy": 106.96,
+      "vix": 15.87,
+      "outflow_pressure_score": 1.016,
+      "market_temperature": 47.676,
+      "maintenance_percentile": 14.729
+    },
+    {
+      "date": "2024-12-18",
+      "taiex": 23168.67,
+      "tsmc": 1085.0,
+      "maintenance_est": 154.373,
+      "margin_balance_billion": 322.705,
+      "foreign_net_100m": 104.243,
+      "foreign_20d_sum_100m": -115.847,
+      "usdtwd": 32.43,
+      "dxy": 108.03,
+      "vix": 27.62,
+      "outflow_pressure_score": 1.535,
+      "market_temperature": 41.505,
+      "maintenance_percentile": 23.077
+    },
+    {
+      "date": "2024-12-19",
+      "taiex": 22932.25,
+      "tsmc": 1070.0,
+      "maintenance_est": 153.568,
+      "margin_balance_billion": 323.617,
+      "foreign_net_100m": -332.999,
+      "foreign_20d_sum_100m": -185.323,
+      "usdtwd": 32.678,
+      "dxy": 108.41,
+      "vix": 24.09,
+      "outflow_pressure_score": 1.969,
+      "market_temperature": 41.199,
+      "maintenance_percentile": 15.267
+    },
+    {
+      "date": "2024-12-20",
+      "taiex": 22510.25,
+      "tsmc": 1035.0,
+      "maintenance_est": 152.085,
+      "margin_balance_billion": 324.67,
+      "foreign_net_100m": -486.77,
+      "foreign_20d_sum_100m": -752.502,
+      "usdtwd": 32.63,
+      "dxy": 107.62,
+      "vix": 18.36,
+      "outflow_pressure_score": 1.747,
+      "market_temperature": 41.822,
+      "maintenance_percentile": 9.848
+    },
+    {
+      "date": "2024-12-23",
+      "taiex": 23104.54,
+      "tsmc": 1080.0,
+      "maintenance_est": 154.562,
+      "margin_balance_billion": 323.358,
+      "foreign_net_100m": 394.278,
+      "foreign_20d_sum_100m": -410.382,
+      "usdtwd": 32.616,
+      "dxy": 108.04,
+      "vix": 16.78,
+      "outflow_pressure_score": 1.489,
+      "market_temperature": 46.393,
+      "maintenance_percentile": 24.812
+    },
+    {
+      "date": "2024-12-24",
+      "taiex": 23120.24,
+      "tsmc": 1080.0,
+      "maintenance_est": 154.502,
+      "margin_balance_billion": 323.231,
+      "foreign_net_100m": 142.522,
+      "foreign_20d_sum_100m": -267.86,
+      "usdtwd": 32.608,
+      "dxy": 108.26,
+      "vix": 14.27,
+      "outflow_pressure_score": 2.028,
+      "market_temperature": 46.599,
+      "maintenance_percentile": 24.627
+    },
+    {
+      "date": "2024-12-25",
+      "taiex": 23220.13,
+      "tsmc": 1085.0,
+      "maintenance_est": 156.238,
+      "margin_balance_billion": 324.809,
+      "foreign_net_100m": 111.158,
+      "foreign_20d_sum_100m": 253.908,
+      "usdtwd": 32.614,
+      "dxy": 108.26,
+      "vix": 14.27,
+      "outflow_pressure_score": 1.469,
+      "market_temperature": 51.904,
+      "maintenance_percentile": 40.741
+    },
+    {
+      "date": "2025-06-02",
+      "taiex": 21002.71,
+      "tsmc": 946.0,
+      "maintenance_est": 151.065,
+      "margin_balance_billion": 221.529,
+      "foreign_net_100m": -538.695,
+      "foreign_20d_sum_100m": -185.932,
+      "usdtwd": 32.614,
+      "dxy": 108.26,
+      "vix": 14.27,
+      "outflow_pressure_score": 1.713,
+      "market_temperature": 46.682,
+      "maintenance_percentile": 5.882
+    },
+    {
+      "date": "2025-06-03",
+      "taiex": 21126.93,
+      "tsmc": 950.0,
+      "maintenance_est": 151.999,
+      "margin_balance_billion": 221.858,
+      "foreign_net_100m": -132.462,
+      "foreign_20d_sum_100m": -53.743,
+      "usdtwd": 32.614,
+      "dxy": 108.26,
+      "vix": 14.27,
+      "outflow_pressure_score": 1.394,
+      "market_temperature": 48.895,
+      "maintenance_percentile": 9.489
+    },
+    {
+      "date": "2025-06-04",
+      "taiex": 21618.09,
+      "tsmc": 990.0,
+      "maintenance_est": 155.166,
+      "margin_balance_billion": 222.951,
+      "foreign_net_100m": 203.375,
+      "foreign_20d_sum_100m": -0.758,
+      "usdtwd": 32.614,
+      "dxy": 108.26,
+      "vix": 14.27,
+      "outflow_pressure_score": 1.469,
+      "market_temperature": 50.089,
+      "maintenance_percentile": 31.159
+    },
+    {
+      "date": "2025-06-05",
+      "taiex": 21674.43,
+      "tsmc": 998.0,
+      "maintenance_est": 155.196,
+      "margin_balance_billion": 222.432,
+      "foreign_net_100m": 0.663,
+      "foreign_20d_sum_100m": -286.146,
+      "usdtwd": 32.614,
+      "dxy": null,
+      "vix": null,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 32.014
+    },
+    {
+      "date": "2025-06-06",
+      "taiex": 21660.66,
+      "tsmc": 995.0,
+      "maintenance_est": 154.523,
+      "margin_balance_billion": 222.353,
+      "foreign_net_100m": -136.735,
+      "foreign_20d_sum_100m": -681.48,
+      "usdtwd": null,
+      "dxy": null,
+      "vix": null,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 25.714
+    },
+    {
+      "date": "2025-06-09",
+      "taiex": 21790.29,
+      "tsmc": 1005.0,
+      "maintenance_est": 154.663,
+      "margin_balance_billion": 222.414,
+      "foreign_net_100m": -0.691,
+      "foreign_20d_sum_100m": -728.218,
+      "usdtwd": null,
+      "dxy": null,
+      "vix": null,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 26.95
+    },
+    {
+      "date": "2025-06-10",
+      "taiex": 22242.14,
+      "tsmc": 1045.0,
+      "maintenance_est": 156.462,
+      "margin_balance_billion": 220.628,
+      "foreign_net_100m": 399.257,
+      "foreign_20d_sum_100m": -348.985,
+      "usdtwd": null,
+      "dxy": null,
+      "vix": null,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 44.366
+    },
+    {
+      "date": "2025-06-11",
+      "taiex": 22470.1,
+      "tsmc": 1065.0,
+      "maintenance_est": 157.705,
+      "margin_balance_billion": 222.186,
+      "foreign_net_100m": 79.299,
+      "foreign_20d_sum_100m": -311.74,
+      "usdtwd": null,
+      "dxy": null,
+      "vix": null,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 57.692
+    },
+    {
+      "date": "2025-06-12",
+      "taiex": 22287.82,
+      "tsmc": 1045.0,
+      "maintenance_est": 156.201,
+      "margin_balance_billion": 223.681,
+      "foreign_net_100m": 3.544,
+      "foreign_20d_sum_100m": -238.049,
+      "usdtwd": null,
+      "dxy": null,
+      "vix": null,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 42.361
+    },
+    {
+      "date": "2025-06-13",
+      "taiex": 22072.95,
+      "tsmc": 1030.0,
+      "maintenance_est": 153.838,
+      "margin_balance_billion": 223.309,
+      "foreign_net_100m": -7.966,
+      "foreign_20d_sum_100m": -69.578,
+      "usdtwd": null,
+      "dxy": null,
+      "vix": null,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 21.379
+    },
+    {
+      "date": "2025-06-16",
+      "taiex": 22049.9,
+      "tsmc": 1025.0,
+      "maintenance_est": 154.269,
+      "margin_balance_billion": 224.418,
+      "foreign_net_100m": null,
+      "foreign_20d_sum_100m": -52.373,
+      "usdtwd": 29.505,
+      "dxy": 98.0,
+      "vix": 19.11,
+      "outflow_pressure_score": -9.592,
+      "market_temperature": 59.602,
+      "maintenance_percentile": 23.288
+    },
+    {
+      "date": "2025-06-17",
+      "taiex": 22211.59,
+      "tsmc": 1045.0,
+      "maintenance_est": null,
+      "margin_balance_billion": null,
+      "foreign_net_100m": 62.184,
+      "foreign_20d_sum_100m": 50.147,
+      "usdtwd": 29.005,
+      "dxy": 98.82,
+      "vix": 21.6,
+      "outflow_pressure_score": -9.02,
+      "market_temperature": null,
+      "maintenance_percentile": null
+    },
+    {
+      "date": "2025-06-18",
+      "taiex": 22356.73,
+      "tsmc": 1055.0,
+      "maintenance_est": 154.925,
+      "margin_balance_billion": 224.754,
+      "foreign_net_100m": 116.114,
+      "foreign_20d_sum_100m": 14.633,
+      "usdtwd": 29.647,
+      "dxy": 98.91,
+      "vix": 20.14,
+      "outflow_pressure_score": -7.388,
+      "market_temperature": 59.56,
+      "maintenance_percentile": 29.932
+    },
+    {
+      "date": "2025-06-19",
+      "taiex": 22003.5,
+      "tsmc": 1035.0,
+      "maintenance_est": 150.853,
+      "margin_balance_billion": 225.036,
+      "foreign_net_100m": -212.985,
+      "foreign_20d_sum_100m": -232.666,
+      "usdtwd": 29.542,
+      "dxy": 98.91,
+      "vix": 20.14,
+      "outflow_pressure_score": -6.859,
+      "market_temperature": 56.646,
+      "maintenance_percentile": 4.73
+    },
+    {
+      "date": "2025-06-20",
+      "taiex": 22045.74,
+      "tsmc": 1055.0,
+      "maintenance_est": 149.193,
+      "margin_balance_billion": 224.123,
+      "foreign_net_100m": -49.147,
+      "foreign_20d_sum_100m": -386.056,
+      "usdtwd": 29.571,
+      "dxy": 98.71,
+      "vix": 20.62,
+      "outflow_pressure_score": -6.482,
+      "market_temperature": 54.896,
+      "maintenance_percentile": 2.013
+    },
+    {
+      "date": "2025-06-23",
+      "taiex": 21732.02,
+      "tsmc": 1020.0,
+      "maintenance_est": 150.046,
+      "margin_balance_billion": 224.438,
+      "foreign_net_100m": -148.828,
+      "foreign_20d_sum_100m": -201.885,
+      "usdtwd": 29.533,
+      "dxy": 98.42,
+      "vix": 19.83,
+      "outflow_pressure_score": -6.752,
+      "market_temperature": 56.641,
+      "maintenance_percentile": 3.333
+    },
+    {
+      "date": "2025-06-24",
+      "taiex": 22188.76,
+      "tsmc": 1050.0,
+      "maintenance_est": 153.408,
+      "margin_balance_billion": 224.318,
+      "foreign_net_100m": 292.654,
+      "foreign_20d_sum_100m": 577.539,
+      "usdtwd": 29.674,
+      "dxy": 97.86,
+      "vix": 17.48,
+      "outflow_pressure_score": -7.025,
+      "market_temperature": 63.389,
+      "maintenance_percentile": 16.556
+    },
+    {
+      "date": "2025-06-25",
+      "taiex": 22430.61,
+      "tsmc": 1070.0,
+      "maintenance_est": 154.282,
+      "margin_balance_billion": 224.19,
+      "foreign_net_100m": 355.966,
+      "foreign_20d_sum_100m": 539.227,
+      "usdtwd": 29.458,
+      "dxy": 97.68,
+      "vix": 16.76,
+      "outflow_pressure_score": -7.044,
+      "market_temperature": 63.875,
+      "maintenance_percentile": 25.658
+    },
+    {
+      "date": "2025-06-26",
+      "taiex": 22492.34,
+      "tsmc": 1075.0,
+      "maintenance_est": 154.271,
+      "margin_balance_billion": 224.719,
+      "foreign_net_100m": 338.518,
+      "foreign_20d_sum_100m": 735.223,
+      "usdtwd": 29.342,
+      "dxy": 97.15,
+      "vix": 16.59,
+      "outflow_pressure_score": -7.245,
+      "market_temperature": 64.936,
+      "maintenance_percentile": 25.49
+    },
+    {
+      "date": "2025-06-27",
+      "taiex": 22580.08,
+      "tsmc": 1080.0,
+      "maintenance_est": 154.421,
+      "margin_balance_billion": 225.228,
+      "foreign_net_100m": 333.733,
+      "foreign_20d_sum_100m": 957.798,
+      "usdtwd": 28.819,
+      "dxy": 97.4,
+      "vix": 16.32,
+      "outflow_pressure_score": -7.572,
+      "market_temperature": 66.235,
+      "maintenance_percentile": 27.922
+    },
+    {
+      "date": "2025-06-30",
+      "taiex": 22256.02,
+      "tsmc": 1060.0,
+      "maintenance_est": 154.933,
+      "margin_balance_billion": 226.293,
+      "foreign_net_100m": -24.188,
+      "foreign_20d_sum_100m": 1472.305,
+      "usdtwd": 29.095,
+      "dxy": 96.88,
+      "vix": 16.73,
+      "outflow_pressure_score": -7.579,
+      "market_temperature": 68.763,
+      "maintenance_percentile": 33.548
+    },
+    {
+      "date": "2025-07-01",
+      "taiex": 22553.72,
+      "tsmc": 1085.0,
+      "maintenance_est": 155.655,
+      "margin_balance_billion": 225.161,
+      "foreign_net_100m": 482.513,
+      "foreign_20d_sum_100m": 2087.28,
+      "usdtwd": 29.207,
+      "dxy": 96.82,
+      "vix": 16.83,
+      "outflow_pressure_score": -7.682,
+      "market_temperature": 71.074,
+      "maintenance_percentile": 42.308
+    },
+    {
+      "date": "2025-07-02",
+      "taiex": 22577.74,
+      "tsmc": 1085.0,
+      "maintenance_est": null,
+      "margin_balance_billion": null,
+      "foreign_net_100m": 61.001,
+      "foreign_20d_sum_100m": 1944.906,
+      "usdtwd": 29.226,
+      "dxy": 96.78,
+      "vix": 16.64,
+      "outflow_pressure_score": -7.369,
+      "market_temperature": null,
+      "maintenance_percentile": null
+    },
+    {
+      "date": "2025-07-03",
+      "taiex": 22712.97,
+      "tsmc": 1090.0,
+      "maintenance_est": 157.086,
+      "margin_balance_billion": 225.841,
+      "foreign_net_100m": 296.235,
+      "foreign_20d_sum_100m": 2240.478,
+      "usdtwd": 28.968,
+      "dxy": 97.18,
+      "vix": 16.38,
+      "outflow_pressure_score": -7.458,
+      "market_temperature": 71.888,
+      "maintenance_percentile": 54.14
+    },
+    {
+      "date": "2025-07-04",
+      "taiex": 22547.5,
+      "tsmc": 1085.0,
+      "maintenance_est": 154.636,
+      "margin_balance_billion": 223.751,
+      "foreign_net_100m": 5.548,
+      "foreign_20d_sum_100m": 2382.761,
+      "usdtwd": 28.917,
+      "dxy": 97.18,
+      "vix": 16.38,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 29.747
+    },
+    {
+      "date": "2025-07-07",
+      "taiex": 22428.72,
+      "tsmc": 1080.0,
+      "maintenance_est": 153.025,
+      "margin_balance_billion": 221.554,
+      "foreign_net_100m": -55.79,
+      "foreign_20d_sum_100m": 2327.662,
+      "usdtwd": 28.901,
+      "dxy": 97.48,
+      "vix": 17.79,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 15.094
+    },
+    {
+      "date": "2025-07-08",
+      "taiex": 22362.27,
+      "tsmc": 1080.0,
+      "maintenance_est": 152.693,
+      "margin_balance_billion": 222.09,
+      "foreign_net_100m": 6.388,
+      "foreign_20d_sum_100m": 1934.793,
+      "usdtwd": 29.068,
+      "dxy": 97.51,
+      "vix": 16.81,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 13.75
+    },
+    {
+      "date": "2025-07-09",
+      "taiex": 22527.01,
+      "tsmc": 1090.0,
+      "maintenance_est": 154.617,
+      "margin_balance_billion": 222.618,
+      "foreign_net_100m": 82.493,
+      "foreign_20d_sum_100m": 1937.987,
+      "usdtwd": 29.107,
+      "dxy": 97.47,
+      "vix": 15.94,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 30.435
+    },
+    {
+      "date": "2025-07-10",
+      "taiex": 22693.25,
+      "tsmc": 1100.0,
+      "maintenance_est": 155.087,
+      "margin_balance_billion": 224.196,
+      "foreign_net_100m": 101.122,
+      "foreign_20d_sum_100m": 2035.565,
+      "usdtwd": 29.206,
+      "dxy": 97.65,
+      "vix": 15.78,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 35.802
+    },
+    {
+      "date": "2025-07-11",
+      "taiex": 22751.03,
+      "tsmc": 1100.0,
+      "maintenance_est": 155.748,
+      "margin_balance_billion": 224.059,
+      "foreign_net_100m": 170.553,
+      "foreign_20d_sum_100m": 2214.084,
+      "usdtwd": 29.243,
+      "dxy": 97.85,
+      "vix": 16.4,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 44.172
+    },
+    {
+      "date": "2025-07-14",
+      "taiex": 22614.97,
+      "tsmc": 1095.0,
+      "maintenance_est": 152.636,
+      "margin_balance_billion": 224.438,
+      "foreign_net_100m": -27.458,
+      "foreign_20d_sum_100m": 2186.626,
+      "usdtwd": 29.213,
+      "dxy": 98.08,
+      "vix": 17.2,
+      "outflow_pressure_score": -3.615,
+      "market_temperature": 68.957,
+      "maintenance_percentile": 12.805
+    },
+    {
+      "date": "2025-07-15",
+      "taiex": 22835.94,
+      "tsmc": 1110.0,
+      "maintenance_est": 154.36,
+      "margin_balance_billion": 226.723,
+      "foreign_net_100m": null,
+      "foreign_20d_sum_100m": 2124.442,
+      "usdtwd": 29.346,
+      "dxy": 98.62,
+      "vix": 17.38,
+      "outflow_pressure_score": -2.708,
+      "market_temperature": 69.042,
+      "maintenance_percentile": 27.273
+    },
+    {
+      "date": "2025-07-16",
+      "taiex": 23042.9,
+      "tsmc": 1130.0,
+      "maintenance_est": 155.176,
+      "margin_balance_billion": 226.873,
+      "foreign_net_100m": 139.045,
+      "foreign_20d_sum_100m": 2147.373,
+      "usdtwd": 29.388,
+      "dxy": 98.39,
+      "vix": 17.16,
+      "outflow_pressure_score": -3.374,
+      "market_temperature": 69.414,
+      "maintenance_percentile": 38.554
+    },
+    {
+      "date": "2025-07-17",
+      "taiex": 23113.28,
+      "tsmc": 1130.0,
+      "maintenance_est": 156.778,
+      "margin_balance_billion": 227.981,
+      "foreign_net_100m": 4.915,
+      "foreign_20d_sum_100m": 2365.273,
+      "usdtwd": 29.401,
+      "dxy": 98.73,
+      "vix": 16.52,
+      "outflow_pressure_score": -3.239,
+      "market_temperature": 71.224,
+      "maintenance_percentile": 53.293
+    },
+    {
+      "date": "2025-07-18",
+      "taiex": 23383.13,
+      "tsmc": 1155.0,
+      "maintenance_est": 158.024,
+      "margin_balance_billion": 228.111,
+      "foreign_net_100m": 310.076,
+      "foreign_20d_sum_100m": 2724.496,
+      "usdtwd": 29.403,
+      "dxy": 98.48,
+      "vix": 16.41,
+      "outflow_pressure_score": -3.521,
+      "market_temperature": 72.235,
+      "maintenance_percentile": 66.071
+    },
+    {
+      "date": "2025-07-21",
+      "taiex": 23340.56,
+      "tsmc": 1150.0,
+      "maintenance_est": 157.534,
+      "margin_balance_billion": 229.477,
+      "foreign_net_100m": 41.296,
+      "foreign_20d_sum_100m": 2914.62,
+      "usdtwd": 29.378,
+      "dxy": 97.85,
+      "vix": 16.65,
+      "outflow_pressure_score": -3.769,
+      "market_temperature": 71.908,
+      "maintenance_percentile": 62.13
+    },
+    {
+      "date": "2025-07-22",
+      "taiex": 22987.92,
+      "tsmc": 1130.0,
+      "maintenance_est": 153.713,
+      "margin_balance_billion": 224.554,
+      "foreign_net_100m": 100.245,
+      "foreign_20d_sum_100m": 2722.211,
+      "usdtwd": 29.334,
+      "dxy": 97.39,
+      "vix": 16.5,
+      "outflow_pressure_score": -3.932,
+      "market_temperature": 70.507,
+      "maintenance_percentile": 20.0
+    },
+    {
+      "date": "2025-07-23",
+      "taiex": 23318.67,
+      "tsmc": 1145.0,
+      "maintenance_est": 156.798,
+      "margin_balance_billion": 227.984,
+      "foreign_net_100m": 84.317,
+      "foreign_20d_sum_100m": 2450.562,
+      "usdtwd": 29.399,
+      "dxy": 97.21,
+      "vix": 15.37,
+      "outflow_pressure_score": -3.484,
+      "market_temperature": 71.358,
+      "maintenance_percentile": 53.801
+    },
+    {
+      "date": "2025-07-24",
+      "taiex": 23373.73,
+      "tsmc": 1145.0,
+      "maintenance_est": 159.326,
+      "margin_balance_billion": 229.227,
+      "foreign_net_100m": 101.528,
+      "foreign_20d_sum_100m": 2213.572,
+      "usdtwd": 29.234,
+      "dxy": 97.38,
+      "vix": 15.39,
+      "outflow_pressure_score": -3.298,
+      "market_temperature": 71.117,
+      "maintenance_percentile": 72.093
+    },
     {
       "date": "2025-07-25",
       "taiex": 23364.38,
@@ -143,9 +2288,9 @@
       "usdtwd": 29.391,
       "dxy": 97.65,
       "vix": 14.93,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 97.368
+      "outflow_pressure_score": -2.3,
+      "market_temperature": 69.877,
+      "maintenance_percentile": 69.364
     },
     {
       "date": "2025-07-28",
@@ -158,9 +2303,9 @@
       "usdtwd": 29.472,
       "dxy": 98.66,
       "vix": 15.03,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 100.0
+      "outflow_pressure_score": -2.217,
+      "market_temperature": 70.403,
+      "maintenance_percentile": 73.563
     },
     {
       "date": "2025-07-29",
@@ -173,9 +2318,9 @@
       "usdtwd": 29.657,
       "dxy": 98.91,
       "vix": 15.98,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 92.5
+      "outflow_pressure_score": -1.665,
+      "market_temperature": 65.149,
+      "maintenance_percentile": 68.0
     },
     {
       "date": "2025-07-30",
@@ -188,7 +2333,7 @@
       "usdtwd": 29.69,
       "dxy": 99.94,
       "vix": 15.48,
-      "outflow_pressure_score": null,
+      "outflow_pressure_score": -1.368,
       "market_temperature": null,
       "maintenance_percentile": null
     },
@@ -203,9 +2348,9 @@
       "usdtwd": 29.828,
       "dxy": 100.03,
       "vix": 16.72,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 97.561
+      "outflow_pressure_score": -0.79,
+      "market_temperature": 61.264,
+      "maintenance_percentile": 73.295
     },
     {
       "date": "2025-08-01",
@@ -218,9 +2363,9 @@
       "usdtwd": 29.906,
       "dxy": 98.69,
       "vix": 20.38,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 100.0
+      "outflow_pressure_score": -1.018,
+      "market_temperature": 60.016,
+      "maintenance_percentile": 80.226
     },
     {
       "date": "2025-08-04",
@@ -233,9 +2378,9 @@
       "usdtwd": 29.815,
       "dxy": 98.78,
       "vix": 17.52,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 93.023
+      "outflow_pressure_score": -1.164,
+      "market_temperature": 62.42,
+      "maintenance_percentile": 71.348
     },
     {
       "date": "2025-08-05",
@@ -248,9 +2393,9 @@
       "usdtwd": 29.884,
       "dxy": 98.78,
       "vix": 17.85,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 100.0
+      "outflow_pressure_score": -1.329,
+      "market_temperature": 63.852,
+      "maintenance_percentile": 81.006
     },
     {
       "date": "2025-08-06",
@@ -263,9 +2408,9 @@
       "usdtwd": 29.937,
       "dxy": 98.18,
       "vix": 16.77,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 95.556
+      "outflow_pressure_score": -1.378,
+      "market_temperature": 63.532,
+      "maintenance_percentile": 76.667
     },
     {
       "date": "2025-08-07",
@@ -278,9 +2423,9 @@
       "usdtwd": 29.915,
       "dxy": 98.4,
       "vix": 16.57,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 100.0
+      "outflow_pressure_score": -1.622,
+      "market_temperature": 66.521,
+      "maintenance_percentile": 81.768
     },
     {
       "date": "2025-08-08",
@@ -293,9 +2438,9 @@
       "usdtwd": 29.808,
       "dxy": 98.18,
       "vix": 15.15,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 100.0
+      "outflow_pressure_score": -1.709,
+      "market_temperature": 67.147,
+      "maintenance_percentile": 82.967
     },
     {
       "date": "2025-08-11",
@@ -308,9 +2453,9 @@
       "usdtwd": 29.851,
       "dxy": 98.52,
       "vix": 16.25,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 100.0
+      "outflow_pressure_score": -1.508,
+      "market_temperature": 66.065,
+      "maintenance_percentile": 83.06
     },
     {
       "date": "2025-08-12",
@@ -323,9 +2468,9 @@
       "usdtwd": 29.948,
       "dxy": 98.1,
       "vix": 14.73,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 100.0
+      "outflow_pressure_score": -1.631,
+      "market_temperature": 67.23,
+      "maintenance_percentile": 83.152
     },
     {
       "date": "2025-08-13",
@@ -338,9 +2483,9 @@
       "usdtwd": 29.878,
       "dxy": 97.84,
       "vix": 14.49,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 96.0
+      "outflow_pressure_score": -1.773,
+      "market_temperature": 67.421,
+      "maintenance_percentile": 82.162
     },
     {
       "date": "2025-08-14",
@@ -353,9 +2498,9 @@
       "usdtwd": 29.94,
       "dxy": 98.25,
       "vix": 14.83,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 94.118
+      "outflow_pressure_score": -1.556,
+      "market_temperature": 66.025,
+      "maintenance_percentile": 81.72
     },
     {
       "date": "2025-08-15",
@@ -368,7 +2513,7 @@
       "usdtwd": 30.079,
       "dxy": 97.85,
       "vix": 15.09,
-      "outflow_pressure_score": null,
+      "outflow_pressure_score": -1.371,
       "market_temperature": null,
       "maintenance_percentile": null
     },
@@ -383,9 +2528,9 @@
       "usdtwd": 29.989,
       "dxy": 98.17,
       "vix": 14.99,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 100.0
+      "outflow_pressure_score": -1.336,
+      "market_temperature": 65.191,
+      "maintenance_percentile": 86.631
     },
     {
       "date": "2025-08-19",
@@ -398,9 +2543,9 @@
       "usdtwd": 30.025,
       "dxy": 98.27,
       "vix": 15.57,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 92.453
+      "outflow_pressure_score": -1.089,
+      "market_temperature": 61.82,
+      "maintenance_percentile": 81.383
     },
     {
       "date": "2025-08-20",
@@ -413,9 +2558,9 @@
       "usdtwd": 30.107,
       "dxy": 98.22,
       "vix": 15.69,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 68.519
+      "outflow_pressure_score": -0.664,
+      "market_temperature": 54.846,
+      "maintenance_percentile": 61.905
     },
     {
       "date": "2025-08-21",
@@ -428,9 +2573,9 @@
       "usdtwd": 30.28,
       "dxy": 98.62,
       "vix": 16.6,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 85.455
+      "outflow_pressure_score": -0.063,
+      "market_temperature": 52.318,
+      "maintenance_percentile": 77.895
     },
     {
       "date": "2025-08-22",
@@ -443,9 +2588,9 @@
       "usdtwd": 30.516,
       "dxy": 97.72,
       "vix": 14.22,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 78.571
+      "outflow_pressure_score": -0.115,
+      "market_temperature": 52.362,
+      "maintenance_percentile": 70.157
     },
     {
       "date": "2025-08-25",
@@ -458,9 +2603,9 @@
       "usdtwd": 30.367,
       "dxy": 98.43,
       "vix": 14.79,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 98.246
+      "outflow_pressure_score": -0.262,
+      "market_temperature": 55.594,
+      "maintenance_percentile": 83.594
     },
     {
       "date": "2025-08-26",
@@ -473,9 +2618,9 @@
       "usdtwd": 30.444,
       "dxy": 98.23,
       "vix": 14.62,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 98.276
+      "outflow_pressure_score": -0.449,
+      "market_temperature": 56.731,
+      "maintenance_percentile": 84.974
     },
     {
       "date": "2025-08-27",
@@ -488,9 +2633,9 @@
       "usdtwd": 30.547,
       "dxy": 98.23,
       "vix": 14.85,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 100.0
+      "outflow_pressure_score": -0.279,
+      "market_temperature": 55.968,
+      "maintenance_percentile": 88.144
     },
     {
       "date": "2025-08-28",
@@ -503,9 +2648,9 @@
       "usdtwd": 30.575,
       "dxy": 97.81,
       "vix": 14.43,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 98.333
+      "outflow_pressure_score": -0.404,
+      "market_temperature": 55.548,
+      "maintenance_percentile": 86.667
     },
     {
       "date": "2025-08-29",
@@ -518,9 +2663,9 @@
       "usdtwd": 30.493,
       "dxy": 97.77,
       "vix": 15.36,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 100.0
+      "outflow_pressure_score": -0.567,
+      "market_temperature": 55.93,
+      "maintenance_percentile": 88.265
     },
     {
       "date": "2025-09-01",
@@ -533,9 +2678,9 @@
       "usdtwd": 30.56,
       "dxy": 97.77,
       "vix": 15.36,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 82.258
+      "outflow_pressure_score": -0.282,
+      "market_temperature": 52.156,
+      "maintenance_percentile": 78.68
     },
     {
       "date": "2025-09-02",
@@ -548,9 +2693,9 @@
       "usdtwd": 30.625,
       "dxy": 98.4,
       "vix": 17.17,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 79.365
+      "outflow_pressure_score": -0.077,
+      "market_temperature": 49.557,
+      "maintenance_percentile": 76.768
     },
     {
       "date": "2025-09-03",
@@ -563,9 +2708,9 @@
       "usdtwd": 30.744,
       "dxy": 98.14,
       "vix": 16.35,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 85.938
+      "outflow_pressure_score": -0.199,
+      "market_temperature": 52.14,
+      "maintenance_percentile": 79.899
     },
     {
       "date": "2025-09-04",
@@ -578,9 +2723,9 @@
       "usdtwd": 30.722,
       "dxy": 98.35,
       "vix": 15.3,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 78.462
+      "outflow_pressure_score": 0.055,
+      "market_temperature": 49.898,
+      "maintenance_percentile": 77.5
     },
     {
       "date": "2025-09-05",
@@ -593,9 +2738,9 @@
       "usdtwd": 30.694,
       "dxy": 97.77,
       "vix": 15.18,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 90.909
+      "outflow_pressure_score": -0.219,
+      "market_temperature": 53.244,
+      "maintenance_percentile": 81.592
     },
     {
       "date": "2025-09-08",
@@ -608,9 +2753,9 @@
       "usdtwd": 30.479,
       "dxy": 97.45,
       "vix": 15.11,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 92.537
+      "outflow_pressure_score": -0.688,
+      "market_temperature": 56.2,
+      "maintenance_percentile": 82.673
     },
     {
       "date": "2025-09-09",
@@ -623,9 +2768,9 @@
       "usdtwd": 30.331,
       "dxy": 97.79,
       "vix": 15.04,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 92.647
+      "outflow_pressure_score": -1.089,
+      "market_temperature": 59.722,
+      "maintenance_percentile": 83.251
     },
     {
       "date": "2025-09-10",
@@ -638,9 +2783,9 @@
       "usdtwd": 30.352,
       "dxy": 97.78,
       "vix": 15.35,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 95.652
+      "outflow_pressure_score": -1.243,
+      "market_temperature": 62.558,
+      "maintenance_percentile": 86.275
     },
     {
       "date": "2025-09-11",
@@ -653,9 +2798,9 @@
       "usdtwd": 30.237,
       "dxy": 97.54,
       "vix": 14.71,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 85.714
+      "outflow_pressure_score": -1.717,
+      "market_temperature": 65.431,
+      "maintenance_percentile": 80.0
     },
     {
       "date": "2025-09-12",
@@ -668,9 +2813,9 @@
       "usdtwd": 30.29,
       "dxy": 97.55,
       "vix": 14.76,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 84.507
+      "outflow_pressure_score": -1.76,
+      "market_temperature": 65.187,
+      "maintenance_percentile": 79.612
     },
     {
       "date": "2025-09-15",
@@ -683,9 +2828,9 @@
       "usdtwd": 30.285,
       "dxy": 97.3,
       "vix": 15.69,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 73.611
+      "outflow_pressure_score": -1.719,
+      "market_temperature": 63.872,
+      "maintenance_percentile": 75.845
     },
     {
       "date": "2025-09-16",
@@ -698,9 +2843,9 @@
       "usdtwd": 30.194,
       "dxy": 96.63,
       "vix": 16.36,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 84.932
+      "outflow_pressure_score": -2.262,
+      "market_temperature": 66.828,
+      "maintenance_percentile": 79.808
     },
     {
       "date": "2025-09-17",
@@ -713,9 +2858,9 @@
       "usdtwd": 30.047,
       "dxy": 96.87,
       "vix": 15.72,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 75.676
+      "outflow_pressure_score": -2.762,
+      "market_temperature": 69.409,
+      "maintenance_percentile": 76.555
     },
     {
       "date": "2025-09-18",
@@ -728,9 +2873,9 @@
       "usdtwd": 30.086,
       "dxy": 97.35,
       "vix": 15.7,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 88.0
+      "outflow_pressure_score": -2.88,
+      "market_temperature": 71.048,
+      "maintenance_percentile": 80.952
     },
     {
       "date": "2025-09-19",
@@ -743,9 +2888,9 @@
       "usdtwd": 30.111,
       "dxy": 97.64,
       "vix": 15.45,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 88.158
+      "outflow_pressure_score": -2.999,
+      "market_temperature": 71.189,
+      "maintenance_percentile": 81.043
     },
     {
       "date": "2025-09-22",
@@ -758,9 +2903,9 @@
       "usdtwd": 30.216,
       "dxy": 97.33,
       "vix": 16.1,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 93.506
+      "outflow_pressure_score": -2.62,
+      "market_temperature": 69.788,
+      "maintenance_percentile": 85.849
     },
     {
       "date": "2025-09-23",
@@ -773,9 +2918,9 @@
       "usdtwd": 30.218,
       "dxy": 97.26,
       "vix": 16.64,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 91.026
+      "outflow_pressure_score": -2.852,
+      "market_temperature": 70.338,
+      "maintenance_percentile": 83.099
     },
     {
       "date": "2025-09-24",
@@ -788,9 +2933,9 @@
       "usdtwd": 30.274,
       "dxy": 97.87,
       "vix": 16.18,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 81.013
+      "outflow_pressure_score": -2.644,
+      "market_temperature": 69.492,
+      "maintenance_percentile": 78.505
     },
     {
       "date": "2025-09-25",
@@ -803,9 +2948,9 @@
       "usdtwd": 30.364,
       "dxy": 98.55,
       "vix": 16.74,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 67.5
+      "outflow_pressure_score": -2.43,
+      "market_temperature": 69.034,
+      "maintenance_percentile": 73.488
     },
     {
       "date": "2025-09-26",
@@ -818,9 +2963,9 @@
       "usdtwd": 30.562,
       "dxy": 98.15,
       "vix": 15.29,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 49.383
+      "outflow_pressure_score": -2.137,
+      "market_temperature": 67.467,
+      "maintenance_percentile": 58.333
     },
     {
       "date": "2025-09-30",
@@ -833,9 +2978,9 @@
       "usdtwd": 30.458,
       "dxy": 97.77,
       "vix": 16.28,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 65.854
+      "outflow_pressure_score": -2.497,
+      "market_temperature": 68.942,
+      "maintenance_percentile": 72.811
     },
     {
       "date": "2025-10-01",
@@ -848,9 +2993,9 @@
       "usdtwd": 30.442,
       "dxy": 97.71,
       "vix": 16.29,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 67.47
+      "outflow_pressure_score": -2.614,
+      "market_temperature": 69.155,
+      "maintenance_percentile": 73.394
     },
     {
       "date": "2025-10-02",
@@ -863,9 +3008,9 @@
       "usdtwd": 30.447,
       "dxy": 97.85,
       "vix": 16.63,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 72.619
+      "outflow_pressure_score": -2.769,
+      "market_temperature": 69.821,
+      "maintenance_percentile": 75.342
     },
     {
       "date": "2025-10-03",
@@ -878,9 +3023,9 @@
       "usdtwd": 30.464,
       "dxy": 97.72,
       "vix": 16.65,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 84.706
+      "outflow_pressure_score": -2.779,
+      "market_temperature": 70.516,
+      "maintenance_percentile": 80.0
     },
     {
       "date": "2025-10-07",
@@ -893,9 +3038,9 @@
       "usdtwd": 30.51,
       "dxy": 98.58,
       "vix": 17.24,
-      "outflow_pressure_score": -0.995,
-      "market_temperature": 62.17,
-      "maintenance_percentile": 97.674
+      "outflow_pressure_score": -2.278,
+      "market_temperature": 69.831,
+      "maintenance_percentile": 87.783
     },
     {
       "date": "2025-10-08",
@@ -908,9 +3053,9 @@
       "usdtwd": 30.537,
       "dxy": 98.85,
       "vix": 16.3,
-      "outflow_pressure_score": 0.198,
-      "market_temperature": 55.953,
-      "maintenance_percentile": 94.253
+      "outflow_pressure_score": -1.764,
+      "market_temperature": 67.92,
+      "maintenance_percentile": 86.486
     },
     {
       "date": "2025-10-09",
@@ -923,9 +3068,9 @@
       "usdtwd": 30.525,
       "dxy": 99.54,
       "vix": 16.43,
-      "outflow_pressure_score": 1.761,
-      "market_temperature": 47.87,
-      "maintenance_percentile": 94.318
+      "outflow_pressure_score": -1.228,
+      "market_temperature": 64.478,
+      "maintenance_percentile": 86.547
     },
     {
       "date": "2025-10-13",
@@ -938,9 +3083,9 @@
       "usdtwd": 30.665,
       "dxy": 99.27,
       "vix": 19.03,
-      "outflow_pressure_score": 2.563,
-      "market_temperature": 36.81,
-      "maintenance_percentile": 74.157
+      "outflow_pressure_score": -0.543,
+      "market_temperature": 54.443,
+      "maintenance_percentile": 75.893
     },
     {
       "date": "2025-10-14",
@@ -953,9 +3098,9 @@
       "usdtwd": 30.691,
       "dxy": 99.05,
       "vix": 20.81,
-      "outflow_pressure_score": 2.974,
-      "market_temperature": 30.484,
-      "maintenance_percentile": 44.444
+      "outflow_pressure_score": -0.154,
+      "market_temperature": 47.811,
+      "maintenance_percentile": 54.667
     },
     {
       "date": "2025-10-15",
@@ -968,9 +3113,9 @@
       "usdtwd": 30.684,
       "dxy": 98.79,
       "vix": 20.64,
-      "outflow_pressure_score": 2.563,
-      "market_temperature": 30.691,
-      "maintenance_percentile": 56.044
+      "outflow_pressure_score": -0.201,
+      "market_temperature": 48.415,
+      "maintenance_percentile": 67.257
     },
     {
       "date": "2025-10-16",
@@ -983,9 +3128,9 @@
       "usdtwd": 30.61,
       "dxy": 98.39,
       "vix": 25.31,
-      "outflow_pressure_score": 1.704,
-      "market_temperature": 31.08,
-      "maintenance_percentile": 76.087
+      "outflow_pressure_score": -0.451,
+      "market_temperature": 48.225,
+      "maintenance_percentile": 76.652
     },
     {
       "date": "2025-10-17",
@@ -998,9 +3143,9 @@
       "usdtwd": 30.612,
       "dxy": 98.43,
       "vix": 20.78,
-      "outflow_pressure_score": 2.395,
-      "market_temperature": 28.778,
-      "maintenance_percentile": 59.14
+      "outflow_pressure_score": -0.039,
+      "market_temperature": 46.442,
+      "maintenance_percentile": 69.737
     },
     {
       "date": "2025-10-20",
@@ -1013,9 +3158,9 @@
       "usdtwd": 30.622,
       "dxy": 98.59,
       "vix": 18.23,
-      "outflow_pressure_score": 2.773,
-      "market_temperature": 32.665,
-      "maintenance_percentile": 81.915
+      "outflow_pressure_score": 0.062,
+      "market_temperature": 49.275,
+      "maintenance_percentile": 79.039
     },
     {
       "date": "2025-10-21",
@@ -1028,9 +3173,9 @@
       "usdtwd": 30.597,
       "dxy": 98.93,
       "vix": 17.87,
-      "outflow_pressure_score": 3.187,
-      "market_temperature": 32.682,
-      "maintenance_percentile": 89.474
+      "outflow_pressure_score": 0.163,
+      "market_temperature": 48.987,
+      "maintenance_percentile": 83.478
     },
     {
       "date": "2025-10-22",
@@ -1043,9 +3188,9 @@
       "usdtwd": 30.677,
       "dxy": 98.9,
       "vix": 18.6,
-      "outflow_pressure_score": 3.281,
-      "market_temperature": 31.931,
-      "maintenance_percentile": 87.5
+      "outflow_pressure_score": 0.254,
+      "market_temperature": 47.819,
+      "maintenance_percentile": 82.251
     },
     {
       "date": "2025-10-23",
@@ -1058,9 +3203,9 @@
       "usdtwd": 30.745,
       "dxy": 98.94,
       "vix": 17.3,
-      "outflow_pressure_score": 3.346,
-      "market_temperature": 31.337,
-      "maintenance_percentile": 78.351
+      "outflow_pressure_score": 0.328,
+      "market_temperature": 47.068,
+      "maintenance_percentile": 77.586
     },
     {
       "date": "2025-10-27",
@@ -1073,9 +3218,9 @@
       "usdtwd": 30.833,
       "dxy": 98.78,
       "vix": 15.79,
-      "outflow_pressure_score": 3.076,
-      "market_temperature": 35.155,
-      "maintenance_percentile": 97.959
+      "outflow_pressure_score": 0.242,
+      "market_temperature": 50.548,
+      "maintenance_percentile": 89.27
     },
     {
       "date": "2025-10-28",
@@ -1088,9 +3233,9 @@
       "usdtwd": 30.601,
       "dxy": 98.69,
       "vix": 16.42,
-      "outflow_pressure_score": 2.352,
-      "market_temperature": 34.092,
-      "maintenance_percentile": 98.99
+      "outflow_pressure_score": -0.014,
+      "market_temperature": 50.528,
+      "maintenance_percentile": 89.744
     },
     {
       "date": "2025-10-29",
@@ -1103,9 +3248,9 @@
       "usdtwd": 30.543,
       "dxy": 99.22,
       "vix": 16.92,
-      "outflow_pressure_score": 2.658,
-      "market_temperature": 34.889,
-      "maintenance_percentile": 100.0
+      "outflow_pressure_score": -0.069,
+      "market_temperature": 51.199,
+      "maintenance_percentile": 91.915
     },
     {
       "date": "2025-10-30",
@@ -1118,9 +3263,9 @@
       "usdtwd": 30.665,
       "dxy": 99.53,
       "vix": 16.91,
-      "outflow_pressure_score": 2.625,
-      "market_temperature": 36.536,
-      "maintenance_percentile": 99.01
+      "outflow_pressure_score": -0.228,
+      "market_temperature": 52.792,
+      "maintenance_percentile": 90.254
     },
     {
       "date": "2025-10-31",
@@ -1133,9 +3278,9 @@
       "usdtwd": 30.731,
       "dxy": 99.8,
       "vix": 17.44,
-      "outflow_pressure_score": 3.613,
-      "market_temperature": 34.334,
-      "maintenance_percentile": 99.02
+      "outflow_pressure_score": 0.252,
+      "market_temperature": 49.283,
+      "maintenance_percentile": 91.561
     },
     {
       "date": "2025-11-03",
@@ -1148,9 +3293,9 @@
       "usdtwd": 30.782,
       "dxy": 99.87,
       "vix": 17.17,
-      "outflow_pressure_score": 3.942,
-      "market_temperature": 33.654,
-      "maintenance_percentile": 100.0
+      "outflow_pressure_score": 0.475,
+      "market_temperature": 47.933,
+      "maintenance_percentile": 93.277
     },
     {
       "date": "2025-11-04",
@@ -1163,9 +3308,9 @@
       "usdtwd": 30.903,
       "dxy": 100.22,
       "vix": 19.0,
-      "outflow_pressure_score": 4.8,
-      "market_temperature": 29.399,
-      "maintenance_percentile": 80.769
+      "outflow_pressure_score": 0.893,
+      "market_temperature": 42.362,
+      "maintenance_percentile": 79.498
     },
     {
       "date": "2025-11-05",
@@ -1178,9 +3323,9 @@
       "usdtwd": 30.919,
       "dxy": 100.2,
       "vix": 18.01,
-      "outflow_pressure_score": 5.212,
-      "market_temperature": 28.941,
-      "maintenance_percentile": 74.286
+      "outflow_pressure_score": 1.339,
+      "market_temperature": 37.462,
+      "maintenance_percentile": 75.833
     },
     {
       "date": "2025-11-06",
@@ -1193,9 +3338,9 @@
       "usdtwd": 30.893,
       "dxy": 99.73,
       "vix": 19.5,
-      "outflow_pressure_score": 4.353,
-      "market_temperature": 29.314,
-      "maintenance_percentile": 92.453
+      "outflow_pressure_score": 1.153,
+      "market_temperature": 38.312,
+      "maintenance_percentile": 87.137
     },
     {
       "date": "2025-11-07",
@@ -1208,9 +3353,9 @@
       "usdtwd": 30.979,
       "dxy": 99.6,
       "vix": 19.08,
-      "outflow_pressure_score": 4.381,
-      "market_temperature": 28.418,
-      "maintenance_percentile": 74.766
+      "outflow_pressure_score": 1.303,
+      "market_temperature": 35.925,
+      "maintenance_percentile": 76.033
     },
     {
       "date": "2025-11-10",
@@ -1223,9 +3368,9 @@
       "usdtwd": 30.967,
       "dxy": 99.62,
       "vix": 17.6,
-      "outflow_pressure_score": 4.36,
-      "market_temperature": 30.005,
-      "maintenance_percentile": 87.037
+      "outflow_pressure_score": 1.361,
+      "market_temperature": 36.909,
+      "maintenance_percentile": 83.951
     },
     {
       "date": "2025-11-11",
@@ -1238,9 +3383,9 @@
       "usdtwd": 30.967,
       "dxy": 99.46,
       "vix": 17.28,
-      "outflow_pressure_score": 3.433,
-      "market_temperature": 30.093,
-      "maintenance_percentile": 85.321
+      "outflow_pressure_score": 0.913,
+      "market_temperature": 40.513,
+      "maintenance_percentile": 83.197
     },
     {
       "date": "2025-11-12",
@@ -1253,9 +3398,9 @@
       "usdtwd": 30.964,
       "dxy": 99.48,
       "vix": 17.51,
-      "outflow_pressure_score": 3.256,
-      "market_temperature": 30.307,
-      "maintenance_percentile": 91.818
+      "outflow_pressure_score": 0.834,
+      "market_temperature": 41.422,
+      "maintenance_percentile": 86.531
     },
     {
       "date": "2025-11-13",
@@ -1268,9 +3413,9 @@
       "usdtwd": 31.064,
       "dxy": 99.18,
       "vix": 20.0,
-      "outflow_pressure_score": 3.04,
-      "market_temperature": 29.589,
-      "maintenance_percentile": 91.892
+      "outflow_pressure_score": 0.81,
+      "market_temperature": 40.65,
+      "maintenance_percentile": 86.992
     },
     {
       "date": "2025-11-14",
@@ -1283,9 +3428,9 @@
       "usdtwd": 31.125,
       "dxy": 99.27,
       "vix": 19.83,
-      "outflow_pressure_score": 3.939,
-      "market_temperature": 27.632,
-      "maintenance_percentile": 62.5
+      "outflow_pressure_score": 1.429,
+      "market_temperature": 33.633,
+      "maintenance_percentile": 70.445
     },
     {
       "date": "2025-11-17",
@@ -1298,9 +3443,9 @@
       "usdtwd": 30.555,
       "dxy": 99.59,
       "vix": 22.38,
-      "outflow_pressure_score": 2.602,
-      "market_temperature": 26.249,
-      "maintenance_percentile": 63.717
+      "outflow_pressure_score": 0.695,
+      "market_temperature": 36.423,
+      "maintenance_percentile": 70.968
     },
     {
       "date": "2025-11-18",
@@ -1313,9 +3458,9 @@
       "usdtwd": 31.175,
       "dxy": 99.55,
       "vix": 24.69,
-      "outflow_pressure_score": 4.432,
-      "market_temperature": 22.815,
-      "maintenance_percentile": 35.088
+      "outflow_pressure_score": 1.734,
+      "market_temperature": 26.336,
+      "maintenance_percentile": 49.398
     },
     {
       "date": "2025-11-19",
@@ -1328,9 +3473,9 @@
       "usdtwd": 31.103,
       "dxy": 100.23,
       "vix": 23.66,
-      "outflow_pressure_score": 5.148,
-      "market_temperature": 22.972,
-      "maintenance_percentile": 31.304
+      "outflow_pressure_score": 2.015,
+      "market_temperature": 24.479,
+      "maintenance_percentile": 44.4
     },
     {
       "date": "2025-11-20",
@@ -1343,9 +3488,9 @@
       "usdtwd": 31.183,
       "dxy": 100.16,
       "vix": 26.42,
-      "outflow_pressure_score": 4.704,
-      "market_temperature": 22.882,
-      "maintenance_percentile": 45.69
+      "outflow_pressure_score": 1.764,
+      "market_temperature": 26.986,
+      "maintenance_percentile": 61.355
     },
     {
       "date": "2025-11-21",
@@ -1358,9 +3503,9 @@
       "usdtwd": 31.352,
       "dxy": 100.18,
       "vix": 23.43,
-      "outflow_pressure_score": 5.28,
-      "market_temperature": 22.011,
-      "maintenance_percentile": 17.949
+      "outflow_pressure_score": 2.263,
+      "market_temperature": 22.36,
+      "maintenance_percentile": 23.016
     },
     {
       "date": "2025-11-24",
@@ -1373,9 +3518,9 @@
       "usdtwd": 31.339,
       "dxy": 100.14,
       "vix": 20.52,
-      "outflow_pressure_score": 5.201,
+      "outflow_pressure_score": 2.479,
       "market_temperature": 24.314,
-      "maintenance_percentile": 27.119
+      "maintenance_percentile": 35.178
     },
     {
       "date": "2025-11-25",
@@ -1388,9 +3533,9 @@
       "usdtwd": 31.426,
       "dxy": 99.66,
       "vix": 18.56,
-      "outflow_pressure_score": 5.167,
+      "outflow_pressure_score": 2.479,
       "market_temperature": 26.683,
-      "maintenance_percentile": 42.017
+      "maintenance_percentile": 54.724
     },
     {
       "date": "2025-11-26",
@@ -1403,9 +3548,9 @@
       "usdtwd": 31.388,
       "dxy": 99.6,
       "vix": 17.19,
-      "outflow_pressure_score": 5.013,
+      "outflow_pressure_score": 2.431,
       "market_temperature": 28.346,
-      "maintenance_percentile": 50.0
+      "maintenance_percentile": 63.922
     },
     {
       "date": "2025-11-27",
@@ -1418,9 +3563,9 @@
       "usdtwd": 31.249,
       "dxy": 99.6,
       "vix": 17.19,
-      "outflow_pressure_score": 4.176,
-      "market_temperature": 29.161,
-      "maintenance_percentile": 64.463
+      "outflow_pressure_score": 2.045,
+      "market_temperature": 29.756,
+      "maintenance_percentile": 71.094
     },
     {
       "date": "2025-11-28",
@@ -1433,9 +3578,9 @@
       "usdtwd": 31.315,
       "dxy": 99.46,
       "vix": 16.35,
-      "outflow_pressure_score": 3.893,
-      "market_temperature": 30.196,
-      "maintenance_percentile": 78.689
+      "outflow_pressure_score": 1.934,
+      "market_temperature": 31.583,
+      "maintenance_percentile": 78.21
     },
     {
       "date": "2025-12-01",
@@ -1448,9 +3593,9 @@
       "usdtwd": 31.377,
       "dxy": 99.41,
       "vix": 17.24,
-      "outflow_pressure_score": 3.881,
-      "market_temperature": 29.12,
-      "maintenance_percentile": 63.415
+      "outflow_pressure_score": 2.002,
+      "market_temperature": 29.747,
+      "maintenance_percentile": 70.543
     },
     {
       "date": "2025-12-02",
@@ -1463,9 +3608,9 @@
       "usdtwd": 31.396,
       "dxy": 99.36,
       "vix": 16.59,
-      "outflow_pressure_score": 3.378,
-      "market_temperature": 29.487,
-      "maintenance_percentile": 62.903
+      "outflow_pressure_score": 1.735,
+      "market_temperature": 32.154,
+      "maintenance_percentile": 70.27
     },
     {
       "date": "2025-12-03",
@@ -1478,9 +3623,9 @@
       "usdtwd": 31.402,
       "dxy": 98.85,
       "vix": 16.08,
-      "outflow_pressure_score": 2.348,
-      "market_temperature": 32.316,
-      "maintenance_percentile": 67.2
+      "outflow_pressure_score": 1.149,
+      "market_temperature": 37.947,
+      "maintenance_percentile": 72.308
     },
     {
       "date": "2025-12-04",
@@ -1493,9 +3638,9 @@
       "usdtwd": 31.315,
       "dxy": 98.99,
       "vix": 15.78,
-      "outflow_pressure_score": 2.235,
-      "market_temperature": 33.228,
-      "maintenance_percentile": 64.286
+      "outflow_pressure_score": 1.031,
+      "market_temperature": 39.22,
+      "maintenance_percentile": 70.881
     },
     {
       "date": "2025-12-05",
@@ -1508,9 +3653,9 @@
       "usdtwd": 31.365,
       "dxy": 98.99,
       "vix": 15.41,
-      "outflow_pressure_score": 1.73,
-      "market_temperature": 37.92,
-      "maintenance_percentile": 75.591
+      "outflow_pressure_score": 0.585,
+      "market_temperature": 44.613,
+      "maintenance_percentile": 76.336
     },
     {
       "date": "2025-12-08",
@@ -1523,9 +3668,9 @@
       "usdtwd": 31.274,
       "dxy": 99.09,
       "vix": 16.66,
-      "outflow_pressure_score": 1.517,
-      "market_temperature": 39.405,
-      "maintenance_percentile": 85.938
+      "outflow_pressure_score": 0.419,
+      "market_temperature": 45.911,
+      "maintenance_percentile": 83.65
     },
     {
       "date": "2025-12-09",
@@ -1538,9 +3683,9 @@
       "usdtwd": 31.165,
       "dxy": 99.22,
       "vix": 16.93,
-      "outflow_pressure_score": 1.301,
-      "market_temperature": 40.604,
-      "maintenance_percentile": 86.822
+      "outflow_pressure_score": 0.273,
+      "market_temperature": 46.827,
+      "maintenance_percentile": 84.091
     },
     {
       "date": "2025-12-10",
@@ -1553,9 +3698,9 @@
       "usdtwd": 31.151,
       "dxy": 98.79,
       "vix": 15.77,
-      "outflow_pressure_score": 0.633,
-      "market_temperature": 44.983,
-      "maintenance_percentile": 86.923
+      "outflow_pressure_score": -0.024,
+      "market_temperature": 49.824,
+      "maintenance_percentile": 84.151
     },
     {
       "date": "2025-12-11",
@@ -1568,9 +3713,9 @@
       "usdtwd": 31.077,
       "dxy": 98.35,
       "vix": 14.85,
-      "outflow_pressure_score": -0.254,
-      "market_temperature": 48.02,
-      "maintenance_percentile": 80.153
+      "outflow_pressure_score": -0.283,
+      "market_temperature": 50.485,
+      "maintenance_percentile": 79.323
     },
     {
       "date": "2025-12-12",
@@ -1583,9 +3728,9 @@
       "usdtwd": 31.18,
       "dxy": 98.4,
       "vix": 15.74,
-      "outflow_pressure_score": -0.5,
-      "market_temperature": 52.066,
-      "maintenance_percentile": 88.636
+      "outflow_pressure_score": -0.645,
+      "market_temperature": 55.039,
+      "maintenance_percentile": 85.019
     },
     {
       "date": "2025-12-15",
@@ -1598,9 +3743,9 @@
       "usdtwd": 31.32,
       "dxy": 98.15,
       "vix": 16.5,
-      "outflow_pressure_score": 1.432,
-      "market_temperature": 41.474,
-      "maintenance_percentile": 73.684
+      "outflow_pressure_score": 0.414,
+      "market_temperature": 47.66,
+      "maintenance_percentile": 75.373
     },
     {
       "date": "2025-12-16",
@@ -1613,9 +3758,9 @@
       "usdtwd": 31.329,
       "dxy": 98.15,
       "vix": 16.48,
-      "outflow_pressure_score": -0.167,
-      "market_temperature": 45.645,
-      "maintenance_percentile": 44.03
+      "outflow_pressure_score": -0.23,
+      "market_temperature": 48.234,
+      "maintenance_percentile": 59.851
     },
     {
       "date": "2025-12-17",
@@ -1628,9 +3773,9 @@
       "usdtwd": 31.469,
       "dxy": 98.37,
       "vix": 17.62,
-      "outflow_pressure_score": 0.698,
-      "market_temperature": 41.482,
-      "maintenance_percentile": 45.185
+      "outflow_pressure_score": 0.135,
+      "market_temperature": 45.922,
+      "maintenance_percentile": 60.741
     },
     {
       "date": "2025-12-18",
@@ -1643,9 +3788,9 @@
       "usdtwd": 31.632,
       "dxy": 98.43,
       "vix": 16.87,
-      "outflow_pressure_score": 1.196,
-      "market_temperature": 38.014,
-      "maintenance_percentile": 40.441
+      "outflow_pressure_score": 0.47,
+      "market_temperature": 43.014,
+      "maintenance_percentile": 57.565
     },
     {
       "date": "2025-12-19",
@@ -1658,9 +3803,9 @@
       "usdtwd": 31.514,
       "dxy": 98.6,
       "vix": 14.91,
-      "outflow_pressure_score": 0.12,
-      "market_temperature": 47.895,
-      "maintenance_percentile": 51.825
+      "outflow_pressure_score": -0.31,
+      "market_temperature": 51.832,
+      "maintenance_percentile": 64.338
     },
     {
       "date": "2025-12-22",
@@ -1673,9 +3818,9 @@
       "usdtwd": 31.504,
       "dxy": 98.29,
       "vix": 14.08,
-      "outflow_pressure_score": -0.516,
-      "market_temperature": 53.888,
-      "maintenance_percentile": 77.536
+      "outflow_pressure_score": -0.688,
+      "market_temperature": 56.876,
+      "maintenance_percentile": 78.022
     },
     {
       "date": "2025-12-23",
@@ -1688,9 +3833,9 @@
       "usdtwd": 31.532,
       "dxy": 97.94,
       "vix": 14.0,
-      "outflow_pressure_score": -0.994,
-      "market_temperature": 55.123,
-      "maintenance_percentile": 76.978
+      "outflow_pressure_score": -0.773,
+      "market_temperature": 56.617,
+      "maintenance_percentile": 77.737
     },
     {
       "date": "2025-12-24",
@@ -1703,9 +3848,9 @@
       "usdtwd": 31.49,
       "dxy": 97.98,
       "vix": 13.47,
-      "outflow_pressure_score": -0.864,
-      "market_temperature": 54.634,
-      "maintenance_percentile": 83.571
+      "outflow_pressure_score": -0.665,
+      "market_temperature": 56.18,
+      "maintenance_percentile": 82.545
     },
     {
       "date": "2025-12-26",
@@ -1718,9 +3863,9 @@
       "usdtwd": 31.57,
       "dxy": 98.02,
       "vix": 13.6,
-      "outflow_pressure_score": -0.194,
-      "market_temperature": 52.159,
-      "maintenance_percentile": 91.489
+      "outflow_pressure_score": -0.365,
+      "market_temperature": 55.049,
+      "maintenance_percentile": 86.594
     },
     {
       "date": "2025-12-29",
@@ -1733,9 +3878,9 @@
       "usdtwd": 31.38,
       "dxy": 98.04,
       "vix": 14.2,
-      "outflow_pressure_score": -1.018,
-      "market_temperature": 56.292,
-      "maintenance_percentile": 92.958
+      "outflow_pressure_score": -0.799,
+      "market_temperature": 57.676,
+      "maintenance_percentile": 88.087
     },
     {
       "date": "2025-12-30",
@@ -1748,9 +3893,9 @@
       "usdtwd": 31.318,
       "dxy": 98.24,
       "vix": 14.33,
-      "outflow_pressure_score": -1.268,
-      "market_temperature": 58.569,
-      "maintenance_percentile": 97.203
+      "outflow_pressure_score": -1.026,
+      "market_temperature": 59.834,
+      "maintenance_percentile": 90.647
     },
     {
       "date": "2025-12-31",
@@ -1763,9 +3908,9 @@
       "usdtwd": 31.244,
       "dxy": 98.28,
       "vix": 14.95,
-      "outflow_pressure_score": -1.375,
-      "market_temperature": 58.21,
-      "maintenance_percentile": 97.917
+      "outflow_pressure_score": -1.026,
+      "market_temperature": 59.038,
+      "maintenance_percentile": 91.398
     },
     {
       "date": "2026-01-02",
@@ -1778,9 +3923,9 @@
       "usdtwd": 31.303,
       "dxy": 98.42,
       "vix": 14.51,
-      "outflow_pressure_score": -1.028,
-      "market_temperature": 57.696,
-      "maintenance_percentile": 100.0
+      "outflow_pressure_score": -0.886,
+      "market_temperature": 59.251,
+      "maintenance_percentile": 96.786
     },
     {
       "date": "2026-01-05",
@@ -1793,9 +3938,9 @@
       "usdtwd": 31.359,
       "dxy": 98.27,
       "vix": 14.9,
-      "outflow_pressure_score": -0.717,
-      "market_temperature": 55.667,
-      "maintenance_percentile": 100.0
+      "outflow_pressure_score": -0.656,
+      "market_temperature": 57.475,
+      "maintenance_percentile": 97.509
     },
     {
       "date": "2026-01-06",
@@ -1808,8 +3953,8 @@
       "usdtwd": 31.475,
       "dxy": 98.58,
       "vix": 14.75,
-      "outflow_pressure_score": 0.021,
-      "market_temperature": 52.747,
+      "outflow_pressure_score": -0.279,
+      "market_temperature": 55.844,
       "maintenance_percentile": 100.0
     },
     {
@@ -1823,8 +3968,8 @@
       "usdtwd": 31.492,
       "dxy": 98.68,
       "vix": 15.38,
-      "outflow_pressure_score": 0.677,
-      "market_temperature": 48.175,
+      "outflow_pressure_score": 0.137,
+      "market_temperature": 52.087,
       "maintenance_percentile": 100.0
     },
     {
@@ -1838,9 +3983,9 @@
       "usdtwd": 31.449,
       "dxy": 98.93,
       "vix": 15.45,
-      "outflow_pressure_score": 1.123,
-      "market_temperature": 45.865,
-      "maintenance_percentile": 98.658
+      "outflow_pressure_score": 0.27,
+      "market_temperature": 50.882,
+      "maintenance_percentile": 98.239
     },
     {
       "date": "2026-01-09",
@@ -1853,9 +3998,9 @@
       "usdtwd": 31.545,
       "dxy": 99.13,
       "vix": 14.49,
-      "outflow_pressure_score": 1.81,
-      "market_temperature": 42.133,
-      "maintenance_percentile": 96.667
+      "outflow_pressure_score": 0.632,
+      "market_temperature": 48.244,
+      "maintenance_percentile": 95.088
     },
     {
       "date": "2026-01-12",
@@ -1868,9 +4013,9 @@
       "usdtwd": 31.593,
       "dxy": 98.86,
       "vix": 15.12,
-      "outflow_pressure_score": 1.776,
-      "market_temperature": 43.436,
-      "maintenance_percentile": 98.675
+      "outflow_pressure_score": 0.668,
+      "market_temperature": 49.131,
+      "maintenance_percentile": 99.301
     },
     {
       "date": "2026-01-13",
@@ -1883,9 +4028,9 @@
       "usdtwd": 31.57,
       "dxy": 99.13,
       "vix": 15.98,
-      "outflow_pressure_score": 1.745,
-      "market_temperature": 42.759,
-      "maintenance_percentile": 98.026
+      "outflow_pressure_score": 0.629,
+      "market_temperature": 48.333,
+      "maintenance_percentile": 98.606
     },
     {
       "date": "2026-01-14",
@@ -1898,8 +4043,8 @@
       "usdtwd": 31.617,
       "dxy": 99.13,
       "vix": 16.75,
-      "outflow_pressure_score": 1.125,
-      "market_temperature": 48.017,
+      "outflow_pressure_score": 0.171,
+      "market_temperature": 52.973,
       "maintenance_percentile": 100.0
     },
     {
@@ -1913,9 +4058,9 @@
       "usdtwd": 31.511,
       "dxy": 99.32,
       "vix": 15.84,
-      "outflow_pressure_score": 0.694,
-      "market_temperature": 52.463,
-      "maintenance_percentile": 98.701
+      "outflow_pressure_score": -0.241,
+      "market_temperature": 57.388,
+      "maintenance_percentile": 99.308
     },
     {
       "date": "2026-01-16",
@@ -1928,8 +4073,8 @@
       "usdtwd": 31.564,
       "dxy": 99.39,
       "vix": 15.86,
-      "outflow_pressure_score": 0.102,
-      "market_temperature": 58.791,
+      "outflow_pressure_score": -0.768,
+      "market_temperature": 63.632,
       "maintenance_percentile": 100.0
     },
     {
@@ -1943,8 +4088,8 @@
       "usdtwd": 31.608,
       "dxy": 99.39,
       "vix": 15.86,
-      "outflow_pressure_score": -0.219,
-      "market_temperature": 60.954,
+      "outflow_pressure_score": -0.886,
+      "market_temperature": 64.994,
       "maintenance_percentile": 100.0
     },
     {
@@ -1958,9 +4103,9 @@
       "usdtwd": 31.549,
       "dxy": 98.64,
       "vix": 20.09,
-      "outflow_pressure_score": -0.933,
-      "market_temperature": 61.028,
-      "maintenance_percentile": 99.363
+      "outflow_pressure_score": -1.019,
+      "market_temperature": 62.833,
+      "maintenance_percentile": 99.658
     },
     {
       "date": "2026-01-21",
@@ -1973,9 +4118,9 @@
       "usdtwd": 31.682,
       "dxy": 98.76,
       "vix": 16.9,
-      "outflow_pressure_score": -0.003,
-      "market_temperature": 54.544,
-      "maintenance_percentile": 96.203
+      "outflow_pressure_score": -0.385,
+      "market_temperature": 57.13,
+      "maintenance_percentile": 97.952
     },
     {
       "date": "2026-01-22",
@@ -1988,9 +4133,9 @@
       "usdtwd": 31.64,
       "dxy": 98.36,
       "vix": 15.64,
-      "outflow_pressure_score": -0.839,
-      "market_temperature": 60.673,
-      "maintenance_percentile": 98.742
+      "outflow_pressure_score": -0.753,
+      "market_temperature": 61.564,
+      "maintenance_percentile": 99.32
     },
     {
       "date": "2026-01-23",
@@ -2003,9 +4148,9 @@
       "usdtwd": 31.584,
       "dxy": 97.6,
       "vix": 16.09,
-      "outflow_pressure_score": -1.945,
-      "market_temperature": 65.793,
-      "maintenance_percentile": 98.75
+      "outflow_pressure_score": -1.167,
+      "market_temperature": 64.164,
+      "maintenance_percentile": 99.322
     },
     {
       "date": "2026-01-26",
@@ -2018,9 +4163,9 @@
       "usdtwd": 31.371,
       "dxy": 97.04,
       "vix": 16.15,
-      "outflow_pressure_score": -3.339,
-      "market_temperature": 66.283,
-      "maintenance_percentile": 98.758
+      "outflow_pressure_score": -1.594,
+      "market_temperature": 65.967,
+      "maintenance_percentile": 99.324
     },
     {
       "date": "2026-01-27",
@@ -2033,9 +4178,9 @@
       "usdtwd": 31.441,
       "dxy": 96.22,
       "vix": 16.35,
-      "outflow_pressure_score": -3.614,
-      "market_temperature": 66.669,
-      "maintenance_percentile": 98.148
+      "outflow_pressure_score": -1.626,
+      "market_temperature": 66.501,
+      "maintenance_percentile": 98.99
     },
     {
       "date": "2026-01-28",
@@ -2048,8 +4193,8 @@
       "usdtwd": 31.11,
       "dxy": 96.45,
       "vix": 16.35,
-      "outflow_pressure_score": -4.185,
-      "market_temperature": 68.953,
+      "outflow_pressure_score": -2.036,
+      "market_temperature": 70.289,
       "maintenance_percentile": 100.0
     },
     {
@@ -2063,9 +4208,9 @@
       "usdtwd": 31.27,
       "dxy": 96.28,
       "vix": 16.88,
-      "outflow_pressure_score": -3.764,
-      "market_temperature": 68.364,
-      "maintenance_percentile": 98.171
+      "outflow_pressure_score": -1.909,
+      "market_temperature": 69.397,
+      "maintenance_percentile": 98.997
     },
     {
       "date": "2026-01-30",
@@ -2078,9 +4223,9 @@
       "usdtwd": 31.362,
       "dxy": 96.99,
       "vix": 17.44,
-      "outflow_pressure_score": -2.462,
-      "market_temperature": 64.57,
-      "maintenance_percentile": 96.364
+      "outflow_pressure_score": -1.234,
+      "market_temperature": 62.77,
+      "maintenance_percentile": 98.0
     },
     {
       "date": "2026-02-02",
@@ -2093,9 +4238,9 @@
       "usdtwd": 31.583,
       "dxy": 97.61,
       "vix": 16.34,
-      "outflow_pressure_score": -1.05,
-      "market_temperature": 57.747,
-      "maintenance_percentile": 89.157
+      "outflow_pressure_score": -0.59,
+      "market_temperature": 56.9,
+      "maintenance_percentile": 92.691
     },
     {
       "date": "2026-02-03",
@@ -2108,9 +4253,9 @@
       "usdtwd": 31.577,
       "dxy": 97.44,
       "vix": 18.0,
-      "outflow_pressure_score": -1.599,
-      "market_temperature": 59.761,
-      "maintenance_percentile": 90.419
+      "outflow_pressure_score": -0.809,
+      "market_temperature": 57.678,
+      "maintenance_percentile": 94.702
     },
     {
       "date": "2026-02-04",
@@ -2123,9 +4268,9 @@
       "usdtwd": 31.573,
       "dxy": 97.62,
       "vix": 18.64,
-      "outflow_pressure_score": -1.691,
-      "market_temperature": 62.843,
-      "maintenance_percentile": 95.238
+      "outflow_pressure_score": -1.046,
+      "market_temperature": 61.454,
+      "maintenance_percentile": 97.36
     },
     {
       "date": "2026-02-05",
@@ -2138,9 +4283,9 @@
       "usdtwd": 31.657,
       "dxy": 97.82,
       "vix": 21.77,
-      "outflow_pressure_score": -0.676,
-      "market_temperature": 51.938,
-      "maintenance_percentile": 87.574
+      "outflow_pressure_score": -0.365,
+      "market_temperature": 51.487,
+      "maintenance_percentile": 91.118
     },
     {
       "date": "2026-02-06",
@@ -2153,9 +4298,9 @@
       "usdtwd": 31.649,
       "dxy": 97.63,
       "vix": 20.37,
-      "outflow_pressure_score": -1.185,
-      "market_temperature": 53.304,
-      "maintenance_percentile": 77.647
+      "outflow_pressure_score": -0.55,
+      "market_temperature": 51.638,
+      "maintenance_percentile": 80.0
     },
     {
       "date": "2026-02-09",
@@ -2168,9 +4313,9 @@
       "usdtwd": 31.575,
       "dxy": 96.82,
       "vix": 17.36,
-      "outflow_pressure_score": -2.646,
-      "market_temperature": 61.193,
-      "maintenance_percentile": 87.719
+      "outflow_pressure_score": -1.174,
+      "market_temperature": 58.955,
+      "maintenance_percentile": 91.176
     },
     {
       "date": "2026-02-10",
@@ -2183,9 +4328,9 @@
       "usdtwd": 31.561,
       "dxy": 96.8,
       "vix": 17.79,
-      "outflow_pressure_score": -2.854,
-      "market_temperature": 63.214,
-      "maintenance_percentile": 88.953
+      "outflow_pressure_score": -1.424,
+      "market_temperature": 62.058,
+      "maintenance_percentile": 93.485
     },
     {
       "date": "2026-02-11",
@@ -2198,9 +4343,9 @@
       "usdtwd": 31.479,
       "dxy": 96.83,
       "vix": 17.65,
-      "outflow_pressure_score": -3.382,
-      "market_temperature": 65.506,
-      "maintenance_percentile": 90.751
+      "outflow_pressure_score": -1.81,
+      "market_temperature": 65.91,
+      "maintenance_percentile": 94.805
     },
     {
       "date": "2026-02-23",
@@ -2213,9 +4358,9 @@
       "usdtwd": 31.511,
       "dxy": 97.7,
       "vix": 21.01,
-      "outflow_pressure_score": -2.063,
-      "market_temperature": 65.255,
-      "maintenance_percentile": 96.552
+      "outflow_pressure_score": -1.437,
+      "market_temperature": 64.269,
+      "maintenance_percentile": 98.058
     },
     {
       "date": "2026-02-24",
@@ -2228,8 +4373,8 @@
       "usdtwd": 31.435,
       "dxy": 97.88,
       "vix": 19.55,
-      "outflow_pressure_score": -2.344,
-      "market_temperature": 68.93,
+      "outflow_pressure_score": -1.671,
+      "market_temperature": 68.874,
       "maintenance_percentile": 100.0
     },
     {
@@ -2243,8 +4388,8 @@
       "usdtwd": 31.377,
       "dxy": 97.7,
       "vix": 17.93,
-      "outflow_pressure_score": -3.222,
-      "market_temperature": 73.197,
+      "outflow_pressure_score": -2.279,
+      "market_temperature": 74.569,
       "maintenance_percentile": 100.0
     },
     {
@@ -2258,8 +4403,8 @@
       "usdtwd": 31.269,
       "dxy": 97.79,
       "vix": 18.63,
-      "outflow_pressure_score": -3.189,
-      "market_temperature": 72.854,
+      "outflow_pressure_score": -2.251,
+      "market_temperature": 74.176,
       "maintenance_percentile": 100.0
     },
     {
@@ -2273,9 +4418,9 @@
       "usdtwd": 31.375,
       "dxy": 98.38,
       "vix": 21.44,
-      "outflow_pressure_score": -2.601,
-      "market_temperature": 71.185,
-      "maintenance_percentile": 99.438
+      "outflow_pressure_score": -2.126,
+      "market_temperature": 72.503,
+      "maintenance_percentile": 99.681
     },
     {
       "date": "2026-03-03",
@@ -2288,9 +4433,9 @@
       "usdtwd": 31.535,
       "dxy": 99.05,
       "vix": 23.57,
-      "outflow_pressure_score": -0.592,
-      "market_temperature": 56.726,
-      "maintenance_percentile": 91.061
+      "outflow_pressure_score": -0.937,
+      "market_temperature": 58.923,
+      "maintenance_percentile": 94.904
     },
     {
       "date": "2026-03-04",
@@ -2303,9 +4448,9 @@
       "usdtwd": 31.734,
       "dxy": 98.77,
       "vix": 21.15,
-      "outflow_pressure_score": 0.515,
-      "market_temperature": 44.355,
-      "maintenance_percentile": 55.556
+      "outflow_pressure_score": 0.065,
+      "market_temperature": 46.486,
+      "maintenance_percentile": 64.762
     },
     {
       "date": "2026-03-05",
@@ -2318,9 +4463,9 @@
       "usdtwd": 31.63,
       "dxy": 99.32,
       "vix": 23.75,
-      "outflow_pressure_score": 1.74,
-      "market_temperature": 38.368,
-      "maintenance_percentile": 82.873
+      "outflow_pressure_score": 0.694,
+      "market_temperature": 42.493,
+      "maintenance_percentile": 88.291
     },
     {
       "date": "2026-03-06",
@@ -2333,9 +4478,9 @@
       "usdtwd": 31.906,
       "dxy": 98.99,
       "vix": 29.49,
-      "outflow_pressure_score": 2.272,
-      "market_temperature": 31.222,
-      "maintenance_percentile": 80.769
+      "outflow_pressure_score": 1.219,
+      "market_temperature": 34.051,
+      "maintenance_percentile": 85.804
     },
     {
       "date": "2026-03-09",
@@ -2348,9 +4493,9 @@
       "usdtwd": 31.802,
       "dxy": 99.18,
       "vix": 25.5,
-      "outflow_pressure_score": 4.036,
+      "outflow_pressure_score": 2.555,
       "market_temperature": 22.94,
-      "maintenance_percentile": 28.962
+      "maintenance_percentile": 47.17
     },
     {
       "date": "2026-03-10",
@@ -2363,9 +4508,9 @@
       "usdtwd": 31.802,
       "dxy": 98.83,
       "vix": 24.93,
-      "outflow_pressure_score": 3.385,
+      "outflow_pressure_score": 2.497,
       "market_temperature": 25.03,
-      "maintenance_percentile": 53.261
+      "maintenance_percentile": 63.323
     },
     {
       "date": "2026-03-11",
@@ -2378,9 +4523,9 @@
       "usdtwd": 31.774,
       "dxy": 99.23,
       "vix": 24.23,
-      "outflow_pressure_score": 2.949,
-      "market_temperature": 31.078,
-      "maintenance_percentile": 86.486
+      "outflow_pressure_score": 1.888,
+      "market_temperature": 30.729,
+      "maintenance_percentile": 92.188
     },
     {
       "date": "2026-03-12",
@@ -2393,9 +4538,9 @@
       "usdtwd": 31.812,
       "dxy": 99.74,
       "vix": 27.29,
-      "outflow_pressure_score": 3.119,
-      "market_temperature": 27.707,
-      "maintenance_percentile": 82.796
+      "outflow_pressure_score": 1.965,
+      "market_temperature": 26.92,
+      "maintenance_percentile": 88.162
     },
     {
       "date": "2026-03-13",
@@ -2408,9 +4553,9 @@
       "usdtwd": 31.896,
       "dxy": 100.36,
       "vix": 27.19,
-      "outflow_pressure_score": 4.392,
+      "outflow_pressure_score": 2.648,
       "market_temperature": 26.532,
-      "maintenance_percentile": 85.027
+      "maintenance_percentile": 90.373
     },
     {
       "date": "2026-03-16",
@@ -2423,9 +4568,9 @@
       "usdtwd": 32.163,
       "dxy": 99.71,
       "vix": 23.51,
-      "outflow_pressure_score": 4.679,
+      "outflow_pressure_score": 3.079,
       "market_temperature": 29.349,
-      "maintenance_percentile": 88.298
+      "maintenance_percentile": 93.189
     },
     {
       "date": "2026-03-17",
@@ -2438,9 +4583,9 @@
       "usdtwd": 31.945,
       "dxy": 99.58,
       "vix": 22.37,
-      "outflow_pressure_score": 3.231,
-      "market_temperature": 31.3,
-      "maintenance_percentile": 93.651
+      "outflow_pressure_score": 2.196,
+      "market_temperature": 31.193,
+      "maintenance_percentile": 96.296
     },
     {
       "date": "2026-03-18",
@@ -2453,9 +4598,9 @@
       "usdtwd": 31.885,
       "dxy": 100.09,
       "vix": 25.09,
-      "outflow_pressure_score": 3.52,
-      "market_temperature": 31.737,
-      "maintenance_percentile": 97.368
+      "outflow_pressure_score": 2.165,
+      "market_temperature": 30.762,
+      "maintenance_percentile": 98.462
     },
     {
       "date": "2026-03-19",
@@ -2468,9 +4613,9 @@
       "usdtwd": 32.031,
       "dxy": 99.23,
       "vix": 24.06,
-      "outflow_pressure_score": 3.789,
+      "outflow_pressure_score": 2.831,
       "market_temperature": 30.624,
-      "maintenance_percentile": 94.241
+      "maintenance_percentile": 96.626
     },
     {
       "date": "2026-03-20",
@@ -2483,9 +4628,9 @@
       "usdtwd": 31.802,
       "dxy": 99.65,
       "vix": 26.78,
-      "outflow_pressure_score": 4.106,
+      "outflow_pressure_score": 3.225,
       "market_temperature": 28.074,
-      "maintenance_percentile": 89.583
+      "maintenance_percentile": 93.884
     },
     {
       "date": "2026-03-23",
@@ -2498,9 +4643,9 @@
       "usdtwd": 32.022,
       "dxy": 98.95,
       "vix": 26.15,
-      "outflow_pressure_score": 4.797,
+      "outflow_pressure_score": 4.048,
       "market_temperature": 25.63,
-      "maintenance_percentile": 74.093
+      "maintenance_percentile": 78.049
     },
     {
       "date": "2026-03-24",
@@ -2513,9 +4658,9 @@
       "usdtwd": 31.862,
       "dxy": 99.43,
       "vix": 26.95,
-      "outflow_pressure_score": 4.759,
+      "outflow_pressure_score": 3.956,
       "market_temperature": 24.056,
-      "maintenance_percentile": 54.124
+      "maintenance_percentile": 63.526
     },
     {
       "date": "2026-03-25",
@@ -2528,9 +4673,9 @@
       "usdtwd": 31.926,
       "dxy": 99.6,
       "vix": 25.33,
-      "outflow_pressure_score": 5.337,
+      "outflow_pressure_score": 4.178,
       "market_temperature": 27.355,
-      "maintenance_percentile": 81.026
+      "maintenance_percentile": 86.97
     },
     {
       "date": "2026-03-26",
@@ -2543,9 +4688,9 @@
       "usdtwd": 31.936,
       "dxy": 99.9,
       "vix": 27.44,
-      "outflow_pressure_score": 5.952,
+      "outflow_pressure_score": 4.47,
       "market_temperature": 25.446,
-      "maintenance_percentile": 76.531
+      "maintenance_percentile": 81.269
     },
     {
       "date": "2026-03-27",
@@ -2558,9 +4703,9 @@
       "usdtwd": 31.93,
       "dxy": 100.15,
       "vix": 31.05,
-      "outflow_pressure_score": 6.484,
+      "outflow_pressure_score": 4.658,
       "market_temperature": 23.472,
-      "maintenance_percentile": 77.157
+      "maintenance_percentile": 82.229
     },
     {
       "date": "2026-03-30",
@@ -2573,9 +4718,9 @@
       "usdtwd": 31.977,
       "dxy": 100.51,
       "vix": 30.61,
-      "outflow_pressure_score": 6.646,
+      "outflow_pressure_score": 4.682,
       "market_temperature": 22.57,
-      "maintenance_percentile": 64.141
+      "maintenance_percentile": 71.171
     },
     {
       "date": "2026-03-31",
@@ -2588,9 +4733,9 @@
       "usdtwd": 32.039,
       "dxy": 99.96,
       "vix": 25.25,
-      "outflow_pressure_score": 5.565,
+      "outflow_pressure_score": 4.205,
       "market_temperature": 22.598,
-      "maintenance_percentile": 22.613
+      "maintenance_percentile": 39.222
     },
     {
       "date": "2026-04-01",
@@ -2603,9 +4748,9 @@
       "usdtwd": 31.938,
       "dxy": 99.65,
       "vix": 24.54,
-      "outflow_pressure_score": 3.766,
+      "outflow_pressure_score": 3.112,
       "market_temperature": 25.952,
-      "maintenance_percentile": 62.5
+      "maintenance_percentile": 70.149
     },
     {
       "date": "2026-04-02",
@@ -2618,9 +4763,9 @@
       "usdtwd": 32.002,
       "dxy": 100.03,
       "vix": 23.87,
-      "outflow_pressure_score": 4.525,
+      "outflow_pressure_score": 3.297,
       "market_temperature": 25.142,
-      "maintenance_percentile": 38.308
+      "maintenance_percentile": 53.869
     },
     {
       "date": "2026-04-07",
@@ -2633,9 +4778,9 @@
       "usdtwd": 31.914,
       "dxy": 99.64,
       "vix": 25.78,
-      "outflow_pressure_score": 2.824,
+      "outflow_pressure_score": 2.502,
       "market_temperature": 25.584,
-      "maintenance_percentile": 69.307
+      "maintenance_percentile": 74.481
     },
     {
       "date": "2026-04-08",
@@ -2648,9 +4793,9 @@
       "usdtwd": 31.894,
       "dxy": 99.13,
       "vix": 21.04,
-      "outflow_pressure_score": 1.495,
-      "market_temperature": 37.43,
-      "maintenance_percentile": 90.64
+      "outflow_pressure_score": 1.328,
+      "market_temperature": 37.004,
+      "maintenance_percentile": 94.379
     },
     {
       "date": "2026-04-09",
@@ -2663,9 +4808,9 @@
       "usdtwd": 31.72,
       "dxy": 98.82,
       "vix": 19.49,
-      "outflow_pressure_score": 0.428,
-      "market_temperature": 44.081,
-      "maintenance_percentile": 89.706
+      "outflow_pressure_score": 0.767,
+      "market_temperature": 41.957,
+      "maintenance_percentile": 93.805
     },
     {
       "date": "2026-04-10",
@@ -2678,9 +4823,9 @@
       "usdtwd": 31.726,
       "dxy": 98.65,
       "vix": 19.23,
-      "outflow_pressure_score": 0.373,
-      "market_temperature": 45.191,
-      "maintenance_percentile": 94.634
+      "outflow_pressure_score": 0.786,
+      "market_temperature": 42.796,
+      "maintenance_percentile": 96.765
     },
     {
       "date": "2026-04-13",
@@ -2693,9 +4838,9 @@
       "usdtwd": 31.767,
       "dxy": 98.37,
       "vix": 19.12,
-      "outflow_pressure_score": -0.148,
-      "market_temperature": 49.501,
-      "maintenance_percentile": 97.087
+      "outflow_pressure_score": 0.448,
+      "market_temperature": 46.603,
+      "maintenance_percentile": 98.24
     },
     {
       "date": "2026-04-14",
@@ -2708,9 +4853,9 @@
       "usdtwd": 31.641,
       "dxy": 98.12,
       "vix": 18.36,
-      "outflow_pressure_score": -1.531,
-      "market_temperature": 59.647,
-      "maintenance_percentile": 97.585
+      "outflow_pressure_score": -0.445,
+      "market_temperature": 55.293,
+      "maintenance_percentile": 98.538
     },
     {
       "date": "2026-04-15",
@@ -2723,9 +4868,9 @@
       "usdtwd": 31.517,
       "dxy": 98.06,
       "vix": 18.17,
-      "outflow_pressure_score": -3.043,
-      "market_temperature": 64.635,
-      "maintenance_percentile": 97.115
+      "outflow_pressure_score": -1.347,
+      "market_temperature": 62.195,
+      "maintenance_percentile": 98.251
     },
     {
       "date": "2026-04-16",
@@ -2738,9 +4883,9 @@
       "usdtwd": 31.587,
       "dxy": 98.22,
       "vix": 17.94,
-      "outflow_pressure_score": -2.244,
-      "market_temperature": 67.009,
-      "maintenance_percentile": 99.522
+      "outflow_pressure_score": -1.165,
+      "market_temperature": 64.009,
+      "maintenance_percentile": 99.709
     },
     {
       "date": "2026-04-17",
@@ -2753,9 +4898,9 @@
       "usdtwd": 31.558,
       "dxy": 98.1,
       "vix": 17.48,
-      "outflow_pressure_score": -2.224,
-      "market_temperature": 67.103,
-      "maintenance_percentile": 99.524
+      "outflow_pressure_score": -1.109,
+      "market_temperature": 63.874,
+      "maintenance_percentile": 99.71
     },
     {
       "date": "2026-04-20",
@@ -2768,8 +4913,8 @@
       "usdtwd": 31.468,
       "dxy": 98.05,
       "vix": 18.87,
-      "outflow_pressure_score": -3.28,
-      "market_temperature": 69.925,
+      "outflow_pressure_score": -1.815,
+      "market_temperature": 69.592,
       "maintenance_percentile": 100.0
     },
     {
@@ -2783,8 +4928,8 @@
       "usdtwd": 31.419,
       "dxy": 98.41,
       "vix": 19.5,
-      "outflow_pressure_score": -2.809,
-      "market_temperature": 73.901,
+      "outflow_pressure_score": -1.951,
+      "market_temperature": 74.334,
       "maintenance_percentile": 100.0
     },
     {
@@ -2798,8 +4943,8 @@
       "usdtwd": 31.482,
       "dxy": 98.59,
       "vix": 18.92,
-      "outflow_pressure_score": -3.388,
-      "market_temperature": 77.71,
+      "outflow_pressure_score": -2.49,
+      "market_temperature": 78.557,
       "maintenance_percentile": 100.0
     },
     {
@@ -2813,9 +4958,9 @@
       "usdtwd": 31.467,
       "dxy": 98.8,
       "vix": 19.31,
-      "outflow_pressure_score": -2.791,
-      "market_temperature": 75.167,
-      "maintenance_percentile": 96.729
+      "outflow_pressure_score": -2.288,
+      "market_temperature": 76.04,
+      "maintenance_percentile": 97.994
     },
     {
       "date": "2026-04-24",
@@ -2828,9 +4973,9 @@
       "usdtwd": 31.53,
       "dxy": 98.51,
       "vix": 18.71,
-      "outflow_pressure_score": -3.108,
-      "market_temperature": 76.292,
-      "maintenance_percentile": 98.605
+      "outflow_pressure_score": -2.393,
+      "market_temperature": 77.178,
+      "maintenance_percentile": 99.143
     },
     {
       "date": "2026-04-27",
@@ -2843,9 +4988,9 @@
       "usdtwd": 31.44,
       "dxy": 98.48,
       "vix": 18.02,
-      "outflow_pressure_score": -3.188,
-      "market_temperature": 75.112,
-      "maintenance_percentile": 98.148
+      "outflow_pressure_score": -2.303,
+      "market_temperature": 75.897,
+      "maintenance_percentile": 98.86
     },
     {
       "date": "2026-04-28",
@@ -2858,9 +5003,9 @@
       "usdtwd": 31.456,
       "dxy": 98.62,
       "vix": 17.83,
-      "outflow_pressure_score": -2.934,
-      "market_temperature": 75.967,
-      "maintenance_percentile": 99.078
+      "outflow_pressure_score": -2.202,
+      "market_temperature": 76.733,
+      "maintenance_percentile": 99.432
     },
     {
       "date": "2026-04-29",
@@ -2873,9 +5018,9 @@
       "usdtwd": 31.513,
       "dxy": 98.92,
       "vix": 18.81,
-      "outflow_pressure_score": -2.612,
-      "market_temperature": 75.635,
-      "maintenance_percentile": 98.624
+      "outflow_pressure_score": -2.141,
+      "market_temperature": 76.41,
+      "maintenance_percentile": 99.15
     },
     {
       "date": "2026-04-30",
@@ -2888,9 +5033,9 @@
       "usdtwd": 31.626,
       "dxy": 98.08,
       "vix": 16.89,
-      "outflow_pressure_score": -3.497,
-      "market_temperature": 77.52,
-      "maintenance_percentile": 98.174
+      "outflow_pressure_score": -2.46,
+      "market_temperature": 78.321,
+      "maintenance_percentile": 98.87
     },
     {
       "date": "2026-05-04",
@@ -2903,8 +5048,8 @@
       "usdtwd": 31.554,
       "dxy": 98.47,
       "vix": 18.29,
-      "outflow_pressure_score": -3.151,
-      "market_temperature": 80.193,
+      "outflow_pressure_score": -2.468,
+      "market_temperature": 81.046,
       "maintenance_percentile": 100.0
     },
     {
@@ -2918,8 +5063,8 @@
       "usdtwd": 31.598,
       "dxy": 98.48,
       "vix": 17.38,
-      "outflow_pressure_score": -3.337,
-      "market_temperature": 82.622,
+      "outflow_pressure_score": -2.646,
+      "market_temperature": 83.517,
       "maintenance_percentile": 100.0
     },
     {
@@ -2933,9 +5078,9 @@
       "usdtwd": 31.545,
       "dxy": 98.02,
       "vix": 17.39,
-      "outflow_pressure_score": -4.001,
-      "market_temperature": 84.218,
-      "maintenance_percentile": 99.55
+      "outflow_pressure_score": -3.016,
+      "market_temperature": 84.965,
+      "maintenance_percentile": 99.72
     },
     {
       "date": "2026-05-07",
@@ -2948,8 +5093,8 @@
       "usdtwd": 31.399,
       "dxy": 98.25,
       "vix": 17.08,
-      "outflow_pressure_score": -3.733,
-      "market_temperature": 82.869,
+      "outflow_pressure_score": -2.738,
+      "market_temperature": 83.677,
       "maintenance_percentile": 100.0
     },
     {
@@ -2963,9 +5108,9 @@
       "usdtwd": 31.392,
       "dxy": 97.84,
       "vix": 17.19,
-      "outflow_pressure_score": -3.572,
-      "market_temperature": 79.721,
-      "maintenance_percentile": 98.214
+      "outflow_pressure_score": -2.48,
+      "market_temperature": 80.423,
+      "maintenance_percentile": 98.886
     },
     {
       "date": "2026-05-11",
@@ -2978,8 +5123,8 @@
       "usdtwd": 31.301,
       "dxy": 97.94,
       "vix": 18.38,
-      "outflow_pressure_score": -3.514,
-      "market_temperature": 79.946,
+      "outflow_pressure_score": -2.361,
+      "market_temperature": 80.554,
       "maintenance_percentile": 100.0
     },
     {
@@ -2993,9 +5138,9 @@
       "usdtwd": 31.352,
       "dxy": 98.29,
       "vix": 17.99,
-      "outflow_pressure_score": -3.013,
-      "market_temperature": 79.663,
-      "maintenance_percentile": 99.558
+      "outflow_pressure_score": -2.14,
+      "market_temperature": 80.219,
+      "maintenance_percentile": 99.723
     },
     {
       "date": "2026-05-13",
@@ -3008,9 +5153,9 @@
       "usdtwd": 31.501,
       "dxy": 98.48,
       "vix": 17.87,
-      "outflow_pressure_score": -1.645,
-      "market_temperature": 73.307,
-      "maintenance_percentile": 97.797
+      "outflow_pressure_score": -1.259,
+      "market_temperature": 72.227,
+      "maintenance_percentile": 98.619
     },
     {
       "date": "2026-05-14",
@@ -3023,9 +5168,9 @@
       "usdtwd": 31.559,
       "dxy": 98.88,
       "vix": 17.26,
-      "outflow_pressure_score": -0.525,
-      "market_temperature": 68.22,
-      "maintenance_percentile": 98.246
+      "outflow_pressure_score": -0.67,
+      "market_temperature": 69.031,
+      "maintenance_percentile": 98.898
     },
     {
       "date": "2026-05-15",
@@ -3038,9 +5183,9 @@
       "usdtwd": 31.564,
       "dxy": 99.27,
       "vix": 18.43,
-      "outflow_pressure_score": -0.022,
-      "market_temperature": 61.951,
-      "maintenance_percentile": 95.197
+      "outflow_pressure_score": -0.346,
+      "market_temperature": 63.34,
+      "maintenance_percentile": 96.978
     },
     {
       "date": "2026-05-18",
@@ -3053,9 +5198,9 @@
       "usdtwd": 31.587,
       "dxy": 98.97,
       "vix": 17.82,
-      "outflow_pressure_score": -0.052,
-      "market_temperature": 61.019,
-      "maintenance_percentile": 94.783
+      "outflow_pressure_score": -0.199,
+      "market_temperature": 61.659,
+      "maintenance_percentile": 96.712
     },
     {
       "date": "2026-05-19",
@@ -3068,7 +5213,7 @@
       "usdtwd": 31.554,
       "dxy": 99.3,
       "vix": 18.06,
-      "outflow_pressure_score": 0.482,
+      "outflow_pressure_score": 0.029,
       "market_temperature": null,
       "maintenance_percentile": null
     },
@@ -3083,9 +5228,9 @@
       "usdtwd": 31.729,
       "dxy": 99.11,
       "vix": 17.44,
-      "outflow_pressure_score": 1.277,
-      "market_temperature": 50.758,
-      "maintenance_percentile": 88.745
+      "outflow_pressure_score": 0.688,
+      "market_temperature": 52.878,
+      "maintenance_percentile": 92.896
     },
     {
       "date": "2026-05-21",
@@ -3098,9 +5243,9 @@
       "usdtwd": 31.591,
       "dxy": 99.19,
       "vix": 16.76,
-      "outflow_pressure_score": 0.65,
-      "market_temperature": 58.153,
-      "maintenance_percentile": 96.121
+      "outflow_pressure_score": 0.293,
+      "market_temperature": 59.452,
+      "maintenance_percentile": 97.548
     },
     {
       "date": "2026-05-22",
@@ -3113,8 +5258,8 @@
       "usdtwd": 31.551,
       "dxy": 99.32,
       "vix": 16.7,
-      "outflow_pressure_score": 0.402,
-      "market_temperature": 64.357,
+      "outflow_pressure_score": -0.011,
+      "market_temperature": 65.942,
       "maintenance_percentile": 100.0
     },
     {
@@ -3128,8 +5273,8 @@
       "usdtwd": 31.439,
       "dxy": 99.32,
       "vix": 16.59,
-      "outflow_pressure_score": -0.068,
-      "market_temperature": 68.707,
+      "outflow_pressure_score": -0.219,
+      "market_temperature": 69.302,
       "maintenance_percentile": 100.0
     },
     {
@@ -3143,9 +5288,9 @@
       "usdtwd": 31.448,
       "dxy": 99.17,
       "vix": 17.01,
-      "outflow_pressure_score": -0.348,
-      "market_temperature": 71.984,
-      "maintenance_percentile": 99.574
+      "outflow_pressure_score": -0.526,
+      "market_temperature": 72.754,
+      "maintenance_percentile": 99.73
     },
     {
       "date": "2026-05-27",
@@ -3158,9 +5303,9 @@
       "usdtwd": 31.446,
       "dxy": 99.21,
       "vix": 16.29,
-      "outflow_pressure_score": -0.672,
-      "market_temperature": 75.624,
-      "maintenance_percentile": 99.153
+      "outflow_pressure_score": -0.846,
+      "market_temperature": 76.435,
+      "maintenance_percentile": 99.461
     },
     {
       "date": "2026-05-28",
@@ -3173,9 +5318,9 @@
       "usdtwd": 31.466,
       "dxy": 99.02,
       "vix": 15.74,
-      "outflow_pressure_score": -1.022,
-      "market_temperature": 75.338,
-      "maintenance_percentile": 98.312
+      "outflow_pressure_score": -0.994,
+      "market_temperature": 75.383,
+      "maintenance_percentile": 98.925
     },
     {
       "date": "2026-05-29",
@@ -3188,9 +5333,9 @@
       "usdtwd": 31.424,
       "dxy": 98.91,
       "vix": 15.32,
-      "outflow_pressure_score": -2.092,
-      "market_temperature": 84.872,
-      "maintenance_percentile": 98.739
+      "outflow_pressure_score": -1.769,
+      "market_temperature": 84.252,
+      "maintenance_percentile": 99.196
     },
     {
       "date": "2026-06-01",
@@ -3203,8 +5348,8 @@
       "usdtwd": 31.413,
       "dxy": 99.2,
       "vix": 16.05,
-      "outflow_pressure_score": -1.469,
-      "market_temperature": 82.868,
+      "outflow_pressure_score": -1.409,
+      "market_temperature": 82.841,
       "maintenance_percentile": 100.0
     },
     {
@@ -3218,9 +5363,9 @@
       "usdtwd": 31.33,
       "dxy": 99.22,
       "vix": 15.77,
-      "outflow_pressure_score": -1.785,
-      "market_temperature": 83.671,
-      "maintenance_percentile": 98.333
+      "outflow_pressure_score": -1.543,
+      "market_temperature": 82.947,
+      "maintenance_percentile": 98.933
     },
     {
       "date": "2026-06-03",
@@ -3233,9 +5378,9 @@
       "usdtwd": 31.478,
       "dxy": 99.53,
       "vix": 16.06,
-      "outflow_pressure_score": -0.782,
-      "market_temperature": 78.95,
-      "maintenance_percentile": 98.755
+      "outflow_pressure_score": -0.995,
+      "market_temperature": 79.888,
+      "maintenance_percentile": 99.202
     },
     {
       "date": "2026-06-04",
@@ -3248,9 +5393,9 @@
       "usdtwd": 31.506,
       "dxy": 99.41,
       "vix": 15.4,
-      "outflow_pressure_score": 0.035,
-      "market_temperature": 70.071,
-      "maintenance_percentile": 96.694
+      "outflow_pressure_score": -0.301,
+      "market_temperature": 71.393,
+      "maintenance_percentile": 97.878
     },
     {
       "date": "2026-06-05",
@@ -3263,7 +5408,7 @@
       "usdtwd": 31.503,
       "dxy": 100.07,
       "vix": 21.51,
-      "outflow_pressure_score": 1.083,
+      "outflow_pressure_score": 0.402,
       "market_temperature": null,
       "maintenance_percentile": null
     },
@@ -3278,9 +5423,9 @@
       "usdtwd": 31.588,
       "dxy": 100.05,
       "vix": 18.92,
-      "outflow_pressure_score": 1.85,
-      "market_temperature": 51.806,
-      "maintenance_percentile": 88.066
+      "outflow_pressure_score": 0.999,
+      "market_temperature": 54.967,
+      "maintenance_percentile": 92.328
     },
     {
       "date": "2026-06-09",
@@ -3293,9 +5438,9 @@
       "usdtwd": 31.582,
       "dxy": 99.91,
       "vix": 19.87,
-      "outflow_pressure_score": 1.788,
-      "market_temperature": 52.369,
-      "maintenance_percentile": 92.828
+      "outflow_pressure_score": 1.173,
+      "market_temperature": 54.626,
+      "maintenance_percentile": 95.383
     },
     {
       "date": "2026-06-10",
@@ -3308,9 +5453,9 @@
       "usdtwd": 31.541,
       "dxy": 99.95,
       "vix": 22.22,
-      "outflow_pressure_score": 1.537,
-      "market_temperature": 46.153,
-      "maintenance_percentile": 82.449
+      "outflow_pressure_score": 1.269,
+      "market_temperature": 47.1,
+      "maintenance_percentile": 88.684
     },
     {
       "date": "2026-06-11",
@@ -3323,9 +5468,9 @@
       "usdtwd": 31.65,
       "dxy": 99.86,
       "vix": 19.44,
-      "outflow_pressure_score": 1.727,
-      "market_temperature": 46.32,
-      "maintenance_percentile": 83.74
+      "outflow_pressure_score": 1.53,
+      "market_temperature": 47.004,
+      "maintenance_percentile": 89.501
     },
     {
       "date": "2026-06-12",
@@ -3338,9 +5483,9 @@
       "usdtwd": 31.579,
       "dxy": 99.75,
       "vix": 17.68,
-      "outflow_pressure_score": 1.234,
-      "market_temperature": 52.093,
-      "maintenance_percentile": 89.474
+      "outflow_pressure_score": 1.312,
+      "market_temperature": 51.764,
+      "maintenance_percentile": 93.194
     },
     {
       "date": "2026-06-15",
@@ -3353,9 +5498,9 @@
       "usdtwd": 31.613,
       "dxy": 99.63,
       "vix": 16.2,
-      "outflow_pressure_score": 0.736,
-      "market_temperature": 60.094,
-      "maintenance_percentile": 93.548
+      "outflow_pressure_score": 0.988,
+      "market_temperature": 59.134,
+      "maintenance_percentile": 95.822
     },
     {
       "date": "2026-06-16",
@@ -3368,9 +5513,9 @@
       "usdtwd": 31.519,
       "dxy": 99.54,
       "vix": 16.41,
-      "outflow_pressure_score": 0.3,
-      "market_temperature": 63.002,
-      "maintenance_percentile": 94.378
+      "outflow_pressure_score": 0.887,
+      "market_temperature": 60.791,
+      "maintenance_percentile": 96.354
     },
     {
       "date": "2026-06-17",
@@ -3383,9 +5528,9 @@
       "usdtwd": 31.564,
       "dxy": 100.09,
       "vix": 18.44,
-      "outflow_pressure_score": 0.463,
-      "market_temperature": 62.814,
-      "maintenance_percentile": 95.2
+      "outflow_pressure_score": 1.235,
+      "market_temperature": 59.912,
+      "maintenance_percentile": 96.883
     },
     {
       "date": "2026-06-18",
@@ -3398,9 +5543,9 @@
       "usdtwd": 31.638,
       "dxy": 100.85,
       "vix": 16.4,
-      "outflow_pressure_score": 1.995,
-      "market_temperature": 58.496,
-      "maintenance_percentile": 97.211
+      "outflow_pressure_score": 2.457,
+      "market_temperature": 58.468,
+      "maintenance_percentile": 98.187
     },
     {
       "date": "2026-06-22",
@@ -3413,9 +5558,9 @@
       "usdtwd": 31.702,
       "dxy": 101.02,
       "vix": 17.28,
-      "outflow_pressure_score": 2.444,
-      "market_temperature": 58.914,
-      "maintenance_percentile": 97.619
+      "outflow_pressure_score": 2.753,
+      "market_temperature": 58.905,
+      "maintenance_percentile": 98.45
     },
     {
       "date": "2026-06-23",
@@ -3428,9 +5573,9 @@
       "usdtwd": 31.687,
       "dxy": 101.41,
       "vix": 19.49,
-      "outflow_pressure_score": 3.435,
-      "market_temperature": 52.277,
-      "maintenance_percentile": 94.466
+      "outflow_pressure_score": 3.601,
+      "market_temperature": 52.268,
+      "maintenance_percentile": 96.392
     },
     {
       "date": "2026-06-24",
@@ -3443,9 +5588,9 @@
       "usdtwd": 31.702,
       "dxy": 101.61,
       "vix": 18.63,
-      "outflow_pressure_score": 4.488,
-      "market_temperature": 45.422,
-      "maintenance_percentile": 93.307
+      "outflow_pressure_score": 4.646,
+      "market_temperature": 45.414,
+      "maintenance_percentile": 95.63
     },
     {
       "date": "2026-06-25",
@@ -3458,9 +5603,9 @@
       "usdtwd": 31.808,
       "dxy": 101.43,
       "vix": 18.89,
-      "outflow_pressure_score": 4.846,
-      "market_temperature": 43.244,
-      "maintenance_percentile": 93.333
+      "outflow_pressure_score": 4.844,
+      "market_temperature": 43.237,
+      "maintenance_percentile": 95.641
     },
     {
       "date": "2026-06-26",
@@ -3473,9 +5618,9 @@
       "usdtwd": 31.86,
       "dxy": 101.36,
       "vix": 18.41,
-      "outflow_pressure_score": 5.225,
-      "market_temperature": 36.327,
-      "maintenance_percentile": 83.984
+      "outflow_pressure_score": 5.176,
+      "market_temperature": 36.322,
+      "maintenance_percentile": 89.514
     },
     {
       "date": "2026-06-29",
@@ -3488,9 +5633,9 @@
       "usdtwd": 31.847,
       "dxy": 101.11,
       "vix": 17.65,
-      "outflow_pressure_score": 5.323,
+      "outflow_pressure_score": 5.227,
       "market_temperature": 36.878,
-      "maintenance_percentile": 85.214
+      "maintenance_percentile": 90.306
     },
     {
       "date": "2026-06-30",
@@ -3503,9 +5648,9 @@
       "usdtwd": 31.866,
       "dxy": 101.19,
       "vix": 16.45,
-      "outflow_pressure_score": 5.557,
+      "outflow_pressure_score": 5.416,
       "market_temperature": 40.233,
-      "maintenance_percentile": 90.698
+      "maintenance_percentile": 93.893
     },
     {
       "date": "2026-07-01",
@@ -3518,9 +5663,9 @@
       "usdtwd": 31.834,
       "dxy": 101.39,
       "vix": 16.59,
-      "outflow_pressure_score": 5.722,
+      "outflow_pressure_score": 5.508,
       "market_temperature": 39.95,
-      "maintenance_percentile": 89.189
+      "maintenance_percentile": 92.893
     },
     {
       "date": "2026-07-02",
@@ -3533,9 +5678,9 @@
       "usdtwd": 31.895,
       "dxy": 100.86,
       "vix": 16.15,
-      "outflow_pressure_score": 5.416,
+      "outflow_pressure_score": 5.323,
       "market_temperature": 39.903,
-      "maintenance_percentile": 88.846
+      "maintenance_percentile": 92.658
     },
     {
       "date": "2026-07-03",
@@ -3548,9 +5693,9 @@
       "usdtwd": 31.931,
       "dxy": 100.86,
       "vix": 16.15,
-      "outflow_pressure_score": 5.366,
+      "outflow_pressure_score": 5.257,
       "market_temperature": 39.99,
-      "maintenance_percentile": 88.889
+      "maintenance_percentile": 92.677
     },
     {
       "date": "2026-07-06",
@@ -3563,9 +5708,9 @@
       "usdtwd": 31.928,
       "dxy": 100.85,
       "vix": 15.57,
-      "outflow_pressure_score": 5.062,
+      "outflow_pressure_score": 4.953,
       "market_temperature": 39.1,
-      "maintenance_percentile": 86.641
+      "maintenance_percentile": 91.184
     },
     {
       "date": "2026-07-07",
@@ -3578,9 +5723,9 @@
       "usdtwd": 32.055,
       "dxy": 101.14,
       "vix": 16.13,
-      "outflow_pressure_score": 5.227,
+      "outflow_pressure_score": 5.067,
       "market_temperature": 35.467,
-      "maintenance_percentile": 74.525
+      "maintenance_percentile": 83.166
     },
     {
       "date": "2026-07-08",
@@ -3593,9 +5738,9 @@
       "usdtwd": 32.136,
       "dxy": 101.05,
       "vix": 16.9,
-      "outflow_pressure_score": 5.107,
+      "outflow_pressure_score": 4.849,
       "market_temperature": 35.299,
-      "maintenance_percentile": 76.515
+      "maintenance_percentile": 84.461
     },
     {
       "date": "2026-07-09",
@@ -3608,9 +5753,9 @@
       "usdtwd": 32.109,
       "dxy": 100.94,
       "vix": 15.84,
-      "outflow_pressure_score": 4.82,
+      "outflow_pressure_score": 4.557,
       "market_temperature": 37.134,
-      "maintenance_percentile": 75.849
+      "maintenance_percentile": 84.0
     },
     {
       "date": "2026-07-13",
@@ -3623,9 +5768,9 @@
       "usdtwd": 32.099,
       "dxy": 101.28,
       "vix": 17.16,
-      "outflow_pressure_score": 4.703,
+      "outflow_pressure_score": 4.584,
       "market_temperature": 35.978,
-      "maintenance_percentile": 71.053
+      "maintenance_percentile": 80.798
     },
     {
       "date": "2026-07-14",
@@ -3638,9 +5783,9 @@
       "usdtwd": 32.162,
       "dxy": 100.94,
       "vix": 16.5,
-      "outflow_pressure_score": 5.0,
+      "outflow_pressure_score": 4.785,
       "market_temperature": 33.069,
-      "maintenance_percentile": 64.419
+      "maintenance_percentile": 76.368
     },
     {
       "date": "2026-07-15",
@@ -3653,9 +5798,9 @@
       "usdtwd": 32.134,
       "dxy": 100.5,
       "vix": 15.67,
-      "outflow_pressure_score": 4.56,
+      "outflow_pressure_score": 4.428,
       "market_temperature": 35.936,
-      "maintenance_percentile": 75.746
+      "maintenance_percentile": 83.871
     },
     {
       "date": "2026-07-16",
@@ -3668,9 +5813,9 @@
       "usdtwd": 32.211,
       "dxy": 100.73,
       "vix": 16.73,
-      "outflow_pressure_score": 5.508,
+      "outflow_pressure_score": 5.348,
       "market_temperature": 33.814,
-      "maintenance_percentile": 68.03
+      "maintenance_percentile": 78.713
     },
     {
       "date": "2026-07-17",
@@ -3683,9 +5828,9 @@
       "usdtwd": 32.264,
       "dxy": 100.75,
       "vix": 18.77,
-      "outflow_pressure_score": 6.073,
+      "outflow_pressure_score": 6.072,
       "market_temperature": 27.829,
-      "maintenance_percentile": 26.296
+      "maintenance_percentile": 43.21
     },
     {
       "date": "2026-07-20",
@@ -3698,9 +5843,9 @@
       "usdtwd": 32.313,
       "dxy": 100.99,
       "vix": 18.65,
-      "outflow_pressure_score": 6.229,
+      "outflow_pressure_score": 6.23,
       "market_temperature": 26.338,
-      "maintenance_percentile": 16.605
+      "maintenance_percentile": 31.773
     },
     {
       "date": "2026-07-21",
@@ -3713,9 +5858,9 @@
       "usdtwd": 32.276,
       "dxy": 101.18,
       "vix": 17.05,
-      "outflow_pressure_score": 6.285,
+      "outflow_pressure_score": 6.286,
       "market_temperature": 30.253,
-      "maintenance_percentile": 48.162
+      "maintenance_percentile": 59.214
     },
     {
       "date": "2026-07-22",
@@ -3728,9 +5873,9 @@
       "usdtwd": 32.325,
       "dxy": 101.14,
       "vix": 16.64,
-      "outflow_pressure_score": 6.131,
+      "outflow_pressure_score": 6.13,
       "market_temperature": 32.835,
-      "maintenance_percentile": 63.736
+      "maintenance_percentile": 75.49
     },
     {
       "date": "2026-07-23",
@@ -3745,7 +5890,7 @@
       "vix": 18.7,
       "outflow_pressure_score": 5.793,
       "market_temperature": 31.114,
-      "maintenance_percentile": 60.584
+      "maintenance_percentile": 72.127
     },
     {
       "date": "2026-07-24",
@@ -3760,7 +5905,7 @@
       "vix": 18.58,
       "outflow_pressure_score": 5.333,
       "market_temperature": 28.668,
-      "maintenance_percentile": 37.818
+      "maintenance_percentile": 50.732
     },
     {
       "date": "2026-07-27",
@@ -3773,9 +5918,9 @@
       "usdtwd": 32.322,
       "dxy": 101.51,
       "vix": 18.67,
-      "outflow_pressure_score": 4.725,
+      "outflow_pressure_score": 4.724,
       "market_temperature": 30.181,
-      "maintenance_percentile": 39.493
+      "maintenance_percentile": 51.825
     },
     {
       "date": "2026-07-28",
@@ -3790,7 +5935,7 @@
       "vix": 18.21,
       "outflow_pressure_score": 4.808,
       "market_temperature": 25.003,
-      "maintenance_percentile": 8.303
+      "maintenance_percentile": 14.563
     },
     {
       "date": "2026-07-29",
@@ -3803,9 +5948,9 @@
       "usdtwd": 32.364,
       "dxy": 100.8,
       "vix": 20.66,
-      "outflow_pressure_score": 4.434,
+      "outflow_pressure_score": 4.435,
       "market_temperature": 21.48,
-      "maintenance_percentile": 0.719
+      "maintenance_percentile": 0.969
     },
     {
       "date": "2026-07-30",
@@ -3818,7 +5963,7 @@
       "usdtwd": 32.537,
       "dxy": 100.945,
       "vix": 19.85,
-      "outflow_pressure_score": 5.311,
+      "outflow_pressure_score": 5.312,
       "market_temperature": null,
       "maintenance_percentile": null
     }
