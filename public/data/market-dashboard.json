@@ -1,26 +1,26 @@
 {
   "meta": {
-    "generated_at": "2026-08-06T13:34:05+00:00",
+    "generated_at": "2026-08-07T13:28:24+00:00",
     "timezone": "Asia/Taipei",
     "maintenance_ratio_note": "Estimated market-wide proxy derived from listed margin balances and closing prices; not an official TWSE account maintenance ratio.",
     "disclaimer": "資料僅供研究與資訊用途，不構成投資建議。"
   },
-  "latest_date": "2026-08-06",
+  "latest_date": "2026-08-07",
   "latest": {
-    "taiex": 44396.7,
-    "tsmc": 2365.0,
-    "maintenance_est": 179.071,
-    "margin_balance_billion": 532.805,
-    "foreign_net_100m": 20.198,
-    "foreign_20d_sum_100m": -4188.831,
-    "usdtwd": 32.214,
-    "dxy": 99.779,
-    "vix": 16.0,
-    "outflow_pressure_score": 1.13,
-    "market_temperature": 47.111,
-    "maintenance_percentile": 84.248
+    "taiex": 44225.91,
+    "tsmc": 2370.0,
+    "maintenance_est": 175.888,
+    "margin_balance_billion": 537.665,
+    "foreign_net_100m": -407.157,
+    "foreign_20d_sum_100m": -4123.46,
+    "usdtwd": 32.188,
+    "dxy": 99.5,
+    "vix": 15.28,
+    "outflow_pressure_score": 0.85,
+    "market_temperature": 47.551,
+    "maintenance_percentile": 80.0
   },
-  "summary": "融資槓桿偏高；外資近20日偏賣方；波動情緒相對平穩；匯率與美元形成資金外流壓力。此內容為量化資料摘要，不構成投資建議。",
+  "summary": "融資槓桿偏高；外資近20日偏賣方；波動情緒相對平穩；外部資金壓力中性。此內容為量化資料摘要，不構成投資建議。",
   "backtests": [
     {
       "threshold": 140,
@@ -132,21 +132,6 @@
     }
   ],
   "series": [
-    {
-      "date": "2025-08-01",
-      "taiex": 23434.38,
-      "tsmc": 1140.0,
-      "maintenance_est": 160.562,
-      "margin_balance_billion": 232.588,
-      "foreign_net_100m": -70.332,
-      "foreign_20d_sum_100m": 1178.44,
-      "usdtwd": 29.906,
-      "dxy": 98.69,
-      "vix": 20.38,
-      "outflow_pressure_score": -1.018,
-      "market_temperature": 60.016,
-      "maintenance_percentile": 80.226
-    },
     {
       "date": "2025-08-04",
       "taiex": 23378.94,
@@ -3821,6 +3806,21 @@
       "outflow_pressure_score": 1.13,
       "market_temperature": 47.111,
       "maintenance_percentile": 84.248
+    },
+    {
+      "date": "2026-08-07",
+      "taiex": 44225.91,
+      "tsmc": 2370.0,
+      "maintenance_est": 175.888,
+      "margin_balance_billion": 537.665,
+      "foreign_net_100m": -407.157,
+      "foreign_20d_sum_100m": -4123.46,
+      "usdtwd": 32.188,
+      "dxy": 99.5,
+      "vix": 15.28,
+      "outflow_pressure_score": 0.85,
+      "market_temperature": 47.551,
+      "maintenance_percentile": 80.0
     }
   ]
 }
