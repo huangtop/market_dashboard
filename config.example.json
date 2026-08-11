@@ -5,6 +5,11 @@
   "request_delay_seconds": 0.35,
   "request_timeout_seconds": 40,
   "max_retries": 4,
-  "maintenance_thresholds": [140, 145, 150, 155],
+  "maintenance_thresholds": [
+    10,
+    25,
+    75,
+    90
+  ],
   "wordpress_json_url": "/wp-content/uploads/market-dashboard/market-dashboard.json"
 }

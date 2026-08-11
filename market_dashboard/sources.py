@@ -1,5 +1,7 @@
 from __future__ import annotations
 from datetime import date, timedelta
+import logging
+import time
 import numpy as np
 import pandas as pd
 import requests
@@ -12,21 +14,71 @@ class Sources:
         self.cfg = settings
         self.session = requests.Session()
 
+    def _monthly_core(self, start: date, end: date, *, kind: str) -> pd.DataFrame:
+        chunks = []
+        failed_months = []
+        for m in month_starts(start, end):
+            try:
+                if kind == "taiex":
+                    payload = get_json(
+                        self.session,
+                        "TAIEX/MI_5MINS_HIST",
+                        {"date": m.strftime("%Y%m01"), "response": "json"},
+                        self.cfg.request_timeout_seconds,
+                        self.cfg.max_retries,
+                    )
+                    data = find_table(payload, ["日期", "收盤指數"])
+                    date_col = next(c for c in data if "日期" in str(c))
+                    value_col = next(c for c in data if "收盤指數" in str(c))
+                    chunk = pd.DataFrame({
+                        "date": data[date_col].map(roc_date),
+                        "taiex": data[value_col].map(number),
+                    })
+                else:
+                    payload = get_json(
+                        self.session,
+                        "afterTrading/STOCK_DAY",
+                        {
+                            "date": m.strftime("%Y%m01"),
+                            "stockNo": "2330",
+                            "response": "json",
+                        },
+                        self.cfg.request_timeout_seconds,
+                        self.cfg.max_retries,
+                    )
+                    data = find_table(payload, ["日期", "收盤價"])
+                    date_col = next(c for c in data if "日期" in str(c))
+                    value_col = next(c for c in data if "收盤價" in str(c))
+                    chunk = pd.DataFrame({
+                        "date": data[date_col].map(roc_date),
+                        "tsmc": data[value_col].map(number),
+                    })
+
+                chunk = chunk.dropna().drop_duplicates("date")
+                if not chunk.empty:
+                    chunks.append(chunk)
+            except Exception as exc:
+                failed_months.append(m.strftime("%Y-%m"))
+                logging.warning("%s 月資料 %s 失敗：%s", kind.upper(), m.strftime("%Y-%m"), exc)
+            finally:
+                time.sleep(self.cfg.request_delay_seconds)
+
+        if not chunks:
+            raise RuntimeError(f"{kind.upper()} 所有月份下載皆失敗")
+        if failed_months:
+            logging.warning(
+                "%s 本輪有 %d 個月份失敗，將由後續 backfill 再補：%s",
+                kind.upper(),
+                len(failed_months),
+                ", ".join(failed_months),
+            )
+        return pd.concat(chunks, ignore_index=True).dropna().drop_duplicates("date")
+
     def taiex(self, start: date, end: date) -> pd.DataFrame:
-        chunks=[]
-        for m in month_starts(start,end):
-            p=get_json(self.session,"TAIEX/MI_5MINS_HIST",{"date":m.strftime("%Y%m01"),"response":"json"},self.cfg.request_timeout_seconds,self.cfg.max_retries)
-            d=find_table(p,["日期","收盤指數"]); dc=next(c for c in d if "日期" in str(c)); cc=next(c for c in d if "收盤指數" in str(c))
-            chunks.append(pd.DataFrame({"date":d[dc].map(roc_date),"taiex":d[cc].map(number)}))
-        return pd.concat(chunks,ignore_index=True).dropna().drop_duplicates("date")
+        return self._monthly_core(start, end, kind="taiex")
 
     def tsmc(self, start: date, end: date) -> pd.DataFrame:
-        chunks=[]
-        for m in month_starts(start,end):
-            p=get_json(self.session,"afterTrading/STOCK_DAY",{"date":m.strftime("%Y%m01"),"stockNo":"2330","response":"json"},self.cfg.request_timeout_seconds,self.cfg.max_retries)
-            d=find_table(p,["日期","收盤價"]); dc=next(c for c in d if "日期" in str(c)); cc=next(c for c in d if "收盤價" in str(c))
-            chunks.append(pd.DataFrame({"date":d[dc].map(roc_date),"tsmc":d[cc].map(number)}))
-        return pd.concat(chunks,ignore_index=True).dropna().drop_duplicates("date")
+        return self._monthly_core(start, end, kind="tsmc")
 
     def close_prices(self, day: pd.Timestamp) -> pd.DataFrame:
         p=get_json(self.session,"afterTrading/MI_INDEX",{"date":day.strftime("%Y%m%d"),"type":"ALLBUT0999","response":"json"},self.cfg.request_timeout_seconds,self.cfg.max_retries)

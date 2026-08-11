@@ -174,7 +174,7 @@ def main() -> None:
         "meta": {
             "generated_at": datetime.now().astimezone().isoformat(timespec="seconds"),
             "timezone": "Asia/Taipei",
-            "maintenance_ratio_note": "Estimated market-wide proxy derived from listed margin balances and closing prices; not an official TWSE account maintenance ratio.",
+            "maintenance_ratio_note": "市場融資擔保比估算＝可配對之上市融資股票市值 ÷ 融資金額；為市場層級 proxy，非券商整戶融資維持率。",
             "disclaimer": "資料僅供研究與資訊用途，不構成投資建議。",
         },
         "latest_date": last.date.strftime("%Y-%m-%d"),
