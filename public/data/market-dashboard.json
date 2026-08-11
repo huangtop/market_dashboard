@@ -1,24 +1,24 @@
 {
   "meta": {
-    "generated_at": "2026-08-10T13:30:34+00:00",
+    "generated_at": "2026-08-11T13:29:52+00:00",
     "timezone": "Asia/Taipei",
     "maintenance_ratio_note": "Estimated market-wide proxy derived from listed margin balances and closing prices; not an official TWSE account maintenance ratio.",
     "disclaimer": "資料僅供研究與資訊用途，不構成投資建議。"
   },
-  "latest_date": "2026-08-10",
+  "latest_date": "2026-08-11",
   "latest": {
-    "taiex": 44928.76,
-    "tsmc": 2380.0,
-    "maintenance_est": 180.967,
-    "margin_balance_billion": 545.296,
-    "foreign_net_100m": 517.405,
-    "foreign_20d_sum_100m": -3410.457,
-    "usdtwd": 32.218,
-    "dxy": 99.73,
-    "vix": 15.42,
-    "outflow_pressure_score": 0.919,
-    "market_temperature": 50.991,
-    "maintenance_percentile": 86.223
+    "taiex": 45120.72,
+    "tsmc": 2395.0,
+    "maintenance_est": 181.617,
+    "margin_balance_billion": 544.152,
+    "foreign_net_100m": 223.287,
+    "foreign_20d_sum_100m": -2668.242,
+    "usdtwd": 32.219,
+    "dxy": 99.817,
+    "vix": 15.55,
+    "outflow_pressure_score": 0.579,
+    "market_temperature": 54.314,
+    "maintenance_percentile": 86.493
   },
   "summary": "融資槓桿偏高；外資近20日偏賣方；波動情緒相對平穩；外部資金壓力中性。此內容為量化資料摘要，不構成投資建議。",
   "backtests": [
@@ -132,21 +132,6 @@
     }
   ],
   "series": [
-    {
-      "date": "2025-08-05",
-      "taiex": 23660.59,
-      "tsmc": 1150.0,
-      "maintenance_est": 160.843,
-      "margin_balance_billion": 235.387,
-      "foreign_net_100m": 114.878,
-      "foreign_20d_sum_100m": 1455.756,
-      "usdtwd": 29.884,
-      "dxy": 98.78,
-      "vix": 17.85,
-      "outflow_pressure_score": -1.329,
-      "market_temperature": 63.852,
-      "maintenance_percentile": 81.006
-    },
     {
       "date": "2025-08-06",
       "taiex": 23447.36,
@@ -3821,6 +3806,21 @@
       "outflow_pressure_score": 0.919,
       "market_temperature": 50.991,
       "maintenance_percentile": 86.223
+    },
+    {
+      "date": "2026-08-11",
+      "taiex": 45120.72,
+      "tsmc": 2395.0,
+      "maintenance_est": 181.617,
+      "margin_balance_billion": 544.152,
+      "foreign_net_100m": 223.287,
+      "foreign_20d_sum_100m": -2668.242,
+      "usdtwd": 32.219,
+      "dxy": 99.817,
+      "vix": 15.55,
+      "outflow_pressure_score": 0.579,
+      "market_temperature": 54.314,
+      "maintenance_percentile": 86.493
     }
   ]
 }
