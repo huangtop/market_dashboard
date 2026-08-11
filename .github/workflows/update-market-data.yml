@@ -3,8 +3,8 @@ name: Update Taiwan Market Data
 on:
   workflow_dispatch:
     inputs:
-      full_update:
-        description: "完整重新抓取一年資料"
+      backfill_5y:
+        description: "補齊最近五年缺漏資料（首次建立或歷史回補時使用）"
         required: false
         default: false
         type: boolean
@@ -25,7 +25,7 @@ concurrency:
 jobs:
   update-market-data:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 180
 
     steps:
       - name: Checkout repository
@@ -56,29 +56,29 @@ jobs:
           DB_FILE="public/data/market_dashboard.sqlite3"
 
           if [[ "${{ github.event_name }}" == "workflow_dispatch" && \
-                "${{ inputs.full_update }}" == "true" ]]; then
+                "${{ inputs.backfill_5y }}" == "true" ]]; then
 
-            echo "執行手動完整更新"
+            echo "執行五年歷史增量回補"
             python collector.py \
               --config config.json \
-              --years 1 \
-              --full
+              --years 5 \
+              --backfill
 
           elif [[ ! -f "$DB_FILE" ]]; then
 
-            echo "找不到既有 SQLite，首次建立一年資料"
+            echo "找不到既有 SQLite，首次建立五年資料"
             python collector.py \
               --config config.json \
-              --years 1 \
-              --full
+              --years 5 \
+              --backfill
 
           else
 
-            echo "保留既有 SQLite，只更新最近 7 天"
+            echo "保留既有 SQLite，只更新最新交易日；JSON/CSV 保留五年歷史"
             python collector.py \
               --config config.json \
-              --years 1 \
-              --refresh-days 7
+              --years 5 \
+              --latest
           fi
 
       - name: Validate generated files
@@ -95,29 +95,48 @@ jobs:
           for path in (json_file, csv_file, db_file):
               if not path.exists():
                   raise SystemExit(f"找不到輸出檔案：{path}")
-
               if path.stat().st_size == 0:
                   raise SystemExit(f"輸出檔案為空：{path}")
 
           with json_file.open("r", encoding="utf-8") as fh:
               payload = json.load(fh)
 
-          if not payload.get("series"):
+          series = payload.get("series") or []
+          if not series:
               raise SystemExit("JSON series 沒有資料")
 
-          if not payload.get("latest_date"):
+          latest_date = payload.get("latest_date")
+          if not latest_date:
               raise SystemExit("JSON latest_date 不存在")
+
+          first_date = series[0].get("date")
+          last_date = series[-1].get("date")
 
           with sqlite3.connect(db_file) as con:
               count = con.execute(
                   "SELECT COUNT(*) FROM daily"
               ).fetchone()[0]
 
+              complete_count = con.execute(
+                  """
+                  SELECT COUNT(*)
+                  FROM daily
+                  WHERE taiex IS NOT NULL
+                    AND tsmc IS NOT NULL
+                    AND margin_balance_billion IS NOT NULL
+                    AND maintenance_est IS NOT NULL
+                    AND foreign_net_100m IS NOT NULL
+                  """
+              ).fetchone()[0]
+
           if count == 0:
               raise SystemExit("SQLite daily 資料表沒有資料")
 
-          print(f"JSON 最新日期：{payload['latest_date']}")
+          print(f"JSON 筆數：{len(series)}")
+          print(f"JSON 範圍：{first_date} ~ {last_date}")
+          print(f"JSON 最新日期：{latest_date}")
           print(f"SQLite 筆數：{count}")
+          print(f"SQLite 完整交易日：{complete_count}")
           PY
 
       - name: Commit updated market data
