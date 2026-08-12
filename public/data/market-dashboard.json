@@ -1,132 +1,132 @@
 {
   "meta": {
-    "generated_at": "2026-08-11T21:48:13+08:00",
+    "generated_at": "2026-08-12T13:31:02+00:00",
     "timezone": "Asia/Taipei",
     "maintenance_ratio_note": "市場融資擔保比估算＝可配對之上市融資股票市值 ÷ 融資金額；為市場層級 proxy，非券商整戶融資維持率。",
     "disclaimer": "資料僅供研究與資訊用途，不構成投資建議。"
   },
-  "latest_date": "2026-08-11",
+  "latest_date": "2026-08-12",
   "latest": {
-    "taiex": 45120.72,
-    "tsmc": 2395.0,
-    "maintenance_est": 181.617,
-    "margin_balance_billion": 544.152,
-    "foreign_net_100m": 223.287,
-    "foreign_20d_sum_100m": -2668.242,
-    "usdtwd": 32.234,
-    "dxy": 99.834,
-    "vix": 15.44,
-    "outflow_pressure_score": 0.628,
-    "market_temperature": 67.347,
-    "maintenance_percentile": 94.774
+    "taiex": 45518.07,
+    "tsmc": 2415.0,
+    "maintenance_est": 183.917,
+    "margin_balance_billion": 548.084,
+    "foreign_net_100m": 110.208,
+    "foreign_20d_sum_100m": -2543.88,
+    "usdtwd": 32.186,
+    "dxy": 99.691,
+    "vix": 14.98,
+    "outflow_pressure_score": 0.404,
+    "market_temperature": 69.213,
+    "maintenance_percentile": 95.965
   },
   "summary": "市場融資擔保比估算處歷史高檔；外資近20日偏賣方；波動情緒相對平穩；外部資金壓力中性。此內容為量化資料摘要，不構成投資建議。",
   "backtests": [
     {
-      "threshold": 140,
-      "events": 0,
+      "threshold": 10,
+      "events": 20,
       "horizons": [
         {
           "trading_days": 20,
-          "samples": 0,
-          "average_return_pct": null,
-          "median_return_pct": null,
-          "win_rate_pct": null
+          "samples": 20,
+          "average_return_pct": -1.38,
+          "median_return_pct": -2.99,
+          "win_rate_pct": 40.0
         },
         {
           "trading_days": 60,
-          "samples": 0,
-          "average_return_pct": null,
-          "median_return_pct": null,
-          "win_rate_pct": null
+          "samples": 20,
+          "average_return_pct": -3.17,
+          "median_return_pct": -3.31,
+          "win_rate_pct": 40.0
         },
         {
           "trading_days": 120,
-          "samples": 0,
-          "average_return_pct": null,
-          "median_return_pct": null,
-          "win_rate_pct": null
+          "samples": 20,
+          "average_return_pct": -2.95,
+          "median_return_pct": -5.08,
+          "win_rate_pct": 40.0
         }
       ]
     },
     {
-      "threshold": 145,
-      "events": 0,
+      "threshold": 25,
+      "events": 28,
       "horizons": [
         {
           "trading_days": 20,
-          "samples": 0,
-          "average_return_pct": null,
-          "median_return_pct": null,
-          "win_rate_pct": null
+          "samples": 27,
+          "average_return_pct": 1.13,
+          "median_return_pct": 1.89,
+          "win_rate_pct": 59.3
         },
         {
           "trading_days": 60,
-          "samples": 0,
-          "average_return_pct": null,
-          "median_return_pct": null,
-          "win_rate_pct": null
+          "samples": 27,
+          "average_return_pct": -0.6,
+          "median_return_pct": -3.56,
+          "win_rate_pct": 40.7
         },
         {
           "trading_days": 120,
-          "samples": 0,
-          "average_return_pct": null,
-          "median_return_pct": null,
-          "win_rate_pct": null
+          "samples": 27,
+          "average_return_pct": 0.89,
+          "median_return_pct": -0.35,
+          "win_rate_pct": 48.1
         }
       ]
     },
     {
-      "threshold": 150,
-      "events": 0,
+      "threshold": 75,
+      "events": 31,
       "horizons": [
         {
           "trading_days": 20,
-          "samples": 0,
-          "average_return_pct": null,
-          "median_return_pct": null,
-          "win_rate_pct": null
+          "samples": 29,
+          "average_return_pct": 5.3,
+          "median_return_pct": 2.92,
+          "win_rate_pct": 79.3
         },
         {
           "trading_days": 60,
-          "samples": 0,
-          "average_return_pct": null,
-          "median_return_pct": null,
-          "win_rate_pct": null
+          "samples": 29,
+          "average_return_pct": 12.75,
+          "median_return_pct": 13.13,
+          "win_rate_pct": 82.8
         },
         {
           "trading_days": 120,
-          "samples": 0,
-          "average_return_pct": null,
-          "median_return_pct": null,
-          "win_rate_pct": null
+          "samples": 26,
+          "average_return_pct": 20.54,
+          "median_return_pct": 18.67,
+          "win_rate_pct": 88.5
         }
       ]
     },
     {
-      "threshold": 155,
-      "events": 0,
+      "threshold": 90,
+      "events": 19,
       "horizons": [
         {
           "trading_days": 20,
-          "samples": 0,
-          "average_return_pct": null,
-          "median_return_pct": null,
-          "win_rate_pct": null
+          "samples": 18,
+          "average_return_pct": 1.62,
+          "median_return_pct": -1.46,
+          "win_rate_pct": 44.4
         },
         {
           "trading_days": 60,
-          "samples": 0,
-          "average_return_pct": null,
-          "median_return_pct": null,
-          "win_rate_pct": null
+          "samples": 17,
+          "average_return_pct": 12.11,
+          "median_return_pct": 3.84,
+          "win_rate_pct": 52.9
         },
         {
           "trading_days": 120,
-          "samples": 0,
-          "average_return_pct": null,
-          "median_return_pct": null,
-          "win_rate_pct": null
+          "samples": 13,
+          "average_return_pct": 12.23,
+          "median_return_pct": 3.91,
+          "win_rate_pct": 84.6
         }
       ]
     }
@@ -18371,6 +18371,21 @@
       "outflow_pressure_score": 0.628,
       "market_temperature": 67.347,
       "maintenance_percentile": 94.774
+    },
+    {
+      "date": "2026-08-12",
+      "taiex": 45518.07,
+      "tsmc": 2415.0,
+      "maintenance_est": 183.917,
+      "margin_balance_billion": 548.084,
+      "foreign_net_100m": 110.208,
+      "foreign_20d_sum_100m": -2543.88,
+      "usdtwd": 32.186,
+      "dxy": 99.691,
+      "vix": 14.98,
+      "outflow_pressure_score": 0.404,
+      "market_temperature": 69.213,
+      "maintenance_percentile": 95.965
     }
   ]
 }
