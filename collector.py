@@ -37,7 +37,6 @@ def parse_args() -> argparse.Namespace:
     mode.add_argument("--latest", action="store_true", help="只更新最新交易日（預設）")
     mode.add_argument("--backfill", action="store_true", help="只補 SQLite 缺少或不完整的日期")
     mode.add_argument("--full", action="store_true", help="強制重新抓取完整期間")
-    # 保留舊參數相容性；未指定新模式時仍只更新最新日。
     ap.add_argument("--refresh-days", type=int, default=None, help=argparse.SUPPRESS)
     return ap.parse_args()
 
@@ -58,8 +57,33 @@ def select_days(
         missing = [d for d in all_days if d.strftime("%Y-%m-%d") not in complete]
         return missing, "增量回補"
 
-    # 預設及 --latest：永遠只處理最新交易日；不碰歷史日期。
     return [max(all_days)], "最新交易日"
+
+
+def previous_valid_margin(store: Store, day: pd.Timestamp) -> dict:
+    """Return the most recent valid margin values before *day*.
+
+    This is only a display-safety fallback for a transient TWSE outage.
+    It prevents a missing value from being serialized as null and later shown
+    by the UI as 0%. The log clearly marks the value as carried forward.
+    """
+    df = store.frame()
+    if df.empty:
+        return {}
+
+    prior = df[
+        (df["date"] < pd.Timestamp(day))
+        & df["margin_balance_billion"].notna()
+        & df["maintenance_est"].notna()
+    ]
+    if prior.empty:
+        return {}
+
+    last = prior.iloc[-1]
+    return {
+        "margin_balance_billion": safe_float(last["margin_balance_billion"]),
+        "maintenance_est": safe_float(last["maintenance_est"]),
+    }
 
 
 def main() -> None:
@@ -115,6 +139,23 @@ def main() -> None:
             except Exception as exc:
                 logging.warning("%s margin: %s", key, exc)
 
+                # Latest-day runs should not publish null margin values because
+                # the current dashboard UI can render null as 0%. Carry forward
+                # the last known valid values instead, and make it explicit in logs.
+                if not historical_mode:
+                    fallback = previous_valid_margin(store, day)
+                    if fallback:
+                        row.update(fallback)
+                        logging.warning(
+                            "%s margin 使用前一有效交易日數值暫代：maintenance_est=%s, "
+                            "margin_balance_billion=%s",
+                            key,
+                            fallback["maintenance_est"],
+                            fallback["margin_balance_billion"],
+                        )
+                    else:
+                        logging.warning("%s margin 無可用歷史值，維持缺值", key)
+
             try:
                 row["foreign_net_100m"] = safe_float(src.foreign(day))
             except Exception as exc:
@@ -132,7 +173,6 @@ def main() -> None:
         interrupted = True
         logging.warning("收到 Ctrl+C，停止下載並輸出目前已保存的資料")
 
-    # SQLite 是唯一歷史來源。不要再以本次短區間下載結果覆蓋舊行情。
     df = store.frame()
     if df.empty:
         raise RuntimeError("SQLite 沒有可輸出的資料")
