@@ -1,26 +1,26 @@
 {
   "meta": {
-    "generated_at": "2026-08-14T13:29:14+00:00",
+    "generated_at": "2026-08-17T13:17:39+00:00",
     "timezone": "Asia/Taipei",
     "maintenance_ratio_note": "市場融資擔保比估算＝可配對之上市融資股票市值 ÷ 融資金額；為市場層級 proxy，非券商整戶融資維持率。",
     "disclaimer": "資料僅供研究與資訊用途，不構成投資建議。"
   },
-  "latest_date": "2026-08-14",
+  "latest_date": "2026-08-17",
   "latest": {
-    "taiex": 45811.01,
-    "tsmc": 2395.0,
-    "maintenance_est": 185.401,
-    "margin_balance_billion": 547.059,
-    "foreign_net_100m": 453.513,
-    "foreign_20d_sum_100m": -960.28,
-    "usdtwd": 31.944,
-    "dxy": 99.949,
-    "vix": 14.52,
-    "outflow_pressure_score": -0.732,
-    "market_temperature": 77.878,
-    "maintenance_percentile": 96.522
+    "taiex": 45857.27,
+    "tsmc": 2400.0,
+    "maintenance_est": 186.323,
+    "margin_balance_billion": 550.102,
+    "foreign_net_100m": 454.473,
+    "foreign_20d_sum_100m": 1377.338,
+    "usdtwd": 31.815,
+    "dxy": 99.424,
+    "vix": 15.07,
+    "outflow_pressure_score": -2.437,
+    "market_temperature": 88.265,
+    "maintenance_percentile": 96.919
   },
-  "summary": "市場融資擔保比估算處歷史高檔；外資近20日偏賣方；波動情緒相對平穩；外部資金壓力有限。此內容為量化資料摘要，不構成投資建議。",
+  "summary": "市場融資擔保比估算處歷史高檔；外資近20日偏買方；波動情緒相對平穩；外部資金壓力有限。此內容為量化資料摘要，不構成投資建議。",
   "backtests": [
     {
       "threshold": 10,
@@ -82,10 +82,10 @@
       "horizons": [
         {
           "trading_days": 20,
-          "samples": 29,
-          "average_return_pct": 5.3,
-          "median_return_pct": 2.92,
-          "win_rate_pct": 79.3
+          "samples": 30,
+          "average_return_pct": 5.38,
+          "median_return_pct": 3.49,
+          "win_rate_pct": 80.0
         },
         {
           "trading_days": 60,
@@ -109,10 +109,10 @@
       "horizons": [
         {
           "trading_days": 20,
-          "samples": 18,
-          "average_return_pct": 1.62,
-          "median_return_pct": -1.46,
-          "win_rate_pct": 44.4
+          "samples": 19,
+          "average_return_pct": 1.93,
+          "median_return_pct": -0.95,
+          "win_rate_pct": 47.4
         },
         {
           "trading_days": 60,
@@ -132,51 +132,6 @@
     }
   ],
   "series": [
-    {
-      "date": "2021-08-10",
-      "taiex": 17323.64,
-      "tsmc": 591.0,
-      "maintenance_est": 163.756,
-      "margin_balance_billion": 285.274,
-      "foreign_net_100m": -64.155,
-      "foreign_20d_sum_100m": -587.103,
-      "usdtwd": 27.786,
-      "dxy": 93.06,
-      "vix": 16.79,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 4.0
-    },
-    {
-      "date": "2021-08-11",
-      "taiex": 17227.18,
-      "tsmc": 590.0,
-      "maintenance_est": 160.44,
-      "margin_balance_billion": 278.085,
-      "foreign_net_100m": 65.492,
-      "foreign_20d_sum_100m": -674.728,
-      "usdtwd": 27.826,
-      "dxy": 92.91,
-      "vix": 16.17,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 1.961
-    },
-    {
-      "date": "2021-08-12",
-      "taiex": 17219.94,
-      "tsmc": 586.0,
-      "maintenance_est": 163.208,
-      "margin_balance_billion": 280.175,
-      "foreign_net_100m": 51.442,
-      "foreign_20d_sum_100m": -787.63,
-      "usdtwd": 27.792,
-      "dxy": 93.04,
-      "vix": 15.59,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 5.769
-    },
     {
       "date": "2021-08-13",
       "taiex": 16982.11,
@@ -18386,6 +18341,21 @@
       "outflow_pressure_score": -0.732,
       "market_temperature": 77.878,
       "maintenance_percentile": 96.522
+    },
+    {
+      "date": "2026-08-17",
+      "taiex": 45857.27,
+      "tsmc": 2400.0,
+      "maintenance_est": 186.323,
+      "margin_balance_billion": 550.102,
+      "foreign_net_100m": 454.473,
+      "foreign_20d_sum_100m": 1377.338,
+      "usdtwd": 31.815,
+      "dxy": 99.424,
+      "vix": 15.07,
+      "outflow_pressure_score": -2.437,
+      "market_temperature": 88.265,
+      "maintenance_percentile": 96.919
     }
   ]
 }
