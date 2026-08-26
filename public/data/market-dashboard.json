@@ -1,24 +1,24 @@
 {
   "meta": {
-    "generated_at": "2026-08-25T13:20:07+00:00",
+    "generated_at": "2026-08-26T13:22:20+00:00",
     "timezone": "Asia/Taipei",
     "maintenance_ratio_note": "市場融資擔保比估算＝可配對之上市融資股票市值 ÷ 融資金額；為市場層級 proxy，非券商整戶融資維持率。",
     "disclaimer": "資料僅供研究與資訊用途，不構成投資建議。"
   },
-  "latest_date": "2026-08-25",
+  "latest_date": "2026-08-26",
   "latest": {
-    "taiex": 45169.46,
-    "tsmc": 2400.0,
-    "maintenance_est": 179.858,
-    "margin_balance_billion": 546.938,
-    "foreign_net_100m": -7.866,
-    "foreign_20d_sum_100m": 1422.329,
-    "usdtwd": 31.863,
+    "taiex": 45832.62,
+    "tsmc": 2415.0,
+    "maintenance_est": 184.91,
+    "margin_balance_billion": 554.803,
+    "foreign_net_100m": 366.132,
+    "foreign_20d_sum_100m": 2663.307,
+    "usdtwd": 31.835,
     "dxy": 98.949,
-    "vix": 15.84,
-    "outflow_pressure_score": -2.824,
-    "market_temperature": 86.884,
-    "maintenance_percentile": 93.789
+    "vix": 15.71,
+    "outflow_pressure_score": -3.238,
+    "market_temperature": 90.82,
+    "maintenance_percentile": 96.072
   },
   "summary": "市場融資擔保比估算處歷史高檔；外資近20日偏買方；波動情緒相對平穩；外部資金壓力有限。此內容為量化資料摘要，不構成投資建議。",
   "backtests": [
@@ -18356,6 +18356,21 @@
       "outflow_pressure_score": -2.824,
       "market_temperature": 86.884,
       "maintenance_percentile": 93.789
+    },
+    {
+      "date": "2026-08-26",
+      "taiex": 45832.62,
+      "tsmc": 2415.0,
+      "maintenance_est": 184.91,
+      "margin_balance_billion": 554.803,
+      "foreign_net_100m": 366.132,
+      "foreign_20d_sum_100m": 2663.307,
+      "usdtwd": 31.835,
+      "dxy": 98.949,
+      "vix": 15.71,
+      "outflow_pressure_score": -3.238,
+      "market_temperature": 90.82,
+      "maintenance_percentile": 96.072
     }
   ]
 }
