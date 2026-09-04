@@ -1,24 +1,24 @@
 {
   "meta": {
-    "generated_at": "2026-09-03T13:08:58+00:00",
+    "generated_at": "2026-09-04T13:08:21+00:00",
     "timezone": "Asia/Taipei",
     "maintenance_ratio_note": "市場融資擔保比估算＝可配對之上市融資股票市值 ÷ 融資金額；為市場層級 proxy，非券商整戶融資維持率。",
     "disclaimer": "資料僅供研究與資訊用途，不構成投資建議。"
   },
-  "latest_date": "2026-09-03",
+  "latest_date": "2026-09-04",
   "latest": {
-    "taiex": 45857.66,
-    "tsmc": 2390.0,
-    "maintenance_est": 176.625,
-    "margin_balance_billion": 578.739,
-    "foreign_net_100m": -481.459,
-    "foreign_20d_sum_100m": 1676.179,
-    "usdtwd": 31.668,
-    "dxy": 98.977,
-    "vix": 15.04,
-    "outflow_pressure_score": -3.37,
-    "market_temperature": 86.536,
-    "maintenance_percentile": 90.618
+    "taiex": 46551.13,
+    "tsmc": 2410.0,
+    "maintenance_est": 180.49,
+    "margin_balance_billion": 581.895,
+    "foreign_net_100m": 562.13,
+    "foreign_20d_sum_100m": 2218.111,
+    "usdtwd": 31.682,
+    "dxy": 99.226,
+    "vix": 14.17,
+    "outflow_pressure_score": -2.945,
+    "market_temperature": 89.296,
+    "maintenance_percentile": 93.438
   },
   "summary": "市場融資擔保比估算處歷史高檔；外資近20日偏買方；波動情緒相對平穩；外部資金壓力有限。此內容為量化資料摘要，不構成投資建議。",
   "backtests": [
@@ -132,21 +132,6 @@
     }
   ],
   "series": [
-    {
-      "date": "2021-08-30",
-      "taiex": 17396.52,
-      "tsmc": 605.0,
-      "maintenance_est": 163.648,
-      "margin_balance_billion": 269.996,
-      "foreign_net_100m": 212.484,
-      "foreign_20d_sum_100m": -416.833,
-      "usdtwd": 27.873,
-      "dxy": 92.65,
-      "vix": 16.19,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 21.875
-    },
     {
       "date": "2021-08-31",
       "taiex": 17490.29,
@@ -18386,6 +18371,21 @@
       "outflow_pressure_score": -3.37,
       "market_temperature": 86.536,
       "maintenance_percentile": 90.618
+    },
+    {
+      "date": "2026-09-04",
+      "taiex": 46551.13,
+      "tsmc": 2410.0,
+      "maintenance_est": 180.49,
+      "margin_balance_billion": 581.895,
+      "foreign_net_100m": 562.13,
+      "foreign_20d_sum_100m": 2218.111,
+      "usdtwd": 31.682,
+      "dxy": 99.226,
+      "vix": 14.17,
+      "outflow_pressure_score": -2.945,
+      "market_temperature": 89.296,
+      "maintenance_percentile": 93.438
     }
   ]
 }
