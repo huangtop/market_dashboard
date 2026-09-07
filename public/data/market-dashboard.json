@@ -1,24 +1,24 @@
 {
   "meta": {
-    "generated_at": "2026-09-04T13:08:21+00:00",
+    "generated_at": "2026-09-07T13:09:03+00:00",
     "timezone": "Asia/Taipei",
     "maintenance_ratio_note": "市場融資擔保比估算＝可配對之上市融資股票市值 ÷ 融資金額；為市場層級 proxy，非券商整戶融資維持率。",
     "disclaimer": "資料僅供研究與資訊用途，不構成投資建議。"
   },
-  "latest_date": "2026-09-04",
+  "latest_date": "2026-09-07",
   "latest": {
-    "taiex": 46551.13,
-    "tsmc": 2410.0,
-    "maintenance_est": 180.49,
-    "margin_balance_billion": 581.895,
-    "foreign_net_100m": 562.13,
-    "foreign_20d_sum_100m": 2218.111,
-    "usdtwd": 31.682,
-    "dxy": 99.226,
-    "vix": 14.17,
-    "outflow_pressure_score": -2.945,
-    "market_temperature": 89.296,
-    "maintenance_percentile": 93.438
+    "taiex": 47326.27,
+    "tsmc": 2460.0,
+    "maintenance_est": 183.653,
+    "margin_balance_billion": 588.272,
+    "foreign_net_100m": 883.077,
+    "foreign_20d_sum_100m": 3508.345,
+    "usdtwd": 31.516,
+    "dxy": 98.913,
+    "vix": 15.19,
+    "outflow_pressure_score": -3.895,
+    "market_temperature": 92.437,
+    "maintenance_percentile": 95.394
   },
   "summary": "市場融資擔保比估算處歷史高檔；外資近20日偏買方；波動情緒相對平穩；外部資金壓力有限。此內容為量化資料摘要，不構成投資建議。",
   "backtests": [
@@ -132,51 +132,6 @@
     }
   ],
   "series": [
-    {
-      "date": "2021-08-31",
-      "taiex": 17490.29,
-      "tsmc": 614.0,
-      "maintenance_est": 163.39,
-      "margin_balance_billion": 268.234,
-      "foreign_net_100m": 250.502,
-      "foreign_20d_sum_100m": -175.722,
-      "usdtwd": 27.729,
-      "dxy": 92.63,
-      "vix": 16.48,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 20.0
-    },
-    {
-      "date": "2021-09-01",
-      "taiex": 17473.99,
-      "tsmc": 613.0,
-      "maintenance_est": 163.402,
-      "margin_balance_billion": 267.555,
-      "foreign_net_100m": 144.746,
-      "foreign_20d_sum_100m": -137.169,
-      "usdtwd": 27.569,
-      "dxy": 92.45,
-      "vix": 16.11,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 21.212
-    },
-    {
-      "date": "2021-09-02",
-      "taiex": 17319.76,
-      "tsmc": 607.0,
-      "maintenance_est": 161.01,
-      "margin_balance_billion": 267.304,
-      "foreign_net_100m": -23.074,
-      "foreign_20d_sum_100m": -209.269,
-      "usdtwd": 27.672,
-      "dxy": 92.23,
-      "vix": 16.41,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 13.433
-    },
     {
       "date": "2021-09-03",
       "taiex": 17516.92,
@@ -18386,6 +18341,21 @@
       "outflow_pressure_score": -2.945,
       "market_temperature": 89.296,
       "maintenance_percentile": 93.438
+    },
+    {
+      "date": "2026-09-07",
+      "taiex": 47326.27,
+      "tsmc": 2460.0,
+      "maintenance_est": 183.653,
+      "margin_balance_billion": 588.272,
+      "foreign_net_100m": 883.077,
+      "foreign_20d_sum_100m": 3508.345,
+      "usdtwd": 31.516,
+      "dxy": 98.913,
+      "vix": 15.19,
+      "outflow_pressure_score": -3.895,
+      "market_temperature": 92.437,
+      "maintenance_percentile": 95.394
     }
   ]
 }
