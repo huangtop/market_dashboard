@@ -1,51 +1,51 @@
 {
   "meta": {
-    "generated_at": "2026-09-07T13:09:03+00:00",
+    "generated_at": "2026-09-08T13:09:18+00:00",
     "timezone": "Asia/Taipei",
     "maintenance_ratio_note": "市場融資擔保比估算＝可配對之上市融資股票市值 ÷ 融資金額；為市場層級 proxy，非券商整戶融資維持率。",
     "disclaimer": "資料僅供研究與資訊用途，不構成投資建議。"
   },
-  "latest_date": "2026-09-07",
+  "latest_date": "2026-09-08",
   "latest": {
-    "taiex": 47326.27,
-    "tsmc": 2460.0,
-    "maintenance_est": 183.653,
-    "margin_balance_billion": 588.272,
-    "foreign_net_100m": 883.077,
-    "foreign_20d_sum_100m": 3508.345,
-    "usdtwd": 31.516,
-    "dxy": 98.913,
-    "vix": 15.19,
-    "outflow_pressure_score": -3.895,
-    "market_temperature": 92.437,
-    "maintenance_percentile": 95.394
+    "taiex": 47105.78,
+    "tsmc": 2470.0,
+    "maintenance_est": 181.079,
+    "margin_balance_billion": 586.267,
+    "foreign_net_100m": 132.686,
+    "foreign_20d_sum_100m": 3123.626,
+    "usdtwd": 31.484,
+    "dxy": 98.868,
+    "vix": 15.44,
+    "outflow_pressure_score": -3.945,
+    "market_temperature": 90.713,
+    "maintenance_percentile": 93.76
   },
   "summary": "市場融資擔保比估算處歷史高檔；外資近20日偏買方；波動情緒相對平穩；外部資金壓力有限。此內容為量化資料摘要，不構成投資建議。",
   "backtests": [
     {
       "threshold": 10,
-      "events": 20,
+      "events": 19,
       "horizons": [
         {
           "trading_days": 20,
-          "samples": 20,
-          "average_return_pct": -1.38,
-          "median_return_pct": -2.99,
-          "win_rate_pct": 40.0
+          "samples": 19,
+          "average_return_pct": -1.12,
+          "median_return_pct": -2.23,
+          "win_rate_pct": 42.1
         },
         {
           "trading_days": 60,
-          "samples": 20,
-          "average_return_pct": -3.17,
-          "median_return_pct": -3.31,
-          "win_rate_pct": 40.0
+          "samples": 19,
+          "average_return_pct": -3.41,
+          "median_return_pct": -3.51,
+          "win_rate_pct": 36.8
         },
         {
           "trading_days": 120,
-          "samples": 20,
-          "average_return_pct": -2.95,
-          "median_return_pct": -5.08,
-          "win_rate_pct": 40.0
+          "samples": 19,
+          "average_return_pct": -2.97,
+          "median_return_pct": -7.41,
+          "win_rate_pct": 42.1
         }
       ]
     },
@@ -132,21 +132,6 @@
     }
   ],
   "series": [
-    {
-      "date": "2021-09-03",
-      "taiex": 17516.92,
-      "tsmc": 620.0,
-      "maintenance_est": 161.28,
-      "margin_balance_billion": 268.328,
-      "foreign_net_100m": 320.88,
-      "foreign_20d_sum_100m": 197.033,
-      "usdtwd": 27.627,
-      "dxy": 92.04,
-      "vix": 16.41,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 14.706
-    },
     {
       "date": "2021-09-06",
       "taiex": 17495.3,
@@ -18356,6 +18341,21 @@
       "outflow_pressure_score": -3.895,
       "market_temperature": 92.437,
       "maintenance_percentile": 95.394
+    },
+    {
+      "date": "2026-09-08",
+      "taiex": 47105.78,
+      "tsmc": 2470.0,
+      "maintenance_est": 181.079,
+      "margin_balance_billion": 586.267,
+      "foreign_net_100m": 132.686,
+      "foreign_20d_sum_100m": 3123.626,
+      "usdtwd": 31.484,
+      "dxy": 98.868,
+      "vix": 15.44,
+      "outflow_pressure_score": -3.945,
+      "market_temperature": 90.713,
+      "maintenance_percentile": 93.76
     }
   ]
 }
