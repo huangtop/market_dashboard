@@ -1,7 +1,7 @@
 {
   "meta": {
-    "schema_version": "4.7-twse-only-taiwan-us10y-fix",
-    "generated_at": "2026-09-15T10:38:31+08:00",
+    "schema_version": "4.8-global-latest",
+    "generated_at": "2026-09-15T10:51:00+08:00",
     "timezone": "Asia/Taipei",
     "market_views": [
       "taiwan",
@@ -43,6 +43,10 @@
         "margin": "TWSE",
         "description": "台股資料一律使用臺灣證券交易所官方資料；taiwan-latest 不連 Yahoo Finance。"
       },
+      "global_latest": {
+        "source": "raw global_daily newest completed session",
+        "description": "提供美股/全球市場即時 KPI；不受台灣 latest_date 的 strict prior-session 對齊限制。歷史台美比較仍使用 latest/series 的 strict prior-session 資料。"
+      },
       "global_update": {
         "latest_mode": "10-calendar-day incremental Yahoo bulk download + SQLite UPSERT",
         "historical_mode": "full configured-period rebuild",
@@ -62,6 +66,31 @@
     "dow": "2026-09-11",
     "sox": "2026-09-11",
     "us10y": "2026-09-11"
+  },
+  "global_latest": {
+    "date": "2026-09-14",
+    "usdtwd": 31.779,
+    "usdtwd_date": "2026-09-15",
+    "dxy": 99.617,
+    "dxy_date": "2026-09-14",
+    "vix": 17.1,
+    "vix_date": "2026-09-14",
+    "vix_change_pct": 7.955,
+    "sp500": 7619.98,
+    "sp500_date": "2026-09-14",
+    "sp500_change_pct": -0.483,
+    "nasdaq": 26186.414,
+    "nasdaq_date": "2026-09-14",
+    "nasdaq_change_pct": -0.557,
+    "dow": 52421.199,
+    "dow_date": "2026-09-14",
+    "dow_change_pct": -0.289,
+    "sox": 11131.281,
+    "sox_date": "2026-09-14",
+    "sox_change_pct": -5.859,
+    "us10y": 4.961,
+    "us10y_date": "2026-09-14",
+    "us10y_change_bp": -1.4
   },
   "markets": {
     "taiwan": {

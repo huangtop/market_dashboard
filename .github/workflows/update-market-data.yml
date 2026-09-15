@@ -125,7 +125,7 @@ jobs:
           import sqlite3
           from pathlib import Path
 
-          EXPECTED_SCHEMA = "4.7-twse-only-taiwan-us10y-fix"
+          EXPECTED_SCHEMA = "4.8-global-latest"
 
           json_file = Path("public/data/market-dashboard.json")
           csv_file = Path("public/data/market-dashboard.csv")
@@ -148,6 +148,23 @@ jobs:
           latest = payload.get("latest") or {}
           latest_date = payload.get("latest_date")
           source_dates = payload.get("latest_source_dates") or {}
+          global_latest = payload.get("global_latest") or {}
+
+          if not global_latest:
+              raise SystemExit("JSON global_latest 不存在或為空")
+
+          for field in ("sp500", "nasdaq", "dow", "sox", "vix", "us10y"):
+              if global_latest.get(field) is None:
+                  raise SystemExit(f"global_latest.{field} 為空")
+              if not global_latest.get(f"{field}_date"):
+                  raise SystemExit(f"global_latest.{field}_date 為空")
+
+          for field in (
+              "sp500_change_pct", "nasdaq_change_pct", "dow_change_pct",
+              "sox_change_pct", "vix_change_pct", "us10y_change_bp"
+          ):
+              if global_latest.get(field) is None:
+                  raise SystemExit(f"global_latest.{field} 為空")
 
           if not series:
               raise SystemExit("JSON series 沒有資料")
@@ -245,6 +262,13 @@ jobs:
           print(f"US10Y：{latest.get('us10y')}%")
           print(f"US10Y change：{latest.get('us10y_change_bp')} bp")
           print(f"US10Y source：{latest.get('us10y_date')}")
+          print(
+              "global_latest："
+              f"S&P500 {global_latest.get('sp500')} ({global_latest.get('sp500_date')}), "
+              f"SOX {global_latest.get('sox')} ({global_latest.get('sox_date')}), "
+              f"VIX {global_latest.get('vix')} ({global_latest.get('vix_date')}), "
+              f"US10Y {global_latest.get('us10y')} ({global_latest.get('us10y_date')})"
+          )
           print(f"SQLite daily：{daily_count} rows")
           print(f"SQLite global_daily：{global_count} rows")
           print("Validation PASS")

@@ -17,7 +17,7 @@ from market_dashboard.storage import Store
 from market_dashboard.utils import safe_float
 
 
-SCHEMA_VERSION = "4.7-twse-only-taiwan-us10y-fix"
+SCHEMA_VERSION = "4.8-global-latest"
 
 # Step 3:
 # 保留前端「區間起點 = 100」的動態比較概念，
@@ -238,6 +238,59 @@ def build_market_views(records: list[dict], latest: dict) -> dict:
     return views
 
 
+def build_global_latest(global_df: pd.DataFrame) -> dict:
+    """Return the newest completed raw global session, independent of Taiwan date.
+
+    `latest` remains the Taiwan-row strict-prior-session view used for historical
+    comparison. `global_latest` is for "what is the latest completed US/global
+    market session now?" KPIs and therefore must come directly from global_daily.
+    """
+    if global_df is None or global_df.empty:
+        return {}
+
+    work = add_global_daily_changes(global_df.copy()).sort_values("date")
+    base_fields = ["usdtwd", "dxy", "vix", "sp500", "nasdaq", "dow", "sox", "us10y"]
+
+    # Prefer the newest row that contains the core US market set. Yahoo symbols
+    # can occasionally have isolated gaps, so per-field dates below still make
+    # provenance explicit.
+    core = ["sp500", "nasdaq", "dow", "sox", "vix", "us10y"]
+    complete = work.dropna(subset=core, how="all")
+    if complete.empty:
+        return {}
+
+    latest_date = pd.Timestamp(complete.iloc[-1]["date"])
+    result = {"date": latest_date.strftime("%Y-%m-%d")}
+
+    change_fields = {
+        "vix": "vix_change_pct",
+        "sp500": "sp500_change_pct",
+        "nasdaq": "nasdaq_change_pct",
+        "dow": "dow_change_pct",
+        "sox": "sox_change_pct",
+        "us10y": "us10y_change_bp",
+    }
+
+    # Use each field's newest available completed session and carry its own date.
+    # This avoids pretending that FX/DXY necessarily share the exact same session.
+    for field in base_fields:
+        valid = work[work[field].notna()]
+        if valid.empty:
+            result[field] = None
+            result[f"{field}_date"] = None
+            if field in change_fields:
+                result[change_fields[field]] = None
+            continue
+
+        row = valid.iloc[-1]
+        result[field] = safe_float(row.get(field))
+        result[f"{field}_date"] = pd.Timestamp(row["date"]).strftime("%Y-%m-%d")
+        if field in change_fields:
+            result[change_fields[field]] = safe_float(row.get(change_fields[field]))
+
+    return result
+
+
 def main() -> None:
     args = parse_args()
     setup_log()
@@ -456,6 +509,10 @@ def main() -> None:
             len(global_df),
         )
 
+    # 4.8: raw newest global session for current US/global KPIs.
+    # This is intentionally independent of Taiwan latest_date.
+    global_latest = build_global_latest(global_df)
+
     df = align_global_asof(
         df.sort_values("date"),
         global_df,
@@ -593,6 +650,10 @@ def main() -> None:
                     "margin": "TWSE",
                     "description": "台股資料一律使用臺灣證券交易所官方資料；taiwan-latest 不連 Yahoo Finance。"
                 },
+                "global_latest": {
+                    "source": "raw global_daily newest completed session",
+                    "description": "提供美股/全球市場即時 KPI；不受台灣 latest_date 的 strict prior-session 對齊限制。歷史台美比較仍使用 latest/series 的 strict prior-session 資料。",
+                },
                 "global_update": {
                     "latest_mode": "10-calendar-day incremental Yahoo bulk download + SQLite UPSERT",
                     "historical_mode": "full configured-period rebuild",
@@ -604,6 +665,10 @@ def main() -> None:
         },
         "latest_date": last.date.strftime("%Y-%m-%d"),
         "latest_source_dates": latest_source_dates,
+
+        # 4.8：全球市場自己的最新 completed session，供美股/全球 KPI 使用。
+        # 不改動 latest/series 的 strict prior-session 歷史對齊語意。
+        "global_latest": global_latest,
 
         # 新版結構：之後 WordPress 會改讀這裡。
         "markets": market_views,
