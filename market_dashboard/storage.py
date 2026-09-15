@@ -10,7 +10,9 @@ SCHEMA = """
 CREATE TABLE IF NOT EXISTS daily (
  date TEXT PRIMARY KEY,
  taiex REAL,
+ taiex_change_pct REAL,
  tsmc REAL,
+ tsmc_change_pct REAL,
  margin_balance_billion REAL,
  maintenance_est REAL,
  foreign_net_100m REAL,
@@ -43,6 +45,8 @@ CREATE TABLE IF NOT EXISTS global_daily (
 # CREATE TABLE IF NOT EXISTS does not alter an existing table, so we migrate
 # missing columns automatically at startup.
 REQUIRED_COLUMNS = {
+    "taiex_change_pct": "REAL",
+    "tsmc_change_pct": "REAL",
     "sp500": "REAL",
     "nasdaq": "REAL",
     "dow": "REAL",

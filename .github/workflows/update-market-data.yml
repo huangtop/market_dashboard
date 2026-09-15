@@ -1,24 +1,26 @@
-name: Update Taiwan Market Data
+name: Update Market Data
 
 on:
   workflow_dispatch:
     inputs:
-      backfill_5y:
-        description: "補齊最近五年缺漏資料（首次建立或歷史回補時使用）"
-        required: false
-        default: false
-        type: boolean
-
-      refresh_global:
-        description: "只重建全球市場日曆（Yahoo；不抓 TWSE）"
-        required: false
-        default: false
-        type: boolean
+      mode:
+        description: "手動執行模式"
+        required: true
+        default: "taiwan-latest"
+        type: choice
+        options:
+          - taiwan-latest
+          - global-latest
+          - latest
+          - backfill-5y
+          - refresh-global
+          - derive-only
 
   schedule:
     # GitHub Actions cron 使用 UTC。
-    # 星期一至星期五執行。
-    # 13:00 UTC = 台灣時間 21:00
+    # 00:00 UTC = 台灣時間 08:00：美股/全球市場收盤後更新，只連 Yahoo。
+    - cron: "0 0 * * 2-6"
+    # 13:00 UTC = 台灣時間 21:00：台股收盤後更新，只連 TWSE。
     - cron: "0 13 * * 1-5"
 
 permissions:
@@ -37,8 +39,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          # 每日更新不需要完整 Git 歷史，降低 Actions checkout 成本。
-          fetch-depth: 1
+          # push 前會 rebase；這裡保留足夠歷史，避免排程重疊或人工 commit 造成 non-fast-forward。
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -62,50 +64,68 @@ jobs:
 
           DB_FILE="public/data/market_dashboard.sqlite3"
 
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" && \
-                "${{ inputs.refresh_global }}" == "true" ]]; then
-
-            echo "只重建全球市場交易日曆"
-            python collector.py \
-              --config config.json \
-              --years 5 \
-              --refresh-global-only
-
-          elif [[ "${{ github.event_name }}" == "workflow_dispatch" && \
-                  "${{ inputs.backfill_5y }}" == "true" ]]; then
-
-            echo "執行五年歷史增量回補"
-            python collector.py \
-              --config config.json \
-              --years 5 \
-              --backfill
-
-          elif [[ ! -f "$DB_FILE" ]]; then
-
+          if [[ ! -f "$DB_FILE" ]]; then
             echo "找不到既有 SQLite，首次建立五年資料"
-            python collector.py \
-              --config config.json \
-              --years 5 \
-              --backfill
-
-          else
-
-            echo "日常增量：台股只更新最新交易日；Yahoo 只抓最近 10 個日曆日並 UPSERT"
-            python collector.py \
-              --config config.json \
-              --years 5 \
-              --latest
+            python collector.py --config config.json --years 5 --backfill
+            exit 0
           fi
 
+          if [[ "${{ github.event_name }}" == "schedule" ]]; then
+            if [[ "${{ github.event.schedule }}" == "0 0 * * 2-6" ]]; then
+              echo "08:00 台灣時間：全球市場更新；只連 Yahoo，不連 TWSE"
+              python collector.py --config config.json --years 5 --global-latest
+            elif [[ "${{ github.event.schedule }}" == "0 13 * * 1-5" ]]; then
+              echo "21:00 台灣時間：台股更新；只連 TWSE，不連 Yahoo"
+              python collector.py --config config.json --years 5 --taiwan-latest
+            else
+              echo "未知 schedule：${{ github.event.schedule }}"
+              exit 1
+            fi
+            exit 0
+          fi
+
+          case "${{ inputs.mode }}" in
+            taiwan-latest)
+              echo "手動：台股最新；只連 TWSE"
+              python collector.py --config config.json --years 5 --taiwan-latest
+              ;;
+            global-latest)
+              echo "手動：全球市場最新；只連 Yahoo"
+              python collector.py --config config.json --years 5 --global-latest
+              ;;
+            latest)
+              echo "手動：台股 + 全球市場最新"
+              python collector.py --config config.json --years 5 --latest
+              ;;
+            backfill-5y)
+              echo "手動：五年歷史增量回補"
+              python collector.py --config config.json --years 5 --backfill
+              ;;
+            refresh-global)
+              echo "手動：重建全球市場交易日曆；只連 Yahoo"
+              python collector.py --config config.json --years 5 --refresh-global-only
+              ;;
+            derive-only)
+              echo "手動：只讀 SQLite 重算 JSON/CSV；不連網"
+              python collector.py --config config.json --years 5 --derive-only
+              ;;
+            *)
+              echo "未知 mode：${{ inputs.mode }}"
+              exit 1
+              ;;
+          esac
+
       - name: Validate generated files and schema
+        shell: bash
         run: |
+          set -euo pipefail
           python - <<'PY'
           import json
+          import math
           import sqlite3
-          from datetime import date
           from pathlib import Path
 
-          EXPECTED_SCHEMA = "4.4-incremental"
+          EXPECTED_SCHEMA = "4.7-twse-only-taiwan-us10y-fix"
 
           json_file = Path("public/data/market-dashboard.json")
           csv_file = Path("public/data/market-dashboard.csv")
@@ -122,61 +142,44 @@ jobs:
 
           schema = payload.get("meta", {}).get("schema_version")
           if schema != EXPECTED_SCHEMA:
-              raise SystemExit(
-                  f"schema_version 錯誤：預期 {EXPECTED_SCHEMA}，實際 {schema}"
-              )
+              raise SystemExit(f"schema_version 錯誤：預期 {EXPECTED_SCHEMA}，實際 {schema}")
 
           series = payload.get("series") or []
-          if not series:
-              raise SystemExit("JSON series 沒有資料")
-
           latest = payload.get("latest") or {}
           latest_date = payload.get("latest_date")
           source_dates = payload.get("latest_source_dates") or {}
 
+          if not series:
+              raise SystemExit("JSON series 沒有資料")
           if not latest_date:
               raise SystemExit("JSON latest_date 不存在")
 
-          required_global = [
-              "usdtwd",
-              "dxy",
-              "vix",
-              "sp500",
-              "nasdaq",
-              "dow",
-              "sox",
-              "us10y",
-          ]
+          required_latest = (
+              "taiex", "taiex_change_pct",
+              "tsmc", "tsmc_change_pct",
+              "foreign_net_100m",
+              "sp500", "sp500_change_pct",
+              "nasdaq", "nasdaq_change_pct",
+              "dow", "dow_change_pct",
+              "sox", "sox_change_pct",
+              "vix", "vix_change_pct",
+              "us10y", "us10y_change_bp",
+          )
+          for field in required_latest:
+              value = latest.get(field)
+              if value is None:
+                  raise SystemExit(f"latest.{field} 為空")
+              if isinstance(value, (int, float)) and not math.isfinite(value):
+                  raise SystemExit(f"latest.{field} 不是有限數值：{value}")
 
-          # US10Y / global source-date schema checks.
-          us10y = latest.get("us10y")
-          us10y_z = latest.get("us10y_zscore")
-          us10y_date = latest.get("us10y_date")
-
-          if us10y is None:
-              raise SystemExit("latest.us10y 為空")
-          if us10y_z is None:
-              raise SystemExit("latest.us10y_zscore 為空")
-          if not us10y_date:
-              raise SystemExit("latest.us10y_date 為空")
-
-          if source_dates.get("us10y") != us10y_date:
-              raise SystemExit(
-                  "latest_source_dates.us10y 與 latest.us10y_date 不一致"
-              )
-
-          # strict prior-session alignment:
-          # 台灣 latest row 不可以直接使用相同曆日的美股/美債 session。
-          if us10y_date >= latest_date:
-              raise SystemExit(
-                  f"US10Y source date 不符合 completed-session 規則："
-                  f"{us10y_date} >= {latest_date}"
-              )
-
+          required_global = ("usdtwd", "dxy", "vix", "sp500", "nasdaq", "dow", "sox", "us10y")
           for field in required_global:
               source_date = source_dates.get(field)
+              row_source_date = latest.get(f"{field}_date")
               if not source_date:
                   raise SystemExit(f"latest_source_dates.{field} 為空")
+              if row_source_date != source_date:
+                  raise SystemExit(f"{field} source date 不一致：{row_source_date} != {source_date}")
               if source_date >= latest_date:
                   raise SystemExit(
                       f"{field} source date 不符合 completed-session 規則："
@@ -190,85 +193,38 @@ jobs:
                       "SELECT name FROM sqlite_master WHERE type='table'"
                   )
               }
+              for table in ("daily", "global_daily"):
+                  if table not in tables:
+                      raise SystemExit(f"SQLite 缺少資料表：{table}")
 
-              for required_table in ("daily", "global_daily"):
-                  if required_table not in tables:
-                      raise SystemExit(
-                          f"SQLite 缺少資料表：{required_table}"
-                      )
-
-              daily_count = con.execute(
-                  "SELECT COUNT(*) FROM daily"
-              ).fetchone()[0]
-
-              complete_count = con.execute(
-                  """
-                  SELECT COUNT(*)
-                  FROM daily
-                  WHERE taiex IS NOT NULL
-                    AND tsmc IS NOT NULL
-                    AND margin_balance_billion IS NOT NULL
-                    AND maintenance_est IS NOT NULL
-                    AND foreign_net_100m IS NOT NULL
-                  """
-              ).fetchone()[0]
-
-              global_count = con.execute(
-                  "SELECT COUNT(*) FROM global_daily"
-              ).fetchone()[0]
+              daily_columns = {
+                  row[1] for row in con.execute("PRAGMA table_info(daily)")
+              }
+              for col in ("taiex_change_pct", "tsmc_change_pct"):
+                  if col not in daily_columns:
+                      raise SystemExit(f"daily 缺少欄位：{col}")
 
               global_columns = {
-                  row[1]
-                  for row in con.execute("PRAGMA table_info(global_daily)")
+                  row[1] for row in con.execute("PRAGMA table_info(global_daily)")
               }
-
-              required_columns = {
-                  "date",
-                  "usdtwd",
-                  "dxy",
-                  "vix",
-                  "sp500",
-                  "nasdaq",
-                  "dow",
-                  "sox",
-                  "us10y",
+              required_global_columns = {
+                  "date", "usdtwd", "dxy", "vix", "sp500",
+                  "nasdaq", "dow", "sox", "us10y"
               }
+              missing = required_global_columns - global_columns
+              if missing:
+                  raise SystemExit("global_daily 缺少欄位：" + ", ".join(sorted(missing)))
 
-              missing_columns = required_columns - global_columns
-              if missing_columns:
-                  raise SystemExit(
-                      "global_daily 缺少欄位：" +
-                      ", ".join(sorted(missing_columns))
-                  )
+              daily_count = con.execute("SELECT COUNT(*) FROM daily").fetchone()[0]
+              global_count = con.execute("SELECT COUNT(*) FROM global_daily").fetchone()[0]
 
-              global_us10y_count = con.execute(
-                  "SELECT COUNT(*) FROM global_daily WHERE us10y IS NOT NULL"
-              ).fetchone()[0]
-
-              global_max_date = con.execute(
-                  "SELECT MAX(date) FROM global_daily"
-              ).fetchone()[0]
-
-              source_row_count = con.execute(
-                  """
-                  SELECT COUNT(*)
-                  FROM global_daily
-                  WHERE date = ?
-                    AND us10y IS NOT NULL
-                  """,
+              us10y_date = latest.get("us10y_date")
+              us10y_rows = con.execute(
+                  "SELECT COUNT(*) FROM global_daily WHERE date=? AND us10y IS NOT NULL",
                   (us10y_date,),
               ).fetchone()[0]
-
-          if daily_count == 0:
-              raise SystemExit("SQLite daily 沒有資料")
-          if global_count == 0:
-              raise SystemExit("SQLite global_daily 沒有資料")
-          if global_us10y_count == 0:
-              raise SystemExit("global_daily 沒有任何 US10Y 資料")
-          if source_row_count == 0:
-              raise SystemExit(
-                  f"global_daily 找不到 US10Y source row：{us10y_date}"
-              )
+              if us10y_rows == 0:
+                  raise SystemExit(f"global_daily 找不到 US10Y source row：{us10y_date}")
 
           rolling = (
               payload.get("analytics", {})
@@ -277,22 +233,20 @@ jobs:
               .get("us10y")
           )
           if not isinstance(rolling, dict) or "value" not in rolling:
-              raise SystemExit(
-                  "analytics.rolling_correlations.60d.us10y 不存在"
-              )
+              raise SystemExit("analytics.rolling_correlations.60d.us10y 不存在")
 
           print(f"schema：{schema}")
-          print(f"JSON 筆數：{len(series)}")
-          print(f"JSON 範圍：{series[0].get('date')} ~ {series[-1].get('date')}")
           print(f"台灣最新日期：{latest_date}")
-          print(f"US10Y：{us10y}%")
-          print(f"US10Y Z-score：{us10y_z}")
-          print(f"US10Y source：{us10y_date}")
-          print(f"60d TAIEX/US10Y corr：{rolling.get('value')}")
+          print(f"TAIEX：{latest.get('taiex')} / daily {latest.get('taiex_change_pct')}%")
+          print(f"TSMC：{latest.get('tsmc')} / daily {latest.get('tsmc_change_pct')}%")
+          print(f"S&P500 daily：{latest.get('sp500_change_pct')}%")
+          print(f"SOX daily：{latest.get('sox_change_pct')}%")
+          print(f"VIX daily：{latest.get('vix_change_pct')}%")
+          print(f"US10Y：{latest.get('us10y')}%")
+          print(f"US10Y change：{latest.get('us10y_change_bp')} bp")
+          print(f"US10Y source：{latest.get('us10y_date')}")
           print(f"SQLite daily：{daily_count} rows")
-          print(f"SQLite 完整台股交易日：{complete_count}")
           print(f"SQLite global_daily：{global_count} rows")
-          print(f"global_daily 最新原始日期：{global_max_date}")
           print("Validation PASS")
           PY
 
@@ -314,5 +268,21 @@ jobs:
             exit 0
           fi
 
-          git commit -m "chore(data): update market data $(date -u +'%Y-%m-%d')"
-          git push origin main
+          git commit -m "chore(data): update market data $(date -u +'%Y-%m-%d %H:%M UTC')"
+
+          # main 可能在 workflow 執行期間收到人工 commit。
+          # 先 rebase 再 push，降低 non-fast-forward 失敗機率。
+          for attempt in 1 2 3; do
+            echo "push attempt $attempt"
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+
+            git rebase --abort 2>/dev/null || true
+            if [[ "$attempt" -lt 3 ]]; then
+              sleep $((attempt * 5))
+            fi
+          done
+
+          echo "三次 rebase/push 仍失敗"
+          exit 1

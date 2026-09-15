@@ -10,14 +10,14 @@ from pathlib import Path
 
 import pandas as pd
 
-from market_dashboard.analysis import align_global_asof, backtests, commentary, enrich, latest_correlations, detect_signals, interpretation_guide
+from market_dashboard.analysis import add_global_daily_changes, align_global_asof, backtests, commentary, enrich, latest_correlations, detect_signals, interpretation_guide
 from market_dashboard.config import Settings
 from market_dashboard.sources import Sources
 from market_dashboard.storage import Store
 from market_dashboard.utils import safe_float
 
 
-SCHEMA_VERSION = "4.4-incremental"
+SCHEMA_VERSION = "4.7-twse-only-taiwan-us10y-fix"
 
 # Step 3:
 # 保留前端「區間起點 = 100」的動態比較概念，
@@ -27,7 +27,9 @@ SCHEMA_VERSION = "4.4-incremental"
 VIEW_FIELDS = {
     "taiwan": [
         "taiex",
+        "taiex_change_pct",
         "tsmc",
+        "tsmc_change_pct",
         "maintenance_est",
         "maintenance_percentile",
         "maintenance_zscore",
@@ -39,12 +41,18 @@ VIEW_FIELDS = {
     ],
     "us": [
         "sp500",
+        "sp500_change_pct",
         "nasdaq",
+        "nasdaq_change_pct",
         "dow",
+        "dow_change_pct",
         "sox",
+        "sox_change_pct",
         "vix",
+        "vix_change_pct",
         "vix_zscore",
         "us10y",
+        "us10y_change_bp",
         "us10y_zscore",
         "corr_20d_taiex_sp500",
         "corr_20d_taiex_nasdaq",
@@ -80,6 +88,7 @@ VIEW_FIELDS = {
         "dxy",
         "dxy_zscore",
         "us10y",
+        "us10y_change_bp",
         "us10y_zscore",
         "outflow_pressure_score",
     ],
@@ -136,6 +145,16 @@ def parse_args() -> argparse.Namespace:
     mode.add_argument("--backfill", action="store_true", help="只補 SQLite 缺少或不完整的日期")
     mode.add_argument("--full", action="store_true", help="強制重新抓取完整期間")
     mode.add_argument("--derive-only", action="store_true", help="不連網，只讀 SQLite 重算 JSON/CSV")
+    mode.add_argument(
+        "--taiwan-latest",
+        action="store_true",
+        help="只更新台股：TAIEX、2330、外資、融資全部直連 TWSE；不連 Yahoo",
+    )
+    mode.add_argument(
+        "--global-latest",
+        action="store_true",
+        help="只更新全球市場：單次 Yahoo bulk request；不連 TWSE",
+    )
     mode.add_argument(
         "--refresh-global-only",
         action="store_true",
@@ -238,6 +257,72 @@ def main() -> None:
     if args.derive_only:
         logging.info("模式：derive-only；不連線 TWSE / Yahoo Finance")
 
+    elif args.global_latest:
+        logging.info("模式：global-latest；只更新全球市場，不連 TWSE")
+        src = Sources(cfg)
+        external_start = end - timedelta(days=10)
+        external = src.external(external_start, end)
+        if external.empty:
+            raise RuntimeError("Yahoo Finance 近期全球市場資料為空；保留原 global_daily")
+        stored_external_rows = store.update_external(external)
+        logging.info("global_daily 增量 UPSERT：%d 筆近期全球交易日", stored_external_rows)
+
+    elif args.taiwan_latest:
+        logging.info("模式：taiwan-latest；台股資料一律直連 TWSE，不連 Yahoo Finance")
+        src = Sources(cfg)
+        download_start = end - timedelta(days=14)
+
+        taiex_df = src.taiex(download_start, end)
+        tsmc_df = src.tsmc(download_start, end)
+        core = (
+            taiex_df
+            .merge(tsmc_df, on="date", how="outer")
+            .sort_values("date")
+        )
+        all_days = list(core["date"].dropna().drop_duplicates().sort_values())
+        if not all_days:
+            raise RuntimeError("TWSE 最近期間沒有可用交易日")
+
+        day = max(all_days)
+        key = day.strftime("%Y-%m-%d")
+        row = {
+            "date": key,
+            "updated_at": datetime.now().astimezone().isoformat(timespec="seconds"),
+        }
+
+        core_row = core[core["date"].eq(day)]
+        if not core_row.empty:
+            last_core = core_row.iloc[-1]
+            row["taiex"] = safe_float(last_core.get("taiex"))
+            row["taiex_change_pct"] = safe_float(last_core.get("taiex_change_pct"))
+            row["tsmc"] = safe_float(last_core.get("tsmc"))
+            row["tsmc_change_pct"] = safe_float(last_core.get("tsmc_change_pct"))
+
+        try:
+            row.update({k: safe_float(v) for k, v in src.margin(day).items()})
+        except Exception as exc:
+            logging.warning("%s margin: %s", key, exc)
+            fallback = previous_valid_margin(store, day)
+            if fallback:
+                row.update(fallback)
+                logging.warning("%s margin 使用前一有效交易日數值暫代", key)
+
+        try:
+            row["foreign_net_100m"] = safe_float(src.foreign(day))
+        except Exception as exc:
+            logging.warning("%s foreign: %s", key, exc)
+
+        store.upsert(row)
+        logging.info(
+            "%s TWSE saved：TAIEX=%s change=%s%%；2330=%s change=%s%%；foreign=%s 億",
+            key,
+            row.get("taiex"),
+            row.get("taiex_change_pct"),
+            row.get("tsmc"),
+            row.get("tsmc_change_pct"),
+            row.get("foreign_net_100m"),
+        )
+
     elif args.refresh_global_only:
         logging.info("模式：refresh-global-only；不連 TWSE，只執行一次 Yahoo bulk download")
         src = Sources(cfg)
@@ -326,7 +411,9 @@ def main() -> None:
                 if not core_row.empty:
                     last_core = core_row.iloc[-1]
                     row["taiex"] = safe_float(last_core.get("taiex"))
+                    row["taiex_change_pct"] = safe_float(last_core.get("taiex_change_pct"))
                     row["tsmc"] = safe_float(last_core.get("tsmc"))
+                    row["tsmc_change_pct"] = safe_float(last_core.get("tsmc_change_pct"))
 
                 try:
                     row.update({k: safe_float(v) for k, v in src.margin(day).items()})
@@ -381,7 +468,9 @@ def main() -> None:
 
     cols = [
         "taiex",
+        "taiex_change_pct",
         "tsmc",
+        "tsmc_change_pct",
         "maintenance_est",
         "margin_balance_billion",
         "foreign_net_100m",
@@ -389,10 +478,15 @@ def main() -> None:
         "usdtwd",
         "dxy",
         "vix",
+        "vix_change_pct",
         "sp500",
+        "sp500_change_pct",
         "nasdaq",
+        "nasdaq_change_pct",
         "dow",
+        "dow_change_pct",
         "sox",
+        "sox_change_pct",
         "outflow_pressure_score",
         "market_temperature",
         "maintenance_percentile",
@@ -402,6 +496,7 @@ def main() -> None:
         "dxy_zscore",
         "vix_zscore",
         "us10y",
+        "us10y_change_bp",
         "us10y_zscore",
         "usdtwd_date",
         "dxy_date",
@@ -489,6 +584,14 @@ def main() -> None:
                     "method": "strict prior-session as-of",
                     "allow_exact_calendar_date": False,
                     "description": "台灣交易日只對齊當時已完成的最近全球市場日資料，避免使用同日尚未收盤的美股、美債或波動率。",
+                },
+                "taiwan_source_policy": {
+                    "provider": "TWSE official",
+                    "taiex": "indicesReport/MI_5MINS_HIST",
+                    "tsmc": "exchangeReport/STOCK_DAY",
+                    "foreign_flow": "TWSE",
+                    "margin": "TWSE",
+                    "description": "台股資料一律使用臺灣證券交易所官方資料；taiwan-latest 不連 Yahoo Finance。"
                 },
                 "global_update": {
                     "latest_mode": "10-calendar-day incremental Yahoo bulk download + SQLite UPSERT",

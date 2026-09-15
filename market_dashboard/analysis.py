@@ -19,18 +19,53 @@ GLOBAL_MARKET_FIELDS = (
     "us10y",
 )
 
+GLOBAL_CHANGE_FIELDS = {
+    "sp500": "sp500_change_pct",
+    "nasdaq": "nasdaq_change_pct",
+    "dow": "dow_change_pct",
+    "sox": "sox_change_pct",
+    "vix": "vix_change_pct",
+    "us10y": "us10y_change_bp",
+}
+
+
+def add_global_daily_changes(global_df: pd.DataFrame) -> pd.DataFrame:
+    """Calculate moves on the raw global trading calendar before alignment."""
+    if global_df is None or global_df.empty:
+        return global_df
+
+    x = global_df.sort_values("date").copy()
+
+    for field in ("sp500", "nasdaq", "dow", "sox", "vix"):
+        if field in x.columns:
+            x[f"{field}_change_pct"] = (
+                pd.to_numeric(x[field], errors="coerce")
+                .pct_change(fill_method=None)
+                * 100
+            )
+
+    if "us10y" in x.columns:
+        # ^TNX is stored as percentage yield: 4.975 - 4.944 = 0.031
+        # percentage point = +3.1 basis points.
+        x["us10y_change_bp"] = (
+            pd.to_numeric(x["us10y"], errors="coerce")
+            .diff()
+            * 100
+        )
+
+    return x
+
 
 def align_global_asof(
     taiwan_df: pd.DataFrame,
     global_df: pd.DataFrame,
 ) -> pd.DataFrame:
-    """Align each Taiwan date to the latest *completed prior* global session.
+    """Align Taiwan date to the latest strictly-prior completed global session.
 
-    Exact calendar-date matches are intentionally disallowed. A Taiwan close
-    happens before the same US calendar day's close, so using same-date US
-    values introduces look-ahead and can capture unfinished intraday quotes.
-
-    Each field gets its own source-date column, e.g. ``us10y_date``.
+    Daily move fields are calculated on raw global sessions first and aligned
+    together with their base field.  This guarantees US10Y change_bp and stock
+    index daily returns refer to the exact same source session as the displayed
+    level.
     """
     left = taiwan_df.sort_values("date").copy()
     left["date"] = pd.to_datetime(left["date"], errors="coerce")
@@ -38,15 +73,15 @@ def align_global_asof(
     for field in GLOBAL_MARKET_FIELDS:
         left[field] = np.nan
         left[f"{field}_date"] = pd.NaT
+        change_field = GLOBAL_CHANGE_FIELDS.get(field)
+        if change_field:
+            left[change_field] = np.nan
 
     if global_df is None or global_df.empty:
         return left
 
-    global_work = global_df.copy()
-    global_work["date"] = pd.to_datetime(
-        global_work["date"],
-        errors="coerce",
-    )
+    global_work = add_global_daily_changes(global_df.copy())
+    global_work["date"] = pd.to_datetime(global_work["date"], errors="coerce")
     global_work = (
         global_work
         .dropna(subset=["date"])
@@ -59,13 +94,17 @@ def align_global_asof(
         if field not in global_work.columns:
             continue
 
+        change_field = GLOBAL_CHANGE_FIELDS.get(field)
+        keep = ["date", field]
+        if change_field and change_field in global_work.columns:
+            keep.append(change_field)
+
         right = (
-            global_work[["date", field]]
+            global_work[keep]
             .dropna(subset=[field])
             .sort_values("date")
             .rename(columns={"date": f"{field}_date"})
         )
-
         if right.empty:
             continue
 
@@ -80,6 +119,8 @@ def align_global_asof(
 
         left[field] = aligned[field].to_numpy()
         left[f"{field}_date"] = aligned[f"{field}_date"].to_numpy()
+        if change_field and change_field in aligned.columns:
+            left[change_field] = aligned[change_field].to_numpy()
 
     return left
 
