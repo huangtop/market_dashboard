@@ -36,7 +36,7 @@ class Sources:
         """Fetch an official TWSE report endpoint outside the /rwd/zh tree.
 
         TWSE's current historical TAIEX and STOCK_DAY reports are exposed under
-        /indicesReport and /exchangeReport.  A HTTP 200 that redirects to
+        /indicesReport and /exchangeReport. A HTTP 200 that redirects to
         page-not-found.html is treated as failure instead of being parsed.
         """
         bases = (
@@ -64,7 +64,9 @@ class Sources:
                     r.raise_for_status()
 
                     if "page-not-found" in r.url:
-                        raise RuntimeError(f"TWSE endpoint redirected to 404 page: {r.url}")
+                        raise RuntimeError(
+                            f"TWSE endpoint redirected to 404 page: {r.url}"
+                        )
 
                     text = r.text.strip()
                     ctype = (r.headers.get("content-type") or "").lower()
@@ -107,7 +109,9 @@ class Sources:
             rows = payload.get(f"data{suffix}")
             if not isinstance(rows, list):
                 continue
-            normalized = [str(x).replace(" ", "").replace("\n", "") for x in fields]
+            normalized = [
+                str(x).replace(" ", "").replace("\n", "") for x in fields
+            ]
             if all(any(req in col for col in normalized) for req in required):
                 return pd.DataFrame(rows, columns=fields)
             candidates.append(fields)
@@ -118,12 +122,10 @@ class Sources:
         chunks = []
         failed_months = []
 
-        # The monthly report is requested by month.  Keep the preceding month
-        # when needed so TAIEX daily return on the first trading day can still
-        # be computed from the prior official close.
-        fetch_start = start
-        if kind == "taiex":
-            fetch_start = (pd.Timestamp(start) - pd.offsets.MonthBegin(1)).date()
+        # Both TAIEX and TSMC returns are calculated from consecutive official
+        # closes. Fetch the preceding month so the first requested trading day
+        # can still be compared with the previous official trading-session close.
+        fetch_start = (pd.Timestamp(start) - pd.offsets.MonthBegin(1)).date()
 
         for m in month_starts(fetch_start, end):
             try:
@@ -144,7 +146,7 @@ class Sources:
                             "taiex": data[close_col].map(number),
                         }
                     )
-                else:
+                elif kind == "tsmc":
                     payload = self._twse_report_json(
                         "exchangeReport/STOCK_DAY",
                         {
@@ -156,24 +158,18 @@ class Sources:
                     data = self._legacy_table(payload, ["日期", "收盤價"])
                     date_col = next(c for c in data if "日期" in str(c))
                     close_col = next(c for c in data if "收盤價" in str(c))
-                    change_col = next(
-                        (c for c in data if "漲跌價差" in str(c)),
-                        None,
-                    )
-                    close = data[close_col].map(number)
-                    change = (
-                        data[change_col].map(number)
-                        if change_col is not None
-                        else pd.Series(np.nan, index=data.index)
-                    )
-                    previous_close = close - change
+
+                    # Do not depend on TWSE's "漲跌價差" field. Its formatting
+                    # can change (or be temporarily unparsable), which previously
+                    # produced NaN -> None -> workflow validation failure.
                     chunk = pd.DataFrame(
                         {
                             "date": data[date_col].map(roc_date),
-                            "tsmc": close,
-                            "tsmc_change_pct": (change / previous_close) * 100,
+                            "tsmc": data[close_col].map(number),
                         }
                     )
+                else:
+                    raise ValueError(f"未知 monthly core kind: {kind}")
 
                 chunk = (
                     chunk
@@ -203,12 +199,17 @@ class Sources:
             .drop_duplicates("date")
         )
 
+        # Calculate daily returns from consecutive official closes instead of
+        # relying on a separate change field supplied by TWSE.
         if kind == "taiex":
-            # TWSE historical index report publishes official closes.  Daily
-            # return is therefore current official close vs previous official
-            # trading-session close.
             result["taiex_change_pct"] = (
                 pd.to_numeric(result["taiex"], errors="coerce")
+                .pct_change(fill_method=None)
+                * 100
+            )
+        elif kind == "tsmc":
+            result["tsmc_change_pct"] = (
+                pd.to_numeric(result["tsmc"], errors="coerce")
                 .pct_change(fill_method=None)
                 * 100
             )
@@ -497,5 +498,4 @@ class Sources:
         )
 
         out["date"] = pd.to_datetime(out["date"]).dt.normalize()
-
         return out[columns].sort_values("date").drop_duplicates("date")
