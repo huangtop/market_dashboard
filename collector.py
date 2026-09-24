@@ -255,11 +255,11 @@ def build_global_latest(global_df: pd.DataFrame) -> dict:
     # can occasionally have isolated gaps, so per-field dates below still make
     # provenance explicit.
     core = ["sp500", "nasdaq", "dow", "sox", "vix", "us10y"]
-    complete = work.dropna(subset=core, how="all")
-    if complete.empty:
+    available_sessions = work.dropna(subset=core, how="all")
+    if available_sessions.empty:
         return {}
 
-    latest_date = pd.Timestamp(complete.iloc[-1]["date"])
+    latest_date = pd.Timestamp(available_sessions.iloc[-1]["date"])
     result = {"date": latest_date.strftime("%Y-%m-%d")}
 
     change_fields = {
@@ -274,19 +274,29 @@ def build_global_latest(global_df: pd.DataFrame) -> dict:
     # Use each field's newest available completed session and carry its own date.
     # This avoids pretending that FX/DXY necessarily share the exact same session.
     for field in base_fields:
-        valid = work[work[field].notna()]
+        change_field = change_fields.get(field)
+
+        if change_field:
+            valid = work.dropna(subset=[field, change_field])
+        else:
+            valid = work.dropna(subset=[field])
+
         if valid.empty:
             result[field] = None
             result[f"{field}_date"] = None
-            if field in change_fields:
-                result[change_fields[field]] = None
+            if change_field:
+                result[change_field] = None
             continue
 
         row = valid.iloc[-1]
-        result[field] = safe_float(row.get(field))
-        result[f"{field}_date"] = pd.Timestamp(row["date"]).strftime("%Y-%m-%d")
-        if field in change_fields:
-            result[change_fields[field]] = safe_float(row.get(change_fields[field]))
+
+        result[field] = safe_float(row[field])
+        result[f"{field}_date"] = pd.Timestamp(
+            row["date"]
+        ).strftime("%Y-%m-%d")
+
+        if change_field:
+            result[change_field] = safe_float(row[change_field])
 
     return result
 
