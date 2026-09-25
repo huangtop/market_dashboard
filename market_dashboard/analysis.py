@@ -30,28 +30,41 @@ GLOBAL_CHANGE_FIELDS = {
 
 
 def add_global_daily_changes(global_df: pd.DataFrame) -> pd.DataFrame:
-    """Calculate moves on the raw global trading calendar before alignment."""
+    """Calculate moves between consecutive valid sessions for each market.
+
+    global_daily uses the union of calendars from Yahoo symbols, so a row may
+    exist because one market traded while another field is NaN. Daily changes
+    therefore must be calculated on each field's own valid-session series,
+    rather than across the union-calendar rows.
+    """
     if global_df is None or global_df.empty:
         return global_df
 
     x = global_df.sort_values("date").copy()
 
     for field in ("sp500", "nasdaq", "dow", "sox", "vix"):
-        if field in x.columns:
-            x[f"{field}_change_pct"] = (
-                pd.to_numeric(x[field], errors="coerce")
-                .pct_change(fill_method=None)
-                * 100
-            )
+        if field not in x.columns:
+            continue
+
+        values = pd.to_numeric(x[field], errors="coerce")
+
+        # Calculate return against the previous VALID session for this field.
+        valid = values.dropna()
+        changes = valid.pct_change(fill_method=None) * 100
+
+        # Keep the union-calendar index. Dates where this market has no quote
+        # remain NaN, while valid sessions receive the correct daily return.
+        x[f"{field}_change_pct"] = changes.reindex(x.index)
 
     if "us10y" in x.columns:
-        # ^TNX is stored as percentage yield: 4.975 - 4.944 = 0.031
-        # percentage point = +3.1 basis points.
-        x["us10y_change_bp"] = (
-            pd.to_numeric(x["us10y"], errors="coerce")
-            .diff()
-            * 100
-        )
+        values = pd.to_numeric(x["us10y"], errors="coerce")
+
+        # ^TNX is stored as percentage yield.
+        # Example: 4.975 - 4.944 = 0.031 percentage point = +3.1 bp.
+        valid = values.dropna()
+        changes = valid.diff() * 100
+
+        x["us10y_change_bp"] = changes.reindex(x.index)
 
     return x
 
@@ -99,12 +112,17 @@ def align_global_asof(
         if change_field and change_field in global_work.columns:
             keep.append(change_field)
 
+        required = [field]
+        if change_field and change_field in global_work.columns:
+            required.append(change_field)
+
         right = (
             global_work[keep]
-            .dropna(subset=[field])
+            .dropna(subset=required)
             .sort_values("date")
             .rename(columns={"date": f"{field}_date"})
         )
+        
         if right.empty:
             continue
 
