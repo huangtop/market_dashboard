@@ -323,7 +323,7 @@ def main() -> None:
     elif args.global_latest:
         logging.info("模式：global-latest；只更新全球市場，不連 TWSE")
         src = Sources(cfg)
-        external_start = end - timedelta(days=10)
+        external_start = end - timedelta(days=14)
         external = src.external(external_start, end)
         if external.empty:
             raise RuntimeError("Yahoo Finance 近期全球市場資料為空；保留原 global_daily")
@@ -441,7 +441,7 @@ def main() -> None:
                 stored_external_rows,
             )
         else:
-            external_start = end - timedelta(days=10)
+            external_start = end - timedelta(days=14)
             logging.info(
                 "增量模式：只下載 %s 至 %s 的近期全球市場行情（單次 Yahoo bulk request）",
                 external_start,

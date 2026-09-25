@@ -152,14 +152,14 @@ class Store:
         )
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
         ON CONFLICT(date) DO UPDATE SET
-            usdtwd = excluded.usdtwd,
-            dxy = excluded.dxy,
-            vix = excluded.vix,
-            sp500 = excluded.sp500,
-            nasdaq = excluded.nasdaq,
-            dow = excluded.dow,
-            sox = excluded.sox,
-            us10y = excluded.us10y
+            usdtwd = COALESCE(excluded.usdtwd, global_daily.usdtwd),
+            dxy = COALESCE(excluded.dxy, global_daily.dxy),
+            vix = COALESCE(excluded.vix, global_daily.vix),
+            sp500 = COALESCE(excluded.sp500, global_daily.sp500),
+            nasdaq = COALESCE(excluded.nasdaq, global_daily.nasdaq),
+            dow = COALESCE(excluded.dow, global_daily.dow),
+            sox = COALESCE(excluded.sox, global_daily.sox),
+            us10y = COALESCE(excluded.us10y, global_daily.us10y)
         """
 
         rows = []
