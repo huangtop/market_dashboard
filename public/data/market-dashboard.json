@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema_version": "4.8-global-latest",
-    "generated_at": "2026-09-29T13:12:01+00:00",
+    "generated_at": "2026-09-30T00:19:49+00:00",
     "timezone": "Asia/Taipei",
     "market_views": [
       "taiwan",
@@ -68,29 +68,29 @@
     "us10y": "2026-09-28"
   },
   "global_latest": {
-    "date": "2026-09-28",
-    "usdtwd": 31.781,
-    "usdtwd_date": "2026-09-29",
-    "dxy": 101.238,
-    "dxy_date": "2026-09-28",
-    "vix": 16.07,
-    "vix_date": "2026-09-28",
-    "vix_change_pct": 8.07,
-    "sp500": 7683.69,
-    "sp500_date": "2026-09-28",
-    "sp500_change_pct": -0.771,
-    "nasdaq": 26820.381,
-    "nasdaq_date": "2026-09-28",
-    "nasdaq_change_pct": -0.917,
-    "dow": 51481.512,
-    "dow_date": "2026-09-28",
-    "dow_change_pct": -0.67,
-    "sox": 12465.241,
-    "sox_date": "2026-09-28",
-    "sox_change_pct": -1.608,
-    "us10y": 5.24,
-    "us10y_date": "2026-09-28",
-    "us10y_change_bp": 5.6
+    "date": "2026-09-29",
+    "usdtwd": 31.842,
+    "usdtwd_date": "2026-09-30",
+    "dxy": 101.416,
+    "dxy_date": "2026-09-29",
+    "vix": 16.04,
+    "vix_date": "2026-09-29",
+    "vix_change_pct": -0.187,
+    "sp500": 7670.84,
+    "sp500_date": "2026-09-29",
+    "sp500_change_pct": -0.167,
+    "nasdaq": 26797.541,
+    "nasdaq_date": "2026-09-29",
+    "nasdaq_change_pct": -0.085,
+    "dow": 51349.922,
+    "dow_date": "2026-09-29",
+    "dow_change_pct": -0.256,
+    "sox": 12629.161,
+    "sox_date": "2026-09-29",
+    "sox_change_pct": 1.315,
+    "us10y": 5.255,
+    "us10y_date": "2026-09-29",
+    "us10y_change_bp": 1.5
   },
   "markets": {
     "taiwan": {
@@ -120,7 +120,7 @@
         "foreign_net_100m": -625.826,
         "foreign_20d_sum_100m": 1847.981,
         "foreign_20d_zscore": 1.14,
-        "market_temperature": 85.249
+        "market_temperature": 85.371
       },
       "series": [
         {
@@ -18031,7 +18031,7 @@
           "foreign_net_100m": -625.826,
           "foreign_20d_sum_100m": 1847.981,
           "foreign_20d_zscore": 1.14,
-          "market_temperature": 85.249
+          "market_temperature": 85.371
         }
       ]
     },
@@ -18086,7 +18086,7 @@
         "nasdaq_change_pct": -0.917,
         "dow": 51481.512,
         "dow_change_pct": -0.67,
-        "sox": 12465.241,
+        "sox": 12465.24,
         "sox_change_pct": -1.608,
         "vix": 16.07,
         "vix_change_pct": 8.07,
@@ -70623,7 +70623,7 @@
           "nasdaq_change_pct": -0.917,
           "dow": 51481.512,
           "dow_change_pct": -0.67,
-          "sox": 12465.241,
+          "sox": 12465.24,
           "sox_change_pct": -1.608,
           "vix": 16.07,
           "vix_change_pct": 8.07,
@@ -70675,12 +70675,12 @@
       "latest": {
         "usdtwd": 31.779,
         "usdtwd_zscore": 0.698,
-        "dxy": 101.238,
-        "dxy_zscore": 1.905,
+        "dxy": 101.2,
+        "dxy_zscore": 1.872,
         "us10y": 5.24,
         "us10y_change_bp": 5.6,
         "us10y_zscore": 3.897,
-        "outflow_pressure_score": -1.115
+        "outflow_pressure_score": -1.148
       },
       "series": [
         {
@@ -83810,12 +83810,12 @@
           "date": "2026-09-29",
           "usdtwd": 31.779,
           "usdtwd_zscore": 0.698,
-          "dxy": 101.238,
-          "dxy_zscore": 1.905,
+          "dxy": 101.2,
+          "dxy_zscore": 1.872,
           "us10y": 5.24,
           "us10y_change_bp": 5.6,
           "us10y_zscore": 3.897,
-          "outflow_pressure_score": -1.115
+          "outflow_pressure_score": -1.148
         }
       ]
     },
@@ -83853,19 +83853,19 @@
         "tsmc": 2475.0,
         "sp500": 7683.69,
         "nasdaq": 26820.381,
-        "sox": 12465.241,
+        "sox": 12465.24,
         "vix": 16.07,
         "vix_zscore": -0.579,
         "usdtwd": 31.779,
         "usdtwd_zscore": 0.698,
-        "dxy": 101.238,
-        "dxy_zscore": 1.905,
+        "dxy": 101.2,
+        "dxy_zscore": 1.872,
         "us10y": 5.24,
         "us10y_zscore": 3.897,
         "foreign_20d_sum_100m": 1847.981,
         "foreign_20d_zscore": 1.14,
         "maintenance_zscore": 0.839,
-        "outflow_pressure_score": -1.115,
+        "outflow_pressure_score": -1.148,
         "corr_60d_taiex_sp500": null,
         "corr_60d_taiex_nasdaq": null,
         "corr_60d_taiex_dow": null,
@@ -118480,19 +118480,19 @@
           "tsmc": 2475.0,
           "sp500": 7683.69,
           "nasdaq": 26820.381,
-          "sox": 12465.241,
+          "sox": 12465.24,
           "vix": 16.07,
           "vix_zscore": -0.579,
           "usdtwd": 31.779,
           "usdtwd_zscore": 0.698,
-          "dxy": 101.238,
-          "dxy_zscore": 1.905,
+          "dxy": 101.2,
+          "dxy_zscore": 1.872,
           "us10y": 5.24,
           "us10y_zscore": 3.897,
           "foreign_20d_sum_100m": 1847.981,
           "foreign_20d_zscore": 1.14,
           "maintenance_zscore": 0.839,
-          "outflow_pressure_score": -1.115,
+          "outflow_pressure_score": -1.148,
           "corr_60d_taiex_sp500": null,
           "corr_60d_taiex_nasdaq": null,
           "corr_60d_taiex_dow": null,
@@ -118516,7 +118516,7 @@
     "foreign_net_100m": -625.826,
     "foreign_20d_sum_100m": 1847.981,
     "usdtwd": 31.779,
-    "dxy": 101.238,
+    "dxy": 101.2,
     "vix": 16.07,
     "vix_change_pct": 8.07,
     "sp500": 7683.69,
@@ -118525,15 +118525,15 @@
     "nasdaq_change_pct": -0.917,
     "dow": 51481.512,
     "dow_change_pct": -0.67,
-    "sox": 12465.241,
+    "sox": 12465.24,
     "sox_change_pct": -1.608,
-    "outflow_pressure_score": -1.115,
-    "market_temperature": 85.249,
+    "outflow_pressure_score": -1.148,
+    "market_temperature": 85.371,
     "maintenance_percentile": 95.683,
     "maintenance_zscore": 0.839,
     "foreign_20d_zscore": 1.14,
     "usdtwd_zscore": 0.698,
-    "dxy_zscore": 1.905,
+    "dxy_zscore": 1.872,
     "vix_zscore": -0.579,
     "us10y": 5.24,
     "us10y_change_bp": 5.6,
@@ -118683,7 +118683,7 @@
         },
         "dxy": {
           "label": "DXY",
-          "value": -0.394
+          "value": -0.39
         },
         "vix": {
           "label": "VIX",
@@ -118721,7 +118721,7 @@
         },
         "dxy": {
           "label": "DXY",
-          "value": -0.209
+          "value": -0.208
         },
         "vix": {
           "label": "VIX",
@@ -168967,7 +168967,7 @@
       "foreign_net_100m": -625.826,
       "foreign_20d_sum_100m": 1847.981,
       "usdtwd": 31.779,
-      "dxy": 101.238,
+      "dxy": 101.2,
       "vix": 16.07,
       "vix_change_pct": 8.07,
       "sp500": 7683.69,
@@ -168976,15 +168976,15 @@
       "nasdaq_change_pct": -0.917,
       "dow": 51481.512,
       "dow_change_pct": -0.67,
-      "sox": 12465.241,
+      "sox": 12465.24,
       "sox_change_pct": -1.608,
-      "outflow_pressure_score": -1.115,
-      "market_temperature": 85.249,
+      "outflow_pressure_score": -1.148,
+      "market_temperature": 85.371,
       "maintenance_percentile": 95.683,
       "maintenance_zscore": 0.839,
       "foreign_20d_zscore": 1.14,
       "usdtwd_zscore": 0.698,
-      "dxy_zscore": 1.905,
+      "dxy_zscore": 1.872,
       "vix_zscore": -0.579,
       "us10y": 5.24,
       "us10y_change_bp": 5.6,
