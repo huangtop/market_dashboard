@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema_version": "4.8-global-latest",
-    "generated_at": "2026-10-13T19:43:21+00:00",
+    "generated_at": "2026-10-14T03:02:46+00:00",
     "timezone": "Asia/Taipei",
     "market_views": [
       "taiwan",
@@ -58,7 +58,7 @@
   },
   "latest_date": "2026-10-13",
   "latest_source_dates": {
-    "usdtwd": "2026-10-10",
+    "usdtwd": "2026-10-12",
     "dxy": "2026-10-12",
     "vix": "2026-10-12",
     "sp500": "2026-10-12",
@@ -68,29 +68,29 @@
     "us10y": "2026-10-12"
   },
   "global_latest": {
-    "date": "2026-10-12",
-    "usdtwd": 32.072,
-    "usdtwd_date": "2026-10-13",
-    "dxy": 102.432,
+    "date": "2026-10-13",
+    "usdtwd": 32.153,
+    "usdtwd_date": "2026-10-14",
+    "dxy": 102.112,
     "dxy_date": "2026-10-13",
-    "vix": 15.21,
-    "vix_date": "2026-10-12",
-    "vix_change_pct": 2.493,
-    "sp500": 7807.24,
-    "sp500_date": "2026-10-12",
-    "sp500_change_pct": -0.055,
-    "nasdaq": 27245.9,
-    "nasdaq_date": "2026-10-12",
-    "nasdaq_change_pct": -0.439,
-    "dow": 51850.551,
-    "dow_date": "2026-10-12",
-    "dow_change_pct": 0.379,
-    "sox": 12236.79,
-    "sox_date": "2026-10-12",
-    "sox_change_pct": -2.67,
-    "us10y": 5.24,
-    "us10y_date": "2026-10-12",
-    "us10y_change_bp": -0.4
+    "vix": 15.27,
+    "vix_date": "2026-10-13",
+    "vix_change_pct": 0.394,
+    "sp500": 7805.45,
+    "sp500_date": "2026-10-13",
+    "sp500_change_pct": -0.023,
+    "nasdaq": 27204.381,
+    "nasdaq_date": "2026-10-13",
+    "nasdaq_change_pct": -0.152,
+    "dow": 51670.102,
+    "dow_date": "2026-10-13",
+    "dow_change_pct": -0.348,
+    "sox": 12208.795,
+    "sox_date": "2026-10-13",
+    "sox_change_pct": -0.229,
+    "us10y": 5.217,
+    "us10y_date": "2026-10-13",
+    "us10y_change_bp": -2.3
   },
   "markets": {
     "taiwan": {
@@ -120,7 +120,7 @@
         "foreign_net_100m": -1652.905,
         "foreign_20d_sum_100m": -1209.329,
         "foreign_20d_zscore": 0.103,
-        "market_temperature": 68.107
+        "market_temperature": 68.106
       },
       "series": [
         {
@@ -18016,7 +18016,7 @@
           "foreign_net_100m": -1652.905,
           "foreign_20d_sum_100m": -1209.329,
           "foreign_20d_zscore": 0.103,
-          "market_temperature": 68.107
+          "market_temperature": 68.106
         }
       ]
     },
@@ -118429,7 +118429,7 @@
     "sox": 12236.79,
     "sox_change_pct": -2.67,
     "outflow_pressure_score": 1.365,
-    "market_temperature": 68.107,
+    "market_temperature": 68.106,
     "maintenance_percentile": 94.076,
     "maintenance_zscore": 0.623,
     "foreign_20d_zscore": 0.103,
@@ -118439,7 +118439,7 @@
     "us10y": 5.24,
     "us10y_change_bp": -0.4,
     "us10y_zscore": 3.009,
-    "usdtwd_date": "2026-10-10",
+    "usdtwd_date": "2026-10-12",
     "dxy_date": "2026-10-12",
     "vix_date": "2026-10-12",
     "sp500_date": "2026-10-12",
@@ -118580,7 +118580,7 @@
         },
         "usdtwd": {
           "label": "USD/TWD",
-          "value": 0.176
+          "value": 0.14
         },
         "dxy": {
           "label": "DXY",
@@ -118618,7 +118618,7 @@
         },
         "usdtwd": {
           "label": "USD/TWD",
-          "value": -0.024
+          "value": -0.023
         },
         "dxy": {
           "label": "DXY",
@@ -168837,7 +168837,7 @@
       "sox": 12236.79,
       "sox_change_pct": -2.67,
       "outflow_pressure_score": 1.365,
-      "market_temperature": 68.107,
+      "market_temperature": 68.106,
       "maintenance_percentile": 94.076,
       "maintenance_zscore": 0.623,
       "foreign_20d_zscore": 0.103,
@@ -168847,7 +168847,7 @@
       "us10y": 5.24,
       "us10y_change_bp": -0.4,
       "us10y_zscore": 3.009,
-      "usdtwd_date": "2026-10-10",
+      "usdtwd_date": "2026-10-12",
       "dxy_date": "2026-10-12",
       "vix_date": "2026-10-12",
       "sp500_date": "2026-10-12",
