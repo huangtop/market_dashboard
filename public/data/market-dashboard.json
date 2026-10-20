@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema_version": "4.8-global-latest",
-    "generated_at": "2026-10-20T00:17:01+00:00",
+    "generated_at": "2026-10-20T13:09:33+00:00",
     "timezone": "Asia/Taipei",
     "market_views": [
       "taiwan",
@@ -56,16 +56,16 @@
     "maintenance_ratio_note": "市場融資擔保比估算＝可配對之上市融資股票市值 ÷ 融資金額；為市場層級 proxy，非券商整戶融資維持率。",
     "disclaimer": "資料僅供研究與資訊用途，不構成投資建議。"
   },
-  "latest_date": "2026-10-19",
+  "latest_date": "2026-10-20",
   "latest_source_dates": {
-    "usdtwd": "2026-10-17",
-    "dxy": "2026-10-16",
-    "vix": "2026-10-16",
-    "sp500": "2026-10-16",
-    "nasdaq": "2026-10-16",
-    "dow": "2026-10-16",
-    "sox": "2026-10-16",
-    "us10y": "2026-10-16"
+    "usdtwd": "2026-10-19",
+    "dxy": "2026-10-19",
+    "vix": "2026-10-19",
+    "sp500": "2026-10-19",
+    "nasdaq": "2026-10-19",
+    "dow": "2026-10-19",
+    "sox": "2026-10-19",
+    "us10y": "2026-10-19"
   },
   "global_latest": {
     "date": "2026-10-19",
@@ -109,18 +109,18 @@
         "market_temperature"
       ],
       "latest": {
-        "taiex": 46822.08,
-        "taiex_change_pct": -0.614,
-        "tsmc": 2420.0,
-        "tsmc_change_pct": 0.0,
-        "maintenance_est": 172.963,
-        "maintenance_percentile": 87.723,
-        "maintenance_zscore": -0.183,
-        "margin_balance_billion": 640.618,
-        "foreign_net_100m": -767.427,
-        "foreign_20d_sum_100m": -5244.671,
-        "foreign_20d_zscore": -1.194,
-        "market_temperature": 51.04
+        "taiex": 46292.93,
+        "taiex_change_pct": -1.13,
+        "tsmc": 2405.0,
+        "tsmc_change_pct": -0.62,
+        "maintenance_est": 170.604,
+        "maintenance_percentile": 84.239,
+        "maintenance_zscore": -0.391,
+        "margin_balance_billion": 638.1,
+        "foreign_net_100m": -795.397,
+        "foreign_20d_sum_100m": -6161.918,
+        "foreign_20d_zscore": -1.48,
+        "market_temperature": 48.562
       },
       "series": [
         {
@@ -18017,6 +18017,21 @@
           "foreign_20d_sum_100m": -5244.671,
           "foreign_20d_zscore": -1.194,
           "market_temperature": 51.04
+        },
+        {
+          "date": "2026-10-20",
+          "taiex": 46292.93,
+          "taiex_change_pct": -1.13,
+          "tsmc": 2405.0,
+          "tsmc_change_pct": -0.62,
+          "maintenance_est": 170.604,
+          "maintenance_percentile": 84.239,
+          "maintenance_zscore": -0.391,
+          "margin_balance_billion": 638.1,
+          "foreign_net_100m": -795.397,
+          "foreign_20d_sum_100m": -6161.918,
+          "foreign_20d_zscore": -1.48,
+          "market_temperature": 48.562
         }
       ]
     },
@@ -18065,20 +18080,20 @@
         "corr_120d_taiex_foreign"
       ],
       "latest": {
-        "sp500": 7659.44,
-        "sp500_change_pct": -1.093,
-        "nasdaq": 26140.029,
-        "nasdaq_change_pct": -2.145,
-        "dow": 52002.41,
-        "dow_change_pct": -0.336,
-        "sox": 11137.29,
-        "sox_change_pct": -3.833,
-        "vix": 19.99,
-        "vix_change_pct": 21.446,
-        "vix_zscore": 0.599,
-        "us10y": 5.098,
-        "us10y_change_bp": 0.9,
-        "us10y_zscore": 2.356,
+        "sp500": 7690.73,
+        "sp500_change_pct": 0.409,
+        "nasdaq": 26430.887,
+        "nasdaq_change_pct": 1.113,
+        "dow": 51966.031,
+        "dow_change_pct": -0.07,
+        "sox": 11316.343,
+        "sox_change_pct": 1.608,
+        "vix": 18.44,
+        "vix_change_pct": -7.754,
+        "vix_zscore": 0.121,
+        "us10y": 5.136,
+        "us10y_change_bp": 3.8,
+        "us10y_zscore": 2.437,
         "corr_20d_taiex_sp500": null,
         "corr_20d_taiex_nasdaq": null,
         "corr_20d_taiex_dow": null,
@@ -70599,6 +70614,50 @@
           "corr_120d_taiex_vix": null,
           "corr_120d_taiex_us10y": null,
           "corr_120d_taiex_foreign": null
+        },
+        {
+          "date": "2026-10-20",
+          "sp500": 7690.73,
+          "sp500_change_pct": 0.409,
+          "nasdaq": 26430.887,
+          "nasdaq_change_pct": 1.113,
+          "dow": 51966.031,
+          "dow_change_pct": -0.07,
+          "sox": 11316.343,
+          "sox_change_pct": 1.608,
+          "vix": 18.44,
+          "vix_change_pct": -7.754,
+          "vix_zscore": 0.121,
+          "us10y": 5.136,
+          "us10y_change_bp": 3.8,
+          "us10y_zscore": 2.437,
+          "corr_20d_taiex_sp500": null,
+          "corr_20d_taiex_nasdaq": null,
+          "corr_20d_taiex_dow": null,
+          "corr_20d_taiex_sox": null,
+          "corr_20d_taiex_usdtwd": null,
+          "corr_20d_taiex_dxy": null,
+          "corr_20d_taiex_vix": null,
+          "corr_20d_taiex_us10y": null,
+          "corr_20d_taiex_foreign": null,
+          "corr_60d_taiex_sp500": null,
+          "corr_60d_taiex_nasdaq": null,
+          "corr_60d_taiex_dow": null,
+          "corr_60d_taiex_sox": null,
+          "corr_60d_taiex_usdtwd": null,
+          "corr_60d_taiex_dxy": null,
+          "corr_60d_taiex_vix": null,
+          "corr_60d_taiex_us10y": null,
+          "corr_60d_taiex_foreign": null,
+          "corr_120d_taiex_sp500": null,
+          "corr_120d_taiex_nasdaq": null,
+          "corr_120d_taiex_dow": null,
+          "corr_120d_taiex_sox": null,
+          "corr_120d_taiex_usdtwd": null,
+          "corr_120d_taiex_dxy": null,
+          "corr_120d_taiex_vix": null,
+          "corr_120d_taiex_us10y": null,
+          "corr_120d_taiex_foreign": null
         }
       ]
     },
@@ -70614,14 +70673,14 @@
         "outflow_pressure_score"
       ],
       "latest": {
-        "usdtwd": 32.428,
-        "usdtwd_zscore": 1.796,
-        "dxy": 101.84,
-        "dxy_zscore": 1.988,
-        "us10y": 5.098,
-        "us10y_change_bp": 0.9,
-        "us10y_zscore": 2.356,
-        "outflow_pressure_score": 4.683
+        "usdtwd": 32.387,
+        "usdtwd_zscore": 1.707,
+        "dxy": 101.944,
+        "dxy_zscore": 2.043,
+        "us10y": 5.136,
+        "us10y_change_bp": 3.8,
+        "us10y_zscore": 2.437,
+        "outflow_pressure_score": 4.763
       },
       "series": [
         {
@@ -83746,6 +83805,17 @@
           "us10y_change_bp": 0.9,
           "us10y_zscore": 2.356,
           "outflow_pressure_score": 4.683
+        },
+        {
+          "date": "2026-10-20",
+          "usdtwd": 32.387,
+          "usdtwd_zscore": 1.707,
+          "dxy": 101.944,
+          "dxy_zscore": 2.043,
+          "us10y": 5.136,
+          "us10y_change_bp": 3.8,
+          "us10y_zscore": 2.437,
+          "outflow_pressure_score": 4.763
         }
       ]
     },
@@ -83779,23 +83849,23 @@
         "corr_60d_taiex_foreign"
       ],
       "latest": {
-        "taiex": 46822.08,
-        "tsmc": 2420.0,
-        "sp500": 7659.44,
-        "nasdaq": 26140.029,
-        "sox": 11137.29,
-        "vix": 19.99,
-        "vix_zscore": 0.599,
-        "usdtwd": 32.428,
-        "usdtwd_zscore": 1.796,
-        "dxy": 101.84,
-        "dxy_zscore": 1.988,
-        "us10y": 5.098,
-        "us10y_zscore": 2.356,
-        "foreign_20d_sum_100m": -5244.671,
-        "foreign_20d_zscore": -1.194,
-        "maintenance_zscore": -0.183,
-        "outflow_pressure_score": 4.683,
+        "taiex": 46292.93,
+        "tsmc": 2405.0,
+        "sp500": 7690.73,
+        "nasdaq": 26430.887,
+        "sox": 11316.343,
+        "vix": 18.44,
+        "vix_zscore": 0.121,
+        "usdtwd": 32.387,
+        "usdtwd_zscore": 1.707,
+        "dxy": 101.944,
+        "dxy_zscore": 2.043,
+        "us10y": 5.136,
+        "us10y_zscore": 2.437,
+        "foreign_20d_sum_100m": -6161.918,
+        "foreign_20d_zscore": -1.48,
+        "maintenance_zscore": -0.391,
+        "outflow_pressure_score": 4.763,
         "corr_60d_taiex_sp500": null,
         "corr_60d_taiex_nasdaq": null,
         "corr_60d_taiex_dow": null,
@@ -118403,50 +118473,79 @@
           "corr_60d_taiex_vix": null,
           "corr_60d_taiex_us10y": null,
           "corr_60d_taiex_foreign": null
+        },
+        {
+          "date": "2026-10-20",
+          "taiex": 46292.93,
+          "tsmc": 2405.0,
+          "sp500": 7690.73,
+          "nasdaq": 26430.887,
+          "sox": 11316.343,
+          "vix": 18.44,
+          "vix_zscore": 0.121,
+          "usdtwd": 32.387,
+          "usdtwd_zscore": 1.707,
+          "dxy": 101.944,
+          "dxy_zscore": 2.043,
+          "us10y": 5.136,
+          "us10y_zscore": 2.437,
+          "foreign_20d_sum_100m": -6161.918,
+          "foreign_20d_zscore": -1.48,
+          "maintenance_zscore": -0.391,
+          "outflow_pressure_score": 4.763,
+          "corr_60d_taiex_sp500": null,
+          "corr_60d_taiex_nasdaq": null,
+          "corr_60d_taiex_dow": null,
+          "corr_60d_taiex_sox": null,
+          "corr_60d_taiex_usdtwd": null,
+          "corr_60d_taiex_dxy": null,
+          "corr_60d_taiex_vix": null,
+          "corr_60d_taiex_us10y": null,
+          "corr_60d_taiex_foreign": null
         }
       ]
     }
   },
   "latest": {
-    "taiex": 46822.08,
-    "taiex_change_pct": -0.614,
-    "tsmc": 2420.0,
-    "tsmc_change_pct": 0.0,
-    "maintenance_est": 172.963,
-    "margin_balance_billion": 640.618,
-    "foreign_net_100m": -767.427,
-    "foreign_20d_sum_100m": -5244.671,
-    "usdtwd": 32.428,
-    "dxy": 101.84,
-    "vix": 19.99,
-    "vix_change_pct": 21.446,
-    "sp500": 7659.44,
-    "sp500_change_pct": -1.093,
-    "nasdaq": 26140.029,
-    "nasdaq_change_pct": -2.145,
-    "dow": 52002.41,
-    "dow_change_pct": -0.336,
-    "sox": 11137.29,
-    "sox_change_pct": -3.833,
-    "outflow_pressure_score": 4.683,
-    "market_temperature": 51.04,
-    "maintenance_percentile": 87.723,
-    "maintenance_zscore": -0.183,
-    "foreign_20d_zscore": -1.194,
-    "usdtwd_zscore": 1.796,
-    "dxy_zscore": 1.988,
-    "vix_zscore": 0.599,
-    "us10y": 5.098,
-    "us10y_change_bp": 0.9,
-    "us10y_zscore": 2.356,
-    "usdtwd_date": "2026-10-17",
-    "dxy_date": "2026-10-16",
-    "vix_date": "2026-10-16",
-    "sp500_date": "2026-10-16",
-    "nasdaq_date": "2026-10-16",
-    "dow_date": "2026-10-16",
-    "sox_date": "2026-10-16",
-    "us10y_date": "2026-10-16"
+    "taiex": 46292.93,
+    "taiex_change_pct": -1.13,
+    "tsmc": 2405.0,
+    "tsmc_change_pct": -0.62,
+    "maintenance_est": 170.604,
+    "margin_balance_billion": 638.1,
+    "foreign_net_100m": -795.397,
+    "foreign_20d_sum_100m": -6161.918,
+    "usdtwd": 32.387,
+    "dxy": 101.944,
+    "vix": 18.44,
+    "vix_change_pct": -7.754,
+    "sp500": 7690.73,
+    "sp500_change_pct": 0.409,
+    "nasdaq": 26430.887,
+    "nasdaq_change_pct": 1.113,
+    "dow": 51966.031,
+    "dow_change_pct": -0.07,
+    "sox": 11316.343,
+    "sox_change_pct": 1.608,
+    "outflow_pressure_score": 4.763,
+    "market_temperature": 48.562,
+    "maintenance_percentile": 84.239,
+    "maintenance_zscore": -0.391,
+    "foreign_20d_zscore": -1.48,
+    "usdtwd_zscore": 1.707,
+    "dxy_zscore": 2.043,
+    "vix_zscore": 0.121,
+    "us10y": 5.136,
+    "us10y_change_bp": 3.8,
+    "us10y_zscore": 2.437,
+    "usdtwd_date": "2026-10-19",
+    "dxy_date": "2026-10-19",
+    "vix_date": "2026-10-19",
+    "sp500_date": "2026-10-19",
+    "nasdaq_date": "2026-10-19",
+    "dow_date": "2026-10-19",
+    "sox_date": "2026-10-19",
+    "us10y_date": "2026-10-19"
   },
   "summary": "市場融資擔保比估算處歷史偏高區；外資近20日偏賣方；波動情緒相對平穩；匯率與美元形成資金外流壓力。此內容為量化資料摘要，不構成投資建議。",
   "backtests": [
@@ -118564,49 +118663,49 @@
       "20d": {
         "sp500": {
           "label": "S&P 500",
-          "value": 0.557
+          "value": 0.56
         },
         "nasdaq": {
           "label": "Nasdaq",
-          "value": 0.657
+          "value": 0.591
         },
         "dow": {
           "label": "Dow",
-          "value": 0.055
+          "value": 0.152
         },
         "sox": {
           "label": "SOX",
-          "value": 0.732
+          "value": 0.678
         },
         "usdtwd": {
           "label": "USD/TWD",
-          "value": -0.305
+          "value": -0.266
         },
         "dxy": {
           "label": "DXY",
-          "value": -0.307
+          "value": -0.399
         },
         "vix": {
           "label": "VIX",
-          "value": -0.632
+          "value": -0.559
         },
         "us10y": {
           "label": "US 10Y Treasury",
-          "value": -0.019
+          "value": -0.046
         },
         "foreign": {
           "label": "Foreign flow",
-          "value": 0.941
+          "value": 0.94
         }
       },
       "60d": {
         "sp500": {
           "label": "S&P 500",
-          "value": 0.501
+          "value": 0.479
         },
         "nasdaq": {
           "label": "Nasdaq",
-          "value": 0.599
+          "value": 0.572
         },
         "dow": {
           "label": "Dow",
@@ -118614,45 +118713,7 @@
         },
         "sox": {
           "label": "SOX",
-          "value": 0.56
-        },
-        "usdtwd": {
-          "label": "USD/TWD",
-          "value": -0.067
-        },
-        "dxy": {
-          "label": "DXY",
-          "value": -0.22
-        },
-        "vix": {
-          "label": "VIX",
-          "value": -0.528
-        },
-        "us10y": {
-          "label": "US 10Y Treasury",
-          "value": 0.035
-        },
-        "foreign": {
-          "label": "Foreign flow",
-          "value": 0.738
-        }
-      },
-      "120d": {
-        "sp500": {
-          "label": "S&P 500",
-          "value": 0.485
-        },
-        "nasdaq": {
-          "label": "Nasdaq",
-          "value": 0.548
-        },
-        "dow": {
-          "label": "Dow",
-          "value": 0.261
-        },
-        "sox": {
-          "label": "SOX",
-          "value": 0.589
+          "value": 0.535
         },
         "usdtwd": {
           "label": "USD/TWD",
@@ -118660,19 +118721,57 @@
         },
         "dxy": {
           "label": "DXY",
-          "value": -0.302
+          "value": -0.285
         },
         "vix": {
           "label": "VIX",
-          "value": -0.458
+          "value": -0.494
         },
         "us10y": {
           "label": "US 10Y Treasury",
-          "value": -0.093
+          "value": 0.041
         },
         "foreign": {
           "label": "Foreign flow",
-          "value": 0.754
+          "value": 0.732
+        }
+      },
+      "120d": {
+        "sp500": {
+          "label": "S&P 500",
+          "value": 0.488
+        },
+        "nasdaq": {
+          "label": "Nasdaq",
+          "value": 0.546
+        },
+        "dow": {
+          "label": "Dow",
+          "value": 0.269
+        },
+        "sox": {
+          "label": "SOX",
+          "value": 0.586
+        },
+        "usdtwd": {
+          "label": "USD/TWD",
+          "value": -0.069
+        },
+        "dxy": {
+          "label": "DXY",
+          "value": -0.316
+        },
+        "vix": {
+          "label": "VIX",
+          "value": -0.45
+        },
+        "us10y": {
+          "label": "US 10Y Treasury",
+          "value": -0.1
+        },
+        "foreign": {
+          "label": "Foreign flow",
+          "value": 0.756
         }
       }
     },
@@ -118680,33 +118779,33 @@
       {
         "id": "us10y_high",
         "title": "美國10年期公債殖利率明顯偏高",
-        "message": "美國10年期公債殖利率約 5.10%、Z-score 2.36。長天期利率高於近一年常態時，通常會提高股票估值的折現壓力，成長股與高估值資產尤其值得留意。",
+        "message": "美國10年期公債殖利率約 5.14%、Z-score 2.44。長天期利率高於近一年常態時，通常會提高股票估值的折現壓力，成長股與高估值資產尤其值得留意。",
         "level": "warning",
         "category": "rates",
         "evidence": {
-          "us10y": 5.098,
-          "us10y_zscore": 2.36
+          "us10y": 5.136,
+          "us10y_zscore": 2.44
         }
       },
       {
         "id": "usd_fx_pressure",
         "title": "美元與台幣匯率同時偏強",
-        "message": "USD/TWD Z-score 1.80、DXY Z-score 1.99。美元偏強且台幣偏弱時，外資資金面通常需要更保守觀察。",
+        "message": "USD/TWD Z-score 1.71、DXY Z-score 2.04。美元偏強且台幣偏弱時，外資資金面通常需要更保守觀察。",
         "level": "warning",
         "category": "macro",
         "evidence": {
-          "usdtwd_zscore": 1.8,
-          "dxy_zscore": 1.99
+          "usdtwd_zscore": 1.71,
+          "dxy_zscore": 2.04
         }
       },
       {
         "id": "dominant_corr_foreign",
         "title": "近期台股與外資流向連動最明顯",
-        "message": "60日相關係數約 0.74，屬於較明顯的同向關係。這描述近期同步程度，不代表因果或未來一定維持。",
+        "message": "60日相關係數約 0.73，屬於較明顯的同向關係。這描述近期同步程度，不代表因果或未來一定維持。",
         "level": "info",
         "category": "relationship",
         "evidence": {
-          "correlation_60d": 0.738
+          "correlation_60d": 0.732
         }
       }
     ]
@@ -168855,6 +168954,48 @@
       "dow_date": "2026-10-16",
       "sox_date": "2026-10-16",
       "us10y_date": "2026-10-16"
+    },
+    {
+      "date": "2026-10-20",
+      "taiex": 46292.93,
+      "taiex_change_pct": -1.13,
+      "tsmc": 2405.0,
+      "tsmc_change_pct": -0.62,
+      "maintenance_est": 170.604,
+      "margin_balance_billion": 638.1,
+      "foreign_net_100m": -795.397,
+      "foreign_20d_sum_100m": -6161.918,
+      "usdtwd": 32.387,
+      "dxy": 101.944,
+      "vix": 18.44,
+      "vix_change_pct": -7.754,
+      "sp500": 7690.73,
+      "sp500_change_pct": 0.409,
+      "nasdaq": 26430.887,
+      "nasdaq_change_pct": 1.113,
+      "dow": 51966.031,
+      "dow_change_pct": -0.07,
+      "sox": 11316.343,
+      "sox_change_pct": 1.608,
+      "outflow_pressure_score": 4.763,
+      "market_temperature": 48.562,
+      "maintenance_percentile": 84.239,
+      "maintenance_zscore": -0.391,
+      "foreign_20d_zscore": -1.48,
+      "usdtwd_zscore": 1.707,
+      "dxy_zscore": 2.043,
+      "vix_zscore": 0.121,
+      "us10y": 5.136,
+      "us10y_change_bp": 3.8,
+      "us10y_zscore": 2.437,
+      "usdtwd_date": "2026-10-19",
+      "dxy_date": "2026-10-19",
+      "vix_date": "2026-10-19",
+      "sp500_date": "2026-10-19",
+      "nasdaq_date": "2026-10-19",
+      "dow_date": "2026-10-19",
+      "sox_date": "2026-10-19",
+      "us10y_date": "2026-10-19"
     }
   ]
 }
