@@ -16,12 +16,12 @@ from .tpex import (
     fetch_tpex_margin as fetch_secondary_margin,
     combine_market_margin,
 )
+from .fx import fetch_usdtwd
 
 
 # Yahoo Finance symbols used by the dashboard.
 # Step 2 adds broad US equity indexes and the semiconductor index.
 GLOBAL_TICKERS = {
-    "usdtwd": "TWD=X",
     "dxy": "DX-Y.NYB",
     "vix": "^VIX",
     "sp500": "^GSPC",
@@ -696,11 +696,10 @@ class Sources:
         )
 
     def external(self, start: date, end: date) -> pd.DataFrame:
-        """Download global-market data from Yahoo Finance.
+        """下載央行匯率及 Yahoo Finance 全球市場行情。"""
 
-        The output uses stable internal column names so the rest of the
-        dashboard never needs to know Yahoo ticker symbols.
-        """
+        fx = fetch_usdtwd(start, end)
+
         tickers = list(GLOBAL_TICKERS.values())
 
         raw = yf.download(
@@ -715,15 +714,13 @@ class Sources:
         columns = ["date", *GLOBAL_TICKERS.keys()]
 
         if raw.empty:
-            logging.warning("Yahoo Finance 外部市場資料為空")
-            return pd.DataFrame(columns=columns)
+            raise RuntimeError("Yahoo Finance 外部市場資料為空")
 
         if isinstance(raw.columns, pd.MultiIndex):
             try:
                 close = raw["Close"]
             except KeyError:
-                logging.warning("Yahoo Finance 回傳資料缺少 Close 欄位")
-                return pd.DataFrame(columns=columns)
+                raise RuntimeError("Yahoo Finance 缺少 Close 欄位")
         else:
             close = raw
 
@@ -743,12 +740,33 @@ class Sources:
                 )
 
         out.index = pd.to_datetime(out.index).tz_localize(None)
+
         out = out.reset_index().rename(
             columns={"Date": "date", "index": "date"}
         )
 
         out["date"] = pd.to_datetime(out["date"]).dt.normalize()
-        return out[columns].sort_values("date").drop_duplicates("date")
+
+        out = (
+            out[columns]
+            .sort_values("date")
+            .drop_duplicates("date")
+        )
+
+        out = out.merge(
+            fx,
+            on="date",
+            how="outer",
+            validate="one_to_one",
+        )
+
+        logging.info(
+            "央行匯率：%s = %.3f",
+            fx.iloc[-1]["date"].strftime("%Y-%m-%d"),
+            fx.iloc[-1]["usdtwd"],
+        )
+
+        return out.sort_values("date").reset_index(drop=True)
 
 
 def fetch_twse_official_maintenance(date):

@@ -129,7 +129,7 @@ def align_global_asof(
             left_on="date",
             right_on=f"{field}_date",
             direction="backward",
-            allow_exact_matches=False,
+            allow_exact_matches=(field == "usdtwd"),
         )
 
         left[field] = aligned[field].to_numpy()
