@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema_version": "4.8-global-latest",
-    "generated_at": "2026-11-26T10:57:57+08:00",
+    "generated_at": "2026-11-26T11:31:49+08:00",
     "timezone": "Asia/Taipei",
     "market_views": [
       "taiwan",
@@ -25,9 +25,16 @@
         "description": "衡量台股日報酬與海外市場、匯率、VIX、外資流向的近期連動。"
       },
       "global_alignment": {
-        "method": "strict prior-session as-of",
-        "allow_exact_calendar_date": false,
-        "description": "台灣交易日只對齊當時已完成的最近全球市場日資料，避免使用同日尚未收盤的美股、美債或波動率。"
+        "method": "market-specific as-of",
+        "allow_exact_calendar_date": [
+          "usdtwd"
+        ],
+        "description": "美元兌台幣使用中央銀行當日銀行間收盤匯率；其他全球市場歷史資料維持前一有效交易日對齊。最新行情則使用各市場最新有效資料及個別來源日期。"
+      },
+      "fx_source": {
+        "provider": "中央銀行",
+        "indicator": "銀行間新臺幣對美元收盤匯率",
+        "url": "https://cpx.cbc.gov.tw/api/OpenData/FTDOpenData_Day"
       },
       "taiwan_source_policy": {
         "provider": "TWSE official",
@@ -35,7 +42,7 @@
         "tsmc": "exchangeReport/STOCK_DAY",
         "foreign_flow": "TWSE",
         "margin": "TWSE",
-        "description": "台股資料一律使用臺灣證券交易所官方資料；taiwan-latest 不連 Yahoo Finance。"
+        "description": "台股行情及融資資料來源為臺灣證券交易所及證券櫃檯買賣中心。"
       },
       "global_latest": {
         "source": "raw global_daily newest completed session",
@@ -47,7 +54,7 @@
         "description": "平日只補近期全球交易日；只有 backfill/full/refresh-global-only 才處理完整歷史。"
       }
     },
-    "maintenance_ratio_note": "市場融資擔保比估算＝可配對之上市融資股票市值 ÷ 融資金額；為市場層級 proxy，非券商整戶融資維持率。",
+    "maintenance_ratio_note": "V4 上市櫃市場融資擔保比估算＝可配對之上市櫃融資證券市值 ÷ 上市櫃融資金額 × 100%；非證交所官方整戶擔保維持率。",
     "disclaimer": "資料僅供研究與資訊用途，不構成投資建議。"
   },
   "latest_date": "2026-11-25",
@@ -85,6 +92,56 @@
     "us10y": 4.848,
     "us10y_date": "2026-11-25",
     "us10y_change_bp": -5.6
+  },
+  "current": {
+    "taiex": 38195.43,
+    "taiex_change_pct": -4.803,
+    "tsmc": 2150.0,
+    "tsmc_change_pct": -3.587,
+    "maintenance_est": 149.346,
+    "maintenance_official": null,
+    "maintenance_official_date": null,
+    "maintenance_gap": null,
+    "margin_below_accounts": null,
+    "margin_call_accounts": null,
+    "margin_call_amount": null,
+    "liquidation_accounts": null,
+    "liquidation_amount": null,
+    "margin_balance_billion": 562.016,
+    "foreign_net_100m": -1236.548,
+    "foreign_20d_sum_100m": -12241.077,
+    "usdtwd": 33.126,
+    "dxy": 103.696,
+    "vix": 28.29,
+    "vix_change_pct": 7.322,
+    "sp500": 7182.78,
+    "sp500_change_pct": -0.254,
+    "nasdaq": 23585.803,
+    "nasdaq_change_pct": -0.622,
+    "dow": 50182.949,
+    "dow_change_pct": 0.328,
+    "sox": 8774.862,
+    "sox_change_pct": -0.653,
+    "outflow_pressure_score": null,
+    "market_temperature": null,
+    "maintenance_percentile": 5.027,
+    "us10y": 4.848,
+    "us10y_change_bp": -5.6,
+    "usdtwd_date": "2026-11-25",
+    "dxy_date": "2026-11-25",
+    "vix_date": "2026-11-25",
+    "sp500_date": "2026-11-25",
+    "nasdaq_date": "2026-11-25",
+    "dow_date": "2026-11-25",
+    "sox_date": "2026-11-25",
+    "us10y_date": "2026-11-25",
+    "usdtwd_20d_change_pct": 2.184,
+    "dxy_20d_change_pct": 1.474,
+    "sp500_20d_change_pct": -7.247,
+    "nasdaq_20d_change_pct": -11.164,
+    "dow_20d_change_pct": -4.368,
+    "sox_20d_change_pct": -24.898,
+    "date": "2026-11-25"
   },
   "markets": {
     "taiwan": {
@@ -99556,11 +99613,11 @@
       {
         "id": "us10y_high",
         "title": "美國長天期利率偏高",
-        "message": "美國10年期公債殖利率為 4.90%，較高的利率可能增加股票估值壓力。",
+        "message": "美國10年期公債殖利率為 4.85%，較高的利率可能增加股票估值壓力。",
         "level": "warning",
         "category": "rates",
         "evidence": {
-          "us10y": 4.904
+          "us10y": 4.848
         }
       },
       {
@@ -99576,13 +99633,13 @@
       {
         "id": "taiex_sp500_divergence",
         "title": "台美股近一個月走勢明顯分化",
-        "message": "台股近20日 -18.8%，S&P 500 -6.8%，目前由S&P 500明顯領先。這表示跨市場同步性正在下降。",
+        "message": "台股近20日 -18.8%，S&P 500 -7.2%，目前由S&P 500明顯領先。這表示跨市場同步性正在下降。",
         "level": "watch",
         "category": "cross_market",
         "evidence": {
           "taiex_20d_change_pct": -18.79,
-          "sp500_20d_change_pct": -6.75,
-          "gap_pct_points": -12.04
+          "sp500_20d_change_pct": -7.25,
+          "gap_pct_points": -11.55
         }
       },
       {
@@ -99598,11 +99655,11 @@
       {
         "id": "vix_elevated",
         "title": "市場恐慌情緒升溫",
-        "message": "VIX 恐慌指數為 26.36，市場波動風險有所升高。",
+        "message": "VIX 恐慌指數為 28.29，市場波動風險有所升高。",
         "level": "warning",
         "category": "risk",
         "evidence": {
-          "vix": 26.36
+          "vix": 28.29
         }
       }
     ]

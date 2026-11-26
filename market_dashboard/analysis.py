@@ -318,7 +318,12 @@ def _signal(
     }
 
 
-def detect_signals(df: pd.DataFrame, max_signals: int = 5) -> list[dict]:
+def detect_signals(
+    df: pd.DataFrame,
+    max_signals: int = 5,
+    current: pd.Series | None = None,
+    current_changes: dict | None = None,
+) -> list[dict]:
     """Generate a small set of explainable, non-duplicative market signals.
 
     The goal is not to predict prices. It surfaces unusual conditions and
@@ -328,12 +333,16 @@ def detect_signals(df: pd.DataFrame, max_signals: int = 5) -> list[dict]:
         return []
 
     x = df.sort_values("date").copy()
-    last = x.iloc[-1]
+    last = current if current is not None else x.iloc[-1]
     candidates: list[tuple[int, dict]] = []
 
     taiex_20d = _pct_change_over(x["taiex"], 20) if "taiex" in x else None
-    sp500_20d = _pct_change_over(x["sp500"], 20) if "sp500" in x else None
-    sox_20d = _pct_change_over(x["sox"], 20) if "sox" in x else None
+    if current_changes is not None:
+        sp500_20d = current_changes.get("sp500_20d_change_pct")
+        sox_20d = current_changes.get("sox_20d_change_pct")
+    else:
+        sp500_20d = _pct_change_over(x["sp500"], 20) if "sp500" in x else None
+        sox_20d = _pct_change_over(x["sox"], 20) if "sox" in x else None
 
     foreign20 = last.get("foreign_20d_sum_100m")
     vix = last.get("vix")
@@ -411,8 +420,12 @@ def detect_signals(df: pd.DataFrame, max_signals: int = 5) -> list[dict]:
     # Do not introduce arbitrary abnormal-flow thresholds.
 
     # 4) FX and dollar condition
-    usd20 = _pct_change_over(x["usdtwd"], 20) if "usdtwd" in x else None
-    dxy20 = _pct_change_over(x["dxy"], 20) if "dxy" in x else None
+    if current_changes is not None:
+        usd20 = current_changes.get("usdtwd_20d_change_pct")
+        dxy20 = current_changes.get("dxy_20d_change_pct")
+    else:
+        usd20 = _pct_change_over(x["usdtwd"], 20) if "usdtwd" in x else None
+        dxy20 = _pct_change_over(x["dxy"], 20) if "dxy" in x else None
 
     if usd20 is not None and dxy20 is not None:
         if usd20 >= 2 and dxy20 >= 2:

@@ -18,9 +18,9 @@ on:
 
   schedule:
     # GitHub Actions cron 使用 UTC。
-    # 00:00 UTC = 台灣時間 08:00：美股/全球市場收盤後更新，只連 Yahoo。
+    # 台灣時間 08:00：全球市場及央行匯率更新。
     - cron: "0 0 * * 2-6"
-    # 13:00 UTC = 台灣時間 21:00：台股收盤後更新，只連 TWSE。
+    # 台灣時間 21:00：台股及央行匯率更新。
     - cron: "0 13 * * 1-5"
 
 permissions:
@@ -150,6 +150,32 @@ jobs:
           source_dates = payload.get("latest_source_dates") or {}
           global_latest = payload.get("global_latest") or {}
 
+          current = payload.get("current") or {}
+
+          if not current:
+              raise SystemExit("JSON current 不存在或為空")
+
+          if current.get("date") != latest_date:
+              raise SystemExit("current 台股基準日期不一致")
+
+          for field in (
+              "usdtwd", "dxy", "vix", "us10y",
+              "sp500", "nasdaq", "dow", "sox"
+          ):
+              if current.get(field) != global_latest.get(field):
+                  raise SystemExit(f"current.{field} 數值不一致")
+
+              date_key = f"{field}_date"
+
+              if current.get(date_key) != global_latest.get(date_key):
+                  raise SystemExit(f"current.{date_key} 日期不一致")
+
+              if current.get(field) is None:
+                  raise SystemExit(f"current.{field} 為空")
+
+              if not current.get(date_key):
+                  raise SystemExit(f"current.{date_key} 為空")
+
           if not global_latest:
               raise SystemExit("JSON global_latest 不存在或為空")
 
@@ -163,8 +189,14 @@ jobs:
               "sp500_change_pct", "nasdaq_change_pct", "dow_change_pct",
               "sox_change_pct", "vix_change_pct", "us10y_change_bp"
           ):
-              if global_latest.get(field) is None:
-                  raise SystemExit(f"global_latest.{field} 為空")
+              value = global_latest.get(field)
+
+              if value is None:
+                  print(f"WARNING：global_latest.{field} 暫無資料")
+              elif not math.isfinite(value):
+                  raise SystemExit(
+                      f"global_latest.{field} 不是有限數值"
+                  )
 
           if not series:
               raise SystemExit("JSON series 沒有資料")
@@ -197,10 +229,15 @@ jobs:
                   raise SystemExit(f"latest_source_dates.{field} 為空")
               if row_source_date != source_date:
                   raise SystemExit(f"{field} source date 不一致：{row_source_date} != {source_date}")
-              if source_date >= latest_date:
+              if field == "usdtwd":
+                  invalid_date = source_date > latest_date
+              else:
+                  invalid_date = source_date >= latest_date
+
+              if invalid_date:
                   raise SystemExit(
-                      f"{field} source date 不符合 completed-session 規則："
-                      f"{source_date} >= {latest_date}"
+                      f"{field} source date 不符合歷史對齊規則："
+                      f"{source_date} / {latest_date}"
                   )
 
           with sqlite3.connect(db_file) as con:

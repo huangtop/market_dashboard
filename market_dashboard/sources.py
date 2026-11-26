@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
+from zoneinfo import ZoneInfo
 import logging
 import time
 
@@ -753,6 +754,31 @@ class Sources:
             .drop_duplicates("date")
         )
 
+        # 全球市場日線收盤防護。
+        # 保守採用美東時間當日 18:00 作為發布截止門檻。
+        now_ny = datetime.now(
+            ZoneInfo("America/New_York")
+        )
+
+        completed_date = now_ny.date()
+
+        if now_ny.hour < 18:
+            completed_date -= timedelta(days=1)
+
+        completed_date = min(completed_date, end)
+
+        before_count = len(out)
+
+        out = out.loc[
+            out["date"] <= pd.Timestamp(completed_date)
+        ].copy()
+
+        logging.info(
+            "全球市場收盤防護：截至 %s；排除 %d 筆未完成日期",
+            completed_date.isoformat(),
+            before_count - len(out),
+        )
+        
         out = out.merge(
             fx,
             on="date",

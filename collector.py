@@ -15,6 +15,7 @@ from market_dashboard.config import Settings
 from market_dashboard.sources import Sources, fetch_twse_official_maintenance
 from market_dashboard.storage import Store
 from market_dashboard.utils import safe_float
+from market_dashboard.fx import fetch_usdtwd
 
 
 SCHEMA_VERSION = "4.8-global-latest"
@@ -263,13 +264,21 @@ def build_global_latest(global_df: pd.DataFrame) -> dict:
     # Prefer the newest row that contains the core US market set. Yahoo symbols
     # can occasionally have isolated gaps, so per-field dates below still make
     # provenance explicit.
-    core = ["sp500", "nasdaq", "dow", "sox", "vix", "us10y"]
-    available_sessions = work.dropna(subset=core, how="all")
+    available_sessions = work.dropna(
+        subset=base_fields,
+        how="all",
+    )
+
     if available_sessions.empty:
         return {}
 
-    latest_date = pd.Timestamp(available_sessions.iloc[-1]["date"])
-    result = {"date": latest_date.strftime("%Y-%m-%d")}
+    latest_date = pd.Timestamp(
+        available_sessions.iloc[-1]["date"]
+    )
+
+    result = {
+        "date": latest_date.strftime("%Y-%m-%d")
+    }
 
     change_fields = {
         "vix": "vix_change_pct",
@@ -285,10 +294,7 @@ def build_global_latest(global_df: pd.DataFrame) -> dict:
     for field in base_fields:
         change_field = change_fields.get(field)
 
-        if change_field:
-            valid = work.dropna(subset=[field, change_field])
-        else:
-            valid = work.dropna(subset=[field])
+        valid = work.dropna(subset=[field])
 
         if valid.empty:
             result[field] = None
@@ -490,6 +496,25 @@ def main() -> None:
         # update_official_maintenance(row, day)
 
         store.upsert(row)
+        
+        # 更新央行正式收盤匯率
+        try:
+            fx = fetch_usdtwd(download_start, end)
+
+            fx_rows = store.update_external(fx)
+
+            logging.info(
+                "央行匯率更新：%d 筆；最新 %s = %.3f",
+                fx_rows,
+                fx.iloc[-1]["date"].strftime("%Y-%m-%d"),
+                fx.iloc[-1]["usdtwd"],
+            )
+
+        except Exception as exc:
+            logging.warning(
+                "央行匯率更新失敗：%s；保留既有資料",
+                exc,
+            )
         logging.info(
             "%s TWSE saved：TAIEX=%s change=%s%%；2330=%s change=%s%%；foreign=%s 億",
             key,
@@ -744,6 +769,59 @@ def main() -> None:
 
     market_views = build_market_views(records, latest)
 
+    # 最新市場快照：台股使用最新交易日，
+    # 全球市場使用各自最新有效行情。
+    current = last.copy()
+
+    for field in (
+        "usdtwd",
+        "dxy",
+        "vix",
+        "us10y",
+        "sp500",
+        "nasdaq",
+        "dow",
+        "sox",
+    ):
+        current[field] = global_latest.get(field)
+        current[f"{field}_date"] = global_latest.get(
+            f"{field}_date"
+        )
+
+    # 各市場獨立計算20個有效交易日變動率
+    current_changes = {}
+
+    global_work = (
+        global_df.sort_values("date")
+        .drop_duplicates("date", keep="last")
+    )
+
+    for field in (
+        "usdtwd",
+        "dxy",
+        "sp500",
+        "nasdaq",
+        "dow",
+        "sox",
+    ):
+        change = None
+
+        if field in global_work.columns:
+            values = pd.to_numeric(
+                global_work[field],
+                errors="coerce",
+            ).dropna()
+
+            values = values[values > 0]
+
+            if len(values) >= 21:
+                change = safe_float(
+                    (values.iloc[-1] / values.iloc[-21] - 1)
+                    * 100
+                )
+
+        current_changes[f"{field}_20d_change_pct"] = change
+
     payload = {
         "meta": {
             "schema_version": SCHEMA_VERSION,
@@ -762,9 +840,18 @@ def main() -> None:
                     "description": "衡量台股日報酬與海外市場、匯率、VIX、外資流向的近期連動。",
                 },
                 "global_alignment": {
-                    "method": "strict prior-session as-of",
-                    "allow_exact_calendar_date": False,
-                    "description": "台灣交易日只對齊當時已完成的最近全球市場日資料，避免使用同日尚未收盤的美股、美債或波動率。",
+                    "method": "market-specific as-of",
+                    "allow_exact_calendar_date": ["usdtwd"],
+                    "description": (
+                        "美元兌台幣使用中央銀行當日銀行間收盤匯率；"
+                        "其他全球市場歷史資料維持前一有效交易日對齊。"
+                        "最新行情則使用各市場最新有效資料及個別來源日期。"
+                    ),
+                },
+                "fx_source": {
+                    "provider": "中央銀行",
+                    "indicator": "銀行間新臺幣對美元收盤匯率",
+                    "url": "https://cpx.cbc.gov.tw/api/OpenData/FTDOpenData_Day",
                 },
                 "taiwan_source_policy": {
                     "provider": "TWSE official",
@@ -772,7 +859,7 @@ def main() -> None:
                     "tsmc": "exchangeReport/STOCK_DAY",
                     "foreign_flow": "TWSE",
                     "margin": "TWSE",
-                    "description": "台股資料一律使用臺灣證券交易所官方資料；taiwan-latest 不連 Yahoo Finance。"
+                    "description": "台股行情及融資資料來源為臺灣證券交易所及證券櫃檯買賣中心。"
                 },
                 "global_latest": {
                     "source": "raw global_daily newest completed session",
@@ -784,7 +871,12 @@ def main() -> None:
                     "description": "平日只補近期全球交易日；只有 backfill/full/refresh-global-only 才處理完整歷史。",
                 },
             },
-            "maintenance_ratio_note": "市場融資擔保比估算＝可配對之上市融資股票市值 ÷ 融資金額；為市場層級 proxy，非券商整戶融資維持率。",
+            "maintenance_ratio_note": (
+                "V4 上市櫃市場融資擔保比估算＝"
+                "可配對之上市櫃融資證券市值 ÷ "
+                "上市櫃融資金額 × 100%；"
+                "非證交所官方整戶擔保維持率。"
+            ),
             "disclaimer": "資料僅供研究與資訊用途，不構成投資建議。",
         },
         "latest_date": last.date.strftime("%Y-%m-%d"),
@@ -793,17 +885,32 @@ def main() -> None:
         # 4.8：全球市場自己的最新 completed session，供美股/全球 KPI 使用。
         # 不改動 latest/series 的 strict prior-session 歷史對齊語意。
         "global_latest": global_latest,
+        "current": {
+            **latest,
+            **{
+                key: value
+                for key, value in global_latest.items()
+                if key != "date"
+            },
+            **current_changes,
+            "date": last.date.strftime("%Y-%m-%d"),
+        },
 
         # 新版結構：之後 WordPress 會改讀這裡。
         "markets": market_views,
 
         # 舊版結構：暫時保留，確保現有 WordPress 不壞。
         "latest": latest,
-        "summary": commentary(last),
+        "summary": commentary(current),
         "backtests": backtests(recent, cfg.maintenance_thresholds),
         "analytics": {
             "rolling_correlations": latest_correlations(last),
-            "signals": detect_signals(recent, max_signals=5),
+            "signals": detect_signals(
+                recent,
+                max_signals=5,
+                current=current,
+                current_changes=current_changes,
+            ),
         },
         "education": interpretation_guide(),
         "series": records,
