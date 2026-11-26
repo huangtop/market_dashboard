@@ -15,6 +15,14 @@ CREATE TABLE IF NOT EXISTS daily (
  tsmc_change_pct REAL,
  margin_balance_billion REAL,
  maintenance_est REAL,
+ maintenance_official REAL,
+ maintenance_official_date TEXT,
+ maintenance_gap REAL,
+ margin_below_accounts INTEGER,
+ margin_call_accounts INTEGER,
+ margin_call_amount INTEGER,
+ liquidation_accounts INTEGER,
+ liquidation_amount INTEGER,
  foreign_net_100m REAL,
  usdtwd REAL,
  dxy REAL,
@@ -44,6 +52,7 @@ CREATE TABLE IF NOT EXISTS global_daily (
 # Existing databases from Step 1 do not have the new US index columns.
 # CREATE TABLE IF NOT EXISTS does not alter an existing table, so we migrate
 # missing columns automatically at startup.
+
 REQUIRED_COLUMNS = {
     "taiex_change_pct": "REAL",
     "tsmc_change_pct": "REAL",
@@ -52,8 +61,15 @@ REQUIRED_COLUMNS = {
     "dow": "REAL",
     "sox": "REAL",
     "us10y": "REAL",
+    "maintenance_official": "REAL",
+    "maintenance_official_date": "TEXT",
+    "maintenance_gap": "REAL",
+    "margin_below_accounts": "INTEGER",
+    "margin_call_accounts": "INTEGER",
+    "margin_call_amount": "INTEGER",
+    "liquidation_accounts": "INTEGER",
+    "liquidation_amount": "INTEGER",
 }
-
 
 class Store:
     def __init__(self, path: str):

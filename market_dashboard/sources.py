@@ -9,8 +9,13 @@ import pandas as pd
 import requests
 import yfinance as yf
 
+from .price_fallback import apply_reviewed_prices
 from .config import Settings
 from .utils import get_json, find_table, month_starts, number, roc_date, tables
+from .tpex import (
+    fetch_tpex_margin as fetch_secondary_margin,
+    combine_market_margin,
+)
 
 
 # Yahoo Finance symbols used by the dashboard.
@@ -235,7 +240,32 @@ class Sources:
 
     def tsmc(self, start: date, end: date) -> pd.DataFrame:
         return self._monthly_core(start, end, kind="tsmc")
+    
+    @staticmethod
+    def _validate_daily_payload(
+        payload: dict,
+        day: pd.Timestamp,
+        source: str,
+    ) -> None:
+        expected = day.strftime("%Y%m%d")
 
+        if not isinstance(payload, dict):
+            raise ValueError(f"{source} 回傳格式不是 JSON 物件")
+
+        if payload.get("stat") != "OK":
+            raise ValueError(
+                f"{source} 回傳異常：{payload.get('stat')}"
+            )
+
+        actual = str(payload.get("date", "")).strip()
+
+        if actual != expected:
+            raise ValueError(
+                f"{source} 日期不符："
+                f"預期={expected}，實際={actual}"
+            )
+
+    
     def close_prices(self, day: pd.Timestamp) -> pd.DataFrame:
         payload = get_json(
             self.session,
@@ -248,33 +278,73 @@ class Sources:
             self.cfg.request_timeout_seconds,
             self.cfg.max_retries,
         )
-        data = find_table(payload, ["證券代號", "收盤價"])
-        code_col = next(x for x in data if "證券代號" in str(x))
-        close_col = next(x for x in data if "收盤價" in str(x))
 
-        return pd.DataFrame(
-            {
-                "code": data[code_col].astype(str).str.strip(),
-                "close": data[close_col].map(number),
-            }
-        ).dropna()
+        self._validate_daily_payload(
+            payload, day, "MI_INDEX"
+        )
 
-    def margin(self, day: pd.Timestamp) -> dict:
-        """Estimate market-wide maintenance ratio from TWSE margin data.
+        data = find_table(
+            payload, ["證券代號", "收盤價"]
+        )
 
-        TWSE may return duplicated column labels after merged headers are
-        flattened. This parser therefore selects columns by position when
-        necessary.
-        """
-        common = {"date": day.strftime("%Y%m%d"), "response": "json"}
+        code_col = next(
+            x for x in data if "證券代號" in str(x)
+        )
+        close_col = next(
+            x for x in data if "收盤價" in str(x)
+        )
 
+        prices = pd.DataFrame({
+            "code": data[code_col].astype(str).str.strip(),
+            "close": data[close_col].map(number),
+        })
+
+        duplicated = prices[
+            prices["code"].duplicated(keep=False)
+        ]
+
+        if not duplicated.empty:
+            codes = duplicated["code"].unique().tolist()
+            raise ValueError(
+                f"收盤價證券代號重複：{codes[:20]}"
+            )
+
+        valid = (
+            np.isfinite(prices["close"])
+            & (prices["close"] > 0)
+        )
+
+        prices = prices.loc[valid].copy()
+
+        if prices.empty:
+            raise ValueError("沒有有效的當日收盤價")
+
+        return prices
+
+
+    
+    def _margin_primary(self, day: pd.Timestamp) -> dict:
+        """Estimate market-wide maintenance ratio (V3)."""
+
+        key = day.strftime("%Y%m%d")
+        common = {"date": key, "response": "json"}
+
+        # 收盤價最低張數配對率
+        min_coverage = 0.99
+
+        # 1. 取得融資明細及市場彙總
         detail_payload = get_json(
             self.session,
             "marginTrading/MI_MARGN",
-            {**common, "selectType": "STOCK"},
+            {**common, "selectType": "ALL"},
             self.cfg.request_timeout_seconds,
             self.cfg.max_retries,
         )
+
+        self._validate_daily_payload(
+            detail_payload, day, "MI_MARGN ALL"
+        )
+
         summary_payload = get_json(
             self.session,
             "marginTrading/MI_MARGN",
@@ -283,9 +353,14 @@ class Sources:
             self.cfg.max_retries,
         )
 
-        def norm(value) -> str:
-            return str(value).replace(" ", "").replace("\n", "")
+        self._validate_daily_payload(
+            summary_payload, day, "MI_MARGN MS"
+        )
 
+        def norm(value) -> str:
+            return "".join(str(value).split())
+
+        # 2. 尋找融資明細欄位
         detail_rows = None
         code_idx = None
         balance_idx = None
@@ -293,25 +368,31 @@ class Sources:
 
         for fields, rows, title in tables(detail_payload):
             names = [norm(x) for x in fields]
-            available_detail_fields.append({"title": title, "fields": names})
+
+            available_detail_fields.append({
+                "title": title,
+                "fields": names,
+            })
 
             candidate_code = next(
-                (i for i, x in enumerate(names) if "代號" in x),
-                None,
-            )
-            candidate_balance = next(
-                (
-                    i
-                    for i, x in enumerate(names)
-                    if "融資" in x and "今日餘額" in x
-                ),
+                (i for i, x in enumerate(names)
+                 if "代號" in x),
                 None,
             )
 
+            candidate_balance = next(
+                (i for i, x in enumerate(names)
+                 if "融資" in x and "今日餘額" in x),
+                None,
+            )
+
+            # 相容證交所重複欄位名稱格式
             if (
                 candidate_balance is None
                 and candidate_code is not None
                 and len(names) >= 7
+                and names[5] == "前日餘額"
+                and names[6] == "今日餘額"
             ):
                 candidate_balance = 6
 
@@ -325,48 +406,102 @@ class Sources:
                 balance_idx = candidate_balance
                 break
 
-        if detail_rows is None or code_idx is None or balance_idx is None:
+        if (
+            detail_rows is None
+            or code_idx is None
+            or balance_idx is None
+        ):
             raise KeyError(
-                f"找不到個股融資明細，TWSE 欄位={available_detail_fields}"
+                f"找不到個股融資明細："
+                f"{available_detail_fields}"
             )
 
+        # 3. 解析並驗證證券代號與融資張數
         parsed_shares = []
+
         for row in detail_rows:
             if (
                 not isinstance(row, (list, tuple))
                 or max(code_idx, balance_idx) >= len(row)
             ):
-                continue
+                raise ValueError("融資明細列格式異常")
 
             code = str(row[code_idx]).strip()
+
+            if not (
+                code.isascii()
+                and code.isalnum()
+                and code[0].isdigit()
+                and 4 <= len(code) <= 6
+            ):
+                if norm(code) in ("合計", "總計", ""):
+                    continue
+
+                raise ValueError(
+                    f"無法辨識的融資證券代號：{code}"
+                )
+
             lots = number(row[balance_idx])
 
             if (
-                code.isdigit()
-                and 4 <= len(code) <= 6
-                and np.isfinite(lots)
+                not np.isfinite(lots)
+                or lots < 0
+                or lots != int(lots)
             ):
-                parsed_shares.append((code, lots))
+                raise ValueError(
+                    f"{code} 融資張數異常：{lots}"
+                )
 
-        shares = pd.DataFrame(parsed_shares, columns=["code", "lots"])
+            parsed_shares.append((code, lots))
+
+        shares = pd.DataFrame(
+            parsed_shares,
+            columns=["code", "lots"],
+        )
+
         if shares.empty:
             raise ValueError("個股融資明細解析後為空")
 
-        shares = shares.groupby("code", as_index=False)["lots"].sum()
+        duplicated = shares[
+            shares["code"].duplicated(keep=False)
+        ]
 
+        if not duplicated.empty:
+            codes = duplicated["code"].unique().tolist()
+            raise ValueError(
+                f"融資證券代號重複：{codes[:20]}"
+            )
+
+        shares = shares[shares["lots"] > 0].copy()
+
+        detail_total_lots = int(shares["lots"].sum())
+
+        if detail_total_lots <= 0:
+            raise ValueError("融資明細總張數不是正數")
+
+        # 4. 解析市場融資金額及總張數
         financing_twd = None
+        summary_total_lots = None
         available_summary_fields = []
+        available_items = []
 
         for fields, rows, title in tables(summary_payload):
             names = [norm(x) for x in fields]
-            available_summary_fields.append({"title": title, "fields": names})
+
+            available_summary_fields.append({
+                "title": title,
+                "fields": names,
+            })
 
             item_idx = next(
-                (i for i, x in enumerate(names) if "項目" in x),
+                (i for i, x in enumerate(names)
+                 if "項目" in x),
                 None,
             )
+
             today_candidates = [
-                i for i, x in enumerate(names) if "今日餘額" in x
+                i for i, x in enumerate(names)
+                if "今日餘額" in x
             ]
 
             if item_idx is None or not today_candidates:
@@ -381,43 +516,158 @@ class Sources:
                 ):
                     continue
 
-                if "融資金額" not in norm(row[item_idx]):
-                    continue
+                item = norm(row[item_idx])
+                available_items.append(item)
 
                 value = number(row[today_idx])
-                if np.isfinite(value) and value > 0:
-                    financing_twd = value * 1000
-                    break
 
-            if financing_twd is not None:
+                if "融資金額" in item:
+                    if np.isfinite(value) and value > 0:
+                        financing_twd = value * 1000
+
+                elif (
+                    item.startswith("融資")
+                    and (
+                        "交易單位" in item
+                        or "張數" in item
+                    )
+                ):
+                    if (
+                        np.isfinite(value)
+                        and value > 0
+                        and value == int(value)
+                    ):
+                        summary_total_lots = int(value)
+
+            if (
+                financing_twd is not None
+                and summary_total_lots is not None
+            ):
                 break
 
         if financing_twd is None:
-            raise KeyError(
-                f"找不到融資金額，TWSE 欄位={available_summary_fields}"
+            raise ValueError(
+                f"找不到有效融資金額："
+                f"{available_summary_fields}"
             )
 
+        if summary_total_lots is None:
+            raise ValueError(
+                f"找不到市場融資總張數："
+                f"{available_items}"
+            )
+
+        # 5. 核對明細與市場彙總
+        if detail_total_lots != summary_total_lots:
+            raise ValueError(
+                f"{key} 融資總張數不一致："
+                f"明細={detail_total_lots:,}，"
+                f"彙總={summary_total_lots:,}，"
+                f"差額="
+                f"{detail_total_lots-summary_total_lots:,}"
+            )
+
+        # 6. 收盤價配對
         prices = self.close_prices(day)
-        merged = (
-            shares.merge(prices, on="code", how="inner")
-            .dropna(subset=["lots", "close"])
+        original = dict(zip(prices["code"], prices["close"]))
+        balances = dict(zip(shares["code"], shares["lots"]))
+        logging.info("PRICE_RAW_COVERAGE | primary | %s | %.6f%%", key,
+                     100 * sum(lots for code, lots in balances.items() if code in original) / summary_total_lots)
+        filled = apply_reviewed_prices("primary", day, balances, original)
+        prices = pd.DataFrame(list(filled.items()), columns=["code", "close"])
+
+        merged = shares.merge(
+            prices,
+            on="code",
+            how="left",
+            validate="one_to_one",
         )
 
-        if merged.empty:
-            raise ValueError("融資明細與當日收盤價無法配對")
+        valid = (
+            np.isfinite(merged["close"])
+            & (merged["close"] > 0)
+        )
 
+        matched = merged.loc[valid].copy()
+        missing = merged.loc[~valid].copy()
+
+        matched_lots = int(matched["lots"].sum())
+        missing_lots = int(missing["lots"].sum())
+
+        coverage = matched_lots / summary_total_lots
+
+        # 7. 缺價警告及配對率檢查
+        if not missing.empty:
+            missing_codes = missing["code"].tolist()
+
+            logging.warning(
+                "%s 融資收盤價缺失："
+                "%d 檔、%s 張，配對率=%.6f%%，"
+                "證券=%s",
+                key,
+                len(missing),
+                f"{missing_lots:,}",
+                coverage * 100,
+                ", ".join(missing_codes[:20]),
+            )
+
+        if coverage < min_coverage:
+            logging.warning(
+                f"{key} 收盤價配對率不足："
+                f"{coverage*100:.6f}% "
+                f"低於 {min_coverage*100:.1f}%"
+            )
+
+        # 8. 維持原本 V3 核心公式
         collateral_twd = float(
-            (merged["lots"] * 1000 * merged["close"]).sum()
+            (
+                matched["lots"]
+                * 1000
+                * matched["close"]
+            ).sum()
         )
 
-        if collateral_twd <= 0:
-            raise ValueError("估算擔保品市值不是正數")
+        if (
+            not np.isfinite(collateral_twd)
+            or collateral_twd <= 0
+        ):
+            raise ValueError("估算擔保品市值異常")
+
+        maintenance_est = (
+            collateral_twd / financing_twd * 100
+        )
+
+        if not np.isfinite(maintenance_est):
+            raise ValueError("估算維持率異常")
+
+        # 9. 紀錄資料品質
+        logging.info(
+            "%s V3 融資資料驗證通過："
+            "明細=%s 張，彙總=%s 張，"
+            "配對率=%.6f%%，"
+            "維持率=%.4f%%",
+            key,
+            f"{detail_total_lots:,}",
+            f"{summary_total_lots:,}",
+            coverage * 100,
+            maintenance_est,
+        )
 
         return {
             "margin_balance_billion": financing_twd / 1e9,
-            "maintenance_est": collateral_twd / financing_twd * 100,
+            "maintenance_est": maintenance_est,
         }
 
+    def margin(self, day: pd.Timestamp) -> dict:
+        """市場融資擔保比估算。"""
+
+        day = pd.Timestamp(day)
+
+        primary = self._margin_primary(day)
+        secondary = fetch_secondary_margin(day)
+
+        return combine_market_margin(primary, secondary)
+    
     def foreign(self, day: pd.Timestamp) -> float:
         payload = get_json(
             self.session,
@@ -499,3 +749,48 @@ class Sources:
 
         out["date"] = pd.to_datetime(out["date"]).dt.normalize()
         return out[columns].sort_values("date").drop_duplicates("date")
+
+
+def fetch_twse_official_maintenance(date):
+    """取得證交所官方整戶擔保維持率及追繳處分資料。"""
+    import requests
+
+    date_str = str(date).replace("-", "")[:8]
+
+    url = (
+        "https://www.twse.com.tw"
+        "/rwd/zh/marginTrading/BFIJ3U"
+    )
+
+    params = {
+        "response": "json",
+        "date": date_str,
+    }
+
+    headers = {
+        "User-Agent": "Mozilla/5.0",
+        "Accept": "application/json",
+    }
+
+    response = requests.get(
+        url,
+        params=params,
+        headers=headers,
+        timeout=30,
+    )
+    response.raise_for_status()
+    data = response.json()
+
+    if data.get("stat") != "OK":
+        return None
+
+    if data.get("date") != date_str:
+        return None
+
+    if data.get("keepRate") is None:
+        return None
+
+    return {
+        "maintenance_official": float(data["keepRate"]),
+        "maintenance_official_date": data["date"],
+    }

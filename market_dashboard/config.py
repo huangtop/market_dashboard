@@ -11,7 +11,7 @@ class Settings:
     request_delay_seconds: float = 0.35
     request_timeout_seconds: int = 40
     max_retries: int = 4
-    maintenance_thresholds: list[float] = field(default_factory=lambda: [140,145,150,155])
+    maintenance_thresholds: list[float] = field(default_factory=lambda: [10, 25, 75, 90])
     wordpress_json_url: str = "/wp-content/uploads/market-dashboard/market-dashboard.json"
 
     @classmethod

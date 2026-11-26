@@ -22,3 +22,5 @@ logs/
 *.md
 *.txt
 !requirements.txt
+
+research_data/

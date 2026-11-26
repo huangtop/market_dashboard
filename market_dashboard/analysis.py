@@ -4,9 +4,6 @@ import numpy as np
 import pandas as pd
 
 
-ZSCORE_WINDOW = 252
-ZSCORE_MIN_PERIODS = 60
-
 
 GLOBAL_MARKET_FIELDS = (
     "usdtwd",
@@ -143,26 +140,6 @@ def align_global_asof(
     return left
 
 
-def zscore(
-    s: pd.Series,
-    window: int = ZSCORE_WINDOW,
-    minimum: int = ZSCORE_MIN_PERIODS,
-) -> pd.Series:
-    """Rolling Z-score using only information available up to each date.
-
-    A 252-trading-day window is roughly one trading year.
-    At least 60 observations are required before a Z-score is emitted.
-    """
-    series = pd.to_numeric(s, errors="coerce")
-    rolling = series.rolling(window, min_periods=minimum)
-    mean = rolling.mean()
-    std = rolling.std()
-
-    result = (series - mean) / std
-
-    # Constant windows have std=0. They do not represent an extreme signal,
-    # so expose them as missing instead of +/-inf.
-    return result.replace([np.inf, -np.inf], np.nan)
 
 
 def enrich(df: pd.DataFrame) -> pd.DataFrame:
@@ -200,60 +177,31 @@ def enrich(df: pd.DataFrame) -> pd.DataFrame:
     # Retained for backward compatibility.
     df["taiex_volume_billion"] = np.nan
 
-    # --- Step 3: rolling Z-scores -----------------------------------------
-    # Z-score answers: "Compared with its own recent history, how unusual is
-    # today's reading?" It is most useful for flow, risk and macro indicators.
-    zscore_sources = {
-        "maintenance_est": "maintenance_zscore",
-        "foreign_20d_sum_100m": "foreign_20d_zscore",
-        "usdtwd": "usdtwd_zscore",
-        "dxy": "dxy_zscore",
-        "vix": "vix_zscore",
-        "us10y": "us10y_zscore",
-    }
-
-    for source, target in zscore_sources.items():
-        if source in df.columns:
-            df[target] = zscore(df[source])
-        else:
-            df[target] = np.nan
-
-    # Capital-outflow pressure combines normalized FX / dollar / foreign flow.
-    pressure = (
-        zscore(df["usdtwd_20d_change_pct"])
-        + zscore(df["dxy"])
-        - zscore(df["foreign_20d_sum_100m"])
-    )
-    df["outflow_pressure_score"] = pressure
-
     # maintenance_est is a public-data market proxy, not a brokerage account
     # maintenance ratio. Use its own historical percentile rather than broker
     # thresholds such as 130/145/170%.
-    df["maintenance_percentile"] = (
-        df["maintenance_est"]
-        .expanding(min_periods=20)
-        .apply(
-            lambda x: pd.Series(x).rank(pct=True).iloc[-1] * 100
-        )
+    maintenance = pd.to_numeric(
+        df["maintenance_est"],
+        errors="coerce",
     )
 
-    maint = df["maintenance_percentile"].clip(0, 100)
-    foreign = (
-        zscore(df["foreign_20d_sum_100m"]).clip(-2, 2) + 2
-    ) / 4 * 100
-    calm = 100 - (
-        df["vix"].clip(10, 45) - 10
-    ) / 35 * 100
-    fx = 100 - (
-        pressure.clip(-2, 2) + 2
-    ) / 4 * 100
+    maintenance = maintenance.where(
+        np.isfinite(maintenance)
+        & (maintenance > 0)
+    )
 
-    df["market_temperature"] = (
-        0.35 * maint
-        + 0.30 * foreign
-        + 0.20 * calm
-        + 0.15 * fx
-    ).clip(0, 100)
+    df["maintenance_est"] = maintenance
+
+    df["maintenance_percentile"] = (
+        maintenance
+        .expanding(min_periods=20)
+        .rank(method="average", pct=True)
+        .mul(100)
+        .where(maintenance.notna())
+    )
+
+    df["market_temperature"] = np.nan
+    df["outflow_pressure_score"] = np.nan
 
     df = add_rolling_correlations(df)
     return df
@@ -388,14 +336,9 @@ def detect_signals(df: pd.DataFrame, max_signals: int = 5) -> list[dict]:
     sox_20d = _pct_change_over(x["sox"], 20) if "sox" in x else None
 
     foreign20 = last.get("foreign_20d_sum_100m")
-    foreign_z = last.get("foreign_20d_zscore")
     vix = last.get("vix")
-    vix_z = last.get("vix_zscore")
-    maintenance_z = last.get("maintenance_zscore")
-    usd_z = last.get("usdtwd_zscore")
-    dxy_z = last.get("dxy_zscore")
+    maintenance_pct = last.get("maintenance_percentile")
     us10y = last.get("us10y")
-    us10y_z = last.get("us10y_zscore")
     corr_foreign = last.get("corr_60d_taiex_foreign")
     corr_sox = last.get("corr_60d_taiex_sox")
     corr_sp500 = last.get("corr_60d_taiex_sp500")
@@ -433,140 +376,118 @@ def detect_signals(df: pd.DataFrame, max_signals: int = 5) -> list[dict]:
                 )
             ))
 
-    # 2) Volatility abnormality
-    if pd.notna(vix_z):
-        if vix_z >= 2:
+
+    # 2) Volatility condition
+    if pd.notna(vix):
+        if vix >= 30:
             candidates.append((
                 92,
                 _signal(
                     "vix_extreme_high",
-                    "市場恐慌明顯高於近期常態",
-                    f"VIX Z-score 為 {float(vix_z):.2f}，代表波動程度已明顯高於近一年常態。此時市場通常更容易出現急漲急跌。",
+                    "市場恐慌程度偏高",
+                    f"VIX 恐慌指數為 {float(vix):.2f}，"
+                    "市場波動風險偏高，需留意急漲急跌。",
                     "risk",
                     "risk",
-                    {"vix": None if pd.isna(vix) else round(float(vix), 2),
-                     "vix_zscore": round(float(vix_z), 2)},
+                    {"vix": round(float(vix), 2)},
                 )
             ))
-        elif vix_z <= -1.5:
+        elif vix >= 20:
             candidates.append((
-                45,
+                65,
                 _signal(
-                    "vix_very_calm",
-                    "市場波動處在偏低水準",
-                    f"VIX Z-score 為 {float(vix_z):.2f}，目前波動顯著低於近期常態。情緒偏平穩，但低波動本身不等於低風險。",
-                    "info",
+                    "vix_elevated",
+                    "市場恐慌情緒升溫",
+                    f"VIX 恐慌指數為 {float(vix):.2f}，"
+                    "市場波動風險有所升高。",
+                    "warning",
                     "risk",
-                    {"vix": None if pd.isna(vix) else round(float(vix), 2),
-                     "vix_zscore": round(float(vix_z), 2)},
+                    {"vix": round(float(vix), 2)},
                 )
             ))
 
-    # 3) Foreign flow abnormality
-    if pd.notna(foreign_z):
-        if foreign_z >= 1.5:
-            candidates.append((
-                88,
-                _signal(
-                    "foreign_strong_buy",
-                    "外資買盤明顯強於近期常態",
-                    f"外資20日累計流向 Z-score 為 {float(foreign_z):.2f}，代表近期外資買盤相對近一年明顯偏強。",
-                    "positive",
-                    "flow",
-                    {"foreign_20d_zscore": round(float(foreign_z), 2)},
-                )
-            ))
-        elif foreign_z <= -1.5:
-            candidates.append((
-                88,
-                _signal(
-                    "foreign_strong_sell",
-                    "外資賣壓明顯強於近期常態",
-                    f"外資20日累計流向 Z-score 為 {float(foreign_z):.2f}，代表近期外資賣壓相對近一年明顯偏強。",
-                    "risk",
-                    "flow",
-                    {"foreign_20d_zscore": round(float(foreign_z), 2)},
-                )
-            ))
+    # 3) Foreign flow
+    # Retain actual foreign flow and price divergence.
+    # Do not introduce arbitrary abnormal-flow thresholds.
 
-    # 4) FX + dollar pressure
-    if pd.notna(usd_z) and pd.notna(dxy_z):
-        if usd_z >= 1.2 and dxy_z >= 0.8:
+    # 4) FX and dollar condition
+    usd20 = _pct_change_over(x["usdtwd"], 20) if "usdtwd" in x else None
+    dxy20 = _pct_change_over(x["dxy"], 20) if "dxy" in x else None
+
+    if usd20 is not None and dxy20 is not None:
+        if usd20 >= 2 and dxy20 >= 2:
             candidates.append((
                 84,
                 _signal(
                     "usd_fx_pressure",
-                    "美元與台幣匯率同時偏強",
-                    f"USD/TWD Z-score {float(usd_z):.2f}、DXY Z-score {float(dxy_z):.2f}。美元偏強且台幣偏弱時，外資資金面通常需要更保守觀察。",
+                    "美元走強且台幣走弱",
+                    f"近20筆有效觀測期間，美元指數上漲 {dxy20:.2f}%，"
+                    f"美元兌台幣上漲 {usd20:.2f}%，"
+                    "需留意外資資金動向。",
                     "warning",
                     "macro",
                     {
-                        "usdtwd_zscore": round(float(usd_z), 2),
-                        "dxy_zscore": round(float(dxy_z), 2),
+                        "usdtwd_20d_change_pct": round(usd20, 2),
+                        "dxy_20d_change_pct": round(dxy20, 2),
                     },
                 )
             ))
 
-
-    # 5) US 10Y Treasury yield abnormality
-    if pd.notna(us10y_z):
-        if us10y_z >= 1.5:
+    # 5) US 10Y Treasury yield condition
+    if pd.notna(us10y):
+        if us10y >= 4.5:
             candidates.append((
                 86,
                 _signal(
                     "us10y_high",
-                    "美國10年期公債殖利率明顯偏高",
-                    f"美國10年期公債殖利率約 {float(us10y):.2f}%、Z-score {float(us10y_z):.2f}。長天期利率高於近一年常態時，通常會提高股票估值的折現壓力，成長股與高估值資產尤其值得留意。",
+                    "美國長天期利率偏高",
+                    f"美國10年期公債殖利率為 {float(us10y):.2f}%，"
+                    "較高的利率可能增加股票估值壓力。",
                     "warning",
                     "rates",
-                    {
-                        "us10y": round(float(us10y), 3) if pd.notna(us10y) else None,
-                        "us10y_zscore": round(float(us10y_z), 2),
-                    },
-                )
-            ))
-        elif us10y_z <= -1.5:
-            candidates.append((
-                58,
-                _signal(
-                    "us10y_low",
-                    "美國10年期公債殖利率低於近期常態",
-                    f"美國10年期公債殖利率約 {float(us10y):.2f}%、Z-score {float(us10y_z):.2f}。長天期利率壓力相對減輕，但仍要搭配通膨、景氣與風險情緒一起看。",
-                    "info",
-                    "rates",
-                    {
-                        "us10y": round(float(us10y), 3) if pd.notna(us10y) else None,
-                        "us10y_zscore": round(float(us10y_z), 2),
-                    },
+                    {"us10y": round(float(us10y), 3)},
                 )
             ))
 
     # 6) Leverage condition
-    if pd.notna(maintenance_z):
-        if maintenance_z >= 1.8:
+    if pd.notna(maintenance_pct):
+        if maintenance_pct >= 90:
             candidates.append((
                 70,
                 _signal(
                     "maintenance_high",
                     "融資擔保狀態處在歷史偏高區",
-                    f"市場融資擔保比估算 Z-score 為 {float(maintenance_z):.2f}，代表目前相對自身近一年位於偏高區。這是市場槓桿狀態指標，不等同券商帳戶維持率。",
+                    f"市場融資擔保比估算位於歷史第 "
+                    f"{float(maintenance_pct):.1f} 百分位，"
+                    "目前相對歷史處於偏高水準。"
+                    "此指標不等同券商帳戶維持率。",
                     "info",
                     "leverage",
-                    {"maintenance_zscore": round(float(maintenance_z), 2)},
+                    {
+                        "maintenance_percentile":
+                            round(float(maintenance_pct), 2)
+                    },
                 )
             ))
-        elif maintenance_z <= -1.8:
+        elif maintenance_pct <= 10:
             candidates.append((
                 80,
                 _signal(
                     "maintenance_low",
-                    "融資擔保狀態明顯低於近期常態",
-                    f"市場融資擔保比估算 Z-score 為 {float(maintenance_z):.2f}，市場槓桿安全墊相對近期偏弱，需要留意融資壓力。",
+                    "融資擔保狀態處在歷史低檔",
+                    f"市場融資擔保比估算位於歷史第 "
+                    f"{float(maintenance_pct):.1f} 百分位，"
+                    "市場槓桿安全墊相對歷史偏弱，"
+                    "需要留意融資壓力。",
                     "risk",
                     "leverage",
-                    {"maintenance_zscore": round(float(maintenance_z), 2)},
+                    {
+                        "maintenance_percentile":
+                            round(float(maintenance_pct), 2)
+                    },
                 )
             ))
+
 
     # 7) Taiwan vs US divergence
     if taiex_20d is not None and sp500_20d is not None:
@@ -672,12 +593,6 @@ def interpretation_guide() -> dict:
             "how": "看誰從100上升得更多，就代表誰在同一期間漲得更快；低於100則代表相對下跌。",
             "caution": "適合比較相對走勢，不代表原始價格高低。",
         },
-        "zscore": {
-            "title": "Z-score怎麼看？",
-            "what": "把每個指標和它自己的近一年歷史相比。",
-            "how": "0附近代表正常；+1偏高；+2明顯偏高；-1偏低；-2明顯偏低。",
-            "caution": "適合判斷異常程度，不是買賣訊號。",
-        },
         "rolling_correlation": {
             "title": "相關係數怎麼看？",
             "what": "觀察台股和另一個指標最近是否常一起漲跌。",
@@ -699,69 +614,97 @@ def interpretation_guide() -> dict:
         "vix": {
             "title": "VIX怎麼看？",
             "what": "反映美股選擇權市場對未來波動的定價。",
-            "how": "數值或Z-score突然升高時，通常表示市場風險情緒升溫。",
+            "how": "指數升高時，通常表示市場預期波動加大，風險情緒升溫。",
             "caution": "VIX高不代表市場一定繼續跌，VIX低也不代表沒有風險。",
         },
     }
 
 def backtests(df: pd.DataFrame, thresholds: list[float]):
-    """Backtest drops in the proxy's historical percentile.
+    """Backtest downward crossings of historical percentiles."""
 
-    ``thresholds`` are percentile levels (for example 10/25/75/90), not
-    account-maintenance-ratio percentages.
-    """
     out = []
-    x = df.reset_index(drop=True)
-    metric = x["maintenance_percentile"]
+
+    x = (
+        df.sort_values("date")
+        .reset_index(drop=True)
+        .copy()
+    )
+
+    metric = pd.to_numeric(
+        x["maintenance_percentile"],
+        errors="coerce",
+    )
+
+    metric = metric.where(
+        np.isfinite(metric)
+        & metric.between(0, 100)
+    )
+
+    taiex = pd.to_numeric(
+        x["taiex"],
+        errors="coerce",
+    )
+
+    taiex = taiex.where(
+        np.isfinite(taiex)
+        & (taiex > 0)
+    )
+
+    previous = metric.shift(1)
 
     for threshold in thresholds:
+
+        if not np.isfinite(threshold) or not (
+            0 <= threshold <= 100
+        ):
+            raise ValueError(
+                f"回測百分位門檻必須介於 0～100：{threshold}"
+            )
+
         idx = x.index[
-            (metric < threshold)
-            & (metric.shift(1) >= threshold)
+            metric.notna()
+            & previous.notna()
+            & (metric < threshold)
+            & (previous >= threshold)
         ].tolist()
 
         horizons = []
 
         for days in (20, 60, 120):
+
             vals = [
-                x.loc[i + days, "taiex"] / x.loc[i, "taiex"] - 1
+                taiex.iloc[i + days] / taiex.iloc[i] - 1
                 for i in idx
                 if i + days < len(x)
-                and x.loc[i, "taiex"] > 0
+                and pd.notna(taiex.iloc[i])
+                and pd.notna(taiex.iloc[i + days])
             ]
 
-            horizons.append(
-                {
-                    "trading_days": days,
-                    "samples": len(vals),
-                    "average_return_pct": (
-                        round(float(np.mean(vals) * 100), 2)
-                        if vals
-                        else None
-                    ),
-                    "median_return_pct": (
-                        round(float(np.median(vals) * 100), 2)
-                        if vals
-                        else None
-                    ),
-                    "win_rate_pct": (
-                        round(
-                            float(np.mean(np.array(vals) > 0) * 100),
-                            1,
-                        )
-                        if vals
-                        else None
-                    ),
-                }
-            )
+            horizons.append({
+                "trading_days": days,
+                "samples": len(vals),
+                "average_return_pct": (
+                    round(float(np.mean(vals) * 100), 2)
+                    if vals else None
+                ),
+                "median_return_pct": (
+                    round(float(np.median(vals) * 100), 2)
+                    if vals else None
+                ),
+                "win_rate_pct": (
+                    round(
+                        float(np.mean(np.array(vals) > 0) * 100),
+                        1,
+                    )
+                    if vals else None
+                ),
+            })
 
-        out.append(
-            {
-                "threshold": threshold,
-                "events": len(idx),
-                "horizons": horizons,
-            }
-        )
+        out.append({
+            "threshold": threshold,
+            "events": len(idx),
+            "horizons": horizons,
+        })
 
     return out
 
@@ -772,7 +715,6 @@ def commentary(row: pd.Series) -> str:
     mp = row.get("maintenance_percentile")
     foreign = row.get("foreign_20d_sum_100m")
     vix = row.get("vix")
-    pressure = row.get("outflow_pressure_score")
 
     if pd.notna(mp):
         if mp >= 90:
@@ -800,15 +742,6 @@ def commentary(row: pd.Series) -> str:
             else "波動風險偏高"
             if vix >= 20
             else "波動情緒相對平穩"
-        )
-
-    if pd.notna(pressure):
-        parts.append(
-            "匯率與美元形成資金外流壓力"
-            if pressure > 1
-            else "外部資金壓力有限"
-            if pressure < 0
-            else "外部資金壓力中性"
         )
 
     return (

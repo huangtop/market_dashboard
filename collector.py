@@ -12,18 +12,16 @@ import pandas as pd
 
 from market_dashboard.analysis import add_global_daily_changes, align_global_asof, backtests, commentary, enrich, latest_correlations, detect_signals, interpretation_guide
 from market_dashboard.config import Settings
-from market_dashboard.sources import Sources
+from market_dashboard.sources import Sources, fetch_twse_official_maintenance
 from market_dashboard.storage import Store
 from market_dashboard.utils import safe_float
 
 
 SCHEMA_VERSION = "4.8-global-latest"
 
-# Step 3:
-# 保留前端「區間起點 = 100」的動態比較概念，
-# 後端新增 rolling Z-score，讓風險 / 資金 / 總經指標可以用同一尺度
-# 判斷「相對自身歷史是否異常」。
-# 舊版 flat latest / series 仍保留，WordPress 暫時不需要修改。
+# 保留前端「區間起點 = 100」的動態比較概念。
+# 使用實際市場數值、漲跌幅及歷史百分位。
+# 保留 flat latest / series 輸出結構。
 VIEW_FIELDS = {
     "taiwan": [
         "taiex",
@@ -32,11 +30,6 @@ VIEW_FIELDS = {
         "tsmc_change_pct",
         "maintenance_est",
         "maintenance_percentile",
-        "maintenance_zscore",
-        "margin_balance_billion",
-        "foreign_net_100m",
-        "foreign_20d_sum_100m",
-        "foreign_20d_zscore",
         "market_temperature",
     ],
     "us": [
@@ -50,10 +43,8 @@ VIEW_FIELDS = {
         "sox_change_pct",
         "vix",
         "vix_change_pct",
-        "vix_zscore",
         "us10y",
         "us10y_change_bp",
-        "us10y_zscore",
         "corr_20d_taiex_sp500",
         "corr_20d_taiex_nasdaq",
         "corr_20d_taiex_dow",
@@ -84,12 +75,9 @@ VIEW_FIELDS = {
     ],
     "macro": [
         "usdtwd",
-        "usdtwd_zscore",
         "dxy",
-        "dxy_zscore",
         "us10y",
         "us10y_change_bp",
-        "us10y_zscore",
         "outflow_pressure_score",
     ],
     # Cross-market 不是新的資料，而是把之後需要一起比較的欄位整理成同一視角。
@@ -100,16 +88,10 @@ VIEW_FIELDS = {
         "nasdaq",
         "sox",
         "vix",
-        "vix_zscore",
         "usdtwd",
-        "usdtwd_zscore",
         "dxy",
-        "dxy_zscore",
         "us10y",
-        "us10y_zscore",
         "foreign_20d_sum_100m",
-        "foreign_20d_zscore",
-        "maintenance_zscore",
         "outflow_pressure_score",
         "corr_60d_taiex_sp500",
         "corr_60d_taiex_nasdaq",
@@ -144,6 +126,23 @@ def parse_args() -> argparse.Namespace:
     mode.add_argument("--latest", action="store_true", help="只更新最新交易日（預設）")
     mode.add_argument("--backfill", action="store_true", help="只補 SQLite 缺少或不完整的日期")
     mode.add_argument("--full", action="store_true", help="強制重新抓取完整期間")
+
+    mode.add_argument(
+        "--maintenance-backfill",
+        action="store_true",
+        help="獨立回補證交所官方整戶擔保維持率",
+    )
+    ap.add_argument(
+        "--maintenance-start",
+        default=None,
+        help="官方維持率回補起始日期 YYYY-MM-DD",
+    )
+    ap.add_argument(
+        "--maintenance-end",
+        default=None,
+        help="官方維持率回補結束日期 YYYY-MM-DD",
+    )
+
     mode.add_argument("--derive-only", action="store_true", help="不連網，只讀 SQLite 重算 JSON/CSV")
     mode.add_argument(
         "--taiwan-latest",
@@ -183,30 +182,40 @@ def select_days(
     return [max(all_days)], "最新交易日"
 
 
-def previous_valid_margin(store: Store, day: pd.Timestamp) -> dict:
-    """Return the most recent valid margin values before *day*.
+def update_official_maintenance(row: dict, day) -> None:
+    """更新證交所官方整戶擔保維持率。"""
+    key = pd.Timestamp(day).strftime("%Y-%m-%d")
 
-    This is only a display-safety fallback for a transient TWSE outage.
-    It prevents a missing value from being serialized as null and later shown
-    by the UI as 0%. The log clearly marks the value as carried forward.
-    """
-    df = store.frame()
-    if df.empty:
-        return {}
+    try:
+        official = fetch_twse_official_maintenance(key)
 
-    prior = df[
-        (df["date"] < pd.Timestamp(day))
-        & df["margin_balance_billion"].notna()
-        & df["maintenance_est"].notna()
-    ]
-    if prior.empty:
-        return {}
+        if not official:
+            logging.warning(
+                "%s 官方維持率尚未公布或無資料", key
+            )
+            return
 
-    last = prior.iloc[-1]
-    return {
-        "margin_balance_billion": safe_float(last["margin_balance_billion"]),
-        "maintenance_est": safe_float(last["maintenance_est"]),
-    }
+        row.update(official)
+
+        row["maintenance_official_date"] = key
+
+        # 差距留待確認估算值是否為當日資料後計算
+        row["maintenance_gap"] = None
+
+        logging.info(
+            "%s 官方維持率=%.2f%%；追繳戶數=%s；處分戶數=%s",
+            key,
+            official["maintenance_official"],
+            official.get("margin_call_accounts"),
+            official.get("liquidation_accounts"),
+        )
+
+    except Exception as exc:
+        logging.warning(
+            "%s 官方維持率抓取失敗：%s", key, exc
+        )
+
+
 
 
 def select_fields(row: dict, fields: list[str]) -> dict:
@@ -300,6 +309,83 @@ def build_global_latest(global_df: pd.DataFrame) -> dict:
 
     return result
 
+def backfill_official_maintenance(
+    store: Store,
+    start_date: str,
+    end_date: str,
+    delay: float = 3.0,
+) -> None:
+    """只回補既有交易日的官方維持率資料。"""
+
+    start = pd.Timestamp(start_date)
+    end = pd.Timestamp(end_date)
+
+    if start > end:
+        raise ValueError("回補起始日期不可晚於結束日期")
+
+    df = store.frame()
+
+    if df.empty:
+        logging.warning("SQLite 沒有既有交易日資料")
+        return
+
+    pending = df[
+        (df["date"] >= start)
+        & (df["date"] <= end)
+        & df["taiex"].notna()
+        & df["maintenance_official"].isna()
+    ].copy()
+
+    total = len(pending)
+    success = 0
+
+    logging.info(
+        "官方維持率回補：%s 至 %s，共 %d 個待補交易日",
+        start_date,
+        end_date,
+        total,
+    )
+
+    for i, (_, old_row) in enumerate(pending.iterrows(), 1):
+        day = old_row["date"]
+        key = day.strftime("%Y-%m-%d")
+
+        row = {
+            "date": key,
+            "updated_at": datetime.now()
+            .astimezone()
+            .isoformat(timespec="seconds"),
+        }
+
+        # update_official_maintenance(row, day)
+
+        if row.get("maintenance_official") is not None:
+            store.upsert(row)
+            success += 1
+
+            logging.info(
+                "%d/%d %s 官方維持率 %.2f%% 已儲存",
+                i,
+                total,
+                key,
+                row["maintenance_official"],
+            )
+        else:
+            logging.warning(
+                "%d/%d %s 無官方資料，略過",
+                i,
+                total,
+                key,
+            )
+
+        if i < total:
+            time.sleep(max(delay, 3.0))
+
+    logging.info(
+        "官方維持率回補完成：成功 %d 筆，未取得 %d 筆",
+        success,
+        total - success,
+    )
 
 def main() -> None:
     args = parse_args()
@@ -317,7 +403,27 @@ def main() -> None:
     historical_mode = args.backfill or args.full
     interrupted = False
 
-    if args.derive_only:
+    
+    if args.maintenance_backfill:
+        logging.info("模式：官方維持率獨立回補")
+
+        if not args.maintenance_start or not args.maintenance_end:
+            raise ValueError(
+                "請指定 --maintenance-start 及 --maintenance-end"
+            )
+
+        try:
+            backfill_official_maintenance(
+                store,
+                args.maintenance_start,
+                args.maintenance_end,
+                cfg.request_delay_seconds,
+            )
+        except KeyboardInterrupt:
+            interrupted = True
+            logging.warning("停止回補，保留已儲存資料")
+
+    elif args.derive_only:
         logging.info("模式：derive-only；不連線 TWSE / Yahoo Finance")
 
     elif args.global_latest:
@@ -361,19 +467,27 @@ def main() -> None:
             row["tsmc"] = safe_float(last_core.get("tsmc"))
             row["tsmc_change_pct"] = safe_float(last_core.get("tsmc_change_pct"))
 
+
         try:
-            row.update({k: safe_float(v) for k, v in src.margin(day).items()})
+            row.update({
+                k: safe_float(v)
+                for k, v in src.margin(day).items()
+            })
         except Exception as exc:
-            logging.warning("%s margin: %s", key, exc)
-            fallback = previous_valid_margin(store, day)
-            if fallback:
-                row.update(fallback)
-                logging.warning("%s margin 使用前一有效交易日數值暫代", key)
+            logging.warning(
+                "%s margin 抓取或驗證失敗：%s；"
+                "不沿用前一交易日資料，等待回補",
+                key,
+                exc,
+            )
+
 
         try:
             row["foreign_net_100m"] = safe_float(src.foreign(day))
         except Exception as exc:
             logging.warning("%s foreign: %s", key, exc)
+
+        # update_official_maintenance(row, day)
 
         store.upsert(row)
         logging.info(
@@ -478,28 +592,32 @@ def main() -> None:
                     row["tsmc"] = safe_float(last_core.get("tsmc"))
                     row["tsmc_change_pct"] = safe_float(last_core.get("tsmc_change_pct"))
 
+
                 try:
-                    row.update({k: safe_float(v) for k, v in src.margin(day).items()})
+                    row.update({
+                        k: safe_float(v)
+                        for k, v in src.margin(day).items()
+                    })
                 except Exception as exc:
-                    logging.warning("%s margin: %s", key, exc)
-                    if not historical_mode:
-                        fallback = previous_valid_margin(store, day)
-                        if fallback:
-                            row.update(fallback)
-                            logging.warning(
-                                "%s margin 使用前一有效交易日數值暫代：maintenance_est=%s, margin_balance_billion=%s",
-                                key,
-                                fallback["maintenance_est"],
-                                fallback["margin_balance_billion"],
-                            )
+                    logging.warning(
+                        "%s margin 抓取或驗證失敗：%s；"
+                        "不沿用前一交易日資料，等待回補",
+                        key,
+                        exc,
+                    )
+
 
                 try:
                     row["foreign_net_100m"] = safe_float(src.foreign(day))
                 except Exception as exc:
                     logging.warning("%s foreign: %s", key, exc)
 
+                
+                # update_official_maintenance(row, day)
+
                 store.upsert(row)
                 logging.info("%d/%d %s saved", i, len(days), key)
+
                 time.sleep(cfg.request_delay_seconds)
 
         except KeyboardInterrupt:
@@ -539,6 +657,14 @@ def main() -> None:
         "tsmc",
         "tsmc_change_pct",
         "maintenance_est",
+        "maintenance_official",
+        "maintenance_official_date",
+        "maintenance_gap",
+        "margin_below_accounts",
+        "margin_call_accounts",
+        "margin_call_amount",
+        "liquidation_accounts",
+        "liquidation_amount",
         "margin_balance_billion",
         "foreign_net_100m",
         "foreign_20d_sum_100m",
@@ -557,14 +683,8 @@ def main() -> None:
         "outflow_pressure_score",
         "market_temperature",
         "maintenance_percentile",
-        "maintenance_zscore",
-        "foreign_20d_zscore",
-        "usdtwd_zscore",
-        "dxy_zscore",
-        "vix_zscore",
         "us10y",
         "us10y_change_bp",
-        "us10y_zscore",
         "usdtwd_date",
         "dxy_date",
         "vix_date",
@@ -634,12 +754,6 @@ def main() -> None:
                 "indexed_100": {
                     "location": "frontend",
                     "description": "依使用者目前選取區間的第一個有效值設為100；適合比較不同價格指數的相對走勢。",
-                },
-                "zscore": {
-                    "location": "backend",
-                    "window_trading_days": 252,
-                    "minimum_observations": 60,
-                    "description": "衡量目前數值相對自身近一年歷史的異常程度；0約等於近期平均，+2代表明顯偏高，-2代表明顯偏低。",
                 },
                 "rolling_correlation": {
                     "location": "backend",
