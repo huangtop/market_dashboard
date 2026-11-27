@@ -16,6 +16,7 @@ from market_dashboard.sources import Sources, fetch_twse_official_maintenance
 from market_dashboard.storage import Store
 from market_dashboard.utils import safe_float
 from market_dashboard.fx import fetch_usdtwd
+from market_dashboard.relationships import build_relationships
 
 
 SCHEMA_VERSION = "4.8-global-latest"
@@ -912,6 +913,10 @@ def main() -> None:
                 current_changes=current_changes,
             ),
         },
+        "relationships": build_relationships(
+            store.frame(),
+            global_df,
+        ),
         "education": interpretation_guide(),
         "series": records,
     }
