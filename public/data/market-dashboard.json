@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema_version": "4.8-global-latest",
-    "generated_at": "2026-11-27T16:27:17+08:00",
+    "generated_at": "2026-11-27T13:05:53+00:00",
     "timezone": "Asia/Taipei",
     "market_views": [
       "taiwan",
@@ -57,11 +57,11 @@
     "maintenance_ratio_note": "V4 上市櫃市場融資擔保比估算＝可配對之上市櫃融資證券市值 ÷ 上市櫃融資金額 × 100%；非證交所官方整戶擔保維持率。",
     "disclaimer": "資料僅供研究與資訊用途，不構成投資建議。"
   },
-  "latest_date": "2026-11-26",
+  "latest_date": "2026-11-27",
   "latest_source_dates": {
-    "usdtwd": "2026-11-26",
-    "dxy": "2026-11-25",
-    "vix": "2026-11-25",
+    "usdtwd": "2026-11-27",
+    "dxy": "2026-11-26",
+    "vix": "2026-11-26",
     "sp500": "2026-11-25",
     "nasdaq": "2026-11-25",
     "dow": "2026-11-25",
@@ -69,9 +69,9 @@
     "us10y": "2026-11-25"
   },
   "global_latest": {
-    "date": "2026-11-26",
-    "usdtwd": 32.947,
-    "usdtwd_date": "2026-11-26",
+    "date": "2026-11-27",
+    "usdtwd": 32.935,
+    "usdtwd_date": "2026-11-27",
     "dxy": 103.777,
     "dxy_date": "2026-11-26",
     "vix": 26.8,
@@ -94,11 +94,11 @@
     "us10y_change_bp": -5.6
   },
   "current": {
-    "taiex": 39151.81,
-    "taiex_change_pct": 2.504,
-    "tsmc": 2145.0,
-    "tsmc_change_pct": -0.233,
-    "maintenance_est": 157.514,
+    "taiex": 39308.08,
+    "taiex_change_pct": 0.399,
+    "tsmc": 2180.0,
+    "tsmc_change_pct": 1.632,
+    "maintenance_est": 156.073,
     "maintenance_official": null,
     "maintenance_official_date": null,
     "maintenance_gap": null,
@@ -107,10 +107,10 @@
     "margin_call_amount": null,
     "liquidation_accounts": null,
     "liquidation_amount": null,
-    "margin_balance_billion": 564.173,
-    "foreign_net_100m": -491.811,
-    "foreign_20d_sum_100m": -12044.735,
-    "usdtwd": 32.947,
+    "margin_balance_billion": 560.176,
+    "foreign_net_100m": -296.281,
+    "foreign_20d_sum_100m": -11216.344,
+    "usdtwd": 32.935,
     "dxy": 103.777,
     "vix": 26.8,
     "vix_change_pct": -5.267,
@@ -124,10 +124,10 @@
     "sox_change_pct": -0.653,
     "outflow_pressure_score": null,
     "market_temperature": null,
-    "maintenance_percentile": 13.698,
+    "maintenance_percentile": 11.743,
     "us10y": 4.848,
     "us10y_change_bp": -5.6,
-    "usdtwd_date": "2026-11-26",
+    "usdtwd_date": "2026-11-27",
     "dxy_date": "2026-11-26",
     "vix_date": "2026-11-26",
     "sp500_date": "2026-11-25",
@@ -135,13 +135,13 @@
     "dow_date": "2026-11-25",
     "sox_date": "2026-11-25",
     "us10y_date": "2026-11-25",
-    "usdtwd_20d_change_pct": 1.4,
+    "usdtwd_20d_change_pct": 1.407,
     "dxy_20d_change_pct": 1.702,
     "sp500_20d_change_pct": -7.247,
     "nasdaq_20d_change_pct": -11.164,
     "dow_20d_change_pct": -4.368,
     "sox_20d_change_pct": -24.898,
-    "date": "2026-11-26"
+    "date": "2026-11-27"
   },
   "markets": {
     "taiwan": {
@@ -155,12 +155,12 @@
         "market_temperature"
       ],
       "latest": {
-        "taiex": 39151.81,
-        "taiex_change_pct": 2.504,
-        "tsmc": 2145.0,
-        "tsmc_change_pct": -0.233,
-        "maintenance_est": 157.514,
-        "maintenance_percentile": 13.698,
+        "taiex": 39308.08,
+        "taiex_change_pct": 0.399,
+        "tsmc": 2180.0,
+        "tsmc_change_pct": 1.632,
+        "maintenance_est": 156.073,
+        "maintenance_percentile": 11.743,
         "market_temperature": null
       },
       "series": [
@@ -12313,6 +12313,16 @@
           "maintenance_est": 157.514,
           "maintenance_percentile": 13.698,
           "market_temperature": null
+        },
+        {
+          "date": "2026-11-27",
+          "taiex": 39308.08,
+          "taiex_change_pct": 0.399,
+          "tsmc": 2180.0,
+          "tsmc_change_pct": 1.632,
+          "maintenance_est": 156.073,
+          "maintenance_percentile": 11.743,
+          "market_temperature": null
         }
       ]
     },
@@ -12367,8 +12377,8 @@
         "dow_change_pct": 0.328,
         "sox": 8774.86,
         "sox_change_pct": -0.653,
-        "vix": 28.29,
-        "vix_change_pct": 7.322,
+        "vix": 26.8,
+        "vix_change_pct": -5.267,
         "us10y": 4.848,
         "us10y_change_bp": -5.6,
         "corr_20d_taiex_sp500": null,
@@ -63429,6 +63439,48 @@
           "corr_120d_taiex_vix": null,
           "corr_120d_taiex_us10y": null,
           "corr_120d_taiex_foreign": null
+        },
+        {
+          "date": "2026-11-27",
+          "sp500": 7182.78,
+          "sp500_change_pct": -0.254,
+          "nasdaq": 23585.801,
+          "nasdaq_change_pct": -0.622,
+          "dow": 50182.949,
+          "dow_change_pct": 0.328,
+          "sox": 8774.86,
+          "sox_change_pct": -0.653,
+          "vix": 26.8,
+          "vix_change_pct": -5.267,
+          "us10y": 4.848,
+          "us10y_change_bp": -5.6,
+          "corr_20d_taiex_sp500": null,
+          "corr_20d_taiex_nasdaq": null,
+          "corr_20d_taiex_dow": null,
+          "corr_20d_taiex_sox": null,
+          "corr_20d_taiex_usdtwd": null,
+          "corr_20d_taiex_dxy": null,
+          "corr_20d_taiex_vix": null,
+          "corr_20d_taiex_us10y": null,
+          "corr_20d_taiex_foreign": null,
+          "corr_60d_taiex_sp500": null,
+          "corr_60d_taiex_nasdaq": null,
+          "corr_60d_taiex_dow": null,
+          "corr_60d_taiex_sox": null,
+          "corr_60d_taiex_usdtwd": null,
+          "corr_60d_taiex_dxy": null,
+          "corr_60d_taiex_vix": null,
+          "corr_60d_taiex_us10y": null,
+          "corr_60d_taiex_foreign": null,
+          "corr_120d_taiex_sp500": null,
+          "corr_120d_taiex_nasdaq": null,
+          "corr_120d_taiex_dow": null,
+          "corr_120d_taiex_sox": null,
+          "corr_120d_taiex_usdtwd": null,
+          "corr_120d_taiex_dxy": null,
+          "corr_120d_taiex_vix": null,
+          "corr_120d_taiex_us10y": null,
+          "corr_120d_taiex_foreign": null
         }
       ]
     },
@@ -63441,8 +63493,8 @@
         "outflow_pressure_score"
       ],
       "latest": {
-        "usdtwd": 32.947,
-        "dxy": 103.67,
+        "usdtwd": 32.935,
+        "dxy": 103.777,
         "us10y": 4.848,
         "us10y_change_bp": -5.6,
         "outflow_pressure_score": null
@@ -73167,6 +73219,14 @@
           "us10y": 4.848,
           "us10y_change_bp": -5.6,
           "outflow_pressure_score": null
+        },
+        {
+          "date": "2026-11-27",
+          "usdtwd": 32.935,
+          "dxy": 103.777,
+          "us10y": 4.848,
+          "us10y_change_bp": -5.6,
+          "outflow_pressure_score": null
         }
       ]
     },
@@ -73194,16 +73254,16 @@
         "corr_60d_taiex_foreign"
       ],
       "latest": {
-        "taiex": 39151.81,
-        "tsmc": 2145.0,
+        "taiex": 39308.08,
+        "tsmc": 2180.0,
         "sp500": 7182.78,
         "nasdaq": 23585.801,
         "sox": 8774.86,
-        "vix": 28.29,
-        "usdtwd": 32.947,
-        "dxy": 103.67,
+        "vix": 26.8,
+        "usdtwd": 32.935,
+        "dxy": 103.777,
         "us10y": 4.848,
-        "foreign_20d_sum_100m": -12044.735,
+        "foreign_20d_sum_100m": -11216.344,
         "outflow_pressure_score": null,
         "corr_60d_taiex_sp500": null,
         "corr_60d_taiex_nasdaq": null,
@@ -101160,16 +101220,39 @@
           "corr_60d_taiex_vix": null,
           "corr_60d_taiex_us10y": null,
           "corr_60d_taiex_foreign": null
+        },
+        {
+          "date": "2026-11-27",
+          "taiex": 39308.08,
+          "tsmc": 2180.0,
+          "sp500": 7182.78,
+          "nasdaq": 23585.801,
+          "sox": 8774.86,
+          "vix": 26.8,
+          "usdtwd": 32.935,
+          "dxy": 103.777,
+          "us10y": 4.848,
+          "foreign_20d_sum_100m": -11216.344,
+          "outflow_pressure_score": null,
+          "corr_60d_taiex_sp500": null,
+          "corr_60d_taiex_nasdaq": null,
+          "corr_60d_taiex_dow": null,
+          "corr_60d_taiex_sox": null,
+          "corr_60d_taiex_usdtwd": null,
+          "corr_60d_taiex_dxy": null,
+          "corr_60d_taiex_vix": null,
+          "corr_60d_taiex_us10y": null,
+          "corr_60d_taiex_foreign": null
         }
       ]
     }
   },
   "latest": {
-    "taiex": 39151.81,
-    "taiex_change_pct": 2.504,
-    "tsmc": 2145.0,
-    "tsmc_change_pct": -0.233,
-    "maintenance_est": 157.514,
+    "taiex": 39308.08,
+    "taiex_change_pct": 0.399,
+    "tsmc": 2180.0,
+    "tsmc_change_pct": 1.632,
+    "maintenance_est": 156.073,
     "maintenance_official": null,
     "maintenance_official_date": null,
     "maintenance_gap": null,
@@ -101178,13 +101261,13 @@
     "margin_call_amount": null,
     "liquidation_accounts": null,
     "liquidation_amount": null,
-    "margin_balance_billion": 564.173,
-    "foreign_net_100m": -491.811,
-    "foreign_20d_sum_100m": -12044.735,
-    "usdtwd": 32.947,
-    "dxy": 103.67,
-    "vix": 28.29,
-    "vix_change_pct": 7.322,
+    "margin_balance_billion": 560.176,
+    "foreign_net_100m": -296.281,
+    "foreign_20d_sum_100m": -11216.344,
+    "usdtwd": 32.935,
+    "dxy": 103.777,
+    "vix": 26.8,
+    "vix_change_pct": -5.267,
     "sp500": 7182.78,
     "sp500_change_pct": -0.254,
     "nasdaq": 23585.801,
@@ -101195,12 +101278,12 @@
     "sox_change_pct": -0.653,
     "outflow_pressure_score": null,
     "market_temperature": null,
-    "maintenance_percentile": 13.698,
+    "maintenance_percentile": 11.743,
     "us10y": 4.848,
     "us10y_change_bp": -5.6,
-    "usdtwd_date": "2026-11-26",
-    "dxy_date": "2026-11-25",
-    "vix_date": "2026-11-25",
+    "usdtwd_date": "2026-11-27",
+    "dxy_date": "2026-11-26",
+    "vix_date": "2026-11-26",
     "sp500_date": "2026-11-25",
     "nasdaq_date": "2026-11-25",
     "dow_date": "2026-11-25",
@@ -101269,10 +101352,10 @@
       "horizons": [
         {
           "trading_days": 20,
-          "samples": 42,
-          "average_return_pct": 3.18,
-          "median_return_pct": 2.43,
-          "win_rate_pct": 76.2
+          "samples": 43,
+          "average_return_pct": 2.8,
+          "median_return_pct": 2.24,
+          "win_rate_pct": 74.4
         },
         {
           "trading_days": 60,
@@ -101323,65 +101406,65 @@
       "20d": {
         "sp500": {
           "label": "S&P 500",
-          "value": 0.468
+          "value": 0.471
         },
         "nasdaq": {
           "label": "Nasdaq",
-          "value": 0.495
+          "value": 0.491
         },
         "dow": {
           "label": "Dow",
-          "value": 0.346
+          "value": 0.347
         },
         "sox": {
           "label": "SOX",
-          "value": 0.58
+          "value": 0.582
         },
         "usdtwd": {
           "label": "USD/TWD",
-          "value": -0.123
+          "value": -0.139
         },
         "dxy": {
           "label": "DXY",
-          "value": 0.294
+          "value": 0.285
         },
         "vix": {
           "label": "VIX",
-          "value": -0.379
+          "value": -0.388
         },
         "us10y": {
           "label": "US 10Y Treasury",
-          "value": 0.198
+          "value": 0.184
         },
         "foreign": {
           "label": "Foreign flow",
-          "value": 0.215
+          "value": 0.202
         }
       },
       "60d": {
         "sp500": {
           "label": "S&P 500",
-          "value": 0.463
+          "value": 0.46
         },
         "nasdaq": {
           "label": "Nasdaq",
-          "value": 0.493
+          "value": 0.491
         },
         "dow": {
           "label": "Dow",
-          "value": 0.293
+          "value": 0.292
         },
         "sox": {
           "label": "SOX",
-          "value": 0.579
+          "value": 0.577
         },
         "usdtwd": {
           "label": "USD/TWD",
-          "value": -0.328
+          "value": -0.325
         },
         "dxy": {
           "label": "DXY",
-          "value": 0.084
+          "value": 0.086
         },
         "vix": {
           "label": "VIX",
@@ -101389,37 +101472,37 @@
         },
         "us10y": {
           "label": "US 10Y Treasury",
-          "value": 0.084
+          "value": 0.083
         },
         "foreign": {
           "label": "Foreign flow",
-          "value": 0.432
+          "value": 0.43
         }
       },
       "120d": {
         "sp500": {
           "label": "S&P 500",
-          "value": 0.471
+          "value": 0.472
         },
         "nasdaq": {
           "label": "Nasdaq",
-          "value": 0.528
+          "value": 0.53
         },
         "dow": {
           "label": "Dow",
-          "value": 0.27
+          "value": 0.267
         },
         "sox": {
           "label": "SOX",
-          "value": 0.574
+          "value": 0.57
         },
         "usdtwd": {
           "label": "USD/TWD",
-          "value": -0.352
+          "value": -0.351
         },
         "dxy": {
           "label": "DXY",
-          "value": -0.07
+          "value": -0.069
         },
         "vix": {
           "label": "VIX",
@@ -101427,11 +101510,11 @@
         },
         "us10y": {
           "label": "US 10Y Treasury",
-          "value": 0.046
+          "value": 0.05
         },
         "foreign": {
           "label": "Foreign flow",
-          "value": 0.558
+          "value": 0.555
         }
       }
     },
@@ -101449,25 +101532,13 @@
       {
         "id": "taiex_sox_divergence",
         "title": "台股與半導體指數走勢出現分化",
-        "message": "台股近20日 -15.6%，SOX -24.9%。台股科技權重高，兩者明顯分化時值得特別追蹤。",
+        "message": "台股近20日 -13.1%，SOX -24.9%。台股科技權重高，兩者明顯分化時值得特別追蹤。",
         "level": "watch",
         "category": "cross_market",
         "evidence": {
-          "taiex_20d_change_pct": -15.56,
+          "taiex_20d_change_pct": -13.06,
           "sox_20d_change_pct": -24.9,
-          "gap_pct_points": 9.33
-        }
-      },
-      {
-        "id": "taiex_sp500_divergence",
-        "title": "台美股近一個月走勢明顯分化",
-        "message": "台股近20日 -15.6%，S&P 500 -7.2%，目前由S&P 500明顯領先。這表示跨市場同步性正在下降。",
-        "level": "watch",
-        "category": "cross_market",
-        "evidence": {
-          "taiex_20d_change_pct": -15.56,
-          "sp500_20d_change_pct": -7.25,
-          "gap_pct_points": -8.32
+          "gap_pct_points": 11.84
         }
       },
       {
@@ -101477,7 +101548,7 @@
         "level": "info",
         "category": "relationship",
         "evidence": {
-          "correlation_60d": 0.579
+          "correlation_60d": 0.577
         }
       },
       {
@@ -101508,19 +101579,19 @@
         "y_label": "台積電",
         "latest": {
           "20": {
-            "correlation": 0.956081,
+            "correlation": 0.95422,
             "samples": 20
           },
           "60": {
-            "correlation": 0.938644,
+            "correlation": 0.936903,
             "samples": 60
           },
           "120": {
-            "correlation": 0.917356,
+            "correlation": 0.916008,
             "samples": 120
           },
           "252": {
-            "correlation": 0.908116,
+            "correlation": 0.907613,
             "samples": 252
           }
         },
@@ -106789,6 +106860,10 @@
             {
               "date": "2026-11-26",
               "correlation": 0.956081
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.95422
             }
           ],
           "60": [
@@ -111895,6 +111970,10 @@
             {
               "date": "2026-11-26",
               "correlation": 0.938644
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.936903
             }
           ],
           "120": [
@@ -116761,6 +116840,10 @@
             {
               "date": "2026-11-26",
               "correlation": 0.917356
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.916008
             }
           ],
           "252": [
@@ -121099,10 +121182,14 @@
             {
               "date": "2026-11-26",
               "correlation": 0.908116
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.907613
             }
           ]
         },
-        "latest_date": "2026-11-26"
+        "latest_date": "2026-11-27"
       },
       "taiex_maintenance_est": {
         "x": "taiex",
@@ -121111,19 +121198,19 @@
         "y_label": "V4 融資擔保比",
         "latest": {
           "20": {
-            "correlation": 0.94789,
+            "correlation": 0.946639,
             "samples": 20
           },
           "60": {
-            "correlation": 0.923471,
+            "correlation": 0.92214,
             "samples": 60
           },
           "120": {
-            "correlation": 0.90843,
+            "correlation": 0.909457,
             "samples": 120
           },
           "252": {
-            "correlation": 0.883676,
+            "correlation": 0.88332,
             "samples": 252
           }
         },
@@ -126392,6 +126479,10 @@
             {
               "date": "2026-11-26",
               "correlation": 0.94789
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.946639
             }
           ],
           "60": [
@@ -131498,6 +131589,10 @@
             {
               "date": "2026-11-26",
               "correlation": 0.923471
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.92214
             }
           ],
           "120": [
@@ -136364,6 +136459,10 @@
             {
               "date": "2026-11-26",
               "correlation": 0.90843
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.909457
             }
           ],
           "252": [
@@ -140702,10 +140801,14 @@
             {
               "date": "2026-11-26",
               "correlation": 0.883676
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.88332
             }
           ]
         },
-        "latest_date": "2026-11-26"
+        "latest_date": "2026-11-27"
       },
       "taiex_foreign_net_100m": {
         "x": "taiex",
@@ -140714,19 +140817,19 @@
         "y_label": "外資買賣超",
         "latest": {
           "20": {
-            "correlation": 0.214523,
+            "correlation": 0.201858,
             "samples": 20
           },
           "60": {
-            "correlation": 0.432242,
+            "correlation": 0.430003,
             "samples": 60
           },
           "120": {
-            "correlation": 0.558244,
+            "correlation": 0.554532,
             "samples": 120
           },
           "252": {
-            "correlation": 0.649482,
+            "correlation": 0.649214,
             "samples": 252
           }
         },
@@ -145991,6 +146094,10 @@
             {
               "date": "2026-11-26",
               "correlation": 0.214523
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.201858
             }
           ],
           "60": [
@@ -151093,6 +151200,10 @@
             {
               "date": "2026-11-26",
               "correlation": 0.432242
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.430003
             }
           ],
           "120": [
@@ -155955,6 +156066,10 @@
             {
               "date": "2026-11-26",
               "correlation": 0.558244
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.554532
             }
           ],
           "252": [
@@ -160289,10 +160404,14 @@
             {
               "date": "2026-11-26",
               "correlation": 0.649482
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.649214
             }
           ]
         },
-        "latest_date": "2026-11-26"
+        "latest_date": "2026-11-27"
       },
       "taiex_usdtwd": {
         "x": "taiex",
@@ -160301,19 +160420,19 @@
         "y_label": "美元兌台幣",
         "latest": {
           "20": {
-            "correlation": -0.123023,
+            "correlation": -0.139082,
             "samples": 20
           },
           "60": {
-            "correlation": -0.327979,
+            "correlation": -0.325352,
             "samples": 60
           },
           "120": {
-            "correlation": -0.351545,
+            "correlation": -0.351429,
             "samples": 120
           },
           "252": {
-            "correlation": -0.478802,
+            "correlation": -0.479021,
             "samples": 252
           }
         },
@@ -165582,6 +165701,10 @@
             {
               "date": "2026-11-26",
               "correlation": -0.123023
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.139082
             }
           ],
           "60": [
@@ -170688,6 +170811,10 @@
             {
               "date": "2026-11-26",
               "correlation": -0.327979
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.325352
             }
           ],
           "120": [
@@ -175554,6 +175681,10 @@
             {
               "date": "2026-11-26",
               "correlation": -0.351545
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.351429
             }
           ],
           "252": [
@@ -179892,10 +180023,14 @@
             {
               "date": "2026-11-26",
               "correlation": -0.478802
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.479021
             }
           ]
         },
-        "latest_date": "2026-11-26"
+        "latest_date": "2026-11-27"
       },
       "taiex_dxy": {
         "x": "taiex",
@@ -179904,19 +180039,19 @@
         "y_label": "美元指數",
         "latest": {
           "20": {
-            "correlation": 0.294291,
+            "correlation": 0.284539,
             "samples": 20
           },
           "60": {
-            "correlation": 0.084218,
+            "correlation": 0.082781,
             "samples": 60
           },
           "120": {
-            "correlation": -0.071203,
+            "correlation": -0.068532,
             "samples": 120
           },
           "252": {
-            "correlation": -0.144286,
+            "correlation": -0.141429,
             "samples": 252
           }
         },
@@ -184941,6 +185076,10 @@
             {
               "date": "2026-11-26",
               "correlation": 0.294291
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.284539
             }
           ],
           "60": [
@@ -189803,6 +189942,10 @@
             {
               "date": "2026-11-26",
               "correlation": 0.084218
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.082781
             }
           ],
           "120": [
@@ -194425,6 +194568,10 @@
             {
               "date": "2026-11-26",
               "correlation": -0.071203
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.068532
             }
           ],
           "252": [
@@ -198519,10 +198666,14 @@
             {
               "date": "2026-11-26",
               "correlation": -0.144286
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.141429
             }
           ]
         },
-        "latest_date": "2026-11-26"
+        "latest_date": "2026-11-27"
       },
       "taiex_sp500": {
         "x": "taiex",
@@ -271375,19 +271526,19 @@
         "y_label": "VIX",
         "latest": {
           "20": {
-            "correlation": -0.447506,
+            "correlation": -0.45434,
             "samples": 20
           },
           "60": {
-            "correlation": -0.448301,
+            "correlation": -0.448081,
             "samples": 60
           },
           "120": {
-            "correlation": -0.470041,
+            "correlation": -0.471062,
             "samples": 120
           },
           "252": {
-            "correlation": -0.471725,
+            "correlation": -0.47072,
             "samples": 252
           }
         },
@@ -276412,6 +276563,10 @@
             {
               "date": "2026-11-26",
               "correlation": -0.447506
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.45434
             }
           ],
           "60": [
@@ -281274,6 +281429,10 @@
             {
               "date": "2026-11-26",
               "correlation": -0.448301
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.448081
             }
           ],
           "120": [
@@ -285896,6 +286055,10 @@
             {
               "date": "2026-11-26",
               "correlation": -0.470041
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.471062
             }
           ],
           "252": [
@@ -289990,10 +290153,14 @@
             {
               "date": "2026-11-26",
               "correlation": -0.471725
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.47072
             }
           ]
         },
-        "latest_date": "2026-11-26"
+        "latest_date": "2026-11-27"
       },
       "taiex_us10y": {
         "x": "taiex",
@@ -543641,16 +543808,16 @@
           {
             "pair": "taiex_tsmc",
             "label": "加權指數 / 台積電",
-            "correlation": 0.956081,
+            "correlation": 0.95422,
             "samples": 20,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_maintenance_est",
             "label": "加權指數 / V4 融資擔保比",
-            "correlation": 0.94789,
+            "correlation": 0.946639,
             "samples": 20,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_sox",
@@ -543711,9 +543878,9 @@
           {
             "pair": "taiex_dxy",
             "label": "加權指數 / 美元指數",
-            "correlation": 0.294291,
+            "correlation": 0.284539,
             "samples": 20,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "nasdaq_dxy",
@@ -543725,9 +543892,9 @@
           {
             "pair": "taiex_foreign_net_100m",
             "label": "加權指數 / 外資買賣超",
-            "correlation": 0.214523,
+            "correlation": 0.201858,
             "samples": 20,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "dow_us10y",
@@ -543783,9 +543950,9 @@
           {
             "pair": "taiex_vix",
             "label": "加權指數 / VIX",
-            "correlation": -0.447506,
+            "correlation": -0.45434,
             "samples": 20,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "dow_dxy",
@@ -543797,9 +543964,9 @@
           {
             "pair": "taiex_usdtwd",
             "label": "加權指數 / 美元兌台幣",
-            "correlation": -0.123023,
+            "correlation": -0.139082,
             "samples": 20,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           }
         ]
       },
@@ -543808,16 +543975,16 @@
           {
             "pair": "taiex_tsmc",
             "label": "加權指數 / 台積電",
-            "correlation": 0.938644,
+            "correlation": 0.936903,
             "samples": 60,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_maintenance_est",
             "label": "加權指數 / V4 融資擔保比",
-            "correlation": 0.923471,
+            "correlation": 0.92214,
             "samples": 60,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_sox",
@@ -543843,9 +544010,9 @@
           {
             "pair": "taiex_foreign_net_100m",
             "label": "加權指數 / 外資買賣超",
-            "correlation": 0.432242,
+            "correlation": 0.430003,
             "samples": 60,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "sox_us10y",
@@ -543899,9 +544066,9 @@
           {
             "pair": "taiex_dxy",
             "label": "加權指數 / 美元指數",
-            "correlation": 0.084218,
+            "correlation": 0.082781,
             "samples": 60,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "sp500_dxy",
@@ -543943,16 +544110,16 @@
           {
             "pair": "taiex_vix",
             "label": "加權指數 / VIX",
-            "correlation": -0.448301,
+            "correlation": -0.448081,
             "samples": 60,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_usdtwd",
             "label": "加權指數 / 美元兌台幣",
-            "correlation": -0.327979,
+            "correlation": -0.325352,
             "samples": 60,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "dow_dxy",
@@ -543975,16 +544142,16 @@
           {
             "pair": "taiex_tsmc",
             "label": "加權指數 / 台積電",
-            "correlation": 0.917356,
+            "correlation": 0.916008,
             "samples": 120,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_maintenance_est",
             "label": "加權指數 / V4 融資擔保比",
-            "correlation": 0.90843,
+            "correlation": 0.909457,
             "samples": 120,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_sox",
@@ -543996,9 +544163,9 @@
           {
             "pair": "taiex_foreign_net_100m",
             "label": "加權指數 / 外資買賣超",
-            "correlation": 0.558244,
+            "correlation": 0.554532,
             "samples": 120,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_nasdaq",
@@ -544089,16 +544256,16 @@
           {
             "pair": "taiex_vix",
             "label": "加權指數 / VIX",
-            "correlation": -0.470041,
+            "correlation": -0.471062,
             "samples": 120,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_usdtwd",
             "label": "加權指數 / 美元兌台幣",
-            "correlation": -0.351545,
+            "correlation": -0.351429,
             "samples": 120,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "dow_dxy",
@@ -544124,9 +544291,9 @@
           {
             "pair": "taiex_dxy",
             "label": "加權指數 / 美元指數",
-            "correlation": -0.071203,
+            "correlation": -0.068532,
             "samples": 120,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "nasdaq_dxy",
@@ -544142,23 +544309,23 @@
           {
             "pair": "taiex_tsmc",
             "label": "加權指數 / 台積電",
-            "correlation": 0.908116,
+            "correlation": 0.907613,
             "samples": 252,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_maintenance_est",
             "label": "加權指數 / V4 融資擔保比",
-            "correlation": 0.883676,
+            "correlation": 0.88332,
             "samples": 252,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_foreign_net_100m",
             "label": "加權指數 / 外資買賣超",
-            "correlation": 0.649482,
+            "correlation": 0.649214,
             "samples": 252,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_sox",
@@ -544228,16 +544395,16 @@
           {
             "pair": "taiex_usdtwd",
             "label": "加權指數 / 美元兌台幣",
-            "correlation": -0.478802,
+            "correlation": -0.479021,
             "samples": 252,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_vix",
             "label": "加權指數 / VIX",
-            "correlation": -0.471725,
+            "correlation": -0.47072,
             "samples": 252,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "dow_dxy",
@@ -544277,9 +544444,9 @@
           {
             "pair": "taiex_dxy",
             "label": "加權指數 / 美元指數",
-            "correlation": -0.144286,
+            "correlation": -0.141429,
             "samples": 252,
-            "date": "2026-11-26"
+            "date": "2026-11-27"
           },
           {
             "pair": "sox_dxy",
@@ -544309,114 +544476,114 @@
       "usdtwd": [
         {
           "lag": -5,
-          "correlation": 0.073794,
+          "correlation": 0.076103,
           "samples": 252
         },
         {
           "lag": -4,
-          "correlation": 0.002071,
+          "correlation": 0.000833,
           "samples": 252
         },
         {
           "lag": -3,
-          "correlation": -0.074713,
+          "correlation": -0.076054,
           "samples": 252
         },
         {
           "lag": -2,
-          "correlation": -0.157037,
+          "correlation": -0.152845,
           "samples": 252
         },
         {
           "lag": -1,
-          "correlation": 0.032261,
+          "correlation": 0.031111,
           "samples": 252
         },
         {
           "lag": 0,
-          "correlation": -0.478802,
+          "correlation": -0.479021,
           "samples": 252
         },
         {
           "lag": 1,
-          "correlation": -0.098342,
+          "correlation": -0.0988,
           "samples": 252
         },
         {
           "lag": 2,
-          "correlation": -0.007206,
+          "correlation": -0.005474,
           "samples": 252
         },
         {
           "lag": 3,
-          "correlation": 0.002481,
+          "correlation": 0.00167,
           "samples": 252
         },
         {
           "lag": 4,
-          "correlation": 0.069414,
+          "correlation": 0.069187,
           "samples": 252
         },
         {
           "lag": 5,
-          "correlation": -0.033494,
+          "correlation": -0.034089,
           "samples": 252
         }
       ],
       "dxy": [
         {
           "lag": -5,
-          "correlation": -0.005004,
+          "correlation": -0.010929,
           "samples": 252
         },
         {
           "lag": -4,
-          "correlation": 0.016591,
+          "correlation": 0.01805,
           "samples": 252
         },
         {
           "lag": -3,
-          "correlation": 0.082074,
+          "correlation": 0.084461,
           "samples": 252
         },
         {
           "lag": -2,
-          "correlation": 0.010228,
+          "correlation": 0.006978,
           "samples": 252
         },
         {
           "lag": -1,
-          "correlation": -0.038693,
+          "correlation": -0.035589,
           "samples": 252
         },
         {
           "lag": 0,
-          "correlation": -0.144286,
+          "correlation": -0.141429,
           "samples": 252
         },
         {
           "lag": 1,
-          "correlation": -0.048712,
+          "correlation": -0.048423,
           "samples": 252
         },
         {
           "lag": 2,
-          "correlation": -0.017525,
+          "correlation": -0.015831,
           "samples": 252
         },
         {
           "lag": 3,
-          "correlation": -0.122968,
+          "correlation": -0.119296,
           "samples": 252
         },
         {
           "lag": 4,
-          "correlation": -0.069555,
+          "correlation": -0.065232,
           "samples": 252
         },
         {
           "lag": 5,
-          "correlation": 0.111006,
+          "correlation": 0.110152,
           "samples": 252
         }
       ],
@@ -544453,27 +544620,27 @@
         },
         {
           "lag": 1,
-          "correlation": -0.129064,
+          "correlation": -0.128873,
           "samples": 252
         },
         {
           "lag": 2,
-          "correlation": 0.018115,
+          "correlation": 0.018595,
           "samples": 252
         },
         {
           "lag": 3,
-          "correlation": 0.047094,
+          "correlation": 0.044083,
           "samples": 252
         },
         {
           "lag": 4,
-          "correlation": -0.029696,
+          "correlation": -0.030775,
           "samples": 252
         },
         {
           "lag": 5,
-          "correlation": -0.16283,
+          "correlation": -0.161683,
           "samples": 252
         }
       ],
@@ -544510,27 +544677,27 @@
         },
         {
           "lag": 1,
-          "correlation": -0.119433,
+          "correlation": -0.118756,
           "samples": 252
         },
         {
           "lag": 2,
-          "correlation": 0.02485,
+          "correlation": 0.025601,
           "samples": 252
         },
         {
           "lag": 3,
-          "correlation": 0.085508,
+          "correlation": 0.080574,
           "samples": 252
         },
         {
           "lag": 4,
-          "correlation": -0.027905,
+          "correlation": -0.027707,
           "samples": 252
         },
         {
           "lag": 5,
-          "correlation": -0.190502,
+          "correlation": -0.188563,
           "samples": 252
         }
       ],
@@ -544567,27 +544734,27 @@
         },
         {
           "lag": 1,
-          "correlation": -0.08326,
+          "correlation": -0.084981,
           "samples": 252
         },
         {
           "lag": 2,
-          "correlation": 0.04406,
+          "correlation": 0.044695,
           "samples": 252
         },
         {
           "lag": 3,
-          "correlation": -0.012593,
+          "correlation": -0.011545,
           "samples": 252
         },
         {
           "lag": 4,
-          "correlation": 0.012841,
+          "correlation": 0.011071,
           "samples": 252
         },
         {
           "lag": 5,
-          "correlation": -0.043003,
+          "correlation": -0.042582,
           "samples": 252
         }
       ],
@@ -544624,84 +544791,84 @@
         },
         {
           "lag": 1,
-          "correlation": -0.104428,
+          "correlation": -0.104246,
           "samples": 252
         },
         {
           "lag": 2,
-          "correlation": -0.024895,
+          "correlation": -0.025806,
           "samples": 252
         },
         {
           "lag": 3,
-          "correlation": 0.03823,
+          "correlation": 0.037371,
           "samples": 252
         },
         {
           "lag": 4,
-          "correlation": -0.065759,
+          "correlation": -0.064279,
           "samples": 252
         },
         {
           "lag": 5,
-          "correlation": -0.188723,
+          "correlation": -0.188882,
           "samples": 252
         }
       ],
       "vix": [
         {
           "lag": -5,
-          "correlation": -0.044787,
+          "correlation": -0.032696,
           "samples": 252
         },
         {
           "lag": -4,
-          "correlation": -0.065982,
+          "correlation": -0.069623,
           "samples": 252
         },
         {
           "lag": -3,
-          "correlation": 0.111908,
+          "correlation": 0.094857,
           "samples": 252
         },
         {
           "lag": -2,
-          "correlation": 0.068892,
+          "correlation": 0.078271,
           "samples": 252
         },
         {
           "lag": -1,
-          "correlation": -0.235104,
+          "correlation": -0.238935,
           "samples": 252
         },
         {
           "lag": 0,
-          "correlation": -0.471725,
+          "correlation": -0.47072,
           "samples": 252
         },
         {
           "lag": 1,
-          "correlation": 0.170282,
+          "correlation": 0.169443,
           "samples": 252
         },
         {
           "lag": 2,
-          "correlation": 0.001239,
+          "correlation": 0.003097,
           "samples": 252
         },
         {
           "lag": 3,
-          "correlation": -0.079743,
+          "correlation": -0.07854,
           "samples": 252
         },
         {
           "lag": 4,
-          "correlation": 0.023586,
+          "correlation": 0.025284,
           "samples": 252
         },
         {
           "lag": 5,
-          "correlation": 0.199417,
+          "correlation": 0.198563,
           "samples": 252
         }
       ],
@@ -544738,27 +544905,27 @@
         },
         {
           "lag": 1,
-          "correlation": -0.174917,
+          "correlation": -0.175023,
           "samples": 252
         },
         {
           "lag": 2,
-          "correlation": -0.000864,
+          "correlation": -0.000816,
           "samples": 252
         },
         {
           "lag": 3,
-          "correlation": -0.078821,
+          "correlation": -0.076787,
           "samples": 252
         },
         {
           "lag": 4,
-          "correlation": -0.122357,
+          "correlation": -0.11697,
           "samples": 252
         },
         {
           "lag": 5,
-          "correlation": 0.020307,
+          "correlation": 0.018691,
           "samples": 252
         }
       ]
@@ -544905,10 +545072,10 @@
         },
         "25": {
           "5": {
-            "samples": 37,
-            "mean": 1.358576,
-            "median": 1.243605,
-            "win_rate": 64.864865,
+            "samples": 38,
+            "mean": 1.561988,
+            "median": 1.307933,
+            "win_rate": 65.789474,
             "worst_return": -4.974812,
             "best_return": 10.008352
           },
@@ -552937,16 +553104,15 @@
         "stock_change": -15.563468,
         "twd_strength": -1.400345,
         "quadrant": "股匯雙弱"
+      },
+      {
+        "date": "2026-11-27",
+        "stock_change": -13.057976,
+        "twd_strength": -1.407106,
+        "quadrant": "股匯雙弱"
       }
     ],
     "divergence": [
-      {
-        "pair": "taiex_dxy",
-        "correlation_20": 0.294291,
-        "correlation_120": -0.071203,
-        "difference": 0.365494,
-        "sign_reversal": true
-      },
       {
         "pair": "dow_us10y",
         "correlation_20": 0.193145,
@@ -552955,10 +553121,17 @@
         "sign_reversal": true
       },
       {
+        "pair": "taiex_dxy",
+        "correlation_20": 0.284539,
+        "correlation_120": -0.068532,
+        "difference": 0.353071,
+        "sign_reversal": true
+      },
+      {
         "pair": "taiex_foreign_net_100m",
-        "correlation_20": 0.214523,
-        "correlation_120": 0.558244,
-        "difference": -0.343721,
+        "correlation_20": 0.201858,
+        "correlation_120": 0.554532,
+        "difference": -0.352674,
         "sign_reversal": false
       },
       {
@@ -553005,9 +553178,9 @@
       },
       {
         "pair": "taiex_usdtwd",
-        "correlation_20": -0.123023,
-        "correlation_120": -0.351545,
-        "difference": 0.228522,
+        "correlation_20": -0.139082,
+        "correlation_120": -0.351429,
+        "difference": 0.212347,
         "sign_reversal": false
       },
       {
@@ -553067,24 +553240,24 @@
         "sign_reversal": false
       },
       {
-        "pair": "taiex_maintenance_est",
-        "correlation_20": 0.94789,
-        "correlation_120": 0.90843,
-        "difference": 0.03946,
+        "pair": "taiex_tsmc",
+        "correlation_20": 0.95422,
+        "correlation_120": 0.916008,
+        "difference": 0.038212,
         "sign_reversal": false
       },
       {
-        "pair": "taiex_tsmc",
-        "correlation_20": 0.956081,
-        "correlation_120": 0.917356,
-        "difference": 0.038725,
+        "pair": "taiex_maintenance_est",
+        "correlation_20": 0.946639,
+        "correlation_120": 0.909457,
+        "difference": 0.037182,
         "sign_reversal": false
       },
       {
         "pair": "taiex_vix",
-        "correlation_20": -0.447506,
-        "correlation_120": -0.470041,
-        "difference": 0.022535,
+        "correlation_20": -0.45434,
+        "correlation_120": -0.471062,
+        "difference": 0.016722,
         "sign_reversal": false
       },
       {
@@ -558527,6 +558700,10 @@
         {
           "date": "2026-11-26",
           "value": 32.947
+        },
+        {
+          "date": "2026-11-27",
+          "value": 32.935
         }
       ],
       "dxy": [
@@ -649697,6 +649874,50 @@
       "usdtwd_date": "2026-11-26",
       "dxy_date": "2026-11-25",
       "vix_date": "2026-11-25",
+      "sp500_date": "2026-11-25",
+      "nasdaq_date": "2026-11-25",
+      "dow_date": "2026-11-25",
+      "sox_date": "2026-11-25",
+      "us10y_date": "2026-11-25"
+    },
+    {
+      "date": "2026-11-27",
+      "taiex": 39308.08,
+      "taiex_change_pct": 0.399,
+      "tsmc": 2180.0,
+      "tsmc_change_pct": 1.632,
+      "maintenance_est": 156.073,
+      "maintenance_official": null,
+      "maintenance_official_date": null,
+      "maintenance_gap": null,
+      "margin_below_accounts": null,
+      "margin_call_accounts": null,
+      "margin_call_amount": null,
+      "liquidation_accounts": null,
+      "liquidation_amount": null,
+      "margin_balance_billion": 560.176,
+      "foreign_net_100m": -296.281,
+      "foreign_20d_sum_100m": -11216.344,
+      "usdtwd": 32.935,
+      "dxy": 103.777,
+      "vix": 26.8,
+      "vix_change_pct": -5.267,
+      "sp500": 7182.78,
+      "sp500_change_pct": -0.254,
+      "nasdaq": 23585.801,
+      "nasdaq_change_pct": -0.622,
+      "dow": 50182.949,
+      "dow_change_pct": 0.328,
+      "sox": 8774.86,
+      "sox_change_pct": -0.653,
+      "outflow_pressure_score": null,
+      "market_temperature": null,
+      "maintenance_percentile": 11.743,
+      "us10y": 4.848,
+      "us10y_change_bp": -5.6,
+      "usdtwd_date": "2026-11-27",
+      "dxy_date": "2026-11-26",
+      "vix_date": "2026-11-26",
       "sp500_date": "2026-11-25",
       "nasdaq_date": "2026-11-25",
       "dow_date": "2026-11-25",
