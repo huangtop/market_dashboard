@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema_version": "4.8-global-latest",
-    "generated_at": "2026-11-27T13:05:53+00:00",
+    "generated_at": "2026-11-28T00:10:51+00:00",
     "timezone": "Asia/Taipei",
     "market_views": [
       "taiwan",
@@ -72,26 +72,26 @@
     "date": "2026-11-27",
     "usdtwd": 32.935,
     "usdtwd_date": "2026-11-27",
-    "dxy": 103.777,
-    "dxy_date": "2026-11-26",
-    "vix": 26.8,
-    "vix_date": "2026-11-26",
-    "vix_change_pct": -5.267,
-    "sp500": 7182.78,
-    "sp500_date": "2026-11-25",
-    "sp500_change_pct": -0.254,
-    "nasdaq": 23585.801,
-    "nasdaq_date": "2026-11-25",
-    "nasdaq_change_pct": -0.622,
-    "dow": 50182.949,
-    "dow_date": "2026-11-25",
-    "dow_change_pct": 0.328,
-    "sox": 8774.86,
-    "sox_date": "2026-11-25",
-    "sox_change_pct": -0.653,
-    "us10y": 4.848,
-    "us10y_date": "2026-11-25",
-    "us10y_change_bp": -5.6
+    "dxy": 104.014,
+    "dxy_date": "2026-11-27",
+    "vix": 23.81,
+    "vix_date": "2026-11-27",
+    "vix_change_pct": -11.157,
+    "sp500": 7297.49,
+    "sp500_date": "2026-11-27",
+    "sp500_change_pct": 1.597,
+    "nasdaq": 24129.5,
+    "nasdaq_date": "2026-11-27",
+    "nasdaq_change_pct": 2.305,
+    "dow": 50774.941,
+    "dow_date": "2026-11-27",
+    "dow_change_pct": 1.18,
+    "sox": 9186.706,
+    "sox_date": "2026-11-27",
+    "sox_change_pct": 4.693,
+    "us10y": 4.936,
+    "us10y_date": "2026-11-27",
+    "us10y_change_bp": 8.8
   },
   "current": {
     "taiex": 39308.08,
@@ -111,36 +111,36 @@
     "foreign_net_100m": -296.281,
     "foreign_20d_sum_100m": -11216.344,
     "usdtwd": 32.935,
-    "dxy": 103.777,
-    "vix": 26.8,
-    "vix_change_pct": -5.267,
-    "sp500": 7182.78,
-    "sp500_change_pct": -0.254,
-    "nasdaq": 23585.801,
-    "nasdaq_change_pct": -0.622,
-    "dow": 50182.949,
-    "dow_change_pct": 0.328,
-    "sox": 8774.86,
-    "sox_change_pct": -0.653,
+    "dxy": 104.014,
+    "vix": 23.81,
+    "vix_change_pct": -11.157,
+    "sp500": 7297.49,
+    "sp500_change_pct": 1.597,
+    "nasdaq": 24129.5,
+    "nasdaq_change_pct": 2.305,
+    "dow": 50774.941,
+    "dow_change_pct": 1.18,
+    "sox": 9186.706,
+    "sox_change_pct": 4.693,
     "outflow_pressure_score": null,
     "market_temperature": null,
     "maintenance_percentile": 11.743,
-    "us10y": 4.848,
-    "us10y_change_bp": -5.6,
+    "us10y": 4.936,
+    "us10y_change_bp": 8.8,
     "usdtwd_date": "2026-11-27",
-    "dxy_date": "2026-11-26",
-    "vix_date": "2026-11-26",
-    "sp500_date": "2026-11-25",
-    "nasdaq_date": "2026-11-25",
-    "dow_date": "2026-11-25",
-    "sox_date": "2026-11-25",
-    "us10y_date": "2026-11-25",
+    "dxy_date": "2026-11-27",
+    "vix_date": "2026-11-27",
+    "sp500_date": "2026-11-27",
+    "nasdaq_date": "2026-11-27",
+    "dow_date": "2026-11-27",
+    "sox_date": "2026-11-27",
+    "us10y_date": "2026-11-27",
     "usdtwd_20d_change_pct": 1.407,
-    "dxy_20d_change_pct": 1.702,
-    "sp500_20d_change_pct": -7.247,
-    "nasdaq_20d_change_pct": -11.164,
-    "dow_20d_change_pct": -4.368,
-    "sox_20d_change_pct": -24.898,
+    "dxy_20d_change_pct": 2.095,
+    "sp500_20d_change_pct": -5.478,
+    "nasdaq_20d_change_pct": -7.849,
+    "dow_20d_change_pct": -2.995,
+    "sox_20d_change_pct": -20.242,
     "date": "2026-11-27"
   },
   "markets": {
@@ -164,16 +164,6 @@
         "market_temperature": null
       },
       "series": [
-        {
-          "date": "2021-11-23",
-          "taiex": 17666.12,
-          "taiex_change_pct": null,
-          "tsmc": 612.0,
-          "tsmc_change_pct": null,
-          "maintenance_est": 171.899,
-          "maintenance_percentile": 58.197,
-          "market_temperature": null
-        },
         {
           "date": "2021-11-24",
           "taiex": 17642.52,
@@ -12410,48 +12400,6 @@
         "corr_120d_taiex_foreign": null
       },
       "series": [
-        {
-          "date": "2021-11-23",
-          "sp500": 4682.94,
-          "sp500_change_pct": -0.32,
-          "nasdaq": 15854.76,
-          "nasdaq_change_pct": -1.262,
-          "dow": 35619.25,
-          "dow_change_pct": 0.049,
-          "sox": 3847.12,
-          "sox_change_pct": -1.659,
-          "vix": 19.17,
-          "vix_change_pct": 7.035,
-          "us10y": 1.625,
-          "us10y_change_bp": 8.9,
-          "corr_20d_taiex_sp500": null,
-          "corr_20d_taiex_nasdaq": null,
-          "corr_20d_taiex_dow": null,
-          "corr_20d_taiex_sox": null,
-          "corr_20d_taiex_usdtwd": null,
-          "corr_20d_taiex_dxy": null,
-          "corr_20d_taiex_vix": null,
-          "corr_20d_taiex_us10y": null,
-          "corr_20d_taiex_foreign": null,
-          "corr_60d_taiex_sp500": null,
-          "corr_60d_taiex_nasdaq": null,
-          "corr_60d_taiex_dow": null,
-          "corr_60d_taiex_sox": null,
-          "corr_60d_taiex_usdtwd": null,
-          "corr_60d_taiex_dxy": null,
-          "corr_60d_taiex_vix": null,
-          "corr_60d_taiex_us10y": null,
-          "corr_60d_taiex_foreign": null,
-          "corr_120d_taiex_sp500": null,
-          "corr_120d_taiex_nasdaq": null,
-          "corr_120d_taiex_dow": null,
-          "corr_120d_taiex_sox": null,
-          "corr_120d_taiex_usdtwd": null,
-          "corr_120d_taiex_dxy": null,
-          "corr_120d_taiex_vix": null,
-          "corr_120d_taiex_us10y": null,
-          "corr_120d_taiex_foreign": null
-        },
         {
           "date": "2021-11-24",
           "sp500": 4690.7,
@@ -63501,14 +63449,6 @@
       },
       "series": [
         {
-          "date": "2021-11-23",
-          "usdtwd": 27.809,
-          "dxy": 96.5,
-          "us10y": 1.625,
-          "us10y_change_bp": 8.9,
-          "outflow_pressure_score": null
-        },
-        {
           "date": "2021-11-24",
           "usdtwd": 27.793,
           "dxy": 96.49,
@@ -73276,29 +73216,6 @@
         "corr_60d_taiex_foreign": null
       },
       "series": [
-        {
-          "date": "2021-11-23",
-          "taiex": 17666.12,
-          "tsmc": 612.0,
-          "sp500": 4682.94,
-          "nasdaq": 15854.76,
-          "sox": 3847.12,
-          "vix": 19.17,
-          "usdtwd": 27.809,
-          "dxy": 96.5,
-          "us10y": 1.625,
-          "foreign_20d_sum_100m": 548.871,
-          "outflow_pressure_score": null,
-          "corr_60d_taiex_sp500": null,
-          "corr_60d_taiex_nasdaq": null,
-          "corr_60d_taiex_dow": null,
-          "corr_60d_taiex_sox": null,
-          "corr_60d_taiex_usdtwd": null,
-          "corr_60d_taiex_dxy": null,
-          "corr_60d_taiex_vix": null,
-          "corr_60d_taiex_us10y": null,
-          "corr_60d_taiex_foreign": null
-        },
         {
           "date": "2021-11-24",
           "taiex": 17642.52,
@@ -101522,23 +101439,23 @@
       {
         "id": "us10y_high",
         "title": "美國長天期利率偏高",
-        "message": "美國10年期公債殖利率為 4.85%，較高的利率可能增加股票估值壓力。",
+        "message": "美國10年期公債殖利率為 4.94%，較高的利率可能增加股票估值壓力。",
         "level": "warning",
         "category": "rates",
         "evidence": {
-          "us10y": 4.848
+          "us10y": 4.936
         }
       },
       {
-        "id": "taiex_sox_divergence",
-        "title": "台股與半導體指數走勢出現分化",
-        "message": "台股近20日 -13.1%，SOX -24.9%。台股科技權重高，兩者明顯分化時值得特別追蹤。",
+        "id": "taiex_sp500_divergence",
+        "title": "台美股近一個月走勢明顯分化",
+        "message": "台股近20日 -13.1%，S&P 500 -5.5%，目前由S&P 500明顯領先。這表示跨市場同步性正在下降。",
         "level": "watch",
         "category": "cross_market",
         "evidence": {
           "taiex_20d_change_pct": -13.06,
-          "sox_20d_change_pct": -24.9,
-          "gap_pct_points": 11.84
+          "sp500_20d_change_pct": -5.48,
+          "gap_pct_points": -7.58
         }
       },
       {
@@ -101554,11 +101471,11 @@
       {
         "id": "vix_elevated",
         "title": "市場恐慌情緒升溫",
-        "message": "VIX 恐慌指數為 26.80，市場波動風險有所升高。",
+        "message": "VIX 恐慌指數為 23.81，市場波動風險有所升高。",
         "level": "warning",
         "category": "risk",
         "evidence": {
-          "vix": 26.8
+          "vix": 23.81
         }
       }
     ]
@@ -308380,19 +308297,19 @@
         "y_label": "VIX",
         "latest": {
           "20": {
-            "correlation": -0.970304,
+            "correlation": -0.970729,
             "samples": 20
           },
           "60": {
-            "correlation": -0.944215,
+            "correlation": -0.945281,
             "samples": 60
           },
           "120": {
-            "correlation": -0.905763,
+            "correlation": -0.91064,
             "samples": 120
           },
           "252": {
-            "correlation": -0.875974,
+            "correlation": -0.876834,
             "samples": 252
           }
         },
@@ -313665,6 +313582,10 @@
             {
               "date": "2026-11-25",
               "correlation": -0.970304
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.970729
             }
           ],
           "60": [
@@ -318775,6 +318696,10 @@
             {
               "date": "2026-11-25",
               "correlation": -0.944215
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.945281
             }
           ],
           "120": [
@@ -323645,6 +323570,10 @@
             {
               "date": "2026-11-25",
               "correlation": -0.905763
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.91064
             }
           ],
           "252": [
@@ -327987,10 +327916,14 @@
             {
               "date": "2026-11-25",
               "correlation": -0.875974
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.876834
             }
           ]
         },
-        "latest_date": "2026-11-25"
+        "latest_date": "2026-11-27"
       },
       "sp500_us10y": {
         "x": "sp500",
@@ -327999,19 +327932,19 @@
         "y_label": "美國10年期殖利率",
         "latest": {
           "20": {
-            "correlation": 0.377663,
+            "correlation": 0.426038,
             "samples": 20
           },
           "60": {
-            "correlation": 0.200455,
+            "correlation": 0.227388,
             "samples": 60
           },
           "120": {
-            "correlation": 0.05086,
+            "correlation": 0.070973,
             "samples": 120
           },
           "252": {
-            "correlation": -0.147315,
+            "correlation": -0.130324,
             "samples": 252
           }
         },
@@ -333284,6 +333217,10 @@
             {
               "date": "2026-11-25",
               "correlation": 0.377663
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.426038
             }
           ],
           "60": [
@@ -338394,6 +338331,10 @@
             {
               "date": "2026-11-25",
               "correlation": 0.200455
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.227388
             }
           ],
           "120": [
@@ -343264,6 +343205,10 @@
             {
               "date": "2026-11-25",
               "correlation": 0.05086
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.070973
             }
           ],
           "252": [
@@ -347606,10 +347551,14 @@
             {
               "date": "2026-11-25",
               "correlation": -0.147315
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.130324
             }
           ]
         },
-        "latest_date": "2026-11-25"
+        "latest_date": "2026-11-27"
       },
       "sp500_dxy": {
         "x": "sp500",
@@ -347618,19 +347567,19 @@
         "y_label": "美元指數",
         "latest": {
           "20": {
-            "correlation": 0.142525,
+            "correlation": 0.159721,
             "samples": 20
           },
           "60": {
-            "correlation": 0.001682,
+            "correlation": 0.016883,
             "samples": 60
           },
           "120": {
-            "correlation": -0.098099,
+            "correlation": -0.088422,
             "samples": 120
           },
           "252": {
-            "correlation": -0.254442,
+            "correlation": -0.244625,
             "samples": 252
           }
         },
@@ -352903,6 +352852,10 @@
             {
               "date": "2026-11-25",
               "correlation": 0.142525
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.159721
             }
           ],
           "60": [
@@ -358013,6 +357966,10 @@
             {
               "date": "2026-11-25",
               "correlation": 0.001682
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.016883
             }
           ],
           "120": [
@@ -362883,6 +362840,10 @@
             {
               "date": "2026-11-25",
               "correlation": -0.098099
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.088422
             }
           ],
           "252": [
@@ -367225,10 +367186,14 @@
             {
               "date": "2026-11-25",
               "correlation": -0.254442
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.244625
             }
           ]
         },
-        "latest_date": "2026-11-25"
+        "latest_date": "2026-11-27"
       },
       "nasdaq_vix": {
         "x": "nasdaq",
@@ -367237,19 +367202,19 @@
         "y_label": "VIX",
         "latest": {
           "20": {
-            "correlation": -0.948581,
+            "correlation": -0.952719,
             "samples": 20
           },
           "60": {
-            "correlation": -0.91582,
+            "correlation": -0.917645,
             "samples": 60
           },
           "120": {
-            "correlation": -0.861321,
+            "correlation": -0.864547,
             "samples": 120
           },
           "252": {
-            "correlation": -0.83063,
+            "correlation": -0.832666,
             "samples": 252
           }
         },
@@ -372522,6 +372487,10 @@
             {
               "date": "2026-11-25",
               "correlation": -0.948581
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.952719
             }
           ],
           "60": [
@@ -377632,6 +377601,10 @@
             {
               "date": "2026-11-25",
               "correlation": -0.91582
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.917645
             }
           ],
           "120": [
@@ -382502,6 +382475,10 @@
             {
               "date": "2026-11-25",
               "correlation": -0.861321
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.864547
             }
           ],
           "252": [
@@ -386844,10 +386821,14 @@
             {
               "date": "2026-11-25",
               "correlation": -0.83063
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.832666
             }
           ]
         },
-        "latest_date": "2026-11-25"
+        "latest_date": "2026-11-27"
       },
       "nasdaq_us10y": {
         "x": "nasdaq",
@@ -386856,19 +386837,19 @@
         "y_label": "美國10年期殖利率",
         "latest": {
           "20": {
-            "correlation": 0.416067,
+            "correlation": 0.453806,
             "samples": 20
           },
           "60": {
-            "correlation": 0.281453,
+            "correlation": 0.306773,
             "samples": 60
           },
           "120": {
-            "correlation": 0.104025,
+            "correlation": 0.12265,
             "samples": 120
           },
           "252": {
-            "correlation": -0.088431,
+            "correlation": -0.073057,
             "samples": 252
           }
         },
@@ -392141,6 +392122,10 @@
             {
               "date": "2026-11-25",
               "correlation": 0.416067
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.453806
             }
           ],
           "60": [
@@ -397251,6 +397236,10 @@
             {
               "date": "2026-11-25",
               "correlation": 0.281453
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.306773
             }
           ],
           "120": [
@@ -402121,6 +402110,10 @@
             {
               "date": "2026-11-25",
               "correlation": 0.104025
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.12265
             }
           ],
           "252": [
@@ -406463,10 +406456,14 @@
             {
               "date": "2026-11-25",
               "correlation": -0.088431
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.073057
             }
           ]
         },
-        "latest_date": "2026-11-25"
+        "latest_date": "2026-11-27"
       },
       "nasdaq_dxy": {
         "x": "nasdaq",
@@ -406475,19 +406472,19 @@
         "y_label": "美元指數",
         "latest": {
           "20": {
-            "correlation": 0.244447,
+            "correlation": 0.250268,
             "samples": 20
           },
           "60": {
-            "correlation": 0.098405,
+            "correlation": 0.111833,
             "samples": 60
           },
           "120": {
-            "correlation": -0.05168,
+            "correlation": -0.042059,
             "samples": 120
           },
           "252": {
-            "correlation": -0.217144,
+            "correlation": -0.209522,
             "samples": 252
           }
         },
@@ -411760,6 +411757,10 @@
             {
               "date": "2026-11-25",
               "correlation": 0.244447
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.250268
             }
           ],
           "60": [
@@ -416870,6 +416871,10 @@
             {
               "date": "2026-11-25",
               "correlation": 0.098405
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.111833
             }
           ],
           "120": [
@@ -421740,6 +421745,10 @@
             {
               "date": "2026-11-25",
               "correlation": -0.05168
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.042059
             }
           ],
           "252": [
@@ -426082,10 +426091,14 @@
             {
               "date": "2026-11-25",
               "correlation": -0.217144
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.209522
             }
           ]
         },
-        "latest_date": "2026-11-25"
+        "latest_date": "2026-11-27"
       },
       "dow_vix": {
         "x": "dow",
@@ -426094,19 +426107,19 @@
         "y_label": "VIX",
         "latest": {
           "20": {
-            "correlation": -0.880546,
+            "correlation": -0.884602,
             "samples": 20
           },
           "60": {
-            "correlation": -0.809008,
+            "correlation": -0.81247,
             "samples": 60
           },
           "120": {
-            "correlation": -0.757741,
+            "correlation": -0.768122,
             "samples": 120
           },
           "252": {
-            "correlation": -0.751167,
+            "correlation": -0.7518,
             "samples": 252
           }
         },
@@ -431379,6 +431392,10 @@
             {
               "date": "2026-11-25",
               "correlation": -0.880546
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.884602
             }
           ],
           "60": [
@@ -436489,6 +436506,10 @@
             {
               "date": "2026-11-25",
               "correlation": -0.809008
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.81247
             }
           ],
           "120": [
@@ -441359,6 +441380,10 @@
             {
               "date": "2026-11-25",
               "correlation": -0.757741
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.768122
             }
           ],
           "252": [
@@ -445701,10 +445726,14 @@
             {
               "date": "2026-11-25",
               "correlation": -0.751167
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.7518
             }
           ]
         },
-        "latest_date": "2026-11-25"
+        "latest_date": "2026-11-27"
       },
       "dow_us10y": {
         "x": "dow",
@@ -445713,19 +445742,19 @@
         "y_label": "美國10年期殖利率",
         "latest": {
           "20": {
-            "correlation": 0.193145,
+            "correlation": 0.242916,
             "samples": 20
           },
           "60": {
-            "correlation": -0.036331,
+            "correlation": -0.00611,
             "samples": 60
           },
           "120": {
-            "correlation": -0.161132,
+            "correlation": -0.139592,
             "samples": 120
           },
           "252": {
-            "correlation": -0.281115,
+            "correlation": -0.264884,
             "samples": 252
           }
         },
@@ -450998,6 +451027,10 @@
             {
               "date": "2026-11-25",
               "correlation": 0.193145
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.242916
             }
           ],
           "60": [
@@ -456108,6 +456141,10 @@
             {
               "date": "2026-11-25",
               "correlation": -0.036331
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.00611
             }
           ],
           "120": [
@@ -460978,6 +461015,10 @@
             {
               "date": "2026-11-25",
               "correlation": -0.161132
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.139592
             }
           ],
           "252": [
@@ -465320,10 +465361,14 @@
             {
               "date": "2026-11-25",
               "correlation": -0.281115
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.264884
             }
           ]
         },
-        "latest_date": "2026-11-25"
+        "latest_date": "2026-11-27"
       },
       "dow_dxy": {
         "x": "dow",
@@ -465332,19 +465377,19 @@
         "y_label": "美元指數",
         "latest": {
           "20": {
-            "correlation": -0.156688,
+            "correlation": -0.139432,
             "samples": 20
           },
           "60": {
-            "correlation": -0.266589,
+            "correlation": -0.249217,
             "samples": 60
           },
           "120": {
-            "correlation": -0.249464,
+            "correlation": -0.240846,
             "samples": 120
           },
           "252": {
-            "correlation": -0.310479,
+            "correlation": -0.299413,
             "samples": 252
           }
         },
@@ -470617,6 +470662,10 @@
             {
               "date": "2026-11-25",
               "correlation": -0.156688
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.139432
             }
           ],
           "60": [
@@ -475727,6 +475776,10 @@
             {
               "date": "2026-11-25",
               "correlation": -0.266589
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.249217
             }
           ],
           "120": [
@@ -480597,6 +480650,10 @@
             {
               "date": "2026-11-25",
               "correlation": -0.249464
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.240846
             }
           ],
           "252": [
@@ -484939,10 +484996,14 @@
             {
               "date": "2026-11-25",
               "correlation": -0.310479
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.299413
             }
           ]
         },
-        "latest_date": "2026-11-25"
+        "latest_date": "2026-11-27"
       },
       "sox_vix": {
         "x": "sox",
@@ -484951,19 +485012,19 @@
         "y_label": "VIX",
         "latest": {
           "20": {
-            "correlation": -0.839229,
+            "correlation": -0.844877,
             "samples": 20
           },
           "60": {
-            "correlation": -0.806139,
+            "correlation": -0.811025,
             "samples": 60
           },
           "120": {
-            "correlation": -0.70971,
+            "correlation": -0.709651,
             "samples": 120
           },
           "252": {
-            "correlation": -0.669396,
+            "correlation": -0.673745,
             "samples": 252
           }
         },
@@ -490236,6 +490297,10 @@
             {
               "date": "2026-11-25",
               "correlation": -0.839229
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.844877
             }
           ],
           "60": [
@@ -495346,6 +495411,10 @@
             {
               "date": "2026-11-25",
               "correlation": -0.806139
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.811025
             }
           ],
           "120": [
@@ -500216,6 +500285,10 @@
             {
               "date": "2026-11-25",
               "correlation": -0.70971
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.709651
             }
           ],
           "252": [
@@ -504558,10 +504631,14 @@
             {
               "date": "2026-11-25",
               "correlation": -0.669396
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.673745
             }
           ]
         },
-        "latest_date": "2026-11-25"
+        "latest_date": "2026-11-27"
       },
       "sox_us10y": {
         "x": "sox",
@@ -504570,19 +504647,19 @@
         "y_label": "美國10年期殖利率",
         "latest": {
           "20": {
-            "correlation": 0.461977,
+            "correlation": 0.501925,
             "samples": 20
           },
           "60": {
-            "correlation": 0.363445,
+            "correlation": 0.382754,
             "samples": 60
           },
           "120": {
-            "correlation": 0.19743,
+            "correlation": 0.210421,
             "samples": 120
           },
           "252": {
-            "correlation": 0.01094,
+            "correlation": 0.021141,
             "samples": 252
           }
         },
@@ -509855,6 +509932,10 @@
             {
               "date": "2026-11-25",
               "correlation": 0.461977
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.501925
             }
           ],
           "60": [
@@ -514965,6 +515046,10 @@
             {
               "date": "2026-11-25",
               "correlation": 0.363445
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.382754
             }
           ],
           "120": [
@@ -519835,6 +519920,10 @@
             {
               "date": "2026-11-25",
               "correlation": 0.19743
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.210421
             }
           ],
           "252": [
@@ -524177,10 +524266,14 @@
             {
               "date": "2026-11-25",
               "correlation": 0.01094
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.021141
             }
           ]
         },
-        "latest_date": "2026-11-25"
+        "latest_date": "2026-11-27"
       },
       "sox_dxy": {
         "x": "sox",
@@ -524189,19 +524282,19 @@
         "y_label": "美元指數",
         "latest": {
           "20": {
-            "correlation": 0.390761,
+            "correlation": 0.401883,
             "samples": 20
           },
           "60": {
-            "correlation": 0.206734,
+            "correlation": 0.216331,
             "samples": 60
           },
           "120": {
-            "correlation": 0.063641,
+            "correlation": 0.072629,
             "samples": 120
           },
           "252": {
-            "correlation": -0.117919,
+            "correlation": -0.114373,
             "samples": 252
           }
         },
@@ -529474,6 +529567,10 @@
             {
               "date": "2026-11-25",
               "correlation": 0.390761
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.401883
             }
           ],
           "60": [
@@ -534584,6 +534681,10 @@
             {
               "date": "2026-11-25",
               "correlation": 0.206734
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.216331
             }
           ],
           "120": [
@@ -539454,6 +539555,10 @@
             {
               "date": "2026-11-25",
               "correlation": 0.063641
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": 0.072629
             }
           ],
           "252": [
@@ -543796,10 +543901,14 @@
             {
               "date": "2026-11-25",
               "correlation": -0.117919
+            },
+            {
+              "date": "2026-11-27",
+              "correlation": -0.114373
             }
           ]
         },
-        "latest_date": "2026-11-25"
+        "latest_date": "2026-11-27"
       }
     },
     "rankings": {
@@ -543827,6 +543936,13 @@
             "date": "2026-11-26"
           },
           {
+            "pair": "sox_us10y",
+            "label": "費城半導體 / 美國10年期殖利率",
+            "correlation": 0.501925,
+            "samples": 20,
+            "date": "2026-11-27"
+          },
+          {
             "pair": "taiex_nasdaq",
             "label": "加權指數 / Nasdaq",
             "correlation": 0.494727,
@@ -543841,32 +543957,25 @@
             "date": "2026-11-26"
           },
           {
-            "pair": "sox_us10y",
-            "label": "費城半導體 / 美國10年期殖利率",
-            "correlation": 0.461977,
-            "samples": 20,
-            "date": "2026-11-25"
-          },
-          {
             "pair": "nasdaq_us10y",
             "label": "Nasdaq / 美國10年期殖利率",
-            "correlation": 0.416067,
+            "correlation": 0.453806,
             "samples": 20,
-            "date": "2026-11-25"
-          },
-          {
-            "pair": "sox_dxy",
-            "label": "費城半導體 / 美元指數",
-            "correlation": 0.390761,
-            "samples": 20,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "sp500_us10y",
             "label": "S&P 500 / 美國10年期殖利率",
-            "correlation": 0.377663,
+            "correlation": 0.426038,
             "samples": 20,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
+          },
+          {
+            "pair": "sox_dxy",
+            "label": "費城半導體 / 美元指數",
+            "correlation": 0.401883,
+            "samples": 20,
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_dow",
@@ -543885,9 +543994,16 @@
           {
             "pair": "nasdaq_dxy",
             "label": "Nasdaq / 美元指數",
-            "correlation": 0.244447,
+            "correlation": 0.250268,
             "samples": 20,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
+          },
+          {
+            "pair": "dow_us10y",
+            "label": "道瓊 / 美國10年期殖利率",
+            "correlation": 0.242916,
+            "samples": 20,
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_foreign_net_100m",
@@ -543895,13 +544011,6 @@
             "correlation": 0.201858,
             "samples": 20,
             "date": "2026-11-27"
-          },
-          {
-            "pair": "dow_us10y",
-            "label": "道瓊 / 美國10年期殖利率",
-            "correlation": 0.193145,
-            "samples": 20,
-            "date": "2026-11-25"
           },
           {
             "pair": "taiex_us10y",
@@ -543913,39 +544022,39 @@
           {
             "pair": "sp500_dxy",
             "label": "S&P 500 / 美元指數",
-            "correlation": 0.142525,
+            "correlation": 0.159721,
             "samples": 20,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           }
         ],
         "negative": [
           {
             "pair": "sp500_vix",
             "label": "S&P 500 / VIX",
-            "correlation": -0.970304,
+            "correlation": -0.970729,
             "samples": 20,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "nasdaq_vix",
             "label": "Nasdaq / VIX",
-            "correlation": -0.948581,
+            "correlation": -0.952719,
             "samples": 20,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "dow_vix",
             "label": "道瓊 / VIX",
-            "correlation": -0.880546,
+            "correlation": -0.884602,
             "samples": 20,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "sox_vix",
             "label": "費城半導體 / VIX",
-            "correlation": -0.839229,
+            "correlation": -0.844877,
             "samples": 20,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_vix",
@@ -543957,9 +544066,9 @@
           {
             "pair": "dow_dxy",
             "label": "道瓊 / 美元指數",
-            "correlation": -0.156688,
+            "correlation": -0.139432,
             "samples": 20,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_usdtwd",
@@ -544017,9 +544126,16 @@
           {
             "pair": "sox_us10y",
             "label": "費城半導體 / 美國10年期殖利率",
-            "correlation": 0.363445,
+            "correlation": 0.382754,
             "samples": 60,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
+          },
+          {
+            "pair": "nasdaq_us10y",
+            "label": "Nasdaq / 美國10年期殖利率",
+            "correlation": 0.306773,
+            "samples": 60,
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_dow",
@@ -544029,25 +544145,25 @@
             "date": "2026-11-26"
           },
           {
-            "pair": "nasdaq_us10y",
-            "label": "Nasdaq / 美國10年期殖利率",
-            "correlation": 0.281453,
+            "pair": "sp500_us10y",
+            "label": "S&P 500 / 美國10年期殖利率",
+            "correlation": 0.227388,
             "samples": 60,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "sox_dxy",
             "label": "費城半導體 / 美元指數",
-            "correlation": 0.206734,
+            "correlation": 0.216331,
             "samples": 60,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
-            "pair": "sp500_us10y",
-            "label": "S&P 500 / 美國10年期殖利率",
-            "correlation": 0.200455,
+            "pair": "nasdaq_dxy",
+            "label": "Nasdaq / 美元指數",
+            "correlation": 0.111833,
             "samples": 60,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_us10y",
@@ -544055,13 +544171,6 @@
             "correlation": 0.106113,
             "samples": 60,
             "date": "2026-11-26"
-          },
-          {
-            "pair": "nasdaq_dxy",
-            "label": "Nasdaq / 美元指數",
-            "correlation": 0.098405,
-            "samples": 60,
-            "date": "2026-11-25"
           },
           {
             "pair": "taiex_dxy",
@@ -544073,39 +544182,39 @@
           {
             "pair": "sp500_dxy",
             "label": "S&P 500 / 美元指數",
-            "correlation": 0.001682,
+            "correlation": 0.016883,
             "samples": 60,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           }
         ],
         "negative": [
           {
             "pair": "sp500_vix",
             "label": "S&P 500 / VIX",
-            "correlation": -0.944215,
+            "correlation": -0.945281,
             "samples": 60,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "nasdaq_vix",
             "label": "Nasdaq / VIX",
-            "correlation": -0.91582,
+            "correlation": -0.917645,
             "samples": 60,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "dow_vix",
             "label": "道瓊 / VIX",
-            "correlation": -0.809008,
+            "correlation": -0.81247,
             "samples": 60,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "sox_vix",
             "label": "費城半導體 / VIX",
-            "correlation": -0.806139,
+            "correlation": -0.811025,
             "samples": 60,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_vix",
@@ -544124,16 +544233,16 @@
           {
             "pair": "dow_dxy",
             "label": "道瓊 / 美元指數",
-            "correlation": -0.266589,
+            "correlation": -0.249217,
             "samples": 60,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "dow_us10y",
             "label": "道瓊 / 美國10年期殖利率",
-            "correlation": -0.036331,
+            "correlation": -0.00611,
             "samples": 60,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           }
         ]
       },
@@ -544191,23 +544300,30 @@
           {
             "pair": "sox_us10y",
             "label": "費城半導體 / 美國10年期殖利率",
-            "correlation": 0.19743,
+            "correlation": 0.210421,
             "samples": 120,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "nasdaq_us10y",
             "label": "Nasdaq / 美國10年期殖利率",
-            "correlation": 0.104025,
+            "correlation": 0.12265,
             "samples": 120,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "sox_dxy",
             "label": "費城半導體 / 美元指數",
-            "correlation": 0.063641,
+            "correlation": 0.072629,
             "samples": 120,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
+          },
+          {
+            "pair": "sp500_us10y",
+            "label": "S&P 500 / 美國10年期殖利率",
+            "correlation": 0.070973,
+            "samples": 120,
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_us10y",
@@ -544215,43 +544331,36 @@
             "correlation": 0.05708,
             "samples": 120,
             "date": "2026-11-26"
-          },
-          {
-            "pair": "sp500_us10y",
-            "label": "S&P 500 / 美國10年期殖利率",
-            "correlation": 0.05086,
-            "samples": 120,
-            "date": "2026-11-25"
           }
         ],
         "negative": [
           {
             "pair": "sp500_vix",
             "label": "S&P 500 / VIX",
-            "correlation": -0.905763,
+            "correlation": -0.91064,
             "samples": 120,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "nasdaq_vix",
             "label": "Nasdaq / VIX",
-            "correlation": -0.861321,
+            "correlation": -0.864547,
             "samples": 120,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "dow_vix",
             "label": "道瓊 / VIX",
-            "correlation": -0.757741,
+            "correlation": -0.768122,
             "samples": 120,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "sox_vix",
             "label": "費城半導體 / VIX",
-            "correlation": -0.70971,
+            "correlation": -0.709651,
             "samples": 120,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_vix",
@@ -544270,23 +544379,23 @@
           {
             "pair": "dow_dxy",
             "label": "道瓊 / 美元指數",
-            "correlation": -0.249464,
+            "correlation": -0.240846,
             "samples": 120,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "dow_us10y",
             "label": "道瓊 / 美國10年期殖利率",
-            "correlation": -0.161132,
+            "correlation": -0.139592,
             "samples": 120,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "sp500_dxy",
             "label": "S&P 500 / 美元指數",
-            "correlation": -0.098099,
+            "correlation": -0.088422,
             "samples": 120,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_dxy",
@@ -544298,9 +544407,9 @@
           {
             "pair": "nasdaq_dxy",
             "label": "Nasdaq / 美元指數",
-            "correlation": -0.05168,
+            "correlation": -0.042059,
             "samples": 120,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           }
         ]
       },
@@ -544358,39 +544467,39 @@
           {
             "pair": "sox_us10y",
             "label": "費城半導體 / 美國10年期殖利率",
-            "correlation": 0.01094,
+            "correlation": 0.021141,
             "samples": 252,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           }
         ],
         "negative": [
           {
             "pair": "sp500_vix",
             "label": "S&P 500 / VIX",
-            "correlation": -0.875974,
+            "correlation": -0.876834,
             "samples": 252,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "nasdaq_vix",
             "label": "Nasdaq / VIX",
-            "correlation": -0.83063,
+            "correlation": -0.832666,
             "samples": 252,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "dow_vix",
             "label": "道瓊 / VIX",
-            "correlation": -0.751167,
+            "correlation": -0.7518,
             "samples": 252,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "sox_vix",
             "label": "費城半導體 / VIX",
-            "correlation": -0.669396,
+            "correlation": -0.673745,
             "samples": 252,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_usdtwd",
@@ -544409,37 +544518,30 @@
           {
             "pair": "dow_dxy",
             "label": "道瓊 / 美元指數",
-            "correlation": -0.310479,
+            "correlation": -0.299413,
             "samples": 252,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "dow_us10y",
             "label": "道瓊 / 美國10年期殖利率",
-            "correlation": -0.281115,
+            "correlation": -0.264884,
             "samples": 252,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "sp500_dxy",
             "label": "S&P 500 / 美元指數",
-            "correlation": -0.254442,
+            "correlation": -0.244625,
             "samples": 252,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "nasdaq_dxy",
             "label": "Nasdaq / 美元指數",
-            "correlation": -0.217144,
+            "correlation": -0.209522,
             "samples": 252,
-            "date": "2026-11-25"
-          },
-          {
-            "pair": "sp500_us10y",
-            "label": "S&P 500 / 美國10年期殖利率",
-            "correlation": -0.147315,
-            "samples": 252,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_dxy",
@@ -544449,18 +544551,25 @@
             "date": "2026-11-27"
           },
           {
+            "pair": "sp500_us10y",
+            "label": "S&P 500 / 美國10年期殖利率",
+            "correlation": -0.130324,
+            "samples": 252,
+            "date": "2026-11-27"
+          },
+          {
             "pair": "sox_dxy",
             "label": "費城半導體 / 美元指數",
-            "correlation": -0.117919,
+            "correlation": -0.114373,
             "samples": 252,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "nasdaq_us10y",
             "label": "Nasdaq / 美國10年期殖利率",
-            "correlation": -0.088431,
+            "correlation": -0.073057,
             "samples": 252,
-            "date": "2026-11-25"
+            "date": "2026-11-27"
           },
           {
             "pair": "taiex_us10y",
@@ -553115,10 +553224,17 @@
     "divergence": [
       {
         "pair": "dow_us10y",
-        "correlation_20": 0.193145,
-        "correlation_120": -0.161132,
-        "difference": 0.354277,
+        "correlation_20": 0.242916,
+        "correlation_120": -0.139592,
+        "difference": 0.382508,
         "sign_reversal": true
+      },
+      {
+        "pair": "sp500_us10y",
+        "correlation_20": 0.426038,
+        "correlation_120": 0.070973,
+        "difference": 0.355065,
+        "sign_reversal": false
       },
       {
         "pair": "taiex_dxy",
@@ -553135,45 +553251,38 @@
         "sign_reversal": false
       },
       {
-        "pair": "sox_dxy",
-        "correlation_20": 0.390761,
-        "correlation_120": 0.063641,
-        "difference": 0.32712,
-        "sign_reversal": false
-      },
-      {
-        "pair": "sp500_us10y",
-        "correlation_20": 0.377663,
-        "correlation_120": 0.05086,
-        "difference": 0.326803,
-        "sign_reversal": false
-      },
-      {
         "pair": "nasdaq_us10y",
-        "correlation_20": 0.416067,
-        "correlation_120": 0.104025,
-        "difference": 0.312042,
+        "correlation_20": 0.453806,
+        "correlation_120": 0.12265,
+        "difference": 0.331156,
+        "sign_reversal": false
+      },
+      {
+        "pair": "sox_dxy",
+        "correlation_20": 0.401883,
+        "correlation_120": 0.072629,
+        "difference": 0.329254,
         "sign_reversal": false
       },
       {
         "pair": "nasdaq_dxy",
-        "correlation_20": 0.244447,
-        "correlation_120": -0.05168,
-        "difference": 0.296127,
+        "correlation_20": 0.250268,
+        "correlation_120": -0.042059,
+        "difference": 0.292327,
         "sign_reversal": true
       },
       {
         "pair": "sox_us10y",
-        "correlation_20": 0.461977,
-        "correlation_120": 0.19743,
-        "difference": 0.264547,
+        "correlation_20": 0.501925,
+        "correlation_120": 0.210421,
+        "difference": 0.291504,
         "sign_reversal": false
       },
       {
         "pair": "sp500_dxy",
-        "correlation_20": 0.142525,
-        "correlation_120": -0.098099,
-        "difference": 0.240624,
+        "correlation_20": 0.159721,
+        "correlation_120": -0.088422,
+        "difference": 0.248143,
         "sign_reversal": true
       },
       {
@@ -553192,30 +553301,30 @@
       },
       {
         "pair": "sox_vix",
-        "correlation_20": -0.839229,
-        "correlation_120": -0.70971,
-        "difference": -0.129519,
+        "correlation_20": -0.844877,
+        "correlation_120": -0.709651,
+        "difference": -0.135226,
         "sign_reversal": false
       },
       {
         "pair": "dow_vix",
-        "correlation_20": -0.880546,
-        "correlation_120": -0.757741,
-        "difference": -0.122805,
+        "correlation_20": -0.884602,
+        "correlation_120": -0.768122,
+        "difference": -0.11648,
         "sign_reversal": false
       },
       {
         "pair": "dow_dxy",
-        "correlation_20": -0.156688,
-        "correlation_120": -0.249464,
-        "difference": 0.092776,
+        "correlation_20": -0.139432,
+        "correlation_120": -0.240846,
+        "difference": 0.101414,
         "sign_reversal": false
       },
       {
         "pair": "nasdaq_vix",
-        "correlation_20": -0.948581,
-        "correlation_120": -0.861321,
-        "difference": -0.08726,
+        "correlation_20": -0.952719,
+        "correlation_120": -0.864547,
+        "difference": -0.088172,
         "sign_reversal": false
       },
       {
@@ -553227,9 +553336,9 @@
       },
       {
         "pair": "sp500_vix",
-        "correlation_20": -0.970304,
-        "correlation_120": -0.905763,
-        "difference": -0.064541,
+        "correlation_20": -0.970729,
+        "correlation_120": -0.91064,
+        "difference": -0.060089,
         "sign_reversal": false
       },
       {
@@ -564162,6 +564271,10 @@
         {
           "date": "2026-11-26",
           "value": 103.777
+        },
+        {
+          "date": "2026-11-27",
+          "value": 104.014
         }
       ],
       "sp500": [
@@ -569512,6 +569625,10 @@
         {
           "date": "2026-11-25",
           "value": 7182.779785
+        },
+        {
+          "date": "2026-11-27",
+          "value": 7297.490234
         }
       ],
       "nasdaq": [
@@ -574862,6 +574979,10 @@
         {
           "date": "2026-11-25",
           "value": 23585.800781
+        },
+        {
+          "date": "2026-11-27",
+          "value": 24129.5
         }
       ],
       "dow": [
@@ -580212,6 +580333,10 @@
         {
           "date": "2026-11-25",
           "value": 50182.949219
+        },
+        {
+          "date": "2026-11-27",
+          "value": 50774.941406
         }
       ],
       "sox": [
@@ -585562,6 +585687,10 @@
         {
           "date": "2026-11-25",
           "value": 8774.860352
+        },
+        {
+          "date": "2026-11-27",
+          "value": 9186.706055
         }
       ],
       "vix": [
@@ -591020,6 +591149,10 @@
         {
           "date": "2026-11-26",
           "value": 26.799999
+        },
+        {
+          "date": "2026-11-27",
+          "value": 23.809999
         }
       ],
       "us10y": [
@@ -596370,6 +596503,10 @@
         {
           "date": "2026-11-25",
           "value": 4.848
+        },
+        {
+          "date": "2026-11-27",
+          "value": 4.936
         }
       ]
     },
@@ -596420,50 +596557,6 @@
     }
   },
   "series": [
-    {
-      "date": "2021-11-23",
-      "taiex": 17666.12,
-      "taiex_change_pct": null,
-      "tsmc": 612.0,
-      "tsmc_change_pct": null,
-      "maintenance_est": 171.899,
-      "maintenance_official": null,
-      "maintenance_official_date": null,
-      "maintenance_gap": null,
-      "margin_below_accounts": null,
-      "margin_call_accounts": null,
-      "margin_call_amount": null,
-      "liquidation_accounts": null,
-      "liquidation_amount": null,
-      "margin_balance_billion": 348.469,
-      "foreign_net_100m": -128.103,
-      "foreign_20d_sum_100m": 548.871,
-      "usdtwd": 27.809,
-      "dxy": 96.5,
-      "vix": 19.17,
-      "vix_change_pct": 7.035,
-      "sp500": 4682.94,
-      "sp500_change_pct": -0.32,
-      "nasdaq": 15854.76,
-      "nasdaq_change_pct": -1.262,
-      "dow": 35619.25,
-      "dow_change_pct": 0.049,
-      "sox": 3847.12,
-      "sox_change_pct": -1.659,
-      "outflow_pressure_score": null,
-      "market_temperature": null,
-      "maintenance_percentile": 58.197,
-      "us10y": 1.625,
-      "us10y_change_bp": 8.9,
-      "usdtwd_date": "2021-11-23",
-      "dxy_date": "2021-11-22",
-      "vix_date": "2021-11-22",
-      "sp500_date": "2021-11-22",
-      "nasdaq_date": "2021-11-22",
-      "dow_date": "2021-11-22",
-      "sox_date": "2021-11-22",
-      "us10y_date": "2021-11-22"
-    },
     {
       "date": "2021-11-24",
       "taiex": 17642.52,
